@@ -1,0 +1,223 @@
+{
+  "name": "ThonCode",
+  "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode",
+  "type": "directory",
+  "children": [
+    {
+      "name": "docs",
+      "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\docs",
+      "type": "directory",
+      "children": [
+        {
+          "name": "en_us",
+          "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\docs\\en_us",
+          "type": "directory",
+          "children": []
+        },
+        {
+          "name": "zh_cn",
+          "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\docs\\zh_cn",
+          "type": "directory",
+          "children": [
+            {
+              "name": "code_status.md",
+              "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\docs\\zh_cn\\code_status.md",
+              "type": "file",
+              "size": 516,
+              "mtime": "Fri Aug  7 15:28:54 2026",
+              "content": "# 返回值状态码定义\n\n**本项目程序自包依赖库及各函数一般返回格式如下：**\n```json\nreturn_msg = {\n    \"status\": \"success\",\n    \"data\": data,\n    \"code\": 200\n}\n```\n**我们取其中的`code`键值作为返回状态码，以便其他函数、程序判断运行状态**\n\n## 状态码定义表\n**我们为不同的状态码规定了具体含义（见下表）：**\n\n| **`Code`值** | **定义** | **备注** |\n| --- | --- | --- |\n| **`200`** | **任务执行成功** | **-** |"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "src",
+      "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src",
+      "type": "directory",
+      "children": [
+        {
+          "name": "thoncode",
+          "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src\\thoncode",
+          "type": "directory",
+          "children": [
+            {
+              "name": "assets",
+              "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src\\thoncode\\assets",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "fonts",
+                  "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src\\thoncode\\assets\\fonts",
+                  "type": "directory",
+                  "children": []
+                },
+                {
+                  "name": "images",
+                  "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src\\thoncode\\assets\\images",
+                  "type": "directory",
+                  "children": []
+                },
+                {
+                  "name": "langs",
+                  "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src\\thoncode\\assets\\langs",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "en_uk.json",
+                      "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src\\thoncode\\assets\\langs\\en_uk.json",
+                      "type": "file",
+                      "size": 0,
+                      "mtime": "Fri Aug  7 15:14:16 2026",
+                      "content": ""
+                    },
+                    {
+                      "name": "en_us.json",
+                      "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src\\thoncode\\assets\\langs\\en_us.json",
+                      "type": "file",
+                      "size": 0,
+                      "mtime": "Fri Aug  7 15:14:11 2026",
+                      "content": ""
+                    },
+                    {
+                      "name": "zh_cn.json",
+                      "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src\\thoncode\\assets\\langs\\zh_cn.json",
+                      "type": "file",
+                      "size": 102,
+                      "mtime": "Fri Aug  7 15:15:17 2026",
+                      "content": "{\n    \"main.root.open\": \"打开\",\n    \"main.root.save\": \"保存\",\n    \"main.root.exit\": \"退出\"\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "languages",
+                  "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src\\thoncode\\assets\\languages",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "python.json",
+                      "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src\\thoncode\\assets\\languages\\python.json",
+                      "type": "file",
+                      "size": 3287,
+                      "mtime": "Fri Aug  7 16:30:08 2026",
+                      "content": "{\n    \"groups\": [\n        {\n            \"name\": \"keyword\",\n            \"color\": \"#C678DD\",\n            \"words\": [\n                \"False\",\n                \"None\",\n                \"True\",\n                \"and\",\n                \"as\",\n                \"assert\",\n                \"async\",\n                \"await\",\n                \"break\",\n                \"class\",\n                \"continue\",\n                \"def\",\n                \"del\",\n                \"elif\",\n                \"else\",\n                \"except\",\n                \"finally\",\n                \"for\",\n                \"from\",\n                \"global\",\n                \"if\",\n                \"import\",\n                \"in\",\n                \"is\",\n                \"lambda\",\n                \"nonlocal\",\n                \"not\",\n                \"or\",\n                \"pass\",\n                \"raise\",\n                \"return\",\n                \"try\",\n                \"while\",\n                \"with\",\n                \"yield\"\n            ]\n        },\n        {\n            \"name\": \"builtin\",\n            \"color\": \"#61AFEF\",\n            \"words\": [\n                \"abs\",\n                \"all\",\n                \"any\",\n                \"bin\",\n                \"bool\",\n                \"bytearray\",\n                \"bytes\",\n                \"callable\",\n                \"chr\",\n                \"classmethod\",\n                \"compile\",\n                \"complex\",\n                \"delattr\",\n                \"dict\",\n                \"dir\",\n                \"divmod\",\n                \"enumerate\",\n                \"eval\",\n                \"exec\",\n                \"filter\",\n                \"float\",\n                \"format\",\n                \"frozenset\",\n                \"getattr\",\n                \"globals\",\n                \"hasattr\",\n                \"hash\",\n                \"help\",\n                \"hex\",\n                \"id\",\n                \"input\",\n                \"int\",\n                \"isinstance\",\n                \"issubclass\",\n                \"iter\",\n                \"len\",\n                \"list\",\n                \"locals\",\n                \"map\",\n                \"max\",\n                \"memoryview\",\n                \"min\",\n                \"next\",\n                \"object\",\n                \"oct\",\n                \"open\",\n                \"ord\",\n                \"pow\",\n                \"print\",\n                \"property\",\n                \"range\",\n                \"repr\",\n                \"reversed\",\n                \"round\",\n                \"set\",\n                \"setattr\",\n                \"slice\",\n                \"sorted\",\n                \"staticmethod\",\n                \"str\",\n                \"sum\",\n                \"super\",\n                \"tuple\",\n                \"type\",\n                \"vars\",\n                \"zip\"\n            ]\n        },\n        {\n            \"name\": \"constant\",\n            \"color\": \"#E5C07B\",\n            \"words\": [\n                \"True\",\n                \"False\",\n                \"None\",\n                \"Ellipsis\",\n                \"__debug__\"\n            ]\n        }\n    ],\n    \"comments\": {\n        \"line\": \"#\",\n        \"block\": [\n            \"\\\"\\\"\\\"\",\n            \"\\\"\\\"\\\"\"\n        ]\n    }\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "config.json",
+                  "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src\\thoncode\\assets\\config.json",
+                  "type": "file",
+                  "size": 155,
+                  "mtime": "Fri Aug  7 16:06:06 2026",
+                  "content": "{\n    \"language\": \"zh_cn\",\n    \"theme\": \"dark\",\n    \"auto_save\": true,\n    \"auto_save_time_sec\": 15,\n    \"tab_size\": 4,\n    \"font_ligatures\": true\n}"
+                }
+              ]
+            },
+            {
+              "name": "libs",
+              "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src\\thoncode\\libs",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "cfg_handle.py",
+                  "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src\\thoncode\\libs\\cfg_handle.py",
+                  "type": "file",
+                  "size": 2404,
+                  "mtime": "Fri Aug  7 16:08:36 2026",
+                  "content": "#! /usr/bin/env python3\n\npackage: dict = {\n    \"ID\": \"thon-code-gui\",\n    \"Name\": \"Thon Code\",\n    \"Path\": \".main.libs.cfg_handle\",\n    \"Entrance\": \"main.py\"\n}\n\nimport json\nimport os\nimport libs.json_handle as json_handle\n\nDEFAULT_CFG_FILE_PATH: str = \"assets/config.json\"\nDEFAULT_CFG_DATA: dict = {\n    \"language\": \"zh_cn\",\n    \"theme\": \"dark\",\n    \"auto_save\": True,\n    \"auto_save_time_sec\": 15,\n    \"tab_size\": 4,\n    \"font_ligatures\": True\n}\n\nclass cfg_handle:\n    def __init__(self, \n        cfg_file_path: str = DEFAULT_CFG_FILE_PATH) -> None:\n\n        self.cfg_file_path = cfg_file_path\n        return None\n\n    def make_cfg_file(self, default_data: dict = DEFAULT_CFG_DATA) -> dict:\n        try:\n            with open(self.cfg_file_path, \"w\", encoding=\"utf-8\") as f:\n                f.write(json.dumps(default_data, ensure_ascii=False, indent=4))\n\n                return_msg = {\n                    \"status\": \"success\",\n                    \"data\": f\"Configuration file created successfully at {self.cfg_file_path}.\",\n                    \"code\": 200\n                }\n            return return_msg\n        except Exception as e:\n            return_msg = {\n                \"status\": \"error\",\n                \"data\": str(e),\n                \"code\": 405\n            }\n            return return_msg\n\n    def check_cfg_file(self) -> dict:\n        try:\n            if os.path.exists(self.cfg_file_path):\n                return_msg = {\n                    \"status\": \"success\",\n                    \"data\": f\"Configuration file exists: {self.cfg_file_path}\",\n                    \"code\": 201\n                }\n                return return_msg\n            else:\n                self.make_cfg_file()\n                return_msg = {\n                    \"status\": \"success\",\n                    \"data\": f\"None\",\n                    \"code\": 200\n                }\n                return return_msg\n        except Exception as e:\n            return_msg = {\n                \"status\": \"error\",\n                \"data\": str(e),\n                \"code\": 405\n            }\n    def read_cfg(self) -> dict:\n        with open(self.cfg_file_path, \"r\", encoding=\"utf-8\") as f:\n            return_msg = {\n                \"status\": \"success\",\n                \"data\": json.load(f),\n                \"code\": 200\n            }\n        return return_msg"
+                },
+                {
+                  "name": "code_editor.py",
+                  "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src\\thoncode\\libs\\code_editor.py",
+                  "type": "file",
+                  "size": 7585,
+                  "mtime": "Fri Aug  7 16:29:46 2026",
+                  "content": "# libs/code_editor.py\nimport customtkinter as ctk\nimport json\nimport os\nimport re\nimport tkinter.font as tkfont\nfrom libs import font_loader\n\nclass CodeEditor:\n    \"\"\"代码编辑器组件（非继承，组合方式）\"\"\"\n\n    def __init__(self, master, language: str = \"python\", font_ligatures: bool = True):\n        self.master = master\n        self.language = language\n        self.groups = []  # 存储 [{\"name\":..., \"color\":..., \"words\":[...]}]\n        self.comment_patterns = {}\n\n        # 创建实际的 CTkTextbox 控件\n        self.textbox = ctk.CTkTextbox(master, wrap=\"none\")\n        self._textbox = self.textbox._textbox  # 内部 tk.Text\n\n        # --- 字体加载 ---\n        self.font = font_loader.load_fira_code_font(master, size=12, ligatures=font_ligatures)\n        self._textbox.config(font=self.font)\n\n        # 配置选中背景色（现代 IDE 风格）\n        self._textbox.tag_config(\"sel\", background=\"#264f78\", foreground=\"white\")\n\n        # 绑定 Ctrl+A 全选\n        self._textbox.bind(\"<Control-a>\", self.select_all)\n        self._textbox.bind(\"<Control-A>\", self.select_all)\n\n        # 绑定按键释放事件触发高亮（延迟执行）\n        self._textbox.bind(\"<KeyRelease>\", self.on_key_release)\n        self._textbox.bind(\"<FocusIn>\", self.on_focus_in)\n\n        # 加载语言配置\n        self.load_language(language)\n\n        # 初始高亮\n        self.highlight_visible()\n\n    def get_widget(self):\n        return self.textbox\n\n    def load_language(self, language: str):\n        config_dir = \"assets/languages\"\n        os.makedirs(config_dir, exist_ok=True)\n        file_path = os.path.join(config_dir, f\"{language}.json\")\n\n        if not os.path.exists(file_path):\n            self._create_default_language_file(language, file_path)\n\n        with open(file_path, \"r\", encoding=\"utf-8\") as f:\n            data = json.load(f)\n            # 兼容旧版 keywords，但优先使用 groups\n            if \"groups\" in data:\n                self.groups = data[\"groups\"]\n            else:\n                # 若只有 keywords，转成 groups 格式\n                self.groups = [\n                    {\"name\": \"keyword\", \"color\": \"#C678DD\", \"words\": data.get(\"keywords\", [])}\n                ]\n            self.comment_patterns = data.get(\"comments\", {})\n\n        # 为每个组创建 tag（颜色）\n        for group in self.groups:\n            tag_name = f\"kw_{group['name']}\"\n            self._textbox.tag_config(tag_name, foreground=group.get(\"color\", \"#FFFFFF\"))\n\n        print(f\"[CodeEditor] 已加载 {len(self.groups)} 个高亮组\")\n\n    def _create_default_language_file(self, language: str, path: str):\n        default = {\n            \"groups\": [\n                {\n                    \"name\": \"keyword\",\n                    \"color\": \"#C678DD\",\n                    \"words\": [\n                        \"False\", \"None\", \"True\", \"and\", \"as\", \"assert\", \"async\", \"await\",\n                        \"break\", \"class\", \"continue\", \"def\", \"del\", \"elif\", \"else\", \"except\",\n                        \"finally\", \"for\", \"from\", \"global\", \"if\", \"import\", \"in\", \"is\",\n                        \"lambda\", \"nonlocal\", \"not\", \"or\", \"pass\", \"raise\", \"return\",\n                        \"try\", \"while\", \"with\", \"yield\"\n                    ]\n                },\n                {\n                    \"name\": \"builtin\",\n                    \"color\": \"#61AFEF\",\n                    \"words\": [\n                        \"abs\", \"all\", \"any\", \"bin\", \"bool\", \"bytearray\", \"bytes\",\n                        \"callable\", \"chr\", \"classmethod\", \"compile\", \"complex\",\n                        \"delattr\", \"dict\", \"dir\", \"divmod\", \"enumerate\", \"eval\",\n                        \"exec\", \"filter\", \"float\", \"format\", \"frozenset\", \"getattr\",\n                        \"globals\", \"hasattr\", \"hash\", \"help\", \"hex\", \"id\", \"input\",\n                        \"int\", \"isinstance\", \"issubclass\", \"iter\", \"len\", \"list\",\n                        \"locals\", \"map\", \"max\", \"memoryview\", \"min\", \"next\", \"object\",\n                        \"oct\", \"open\", \"ord\", \"pow\", \"print\", \"property\", \"range\",\n                        \"repr\", \"reversed\", \"round\", \"set\", \"setattr\", \"slice\",\n                        \"sorted\", \"staticmethod\", \"str\", \"sum\", \"super\", \"tuple\",\n                        \"type\", \"vars\", \"zip\"\n                    ]\n                },\n                {\n                    \"name\": \"constant\",\n                    \"color\": \"#E5C07B\",\n                    \"words\": [\"True\", \"False\", \"None\", \"Ellipsis\", \"__debug__\"]\n                }\n            ],\n            \"comments\": {\n                \"line\": \"#\",\n                \"block\": ['\"\"\"', '\"\"\"']\n            }\n        }\n        with open(path, \"w\", encoding=\"utf-8\") as f:\n            json.dump(default, f, ensure_ascii=False, indent=4)\n\n    def on_key_release(self, event=None):\n        if hasattr(self, '_after_id'):\n            self.master.after_cancel(self._after_id)\n        self._after_id = self.master.after(200, self.highlight_visible)\n\n    def on_focus_in(self, event=None):\n        self.highlight_visible()\n\n    def highlight_visible(self):\n        text_widget = self._textbox\n        # 清除所有标签（保留 sel）\n        for tag in text_widget.tag_names():\n            if tag not in (\"sel\",):\n                text_widget.tag_delete(tag)\n\n        # 获取可见范围\n        first_line = int(text_widget.index(\"@0,0\").split('.')[0])\n        last_line = int(text_widget.index(\"@0,9999\").split('.')[0])\n        if last_line < first_line:\n            last_line = first_line\n\n        start = f\"{first_line}.0\"\n        end = f\"{last_line}.end\"\n        content = text_widget.get(start, end)\n\n        lines = content.splitlines(keepends=True)\n        line_num = first_line\n        for line_text in lines:\n            self._highlight_line(text_widget, line_num, line_text)\n            line_num += 1\n\n    def _highlight_line(self, text_widget, line_num, line_text):\n        \"\"\"使用正则 token 化，并跳过字符串和注释\"\"\"\n        tokens = re.findall(r'(\\\".*?\\\"|\\'.*?\\'|#.*?$|/\\*.*?\\*/|\\b\\w+\\b|[^\\w\\s])', line_text)\n        col = 0\n        in_str = False\n        str_char = None\n        in_comment = False\n\n        for token in tokens:\n            # 检测字符串\n            if token.startswith(('\"', \"'\")):\n                if not in_str:\n                    in_str = True\n                    str_char = token[0]\n                elif token[-1] == str_char and token[-1] == token[0]:\n                    in_str = False\n            # 行注释\n            elif token.startswith('#'):\n                in_comment = True\n            # 块注释（简化，仅支持行内）\n            elif token.startswith('/*'):\n                in_comment = True\n            elif token.endswith('*/'):\n                in_comment = False\n\n            if not in_str and not in_comment:\n                # 检查是否属于某个组\n                for group in self.groups:\n                    if token in group.get(\"words\", []):\n                        tag_name = f\"kw_{group['name']}\"\n                        start_idx = f\"{line_num}.{col}\"\n                        end_idx = f\"{line_num}.{col + len(token)}\"\n                        text_widget.tag_add(tag_name, start_idx, end_idx)\n                        break\n            col += len(token)\n\n    def select_all(self, event=None):\n        self._textbox.tag_add(\"sel\", \"1.0\", \"end\")\n        return \"break\""
+                },
+                {
+                  "name": "font_loader.py",
+                  "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src\\thoncode\\libs\\font_loader.py",
+                  "type": "file",
+                  "size": 1753,
+                  "mtime": "Fri Aug  7 16:18:37 2026",
+                  "content": "# libs/font_loader.py\nimport os\nimport urllib.request\nimport tkinter.font as tkfont\n\nFONT_DIR = \"assets/fonts\"\nFONT_FILE = \"FiraCode-Regular.ttf\"\nFONT_URL = \"https://cdnjs.cloudflare.com/ajax/libs/fira-code/6.2.0/FiraCode-Regular.ttf\"\n\ndef ensure_font():\n    \"\"\"确保字体文件存在，若不存在则下载\"\"\"\n    os.makedirs(FONT_DIR, exist_ok=True)\n    font_path = os.path.join(FONT_DIR, FONT_FILE)\n    if not os.path.exists(font_path):\n        print(\"正在下载 Fira Code 字体...\")\n        try:\n            urllib.request.urlretrieve(FONT_URL, font_path)\n            print(\"下载完成\")\n        except Exception as e:\n            print(f\"下载失败: {e}，将使用系统默认等宽字体\")\n            return None\n    return font_path\n\ndef load_fira_code_font(master, size=12, ligatures=True):\n    \"\"\"\n    加载 Fira Code 字体，返回 tkinter.font.Font 对象\n    master: 父窗口（用于 font 对象）\n    ligatures: 保留参数，但 tkinter 无法控制连字开关，实际使用 Fira Code 即支持连字\n    \"\"\"\n    font_path = ensure_font()\n    if font_path is None:\n        return tkfont.Font(family=\"Courier New\", size=size)\n\n    # 尝试从文件加载\n    try:\n        font = tkfont.Font(family=\"Fira Code\", size=size, file=os.path.abspath(font_path))\n        # 验证是否加载成功\n        if \"Fira\" not in font.actual()[\"family\"]:\n            font = tkfont.Font(family=\"Fira Code\", size=size)\n        return font\n    except Exception as e:\n        print(f\"从文件加载字体失败: {e}，尝试系统字体\")\n        try:\n            return tkfont.Font(family=\"Fira Code\", size=size)\n        except:\n            return tkfont.Font(family=\"Courier New\", size=size)"
+                },
+                {
+                  "name": "json_handle.py",
+                  "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src\\thoncode\\libs\\json_handle.py",
+                  "type": "file",
+                  "size": 2042,
+                  "mtime": "Fri Aug  7 15:29:43 2026",
+                  "content": "#! /usr/bin/env python3\n\npackage: dict = {\n    \"ID\": \"thon-code-gui\",\n    \"Name\": \"Thon Code\",\n    \"Path\": \".main.libs.json_handle\",\n    \"Entrance\": \"main.py\"\n}\n\nimport json\n\nclass handle:\n    def __init__(self, \n        json_file_path: str) -> None:\n\n        self.json_file_path = json_file_path\n        return None\n\n    def get_json(self) -> dict:\n        try:\n            with open(self.json_file_path, \"r\", encoding=\"utf-8\") as f:\n                data = json.load(f)\n                return_msg = {\n                    \"status\": \"success\",\n                    \"data\": data,\n                    \"code\": 200\n                }\n            return return_msg\n        except FileNotFoundError:\n            return_msg = {\n                \"status\": \"error\",\n                \"data\": f\"File not found: {self.json_file_path}\",\n                \"code\": 404\n            }\n            return return_msg\n        except json.JSONDecodeError:\n            return_msg = {\n                \"status\": \"error\",\n                \"data\": f\"Invalid JSON format in file: {self.json_file_path}\",\n                \"code\": 500\n            }\n            return return_msg\n        except Exception as e:\n            return_msg = {\n                \"status\": \"error\",\n                \"data\": str(e),\n                \"code\": 405\n            }\n            return return_msg\n\n    def write_json(self, data: dict) -> dict:\n        try:\n            with open(self.json_file_path, \"w\", encoding=\"utf-8\") as f:\n                json.dump(data, f, ensure_ascii=False, indent=4)\n                return_msg = {\n                    \"status\": \"success\",\n                    \"data\": f\"Data has been written to {self.json_file_path} successfully.\",\n                    \"code\": 200\n                }\n            return return_msg\n        except Exception as e:\n            return_msg = {\n                \"status\": \"error\",\n                \"data\": str(e),\n                \"code\": 500\n            }\n            return return_msg"
+                },
+                {
+                  "name": "langs_handle.py",
+                  "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src\\thoncode\\libs\\langs_handle.py",
+                  "type": "file",
+                  "size": 170,
+                  "mtime": "Fri Aug  7 15:30:57 2026",
+                  "content": "#! /usr/bin/env python3\n\npackage: dict = {\n    \"ID\": \"thon-code-gui\",\n    \"Name\": \"Thon Code\",\n    \"Path\": \".main.libs.langs_handle\",\n    \"Entrance\": \"main.py\"\n}\n"
+                }
+              ]
+            },
+            {
+              "name": "__init__.py",
+              "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src\\thoncode\\__init__.py",
+              "type": "file",
+              "size": 54,
+              "mtime": "Fri Aug  7 14:57:26 2026",
+              "content": "def main() -> None:\n    print(\"Hello from thoncode!\")\n"
+            },
+            {
+              "name": "main.py",
+              "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\src\\thoncode\\main.py",
+              "type": "file",
+              "size": 2694,
+              "mtime": "Fri Aug  7 16:08:48 2026",
+              "content": "#! /usr/bin/env python3\n\npackage: dict = {\n    \"ID\": \"thon-code-gui\",\n    \"Name\": \"Thon Code\",\n    \"Path\": \".main.libs.cfg_handle\",\n    \"Entrance\": \"main.py\"\n}\n\nimport customtkinter as ctk\nimport libs.cfg_handle as cfg_handle\n\nfrom libs.code_editor import CodeEditor\n\nclass MainWindow:\n    def __init__(self) -> None:\n        self.root = ctk.CTk()\n        self.root.title(\"Thon Code\")\n        self.root.geometry(\"1200x675\")\n\n        # 配置网格权重（必须在grid之前设置）\n        self._configure_grid_weights()\n\n    def _configure_grid_weights(self) -> None:\n        \"\"\"设置行/列的拉伸权重，实现四边固定\"\"\"\n        self.root.grid_rowconfigure(0, weight=0)\n        self.root.grid_rowconfigure(1, weight=1)\n        self.root.grid_rowconfigure(2, weight=0)\n        self.root.grid_columnconfigure(0, weight=0)\n        self.root.grid_columnconfigure(1, weight=1)\n        self.root.grid_columnconfigure(2, weight=0)\n\n    def menu_bar(self) -> None:\n        self.menu_bar = ctk.CTkFrame(self.root, height=40, fg_color=\"gray20\")\n\n    def sidebar_left(self) -> None:\n        self.sidebar_left = ctk.CTkFrame(self.root, width=200, fg_color=\"gray25\")\n\n    def editor(self) -> None:\n        \"\"\"主编辑区：自定义 CodeEditor\"\"\"\n        # 从配置中读取 font_ligatures 设置（先加载配置）\n        cfg = cfg_handle.cfg_handle().read_cfg()[\"data\"]\n        ligatures = cfg.get(\"font_ligatures\", True)\n        self.editor = CodeEditor(self.root, language=\"python\", font_ligatures=ligatures)\n        self.editor_widget = self.editor.get_widget()\n\n    def sidebar_right(self) -> None:\n        self.sidebar_right = ctk.CTkFrame(self.root, width=150, fg_color=\"gray25\")\n\n    def status_bar(self) -> None:\n        self.status_bar = ctk.CTkLabel(\n            self.root,\n            text=\"就绪\",\n            anchor=\"w\",\n            height=25\n        )\n\n    def grid(self) -> None:\n        \"\"\"统一执行布局\"\"\"\n        self.menu_bar.grid(row=0, column=0, columnspan=3, sticky=\"ew\")\n        self.sidebar_left.grid(row=1, column=0, sticky=\"ns\")\n        # 使用 editor_widget 进行布局\n        self.editor_widget.grid(row=1, column=1, sticky=\"nsew\")\n        self.sidebar_right.grid(row=1, column=2, sticky=\"ns\")\n        self.status_bar.grid(row=2, column=0, columnspan=3, sticky=\"ew\")\n\nif __name__ == \"__main__\":\n    cfg_handle.cfg_handle().check_cfg_file()\n    main_window = MainWindow()\n\n    main_window.menu_bar()\n    main_window.sidebar_left()\n    main_window.editor()\n    main_window.sidebar_right()\n    main_window.status_bar()\n\n    main_window.grid()\n    main_window.root.mainloop()"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "README.md",
+      "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\README.md",
+      "type": "file",
+      "size": 0,
+      "mtime": "Fri Aug  7 14:57:26 2026",
+      "content": ""
+    },
+    {
+      "name": "export_structure.py",
+      "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\export_structure.py",
+      "type": "file",
+      "size": 2254,
+      "mtime": "Fri Aug  7 16:12:24 2026",
+      "content": "# export_structure.py\nimport os\nimport json\nimport time\nfrom pathlib import Path\n\ndef should_ignore(path: Path) -> bool:\n    \"\"\"忽略不需要的目录/文件\"\"\"\n    ignore_names = {'.venv', '__pycache__', '.git', '.idea', '.vscode', 'node_modules', 'dist', 'build'}\n    if path.name in ignore_names:\n        return True\n    # 忽略隐藏文件（以.开头）\n    if path.name.startswith('.'):\n        return True\n    return False\n\ndef get_structure(root_dir: Path, include_content: bool = True) -> dict:\n    \"\"\"递归获取目录结构，返回字典\"\"\"\n    if should_ignore(root_dir):\n        return None\n\n    info = {\n        \"name\": root_dir.name,\n        \"path\": str(root_dir.absolute()),\n        \"type\": \"directory\",\n        \"children\": []\n    }\n\n    try:\n        items = sorted(root_dir.iterdir(), key=lambda x: (not x.is_dir(), x.name))\n    except PermissionError:\n        return info\n\n    for item in items:\n        if should_ignore(item):\n            continue\n        if item.is_dir():\n            child = get_structure(item, include_content)\n            if child:\n                info[\"children\"].append(child)\n        else:\n            file_info = {\n                \"name\": item.name,\n                \"path\": str(item.absolute()),\n                \"type\": \"file\",\n                \"size\": item.stat().st_size,\n                \"mtime\": time.ctime(item.stat().st_mtime)\n            }\n            if include_content and item.suffix in ('.py', '.json', '.txt', '.md', '.js', '.html', '.css'):\n                try:\n                    with open(item, 'r', encoding='utf-8') as f:\n                        file_info[\"content\"] = f.read()\n                except:\n                    file_info[\"content\"] = \"<无法读取>\"\n            info[\"children\"].append(file_info)\n    return info\n\nif __name__ == \"__main__\":\n    project_root = Path(__file__).parent\n    output_file = project_root / \"project_structure.json\"\n    print(f\"正在导出项目结构到 {output_file} ...\")\n    structure = get_structure(project_root, include_content=True)\n    with open(output_file, 'w', encoding='utf-8') as f:\n        json.dump(structure, f, ensure_ascii=False, indent=2)\n    print(\"导出完成。\")"
+    },
+    {
+      "name": "pyproject.toml",
+      "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\pyproject.toml",
+      "type": "file",
+      "size": 378,
+      "mtime": "Fri Aug  7 15:02:25 2026"
+    },
+    {
+      "name": "requirements.txt",
+      "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\requirements.txt",
+      "type": "file",
+      "size": 20,
+      "mtime": "Fri Aug  7 15:01:48 2026",
+      "content": "customtkinter>=5.2.2"
+    },
+    {
+      "name": "uv.lock",
+      "path": "C:\\Users\\yydsh\\Desktop\\ProjectForStudio\\ThonCode\\uv.lock",
+      "type": "file",
+      "size": 2445,
+      "mtime": "Fri Aug  7 15:02:29 2026"
+    }
+  ]
+}

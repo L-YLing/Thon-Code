@@ -1,0 +1,19 @@
+[project]
+name = "thoncode"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "L-YLing", email = "yydsfps@163.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "customtkinter>=5.2.2",
+]
+
+[project.scripts]
+thoncode = "thoncode:main"
+
+[build-system]
+requires = ["uv_build>=0.12.2,<0.13.0"]
+build-backend = "uv_build"
