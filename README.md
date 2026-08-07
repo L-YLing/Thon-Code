@@ -11,4 +11,4 @@
 **暂时不想写 OvO**
 
 # 骄傲的感言
-**从2023年的`QingYunIDE`干到现在的`ThonCode`,我已经可以完全用`ThonCode`来开发`ThonCode`啦！**
+**从2023年的`HydronIDE`干到现在的`ThonCode`,我已经可以完全用`ThonCode`来开发`ThonCode`啦！**
