@@ -1,5 +1,8 @@
 #! /usr/bin/env python3
 
+import os
+import sys
+
 package: dict = {
     "ID": "thon-code-gui",
     "Name": "Thon Code",
@@ -7,13 +10,30 @@ package: dict = {
     "Entrance": "main.py"
 }
 
+# 添加当前目录到系统路径
+if getattr(sys, 'frozen', False):
+    base_path = sys._MEIPASS
+else:
+    # 开发环境
+    base_path = os.path.dirname(os.path.abspath(__file__))
+
+if getattr(sys, 'frozen', False):
+    # 打包后禁用调试
+    sys.tracebacklimit = 0
+
+libs_path = os.path.join(base_path, 'libs')
+if libs_path not in sys.path:
+    sys.path.insert(0, base_path)
+    sys.path.insert(0, libs_path)
+
 import customtkinter as ctk
 import tkinter as tk
+
 from tkinter import filedialog, messagebox, ttk
-import os
+
 import shutil
 import subprocess
-import sys
+
 import libs.cfg_handle as cfg_handle
 from libs.code_editor import CodeEditor
 

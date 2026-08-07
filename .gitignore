@@ -14,3 +14,7 @@ wheels/
 .thonncode/*
 export_structure.py
 project_structure.json
+dist/
+build/
+*.spec
+*.env
