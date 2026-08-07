@@ -4,9 +4,6 @@
             "name": "keyword",
             "color": "#C678DD",
             "words": [
-                "False",
-                "None",
-                "True",
                 "and",
                 "as",
                 "assert",
@@ -123,13 +120,28 @@
                 "Ellipsis",
                 "__debug__"
             ]
+        },
+        {
+            "name": "type",
+            "color": "#98C379",
+            "words": [
+                "str",
+                "int",
+                "float",
+                "bool",
+                "list",
+                "dict",
+                "tuple",
+                "set",
+                "bytes",
+                "bytearray",
+                "memoryview",
+                "complex",
+                "range",
+                "slice",
+                "object",
+                "type"
+            ]
         }
-    ],
-    "comments": {
-        "line": "#",
-        "block": [
-            "\"\"\"",
-            "\"\"\""
-        ]
-    }
+    ]
 }

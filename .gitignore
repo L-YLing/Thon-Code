@@ -8,3 +8,9 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Project
+.thonncode/
+.thonncode/*
+export_structure.py
+project_structure.json
