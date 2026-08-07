@@ -18,3 +18,9 @@ dist/
 build/
 *.spec
 *.env
+*.zip
+*.bin
+*.o
+*.class
+*.exe
+src/thoncode/pyinstaller_build_win.bat

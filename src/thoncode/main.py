@@ -1,21 +1,31 @@
 #! /usr/bin/env python3
-
-import os
 import sys
+import os
 
-package: dict = {
-    "ID": "thon-code-gui",
-    "Name": "Thon Code",
-    "Path": ".main.libs.cfg_handle",
-    "Entrance": "main.py"
-}
+def get_assets_path():
+    if getattr(sys, 'frozen', False):
+        exe_dir = os.path.dirname(sys.executable)
+        external_assets = os.path.join(exe_dir, 'assets')
+        if os.path.exists(external_assets):
+            return external_assets
+        return os.path.join(sys._MEIPASS, 'assets')
+    else:
+        # 开发环境
+        return os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets')
 
-# 添加当前目录到系统路径
+# 设置 assets 路径
+ASSETS_PATH = get_assets_path()
+
+# 添加 libs 到路径
 if getattr(sys, 'frozen', False):
     base_path = sys._MEIPASS
 else:
-    # 开发环境
     base_path = os.path.dirname(os.path.abspath(__file__))
+
+libs_path = os.path.join(base_path, 'libs')
+if libs_path not in sys.path:
+    sys.path.insert(0, base_path)
+    sys.path.insert(0, libs_path)
 
 if getattr(sys, 'frozen', False):
     # 打包后禁用调试
@@ -58,6 +68,13 @@ class MainWindow:
         self.is_dirty = False
         self.project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         self.last_saved_content = ""
+
+        try:
+            icon_path = os.path.join(ASSETS_PATH, 'icon.ico')
+            if os.path.exists(icon_path):
+                self.root.iconbitmap(icon_path)
+        except Exception:
+            pass
         
         self.left_visible = True
         self.right_visible = True
