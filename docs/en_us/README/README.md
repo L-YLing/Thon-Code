@@ -9,6 +9,16 @@ File icon by Elegantthemes on <a href="https://icon-icons.com/zh/authors/103-ele
 
 Python snake icon by Zayronxio on <a href="https://icon-icons.com/zh/authors/601-zayronxio">Icon-Icons.com</a> (Apache 2.0)
 
+# Running
+**You can choose to run using the packaged executable or install via the installer, both of which can be found in the project's `release` folder. If you want to run the Python program directly, that's fine too, but you need to meet the following requirements:**
+
+* **`Windows 10` / `Linux glibc 2.17`**
+* **`Python 3.13`**
+
+**Execute the commands in the following order to start the `main.py` main program:**
+1. `pip install -r requirements.txt`
+2. `python main.py` (On Linux, you might need to run: `python3 main.py`. Make sure to be in the folder where main.py is located or modify the path)
+
 # Packaging as Executable
 **Currently supported system platforms for packaging as an executable/installer:**
 * **`Windows 10 22H2`**

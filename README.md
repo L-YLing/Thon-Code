@@ -9,6 +9,16 @@
 
 蟒蛇图标 by Zayronxio on <a href="https://icon-icons.com/zh/authors/601-zayronxio">Icon-Icons.com</a> (Apache 2.0)
 
+# 运行
+**您可以选择使用打包好的可执行文件运行或者安装程序安装以使用，它们可以在项目的`release`里找到。如果您想直接运行python程序也可以，但是您需要满足以下条件：**
+
+* **`Windows 10+` / `Linux glibc 2.17+`**
+* **`Python 3.13+`**
+
+**按照如下顺序执行命令可以启动`main.py`主程序：**
+1. `pip install -r requirements.txt`
+2. `python main.py`(Linux上可能需要执行：`python3 main.py`，请进入到main.py所在文件夹执行或修改路径)
+
 # 打包为可执行文件
 **现支持打包为可执行文件/安装包的系统平台：**
 * **`Windows 10 22H2 +`**
