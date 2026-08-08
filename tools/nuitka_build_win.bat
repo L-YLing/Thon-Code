@@ -9,7 +9,7 @@ echo.
 
 nuitka --standalone ^
     --windows-console-mode=disable ^
-    --windows-icon-from-ico=src/thoncode/assets/icon.ico ^
+    --windows-icon-from-ico=assets/icon.ico ^
     --include-data-dir=assets=assets ^
     --include-package=libs ^
     --include-package=libs.code_editor ^
@@ -23,7 +23,7 @@ nuitka --standalone ^
     --include-module=PIL.ImageTk ^
     --enable-plugin=tk-inter ^
     --output-dir=dist ^
-    src/thoncode/main.py
+    main.py
 
 if exist dist\main.dist\main.exe (
     echo.

@@ -26,3 +26,4 @@ build/
 .vscode/
 src/thoncode/pyinstaller_build_win.bat
 src/thoncode/nuitka_build_win.bat
+src/thoncode/assets/config.json
