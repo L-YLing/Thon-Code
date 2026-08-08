@@ -46,7 +46,7 @@ import subprocess
 
 import libs.cfg_handle as cfg_handle
 import libs.langs_loader as langs_loader
-from libs.code_editor import CodeEditor
+from libs.gui.code_editor import CodeEditor
 
 try:
     import send2trash
@@ -110,16 +110,16 @@ class MainWindow:
         project_menu.add_command(label=langs_cfg.main_root_project_cfg, command=self.show_project_config)
 
         file_menu = tk.Menu(menubar, tearoff=0)
-        menubar.add_cascade(label="文件", menu=file_menu)
-        file_menu.add_command(label="新建", accelerator="Ctrl+N", command=self.new_file)
-        file_menu.add_command(label="打开...", accelerator="Ctrl+O", command=self.open_file)
-        file_menu.add_command(label="保存", accelerator="Ctrl+S", command=self.save_file)
-        file_menu.add_command(label="另存为...", accelerator="Ctrl+Shift+S", command=self.save_as)
+        menubar.add_cascade(label=langs_cfg.main_root_file, menu=file_menu)
+        file_menu.add_command(label=langs_cfg.main_root_new, accelerator="Ctrl+N", command=self.new_file)
+        file_menu.add_command(label=langs_cfg.main_root_open, accelerator="Ctrl+O", command=self.open_file)
+        file_menu.add_command(label=langs_cfg.main_root_save, accelerator="Ctrl+S", command=self.save_file)
+        file_menu.add_command(label=langs_cfg.main_root_save_as, accelerator="Ctrl+Shift+S", command=self.save_as)
         file_menu.add_separator()
-        file_menu.add_command(label="退出", accelerator="Ctrl+Q", command=self.exit_app)
+        file_menu.add_command(label=langs_cfg.main_root_exit, accelerator="Ctrl+Q", command=self.exit_app)
 
         edit_menu = tk.Menu(menubar, tearoff=0)
-        menubar.add_cascade(label="编辑", menu=edit_menu)
+        menubar.add_cascade(label=langs_cfg.main_root_edit, menu=edit_menu)
         edit_menu.add_command(label="剪切", accelerator="Ctrl+X", command=self.cut)
         edit_menu.add_command(label="复制", accelerator="Ctrl+C", command=self.copy)
         edit_menu.add_command(label="粘贴", accelerator="Ctrl+V", command=self.paste)

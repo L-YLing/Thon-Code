@@ -1,44 +1,27 @@
 # libs/font_loader.py
-import os
-import urllib.request
 import tkinter.font as tkfont
-
-FONT_DIR = "assets/fonts"
-FONT_FILE = "FiraCode-Regular.ttf"
-FONT_URL = "https://cdnjs.cloudflare.com/ajax/libs/fira-code/6.2.0/FiraCode-Regular.ttf"
-
-def ensure_font():
-    os.makedirs(FONT_DIR, exist_ok=True)
-    font_path = os.path.join(FONT_DIR, FONT_FILE)
-    if not os.path.exists(font_path):
-        print("正在下载 Fira Code 字体...")
-        try:
-            urllib.request.urlretrieve(FONT_URL, font_path)
-            print("下载完成")
-        except Exception as e:
-            print(f"下载失败: {e}，将使用系统默认等宽字体")
-            return None
-    return font_path
 
 def load_fira_code_font(master, size=12, ligatures=True):
     """
-    加载 Fira Code 字体，返回 tkinter.font.Font 对象
-    master: 父窗口（用于 font 对象）
-    ligatures: 保留参数
+    加载 Fira Code 字体（需系统已安装），否则回退到 Courier New
+    master: 父窗口（仅用于接口兼容，实际未使用）
+    ligatures: 保留参数（Tkinter 无法控制连字）
     """
-    font_path = ensure_font()
-    if font_path is None:
-        return tkfont.Font(family="Courier New", size=size)
-
+    # 尝试标准字体名 "Fira Code"
     try:
-        font = tkfont.Font(family="Fira Code", size=size, file=os.path.abspath(font_path))
+        font = tkfont.Font(family="Fira Code", size=size)
+        if "Fira" in font.actual()["family"]:
+            return font
+    except:
+        pass
 
-        if "Fira" not in font.actual()["family"]:
-            font = tkfont.Font(family="Fira Code", size=size)
-        return font
-    except Exception as e:
-        print(f"从文件加载字体失败: {e}，尝试系统字体")
-        try:
-            return tkfont.Font(family="Fira Code", size=size)
-        except:
-            return tkfont.Font(family="Courier New", size=size)
+    # 尝试备选名称 "Fira Code Regular"
+    try:
+        font = tkfont.Font(family="Fira Code Regular", size=size)
+        if "Fira" in font.actual()["family"]:
+            return font
+    except:
+        pass
+
+    # 最终回退到系统等宽字体
+    return tkfont.Font(family="Courier New", size=size)

@@ -1,7 +1,16 @@
 {
+    "main.root.new": "新建",
+
     "main.root.open": "打开",
     "main.root.save": "保存",
     "main.root.exit": "退出",
+    "main.root.file": "文件",
+    "main.root.edit": "编辑",
+    "main.root.quit": "退出",
+    
     "main.root.project": "项目",
+
+    "main.root.save.as": "另存为",
+
     "main.root.project_cfg": "项目配置"
 }

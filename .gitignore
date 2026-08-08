@@ -11,6 +11,7 @@ wheels/
 
 # Project
 .thonncode/
+src/.thonncode/
 .thonncode/*
 export_structure.py
 project_structure.json
@@ -27,3 +28,4 @@ build/
 src/thoncode/pyinstaller_build_win.bat
 src/thoncode/nuitka_build_win.bat
 src/thoncode/assets/config.json
+src/.thoncode/project.json

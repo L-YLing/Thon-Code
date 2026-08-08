@@ -1,0 +1,16 @@
+{
+    "main.root.new": "New",
+
+    "main.root.open": "Open",
+    "main.root.save": "Save",
+    "main.root.exit": "Exit",
+    "main.root.file": "File",
+    "main.root.file": "文件",
+    "main.root.edit": "Edit",
+    
+    "main.root.project": "Project",
+
+    "main.root.save.as": "Save As",
+
+    "main.root.project_cfg": "Project Configuration"
+}

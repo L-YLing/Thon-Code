@@ -9,6 +9,14 @@
 
 蟒蛇图标 by Zayronxio on <a href="https://icon-icons.com/zh/authors/601-zayronxio">Icon-Icons.com</a> (Apache 2.0)
 
+# 核心功能
+* [x] **Python代码原生高亮支持**
+* [x] **Python代码原生自动补全支持**
+* [x] **配置项目依赖、解释器**
+* [ ] **内置Shell**
+* [ ] **DEBUG调试**
+* [ ] **搜索**
+
 # 运行
 **您可以选择使用打包好的可执行文件运行或者安装程序安装以使用，它们可以在项目的`release`里找到。如果您想直接运行python程序也可以，但是您需要满足以下条件：**
 
