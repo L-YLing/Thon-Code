@@ -73,13 +73,15 @@ class cfg_handle:
             }
 
     def read_cfg(self) -> dict:
-        with open(self.cfg_file_path, "r", encoding="utf-8") as f:
-            return_msg = {
-                "status": "success",
-                "data": json.load(f),
-                "code": 200
-            }
-        return return_msg
+        try:
+            with open(self.cfg_file_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            return {"status": "success", "data": data, "code": 200}
+        except (json.JSONDecodeError, FileNotFoundError):
+            self.make_cfg_file()
+            with open(self.cfg_file_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            return {"status": "success", "data": data, "code": 200}
 
     def write_cfg(self, data: dict) -> dict:
         try:
