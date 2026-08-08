@@ -16,6 +16,12 @@ Python snake icon by Zayronxio on <a href="https://icon-icons.com/zh/authors/601
 
 **In the project [`tools/`](/tools/README.md) directory, we provide `pyinstaller` and `nuitka` packaging scripts. You can identify which one to use by the file name (e.g., `pyinstaller_build_win.bat` is for using pyinstaller on Windows); note that you need to manually move the script file to the same directory as the main program file (entry program, usually `main.py`) before running it, otherwise it will use the wrong path (of course, you can also modify it manually, but not recommended).**
 
+# Software screenshot
+<img width="1202" height="707" alt="image" src="https://github.com/user-attachments/assets/0499ca67-9980-4554-a87e-90a2ed649cd0" />
+
+<img width="1202" height="707" alt="image" src="https://github.com/user-attachments/assets/fcf90c90-98fa-4a46-a2ec-97f34719ef63" />
+
+
 # Contributors
 **Don’t feel like writing for now OvO**
 
