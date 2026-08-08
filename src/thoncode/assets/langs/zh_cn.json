@@ -1,5 +1,7 @@
 {
     "main.root.open": "打开",
     "main.root.save": "保存",
-    "main.root.exit": "退出"
+    "main.root.exit": "退出",
+    "main.root.project": "项目",
+    "main.root.project_cfg": "项目配置"
 }

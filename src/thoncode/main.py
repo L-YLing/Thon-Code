@@ -10,13 +10,13 @@ def get_assets_path():
             return external_assets
         return os.path.join(sys._MEIPASS, 'assets')
     else:
-        # 开发环境
+        # Development Environment
         return os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets')
 
-# 设置 assets 路径
+# Set folder `assets` path
 ASSETS_PATH = get_assets_path()
 
-# 添加 libs 到路径
+# Add libs to the path
 if getattr(sys, 'frozen', False):
     base_path = sys._MEIPASS
 else:
@@ -28,7 +28,7 @@ if libs_path not in sys.path:
     sys.path.insert(0, libs_path)
 
 if getattr(sys, 'frozen', False):
-    # 打包后禁用调试
+    # Disable debugging after packaging
     sys.tracebacklimit = 0
 
 libs_path = os.path.join(base_path, 'libs')
@@ -45,6 +45,7 @@ import shutil
 import subprocess
 
 import libs.cfg_handle as cfg_handle
+import libs.langs_loader as langs_loader
 from libs.code_editor import CodeEditor
 
 try:
@@ -58,6 +59,8 @@ try:
     HAS_PIL = True
 except ImportError:
     HAS_PIL = False
+
+langs_cfg = langs_loader.langs()
 
 class MainWindow:
     def __init__(self) -> None:
@@ -103,8 +106,8 @@ class MainWindow:
         self.root.config(menu=menubar)
 
         project_menu = tk.Menu(menubar, tearoff=0)
-        menubar.add_cascade(label="项目", menu=project_menu)
-        project_menu.add_command(label="项目配置", command=self.show_project_config)
+        menubar.add_cascade(label=langs_cfg.main_root_project, menu=project_menu)
+        project_menu.add_command(label=langs_cfg.main_root_project_cfg, command=self.show_project_config)
 
         file_menu = tk.Menu(menubar, tearoff=0)
         menubar.add_cascade(label="文件", menu=file_menu)

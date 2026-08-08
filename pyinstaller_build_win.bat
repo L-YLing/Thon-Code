@@ -1,9 +1,9 @@
 pyinstaller --name ThonCode ^
     --onedir ^
     --windowed ^
-    --icon "assets/icon.ico" ^
-    --add-data "assets;assets" ^
-    --add-data "libs;libs" ^
+    --icon "src/thoncode/assets/icon.ico" ^
+    --add-data "src/thoncode/assets;src/thoncode/assets" ^
+    --add-data "src/thoncode/libs;src/thoncode/libs" ^
     --hidden-import customtkinter ^
     --hidden-import PIL ^
     --hidden-import PIL.Image ^
@@ -16,4 +16,4 @@ pyinstaller --name ThonCode ^
     --hidden-import libs.json_handle ^
     --hidden-import libs.langs_handle ^
     --collect-all libs ^
-    main.py
+    src/thoncode/main.py
