@@ -4,6 +4,7 @@ import customtkinter as ctk
 from tkinter import messagebox
 import libs.cfg_handle as cfg_handle
 
+
 class ProjectConfigWindow:
     def __init__(self, parent, project_root, status_callback=None):
         self.parent = parent

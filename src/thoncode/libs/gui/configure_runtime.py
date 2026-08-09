@@ -1,7 +1,7 @@
 import sys
 import customtkinter as ctk
-
 import libs.cfg_handle as cfg_handle
+
 
 class ConfigureRuntimeWindow:
     def __init__(self, parent, status_callback=None):

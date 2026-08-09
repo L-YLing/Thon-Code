@@ -2,6 +2,13 @@
 import sys
 import os
 
+package: dict = {
+    "ID": "thon-code-gui",
+    "Name": "Thon Code",
+    "Path": ".main",
+    "Entrance": "main.py"
+}
+
 def get_assets_path():
     if getattr(sys, 'frozen', False):
         exe_dir = os.path.dirname(sys.executable)
@@ -10,15 +17,13 @@ def get_assets_path():
             return external_assets
         return os.path.join(sys._MEIPASS, 'assets')
     else:
-        # Development Environment
         return os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets')
 
-# Set folder `assets` path
 ASSETS_PATH = get_assets_path()
 
-# Add libs to the path
 if getattr(sys, 'frozen', False):
     base_path = sys._MEIPASS
+    sys.tracebacklimit = 0
 else:
     base_path = os.path.dirname(os.path.abspath(__file__))
 
@@ -27,47 +32,38 @@ if libs_path not in sys.path:
     sys.path.insert(0, base_path)
     sys.path.insert(0, libs_path)
 
-if getattr(sys, 'frozen', False):
-    # Disable debugging after packaging
-    sys.tracebacklimit = 0
-
-libs_path = os.path.join(base_path, 'libs')
-if libs_path not in sys.path:
-    sys.path.insert(0, base_path)
-    sys.path.insert(0, libs_path)
-
 import customtkinter as ctk
 import tkinter as tk
-
 from tkinter import filedialog, messagebox, ttk
-
-import shutil
-import subprocess
-
 import libs.cfg_handle as cfg_handle
 import libs.langs_loader as langs_loader
 
-# GUI libs
-from libs.gui.code_editor import CodeEditor
-from libs.gui.settings_win import SettingsWindow
-from libs.gui.project_cfg import ProjectConfigWindow
-from libs.gui.configure_runtime import ConfigureRuntimeWindow
-from libs.gui.run_file import RunFileDialog
-from libs.gui.welcome_page import WelcomePage
-from libs.gui.tree_manager import TreeManager
-from libs.gui.editor_manager import EditorManager
 
-try:
-    import send2trash
-    HAS_SEND2TRASH = True
-except ImportError:
-    HAS_SEND2TRASH = False
+class LazyLoader:
+    """Universal lazy loader for GUI components and heavy libraries"""
+    _instances = {}
+    
+    @classmethod
+    def get(cls, module_path, class_name=None):
+        cache_key = f"{module_path}:{class_name}" if class_name else module_path
+        if cache_key in cls._instances:
+            return cls._instances[cache_key]
+        
+        module = __import__(module_path, fromlist=[class_name] if class_name else [])
+        if class_name:
+            result = getattr(module, class_name)
+        else:
+            result = module
+        cls._instances[cache_key] = result
+        return result
+    
+    @classmethod
+    def get_send2trash(cls):
+        try:
+            return cls.get('send2trash', 'send2trash')
+        except ImportError:
+            return None
 
-try:
-    from PIL import Image, ImageTk
-    HAS_PIL = True
-except ImportError:
-    HAS_PIL = False
 
 class MainWindow:
     def __init__(self) -> None:
@@ -79,12 +75,7 @@ class MainWindow:
         self.project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         self.last_saved_content = ""
 
-        try:
-            icon_path = os.path.join(ASSETS_PATH, 'icon.ico')
-            if os.path.exists(icon_path):
-                self.root.iconbitmap(icon_path)
-        except Exception:
-            pass
+        self._set_icon()
         
         self.left_visible = True
         self.right_visible = True
@@ -102,11 +93,18 @@ class MainWindow:
         self._load_config()
         self._show_welcome_if_needed()
 
+    def _set_icon(self):
+        try:
+            icon_path = os.path.join(ASSETS_PATH, 'icon.ico')
+            if os.path.exists(icon_path):
+                self.root.iconbitmap(icon_path)
+        except Exception:
+            pass
+
     def _configure_grid_weights(self) -> None:
         self.root.grid_rowconfigure(0, weight=0)
         self.root.grid_rowconfigure(1, weight=1)
         self.root.grid_rowconfigure(2, weight=0)
-        # Left/Mid/Right
         self.root.grid_columnconfigure(0, weight=0)
         self.root.grid_columnconfigure(1, weight=1)
         self.root.grid_columnconfigure(2, weight=0)
@@ -147,6 +145,7 @@ class MainWindow:
         tools_menu.add_command(label="Git集成", accelerator="F3", command=self._open_settings)
 
     def _open_settings(self):
+        SettingsWindow = LazyLoader.get('libs.gui.settings_win', 'SettingsWindow')
         SettingsWindow(self.root, on_settings_changed=self._on_settings_applied)
         self.status_bar.configure(text="语言已更新")
 
@@ -168,7 +167,7 @@ class MainWindow:
     def reload_language(self):
         self.langs_cfg = langs_loader.langs()
         self._build_menu()
-        if hasattr(self, 'welcome_frame'):
+        if hasattr(self, 'welcome_page') and self.welcome_page:
             for child in self.welcome_frame.winfo_children():
                 if isinstance(child, ctk.CTkFrame):
                     for sub in child.winfo_children():
@@ -216,16 +215,9 @@ class MainWindow:
         self.status_bar = ctk.CTkLabel(self.root, text="就绪", anchor="w", height=25)
         self.status_bar.grid(row=2, column=0, columnspan=3, sticky="ew")
 
-        self.welcome_page = WelcomePage(
-            self.root,
-            new_file_callback=self.new_file,
-            open_file_callback=self.open_file,
-            open_folder_callback=self.open_folder,
-            open_recent_callback=self._open_recent_project,
-            toggle_welcome_callback=self.toggle_welcome_config
-        )
-        self.welcome_frame = self.welcome_page.get_frame()
-        self.welcome_show_check = self.welcome_page.get_checkbox()
+        self.welcome_page = None
+        self.welcome_frame = None
+        self.welcome_show_check = None
 
     def _create_top_right_controls(self) -> None:
         container = ctk.CTkFrame(self.menu_bar, fg_color="gray20")
@@ -249,6 +241,7 @@ class MainWindow:
         self.sidebar_frame = ctk.CTkFrame(self.left_frame, fg_color="gray25")
         self.sidebar_frame.pack(fill="both", expand=True, padx=2, pady=2)
         
+        TreeManager = LazyLoader.get('libs.gui.tree_manager', 'TreeManager')
         self.tree_manager = TreeManager(
             self.root,
             self.sidebar_frame,
@@ -259,6 +252,7 @@ class MainWindow:
         self.tree = self.tree_manager.get_tree()
 
     def _build_center_pane(self):
+        EditorManager = LazyLoader.get('libs.gui.editor_manager', 'EditorManager')
         self.editor_manager = EditorManager(
             self.center_frame,
             main_window=self,
@@ -319,12 +313,32 @@ class MainWindow:
             self.paned.sashpos(0, self.min_left_width)
         self.left_width = self.paned.sashpos(0)
 
-    def do_search(self) -> None:
-        keyword = self.search_entry.get().strip()
-        if keyword:
-            self.status_bar.configure(text=f"搜索: {keyword} (功能开发中)")
+    def _ensure_welcome_page(self):
+        if self.welcome_page is None:
+            WelcomePage = LazyLoader.get('libs.gui.welcome_page', 'WelcomePage')
+            self.welcome_page = WelcomePage(
+                self.root,
+                new_file_callback=self.new_file,
+                open_file_callback=self.open_file,
+                open_folder_callback=self.open_folder,
+                open_recent_callback=self._open_recent_project,
+                toggle_welcome_callback=self.toggle_welcome_config
+            )
+            self.welcome_frame = self.welcome_page.get_frame()
+            self.welcome_show_check = self.welcome_page.get_checkbox()
+        return self.welcome_page
+
+    def _show_welcome_if_needed(self) -> None:
+        cfg = cfg_handle.cfg_handle().read_cfg()["data"]
+        show = cfg.get("show_welcome", True)
+        if show or not self.current_file:
+            self._ensure_welcome_page().place(relx=0, rely=0, relwidth=1, relheight=1)
         else:
-            self.status_bar.configure(text="请输入搜索关键词")
+            self._ensure_welcome_page().place_forget()
+
+    def hide_welcome(self) -> None:
+        if self.welcome_page:
+            self.welcome_page.place_forget()
 
     def _open_recent_project(self, path):
         if os.path.isdir(path):
@@ -341,24 +355,18 @@ class MainWindow:
         cfg["show_welcome"] = bool(self.welcome_show_check.get())
         cfg_handle.cfg_handle().write_cfg(cfg)
 
-    def _show_welcome_if_needed(self) -> None:
-        cfg = cfg_handle.cfg_handle().read_cfg()["data"]
-        show = cfg.get("show_welcome", True)
-        if show or not self.current_file:
-            self.welcome_page.place(relx=0, rely=0, relwidth=1, relheight=1)
+    def do_search(self) -> None:
+        keyword = self.search_entry.get().strip()
+        if keyword:
+            self.status_bar.configure(text=f"搜索: {keyword} (功能开发中)")
         else:
-            self.welcome_page.place_forget()
-
-    def hide_welcome(self) -> None:
-        self.welcome_page.place_forget()
+            self.status_bar.configure(text="请输入搜索关键词")
 
     def new_file(self):
-        self.editor_widget.delete("1.0", "end")
+        self.editor_manager.clear()
         self.current_file = None
         self.is_dirty = False
         self.last_saved_content = ""
-        if hasattr(self, 'editor'):
-            self.editor.current_file = None
         self.update_title()
         self.hide_welcome()
 
@@ -369,22 +377,6 @@ class MainWindow:
             self.last_saved_content = self.editor_manager.last_saved_content
             self.hide_welcome()
             self.update_title()
-
-    def update_title(self):
-        base = "Thon Code"
-        if self.current_file:
-            name = os.path.basename(self.current_file)
-            self.root.title(f"{base} - {name}{'*' if self.is_dirty else ''}")
-        else:
-            self.root.title(f"{base} - 未命名{'*' if self.is_dirty else ''}")
-
-    def new_file(self):
-        self.editor_manager.clear()
-        self.current_file = None
-        self.is_dirty = False
-        self.last_saved_content = ""
-        self.update_title()
-        self.hide_welcome()
 
     def open_file(self):
         file_path = filedialog.askopenfilename(
@@ -449,6 +441,18 @@ class MainWindow:
             messagebox.showerror("错误", f"保存失败：{e}")
             return False
 
+    def refresh_tree(self):
+        if hasattr(self, 'tree_manager'):
+            self.tree_manager.refresh_tree()
+
+    def update_title(self):
+        base = "Thon Code"
+        if self.current_file:
+            name = os.path.basename(self.current_file)
+            self.root.title(f"{base} - {name}{'*' if self.is_dirty else ''}")
+        else:
+            self.root.title(f"{base} - 未命名{'*' if self.is_dirty else ''}")
+
     def exit_app(self):
         self.root.quit()
 
@@ -468,9 +472,11 @@ class MainWindow:
     def _load_config(self):
         cfg = cfg_handle.cfg_handle().read_cfg()["data"]
         show = cfg.get("show_welcome", True)
-        self.welcome_page.set_checkbox_state(show)
+        if self.welcome_show_check:
+            self.welcome_show_check.set(show)
     
     def run_current_file(self):
+        RunFileDialog = LazyLoader.get('libs.gui.run_file', 'RunFileDialog')
         RunFileDialog(
             self.root,
             self.current_file,
@@ -479,8 +485,8 @@ class MainWindow:
             status_callback=lambda msg: self.status_bar.configure(text=msg)
         )
 
-
     def show_project_config(self):
+        ProjectConfigWindow = LazyLoader.get('libs.gui.project_cfg', 'ProjectConfigWindow')
         ProjectConfigWindow(
             self.root, 
             self.project_root, 
@@ -488,13 +494,13 @@ class MainWindow:
         )
 
     def configure_runtime(self):
+        ConfigureRuntimeWindow = LazyLoader.get('libs.gui.configure_runtime', 'ConfigureRuntimeWindow')
         ConfigureRuntimeWindow(
             self.root, 
             status_callback=lambda msg: self.status_bar.configure(text=msg)
         )
 
     def _show_editor_context_menu(self, event):
-        """Editor right-click context menu for the editor widget. """
         menu = tk.Menu(self.root, tearoff=0)
         menu.add_command(label="刷新", command=self._refresh_editor_highlight)
         menu.post(event.x_root, event.y_root)
@@ -502,7 +508,8 @@ class MainWindow:
     def _refresh_editor_highlight(self):
         if hasattr(self, 'editor_manager') and self.editor_manager.editor:
             self.editor_manager.editor.highlight_all()
-            self.status_bar.configure(text="就绪") 
+            self.status_bar.configure(text="就绪")
+
 
 if __name__ == "__main__":
     cfg_handle.cfg_handle().check_cfg_file()

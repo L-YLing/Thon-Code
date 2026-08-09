@@ -141,9 +141,6 @@ jobs:
         echo "Commit: ${{ github.sha }}" >> version_info.txt
         echo "Branch: ${{ github.ref_name }}" >> version_info.txt
 
-  # ============================================================
-  # Windows PyInstaller Build
-  # ============================================================
   build-windows-pyinstaller:
     name: Windows (PyInstaller)
     needs: prepare-build
@@ -229,7 +226,7 @@ jobs:
         Commit: ${{ github.sha }}
         "@ | Out-File -FilePath dist_staging/version.txt -Encoding UTF8
         
-        $ZIP_NAME = "ThonCode-Windows-$ARCH-$VERSION-b$BUILD_NUM.zip"
+        $ZIP_NAME = "ThonCode-Windows-$ARCH-b$VERSION-Pyinstaller-$BUILD_NUM.zip"
         Compress-Archive -Path dist_staging/* -DestinationPath $ZIP_NAME -Force
         echo "ZIP_NAME=$ZIP_NAME" >> $env:GITHUB_ENV
     
@@ -265,9 +262,7 @@ jobs:
         path: ${{ env.ZIP_NAME }}
         retention-days: 30
 
-  # ============================================================
   # Windows Nuitka Build
-  # ============================================================
   build-windows-nuitka:
     name: Windows (Nuitka)
     needs: prepare-build
@@ -359,7 +354,7 @@ jobs:
         Commit: ${{ github.sha }}
         "@ | Out-File -FilePath dist_staging/version.txt -Encoding UTF8
         
-        $ZIP_NAME = "ThonCode-Windows-$ARCH-$VERSION-b$BUILD_NUM-nuitka.zip"
+        $ZIP_NAME = "ThonCode-Windows-$ARCH-b$VERSION-zipnuitka-$BUILD_NUM.zip"
         Compress-Archive -Path dist_staging/* -DestinationPath $ZIP_NAME -Force
         echo "ZIP_NAME=$ZIP_NAME" >> $env:GITHUB_ENV
     
@@ -394,9 +389,7 @@ jobs:
         path: ${{ env.ZIP_NAME }}
         retention-days: 30
 
-  # ============================================================
   # Linux Nuitka Build
-  # ============================================================
   build-linux-nuitka:
     name: Linux (Nuitka)
     needs: prepare-build
@@ -552,7 +545,7 @@ jobs:
         sed -i "s/\$ARCH/$ARCH/g" dist_staging/version.txt
         
         cd dist_staging
-        TAR_NAME="ThonCode-Linux-$ARCH-$VERSION-b$BUILD_NUM-nuitka.tar.gz"
+        TAR_NAME="ThonCode-Linux-$ARCH-b$VERSION-nuitka-$BUILD_NUM.tar.gz"
         tar -czf ../$TAR_NAME *
         cd ..
         echo "TAR_NAME=$TAR_NAME" >> $GITHUB_ENV
@@ -589,9 +582,7 @@ jobs:
         path: ${{ env.TAR_NAME }}
         retention-days: 30
 
-  # ============================================================
   # Linux PyInstaller Build
-  # ============================================================
   build-linux-pyinstaller:
     name: Linux (PyInstaller)
     needs: prepare-build
@@ -700,7 +691,7 @@ jobs:
         sed -i "s/\$ARCH/$ARCH/g" dist_staging/version.txt
         
         cd dist_staging
-        TAR_NAME="ThonCode-Linux-$ARCH-$VERSION-b$BUILD_NUM-pyinstaller.tar.gz"
+        TAR_NAME=TAR_NAME="ThonCode-Linux-$ARCH-b$VERSION-pyinstaller-$BUILD_NUM.tar.gz"
         tar -czf ../$TAR_NAME *
         cd ..
         echo "TAR_NAME=$TAR_NAME" >> $GITHUB_ENV
@@ -737,9 +728,7 @@ jobs:
         path: ${{ env.TAR_NAME }}
         retention-days: 30
 
-  # ============================================================
   # Cleanup old builds
-  # ============================================================
   cleanup:
     name: Cleanup Old Builds
     needs: [prepare-build, build-windows-pyinstaller, build-windows-nuitka, build-linux-nuitka, build-linux-pyinstaller]
@@ -782,9 +771,7 @@ jobs:
         git commit -m "Cleanup old builds (kept $KEEP recent) [skip ci]" || echo "No changes to commit"
         git push origin ${{ env.BUILD_BRANCH }}
 
-  # ============================================================
   # Create pre-release
-  # ============================================================
   create-prerelease:
     name: Create Pre-release
     needs: [prepare-build, build-windows-pyinstaller, build-windows-nuitka, build-linux-nuitka, build-linux-pyinstaller]
@@ -831,31 +818,35 @@ jobs:
           ### Downloads
           
           #### Windows (PyInstaller)
-          - ThonCode-Windows-x86_64-${{ needs.prepare-build.outputs.version }}-b${{ needs.prepare-build.outputs.build_number }}.zip
-          
+          - ThonCode-Windows-x86_64-b${{ needs.prepare-build.outputs.version }}-Pyinstaller-${{ needs.prepare-build.outputs.build_number }}.zip
+
           #### Windows (Nuitka)
-          - ThonCode-Windows-x86_64-${{ needs.prepare-build.outputs.version }}-b${{ needs.prepare-build.outputs.build_number }}-nuitka.zip
-          
+          - ThonCode-Windows-x86_64-b${{ needs.prepare-build.outputs.version }}-zipnuitka-${{ needs.prepare-build.outputs.build_number }}.zip
+
           #### Linux (Nuitka)
-          - ThonCode-Linux-x86_64-${{ needs.prepare-build.outputs.version }}-b${{ needs.prepare-build.outputs.build_number }}-nuitka.tar.gz
-          
+          - ThonCode-Linux-x86_64-b${{ needs.prepare-build.outputs.version }}-nuitka-${{ needs.prepare-build.outputs.build_number }}.tar.gz
+
           #### Linux (PyInstaller)
-          - ThonCode-Linux-x86_64-${{ needs.prepare-build.outputs.version }}-b${{ needs.prepare-build.outputs.build_number }}-pyinstaller.tar.gz
-          
+          - ThonCode-Linux-x86_64-b${{ needs.prepare-build.outputs.version }}-pyinstaller-${{ needs.prepare-build.outputs.build_number }}.tar.gz
+
           ### Build Artifacts Branch
           All build artifacts are also stored in the build-artifacts branch.
           
           ### Quick Installation
           
           Windows (PyInstaller):
-          Invoke-WebRequest -Uri "https://github.com/${{ github.repository }}/releases/download/v${{ needs.prepare-build.outputs.version }}-prerelease.${{ needs.prepare-build.outputs.build_number }}/ThonCode-Windows-x86_64-${{ needs.prepare-build.outputs.version }}-b${{ needs.prepare-build.outputs.build_number }}.zip" -OutFile "ThonCode.zip"
+          ```
+          Invoke-WebRequest -Uri "https://github.com/${{ github.repository }}/releases/download/v${{ needs.prepare-build.outputs.version }}-prerelease.${{ needs.prepare-build.outputs.build_number }}/ThonCode-Windows-x86_64-b${{ needs.prepare-build.outputs.version }}-Pyinstaller-${{ needs.prepare-build.outputs.build_number }}.zip" -OutFile "ThonCode.zip"
           Expand-Archive ThonCode.zip -DestinationPath "ThonCode"
+          ```
           
           Linux (Nuitka):
-          wget https://github.com/${{ github.repository }}/releases/download/v${{ needs.prepare-build.outputs.version }}-prerelease.${{ needs.prepare-build.outputs.build_number }}/ThonCode-Linux-x86_64-${{ needs.prepare-build.outputs.version }}-b${{ needs.prepare-build.outputs.build_number }}-nuitka.tar.gz
-          tar -xzf ThonCode-Linux-x86_64-${{ needs.prepare-build.outputs.version }}-b${{ needs.prepare-build.outputs.build_number }}-nuitka.tar.gz
+          ```bash
+          wget https://github.com/${{ github.repository }}/releases/download/v${{ needs.prepare-build.outputs.version }}-prerelease.${{ needs.prepare-build.outputs.build_number }}/ThonCode-Linux-x86_64-b${{ needs.prepare-build.outputs.version }}-nuitka-${{ needs.prepare-build.outputs.build_number }}.tar.gz
+          tar -xzf ThonCode-Linux-x86_64-b${{ needs.prepare-build.outputs.version }}-nuitka-${{ needs.prepare-build.outputs.build_number }}.tar.gz
           chmod +x thoncode
           ./thoncode
+          ```
           
           ### Notes
           - This is a pre-release version that may contain incomplete features or bugs

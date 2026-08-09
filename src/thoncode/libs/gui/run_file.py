@@ -7,6 +7,7 @@ from tkinter import messagebox
 
 import libs.cfg_handle as cfg_handle
 
+
 class RunFileDialog:
     def __init__(self, parent, current_file, is_dirty, save_callback, status_callback):
         self.parent = parent
