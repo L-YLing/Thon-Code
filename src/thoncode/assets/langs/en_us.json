@@ -1,15 +1,28 @@
 {
-    "main.root.new": "New",
+    "main.menu.new": "New",
+    "main.menu.cut": "Cut",
 
-    "main.root.open": "Open",
-    "main.root.save": "Save",
-    "main.root.exit": "Exit",
-    "main.root.file": "File",
-    "main.root.edit": "Edit",
+    "main.menu.open": "Open",
+    "main.menu.open.file": "Open File",
+    "main.menu.opem.folder": "Open Folder",
+
+    "main.menu.save": "Save",
+    "main.menu.save.as": "Save As",
+
+    "main.menu.exit": "Exit",
+
+    "main.menu.file": "File",
+
+    "main.menu.edit": "Edit",
+
+    "main.menu.copy": "Copy",
     
-    "main.root.project": "Project",
+    "main.menu.paste": "Paste",
 
-    "main.root.save.as": "Save As",
+    "main.menu.project": "Project",
 
-    "main.root.project_cfg": "Project Configuration"
+    "main.menu.project_cfg": "Project Settings",
+
+    "search_placeholder": "Search..."
+    
 }

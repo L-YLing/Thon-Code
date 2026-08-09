@@ -1,24 +1,27 @@
 {
-    "main.root.new": "新建",
+    "main.menu.new": "新建",
+    "main.menu.cut": "剪切",
 
-    "main.root.open": "打开",
-    "main.root.open.file": "打开文件",
-    "main.root.opem.folder": "打开文件夹",
+    "main.menu.open": "打开",
+    "main.menu.open.file": "打开文件",
+    "main.menu.opem.folder": "打开文件夹",
 
-    "main.root.save": "保存",
-    "main.root.save.as": "另存为",
+    "main.menu.save": "保存",
+    "main.menu.save.as": "另存为",
 
-    "main.root.exit": "退出",
+    "main.menu.exit": "退出",
 
-    "main.root.file": "文件",
+    "main.menu.file": "文件",
 
-    "main.root.edit": "编辑",
+    "main.menu.edit": "编辑",
 
-    "main.root.quit": "退出",
+    "main.menu.copy": "复制",
 
-    "main.root.project": "项目",
+    "main.menu.paste": "粘贴",
 
-    "main.root.project_cfg": "项目配置",
+    "main.menu.project": "项目",
+
+    "main.menu.project_cfg": "项目配置",
 
     "search_placeholder": "搜索..."
     

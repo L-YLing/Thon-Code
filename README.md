@@ -1,6 +1,9 @@
 # 语言 | Languages
 **中文(简体)** | [**English**](docs/en_us/README/README.md)
 
+# 简介
+**这是一个使用纯Python实现的用于Python项目开发的IDE，并且足够轻量。经过测试，打开一些中小型项目，ThonCode的启动速度与VSCode不差多少(约慢于`VSCode` 0.413s，[点击查看测试信息](#测试))。我们也在积极寻找解决运行时资源占用高、性能弱、启动速度慢等问题。**
+
 # 图标引用许可&原作者署名
 
 文件夹 蓝色的图标 by Papirus Development Team on <a href="https://icon-icons.com/zh/authors/550-papirus-development-team">Icon-Icons.com</a>
@@ -38,6 +41,19 @@
 <img width="1202" height="707" alt="image" src="https://github.com/user-attachments/assets/0499ca67-9980-4554-a87e-90a2ed649cd0" />
 
 <img width="1202" height="707" alt="image" src="https://github.com/user-attachments/assets/fcf90c90-98fa-4a46-a2ec-97f34719ef63" />
+
+# 测试
+
+**以下为基础测试条件：**
+| **IDE软件** | **CPU** | **操作系统平台** | **内存** |
+| --- | --- | --- | --- |
+| **ThonCode** | **Intel G4400** | **Windows** | **DDR4 4GB** |
+| **VSCode** | **Intel G4400** | **Windows** | **DDR4 4GB** |
+
+**测试内容：**
+| **测试用项目** | **VSCode启动用时** | **ThonCode启动用时** |
+| --- | --- | --- |
+| **[markitdown](https://github.com/microsoft/markitdown)** | **1.24s** | **1.65s** |
 
 # 贡献者
 **暂时不想写 OvO**
