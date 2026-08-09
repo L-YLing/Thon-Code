@@ -1,0 +1,7 @@
+ThonCode 0.1.6
+Build: 20260809081110
+Date: $(date '+%Y-%m-%d %H:%M:%S')
+Platform: Linux
+Arch: x86_64
+Builder: Nuitka
+Commit: a8f65cc5e28a40f30e0108f90183d08fecf701fb
