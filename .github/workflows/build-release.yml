@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       version_bump:
-        description: '版本更新类型 (patch/minor/major)'
+        description: 'Version bump type (patch/minor/major)'
         required: true
         default: 'patch'
         type: choice
@@ -18,7 +18,7 @@ on:
           - minor
           - major
       custom_version:
-        description: '自定义版本号 (可选，如: 1.2.3)'
+        description: 'Custom version number (optional, e.g., 1.2.3)'
         required: false
         type: string
 
@@ -26,6 +26,7 @@ env:
   PROJECT_NAME: ThonCode
   BUILD_BRANCH: build-artifacts
   VERSION_FILE: .version
+  KEEP_RECENT_BUILDS: 10
 
 jobs:
   prepare-build:
@@ -37,6 +38,7 @@ jobs:
       version: ${{ steps.version.outputs.version }}
       build_number: ${{ steps.build-number.outputs.number }}
       is_prerelease: true
+      version_tag: v${{ steps.version.outputs.version }}-prerelease.${{ steps.build-number.outputs.number }}
     
     steps:
     - name: Checkout code
@@ -103,25 +105,23 @@ jobs:
           git checkout --orphan ${{ env.BUILD_BRANCH }}
           git rm -rf .
           
-          mkdir -p windows linux latest
+          mkdir -p windows windows-nuitka linux linux-pyinstaller latest
           
           echo "# ThonCode Build Artifacts" > README.md
           echo "" >> README.md
-          echo "这个分支存储 ThonCode 的自动构建产物。" >> README.md
+          echo "This branch stores automatically built ThonCode artifacts." >> README.md
           echo "" >> README.md
-          echo "## 目录结构" >> README.md
+          echo "## Directory Structure" >> README.md
           echo "" >> README.md
-          echo "- windows/ - Windows 版本构建产物" >> README.md
-          echo "  - YYYYMMDD_HHMMSS/ - 按时间戳组织的构建" >> README.md
-          echo "  - latest/ - 最新构建版本" >> README.md
-          echo "- linux/ - Linux 版本构建产物" >> README.md
-          echo "  - YYYYMMDD_HHMMSS/ - 按时间戳组织的构建" >> README.md
-          echo "  - latest/ - 最新构建版本" >> README.md
-          echo "- version.txt - 当前版本信息" >> README.md
+          echo "- windows/ - Windows builds (PyInstaller)" >> README.md
+          echo "- windows-nuitka/ - Windows builds (Nuitka)" >> README.md
+          echo "- linux/ - Linux builds (Nuitka)" >> README.md
+          echo "- linux-pyinstaller/ - Linux builds (PyInstaller)" >> README.md
+          echo "- latest/ - Latest builds" >> README.md
           echo "" >> README.md
-          echo "## 构建信息" >> README.md
+          echo "## Build Information" >> README.md
           echo "" >> README.md
-          echo "这些是自动构建的预发布版本，仅供测试使用。" >> README.md
+          echo "These are automatically built pre-release versions for testing purposes." >> README.md
           
           git add README.md
           git commit -m "Initialize build artifacts branch"
@@ -141,8 +141,8 @@ jobs:
         echo "Commit: ${{ github.sha }}" >> version_info.txt
         echo "Branch: ${{ github.ref_name }}" >> version_info.txt
 
-  build-windows:
-    name: Build Windows (PyInstaller)
+  build-windows-pyinstaller:
+    name: Windows (PyInstaller)
     needs: prepare-build
     runs-on: windows-latest
     timeout-minutes: 30
@@ -194,23 +194,28 @@ jobs:
           --collect-all libs `
           main.py
     
-    - name: Prepare Windows artifacts
+    - name: Prepare artifacts
       run: |
-        $BUILD_DIR = "build_${{ needs.prepare-build.outputs.build_number }}"
         $VERSION = "${{ needs.prepare-build.outputs.version }}"
+        $BUILD_NUM = "${{ needs.prepare-build.outputs.build_number }}"
+        $ARCH = "x86_64"
         
-        New-Item -ItemType Directory -Force -Path "dist_windows"
-        Copy-Item -Recurse -Force src/thoncode/dist/* dist_windows/
+        New-Item -ItemType Directory -Force -Path "dist_staging"
+        Copy-Item -Recurse -Force src/thoncode/dist/* dist_staging/
         
         @"
         ThonCode $VERSION
-        Build: ${{ needs.prepare-build.outputs.build_number }}
+        Build: $BUILD_NUM
         Date: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
         Platform: Windows
+        Arch: $ARCH
+        Builder: PyInstaller
         Commit: ${{ github.sha }}
-        "@ | Out-File -FilePath dist_windows/version.txt -Encoding UTF8
+        "@ | Out-File -FilePath dist_staging/version.txt -Encoding UTF8
         
-        Compress-Archive -Path dist_windows/* -DestinationPath "ThonCode-Windows-$VERSION.zip" -Force
+        $ZIP_NAME = "ThonCode-Windows-$ARCH-$VERSION-b$BUILD_NUM.zip"
+        Compress-Archive -Path dist_staging/* -DestinationPath $ZIP_NAME -Force
+        echo "ZIP_NAME=$ZIP_NAME" >> $env:GITHUB_ENV
     
     - name: Upload to build branch
       run: |
@@ -222,35 +227,144 @@ jobs:
         
         $BUILD_DIR = "build_${{ needs.prepare-build.outputs.build_number }}"
         $VERSION = "${{ needs.prepare-build.outputs.version }}"
+        $ZIP_NAME = "${{ env.ZIP_NAME }}"
         
         New-Item -ItemType Directory -Force -Path "windows/$BUILD_DIR"
         New-Item -ItemType Directory -Force -Path "windows/latest"
         
-        Copy-Item "ThonCode-Windows-$VERSION.zip" "windows/$BUILD_DIR/"
-        Copy-Item "ThonCode-Windows-$VERSION.zip" "windows/latest/ThonCode-Windows-latest.zip"
+        Copy-Item $ZIP_NAME "windows/$BUILD_DIR/"
+        Copy-Item $ZIP_NAME "windows/latest/ThonCode-Windows-latest.zip"
+        
+        Copy-Item dist_staging/version.txt "windows/$BUILD_DIR/"
+        Copy-Item dist_staging/version.txt "windows/latest/"
+        
+        git add windows/
+        git commit -m "Add Windows-PyInstaller build $VERSION-b${{ needs.prepare-build.outputs.build_number }} [skip ci]" || echo "No changes"
+        git push origin ${{ env.BUILD_BRANCH }}
+    
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ThonCode-Windows-PyInstaller-${{ needs.prepare-build.outputs.version }}
+        path: ${{ env.ZIP_NAME }}
+        retention-days: 30
+
+  build-windows-nuitka:
+    name: Windows (Nuitka)
+    needs: prepare-build
+    runs-on: windows-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+        cache: 'pip'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install nuitka zstandard ordered-set
+        pip install customtkinter pillow send2trash
+        if (Test-Path requirements.txt) {
+          pip install -r requirements.txt
+        }
+        if (Test-Path pyproject.toml) {
+          pip install .
+        }
+    
+    - name: Build with Nuitka
+      working-directory: src/thoncode
+      run: |
+        nuitka --standalone `
+          --onefile `
+          --windows-icon-from-ico=assets/icon.ico `
+          --include-data-dir=assets=assets `
+          --include-package=libs `
+          --include-package=libs.code_editor `
+          --include-package=libs.cfg_handle `
+          --include-package=libs.font_loader `
+          --include-package=libs.json_handle `
+          --include-package=libs.langs_handle `
+          --include-module=customtkinter `
+          --include-module=PIL `
+          --include-module=PIL.Image `
+          --include-module=PIL.ImageTk `
+          --enable-plugin=tk-inter `
+          --output-dir=dist `
+          --remove-output `
+          --follow-imports `
+          main.exe
+    
+    - name: Prepare artifacts
+      run: |
+        $VERSION = "${{ needs.prepare-build.outputs.version }}"
+        $BUILD_NUM = "${{ needs.prepare-build.outputs.build_number }}"
+        $ARCH = "x86_64"
+        
+        New-Item -ItemType Directory -Force -Path "dist_staging"
+        
+        $EXE = Get-ChildItem -Path src/thoncode/dist -Filter "*.exe" -Recurse | Select-Object -First 1
+        if ($EXE) {
+          Copy-Item $EXE.FullName dist_staging/ThonCode.exe
+        } else {
+          Write-Error "No executable found!"
+          exit 1
+        }
         
         @"
         ThonCode $VERSION
-        Build: ${{ needs.prepare-build.outputs.build_number }}
+        Build: $BUILD_NUM
         Date: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
         Platform: Windows
+        Arch: $ARCH
+        Builder: Nuitka
         Commit: ${{ github.sha }}
-        "@ | Out-File -FilePath "windows/$BUILD_DIR/version.txt" -Encoding UTF8
-        Copy-Item "windows/$BUILD_DIR/version.txt" "windows/latest/version.txt" -Force
+        "@ | Out-File -FilePath dist_staging/version.txt -Encoding UTF8
         
-        git add windows/
-        git commit -m "Add Windows build $VERSION-${{ needs.prepare-build.outputs.build_number }} [skip ci]" || echo "No changes to commit"
+        $ZIP_NAME = "ThonCode-Windows-$ARCH-$VERSION-b$BUILD_NUM-nuitka.zip"
+        Compress-Archive -Path dist_staging/* -DestinationPath $ZIP_NAME -Force
+        echo "ZIP_NAME=$ZIP_NAME" >> $env:GITHUB_ENV
+    
+    - name: Upload to build branch
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        
+        git fetch origin ${{ env.BUILD_BRANCH }}
+        git checkout ${{ env.BUILD_BRANCH }} || git checkout -b ${{ env.BUILD_BRANCH }}
+        
+        $BUILD_DIR = "build_${{ needs.prepare-build.outputs.build_number }}"
+        $ZIP_NAME = "${{ env.ZIP_NAME }}"
+        
+        New-Item -ItemType Directory -Force -Path "windows-nuitka/$BUILD_DIR"
+        New-Item -ItemType Directory -Force -Path "windows-nuitka/latest"
+        
+        Copy-Item $ZIP_NAME "windows-nuitka/$BUILD_DIR/"
+        Copy-Item $ZIP_NAME "windows-nuitka/latest/ThonCode-Windows-Nuitka-latest.zip"
+        
+        Copy-Item dist_staging/version.txt "windows-nuitka/$BUILD_DIR/"
+        Copy-Item dist_staging/version.txt "windows-nuitka/latest/"
+        
+        git add windows-nuitka/
+        git commit -m "Add Windows-Nuitka build $VERSION-b${{ needs.prepare-build.outputs.build_number }} [skip ci]" || echo "No changes"
         git push origin ${{ env.BUILD_BRANCH }}
     
-    - name: Upload Windows artifact (workflow)
+    - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ThonCode-Windows-${{ needs.prepare-build.outputs.version }}
-        path: ThonCode-Windows-${{ needs.prepare-build.outputs.version }}.zip
+        name: ThonCode-Windows-Nuitka-${{ needs.prepare-build.outputs.version }}
+        path: ${{ env.ZIP_NAME }}
         retention-days: 30
 
-  build-linux:
-    name: Build Linux (Nuitka)
+  build-linux-nuitka:
+    name: Linux (Nuitka)
     needs: prepare-build
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -318,8 +432,8 @@ jobs:
           --include-module=PIL.ImageTk \
           --enable-plugin=tk-inter \
           --output-dir=dist \
-          --no-pyi-file \
           --remove-output \
+          --follow-imports \
           main.py || true
         
         if [ ! -f dist/main.exe ] && [ ! -f dist/main.bin ]; then
@@ -338,42 +452,52 @@ jobs:
             --include-module=PIL.ImageTk \
             --enable-plugin=tk-inter \
             --output-dir=dist-standalone \
-            --no-pyi-file \
             --remove-output \
+            --follow-imports \
             main.py
         fi
     
-    - name: Prepare Linux artifacts
+    - name: Prepare artifacts
       run: |
-        mkdir -p dist_linux
+        mkdir -p dist_staging
         VERSION="${{ needs.prepare-build.outputs.version }}"
+        BUILD_NUM="${{ needs.prepare-build.outputs.build_number }}"
+        ARCH="x86_64"
         
         if [ -f src/thoncode/dist/main.exe ]; then
-          cp src/thoncode/dist/main.exe dist_linux/thoncode
+          cp src/thoncode/dist/main.exe dist_staging/thoncode
         elif [ -f src/thoncode/dist/main.bin ]; then
-          cp src/thoncode/dist/main.bin dist_linux/thoncode
+          cp src/thoncode/dist/main.bin dist_staging/thoncode
         elif [ -f src/thoncode/dist-standalone/main.dist/main.exe ]; then
-          cp -r src/thoncode/dist-standalone/main.dist/* dist_linux/
-          mv dist_linux/main.exe dist_linux/thoncode
+          cp -r src/thoncode/dist-standalone/main.dist/* dist_staging/
+          mv dist_staging/main.exe dist_staging/thoncode
         else
           echo "No executable found!"
           find src/thoncode -name "main*" -type f
           exit 1
         fi
         
-        chmod +x dist_linux/thoncode
+        chmod +x dist_staging/thoncode
         
-        cat > dist_linux/version.txt << 'EOF'
-        ThonCode ${{ needs.prepare-build.outputs.version }}
-        Build: ${{ needs.prepare-build.outputs.build_number }}
+        cat > dist_staging/version.txt << 'EOF'
+        ThonCode $VERSION
+        Build: $BUILD_NUM
         Date: $(date '+%Y-%m-%d %H:%M:%S')
         Platform: Linux
+        Arch: $ARCH
+        Builder: Nuitka
         Commit: ${{ github.sha }}
         EOF
         
-        cd dist_linux
-        tar -czf ../ThonCode-Linux-${{ needs.prepare-build.outputs.version }}.tar.gz *
+        sed -i "s/\$VERSION/$VERSION/g" dist_staging/version.txt
+        sed -i "s/\$BUILD_NUM/$BUILD_NUM/g" dist_staging/version.txt
+        sed -i "s/\$ARCH/$ARCH/g" dist_staging/version.txt
+        
+        cd dist_staging
+        TAR_NAME="ThonCode-Linux-$ARCH-$VERSION-b$BUILD_NUM-nuitka.tar.gz"
+        tar -czf ../$TAR_NAME *
         cd ..
+        echo "TAR_NAME=$TAR_NAME" >> $GITHUB_ENV
     
     - name: Upload to build branch
       run: |
@@ -384,32 +508,206 @@ jobs:
         git checkout ${{ env.BUILD_BRANCH }} || git checkout -b ${{ env.BUILD_BRANCH }}
         
         BUILD_DIR="build_${{ needs.prepare-build.outputs.build_number }}"
-        VERSION="${{ needs.prepare-build.outputs.version }}"
+        TAR_NAME="${{ env.TAR_NAME }}"
         
         mkdir -p linux/$BUILD_DIR
         mkdir -p linux/latest
         
-        cp ThonCode-Linux-$VERSION.tar.gz linux/$BUILD_DIR/
-        cp ThonCode-Linux-$VERSION.tar.gz linux/latest/ThonCode-Linux-latest.tar.gz
+        cp $TAR_NAME linux/$BUILD_DIR/
+        cp $TAR_NAME linux/latest/ThonCode-Linux-Nuitka-latest.tar.gz
         
-        cp dist_linux/version.txt linux/$BUILD_DIR/
-        cp dist_linux/version.txt linux/latest/
+        cp dist_staging/version.txt linux/$BUILD_DIR/
+        cp dist_staging/version.txt linux/latest/
         
         git add linux/
-        git commit -m "Add Linux build $VERSION-${{ needs.prepare-build.outputs.build_number }} [skip ci]" || echo "No changes to commit"
+        git commit -m "Add Linux-Nuitka build $VERSION-b${{ needs.prepare-build.outputs.build_number }} [skip ci]" || echo "No changes"
         git push origin ${{ env.BUILD_BRANCH }}
     
-    - name: Upload Linux artifact (workflow)
+    - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ThonCode-Linux-${{ needs.prepare-build.outputs.version }}
-        path: ThonCode-Linux-${{ needs.prepare-build.outputs.version }}.tar.gz
+        name: ThonCode-Linux-Nuitka-${{ needs.prepare-build.outputs.version }}
+        path: ${{ env.TAR_NAME }}
         retention-days: 30
+
+  build-linux-pyinstaller:
+    name: Linux (PyInstaller)
+    needs: prepare-build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+        cache: 'pip'
+    
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          python3-dev \
+          python3-tk \
+          libx11-dev \
+          libxext-dev \
+          libxrender-dev \
+          libxft-dev
+    
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyinstaller
+        pip install customtkinter pillow send2trash
+        if [ -f requirements.txt ]; then
+          pip install -r requirements.txt
+        fi
+        if [ -f pyproject.toml ]; then
+          pip install -e .
+        fi
+    
+    - name: Build with PyInstaller
+      working-directory: src/thoncode
+      run: |
+        pyinstaller --name ThonCode \
+          --onedir \
+          --windowed \
+          --icon "assets/icon.png" \
+          --add-data "assets:assets" \
+          --add-data "libs:libs" \
+          --hidden-import customtkinter \
+          --hidden-import PIL \
+          --hidden-import PIL.Image \
+          --hidden-import PIL.ImageTk \
+          --hidden-import send2trash \
+          --hidden-import libs \
+          --hidden-import libs.code_editor \
+          --hidden-import libs.cfg_handle \
+          --hidden-import libs.font_loader \
+          --hidden-import libs.json_handle \
+          --hidden-import libs.langs_handle \
+          --collect-all libs \
+          main.py
+    
+    - name: Prepare artifacts
+      run: |
+        mkdir -p dist_staging
+        VERSION="${{ needs.prepare-build.outputs.version }}"
+        BUILD_NUM="${{ needs.prepare-build.outputs.build_number }}"
+        ARCH="x86_64"
+        
+        cp -r src/thoncode/dist/* dist_staging/
+        
+        if [ -f dist_staging/ThonCode ]; then
+          mv dist_staging/ThonCode dist_staging/thoncode
+        elif [ -f dist_staging/main ]; then
+          mv dist_staging/main dist_staging/thoncode
+        fi
+        chmod +x dist_staging/thoncode
+        
+        cat > dist_staging/version.txt << 'EOF'
+        ThonCode $VERSION
+        Build: $BUILD_NUM
+        Date: $(date '+%Y-%m-%d %H:%M:%S')
+        Platform: Linux
+        Arch: $ARCH
+        Builder: PyInstaller
+        Commit: ${{ github.sha }}
+        EOF
+        
+        sed -i "s/\$VERSION/$VERSION/g" dist_staging/version.txt
+        sed -i "s/\$BUILD_NUM/$BUILD_NUM/g" dist_staging/version.txt
+        sed -i "s/\$ARCH/$ARCH/g" dist_staging/version.txt
+        
+        cd dist_staging
+        TAR_NAME="ThonCode-Linux-$ARCH-$VERSION-b$BUILD_NUM-pyinstaller.tar.gz"
+        tar -czf ../$TAR_NAME *
+        cd ..
+        echo "TAR_NAME=$TAR_NAME" >> $GITHUB_ENV
+    
+    - name: Upload to build branch
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        
+        git fetch origin ${{ env.BUILD_BRANCH }}
+        git checkout ${{ env.BUILD_BRANCH }} || git checkout -b ${{ env.BUILD_BRANCH }}
+        
+        BUILD_DIR="build_${{ needs.prepare-build.outputs.build_number }}"
+        TAR_NAME="${{ env.TAR_NAME }}"
+        
+        mkdir -p linux-pyinstaller/$BUILD_DIR
+        mkdir -p linux-pyinstaller/latest
+        
+        cp $TAR_NAME linux-pyinstaller/$BUILD_DIR/
+        cp $TAR_NAME linux-pyinstaller/latest/ThonCode-Linux-PyInstaller-latest.tar.gz
+        
+        cp dist_staging/version.txt linux-pyinstaller/$BUILD_DIR/
+        cp dist_staging/version.txt linux-pyinstaller/latest/
+        
+        git add linux-pyinstaller/
+        git commit -m "Add Linux-PyInstaller build $VERSION-b${{ needs.prepare-build.outputs.build_number }} [skip ci]" || echo "No changes"
+        git push origin ${{ env.BUILD_BRANCH }}
+    
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ThonCode-Linux-PyInstaller-${{ needs.prepare-build.outputs.version }}
+        path: ${{ env.TAR_NAME }}
+        retention-days: 30
+
+  cleanup:
+    name: Cleanup Old Builds
+    needs: [prepare-build, build-windows-pyinstaller, build-windows-nuitka, build-linux-nuitka, build-linux-pyinstaller]
+    runs-on: ubuntu-latest
+    if: always()
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout build branch
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ env.BUILD_BRANCH }}
+        fetch-depth: 0
+    
+    - name: Cleanup old builds
+      run: |
+        KEEP=${{ env.KEEP_RECENT_BUILDS }}
+        echo "Keeping $KEEP recent builds..."
+        
+        cd windows || exit 0
+        ls -1d build_* 2>/dev/null | sort | head -n -$KEEP | xargs -r rm -rf
+        cd ..
+        
+        cd windows-nuitka || exit 0
+        ls -1d build_* 2>/dev/null | sort | head -n -$KEEP | xargs -r rm -rf
+        cd ..
+        
+        cd linux || exit 0
+        ls -1d build_* 2>/dev/null | sort | head -n -$KEEP | xargs -r rm -rf
+        cd ..
+        
+        cd linux-pyinstaller || exit 0
+        ls -1d build_* 2>/dev/null | sort | head -n -$KEEP | xargs -r rm -rf
+        cd ..
+        
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git add .
+        git commit -m "Cleanup old builds (kept $KEEP recent) [skip ci]" || echo "No changes to commit"
+        git push origin ${{ env.BUILD_BRANCH }}
 
   create-prerelease:
     name: Create Pre-release
-    needs: [prepare-build, build-windows, build-linux]
+    needs: [prepare-build, build-windows-pyinstaller, build-windows-nuitka, build-linux-nuitka, build-linux-pyinstaller]
     runs-on: ubuntu-latest
+    if: always()
     permissions:
       contents: write
       packages: write
@@ -426,50 +724,61 @@ jobs:
       with:
         path: artifacts/
     
+    - name: List artifacts
+      run: |
+        echo "Downloaded artifacts:"
+        find artifacts/ -type f -name "*.zip" -o -name "*.tar.gz" | sort
+    
     - name: Create pre-release
       uses: softprops/action-gh-release@v1
       with:
         tag_name: v${{ needs.prepare-build.outputs.version }}-prerelease.${{ needs.prepare-build.outputs.build_number }}
         name: Pre-release v${{ needs.prepare-build.outputs.version }} (Build ${{ needs.prepare-build.outputs.build_number }})
         body: |
-          ## 预发布版本
+          ## Pre-release Version
           
-          这是一个自动构建的预发布版本，仅供测试使用。
+          This is an automatically built pre-release version for testing purposes only.
           
-          ### 版本信息
-          - 版本: v${{ needs.prepare-build.outputs.version }}
-          - 构建号: ${{ needs.prepare-build.outputs.build_number }}
-          - 构建时间: $(date '+%Y-%m-%d %H:%M:%S')
-          - 提交: ${{ github.sha }}
-          - 分支: ${{ github.ref_name }}
+          ### Version Information
+          - Version: v${{ needs.prepare-build.outputs.version }}
+          - Build Number: ${{ needs.prepare-build.outputs.build_number }}
+          - Build Time: $(date '+%Y-%m-%d %H:%M:%S')
+          - Commit: ${{ github.sha }}
+          - Branch: ${{ github.ref_name }}
           
-          ### 下载
+          ### Downloads
           
-          Windows:
-          ThonCode-Windows-${{ needs.prepare-build.outputs.version }}.zip
+          #### Windows (PyInstaller)
+          - ThonCode-Windows-x86_64-${{ needs.prepare-build.outputs.version }}-b${{ needs.prepare-build.outputs.build_number }}.zip
           
-          Linux:
-          ThonCode-Linux-${{ needs.prepare-build.outputs.version }}.tar.gz
+          #### Windows (Nuitka)
+          - ThonCode-Windows-x86_64-${{ needs.prepare-build.outputs.version }}-b${{ needs.prepare-build.outputs.build_number }}-nuitka.zip
           
-          ### 构建产物分支
-          所有构建产物也保存在 build-artifacts 分支中。
+          #### Linux (Nuitka)
+          - ThonCode-Linux-x86_64-${{ needs.prepare-build.outputs.version }}-b${{ needs.prepare-build.outputs.build_number }}-nuitka.tar.gz
           
-          ### 快速安装
+          #### Linux (PyInstaller)
+          - ThonCode-Linux-x86_64-${{ needs.prepare-build.outputs.version }}-b${{ needs.prepare-build.outputs.build_number }}-pyinstaller.tar.gz
           
-          Windows:
-          Invoke-WebRequest -Uri "https://github.com/${{ github.repository }}/releases/download/v${{ needs.prepare-build.outputs.version }}-prerelease.${{ needs.prepare-build.outputs.build_number }}/ThonCode-Windows-${{ needs.prepare-build.outputs.version }}.zip" -OutFile "ThonCode.zip"
+          ### Build Artifacts Branch
+          All build artifacts are also stored in the build-artifacts branch.
+          
+          ### Quick Installation
+          
+          Windows (PyInstaller):
+          Invoke-WebRequest -Uri "https://github.com/${{ github.repository }}/releases/download/v${{ needs.prepare-build.outputs.version }}-prerelease.${{ needs.prepare-build.outputs.build_number }}/ThonCode-Windows-x86_64-${{ needs.prepare-build.outputs.version }}-b${{ needs.prepare-build.outputs.build_number }}.zip" -OutFile "ThonCode.zip"
           Expand-Archive ThonCode.zip -DestinationPath "ThonCode"
           
-          Linux:
-          wget https://github.com/${{ github.repository }}/releases/download/v${{ needs.prepare-build.outputs.version }}-prerelease.${{ needs.prepare-build.outputs.build_number }}/ThonCode-Linux-${{ needs.prepare-build.outputs.version }}.tar.gz
-          tar -xzf ThonCode-Linux-${{ needs.prepare-build.outputs.version }}.tar.gz
+          Linux (Nuitka):
+          wget https://github.com/${{ github.repository }}/releases/download/v${{ needs.prepare-build.outputs.version }}-prerelease.${{ needs.prepare-build.outputs.build_number }}/ThonCode-Linux-x86_64-${{ needs.prepare-build.outputs.version }}-b${{ needs.prepare-build.outputs.build_number }}-nuitka.tar.gz
+          tar -xzf ThonCode-Linux-x86_64-${{ needs.prepare-build.outputs.version }}-b${{ needs.prepare-build.outputs.build_number }}-nuitka.tar.gz
           chmod +x thoncode
           ./thoncode
           
-          ### 注意事项
-          - 这是预发布版本，可能包含未完成的功能或 Bug
-          - 请在使用前备份重要数据
-          - 如有问题，请提交 Issue
+          ### Notes
+          - This is a pre-release version that may contain incomplete features or bugs
+          - Please backup your important data before using
+          - Please submit an Issue if you encounter any problems
         draft: false
         prerelease: true
         files: |
@@ -477,16 +786,3 @@ jobs:
           artifacts/**/*.tar.gz
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
-    - name: Update latest version file
-      run: |
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
-        
-        echo "v${{ needs.prepare-build.outputs.version }}" > latest_version.txt
-        echo "${{ needs.prepare-build.outputs.build_number }}" >> latest_version.txt
-        echo "$(date '+%Y-%m-%d %H:%M:%S')" >> latest_version.txt
-        
-        git add latest_version.txt
-        git commit -m "Update latest version [skip ci]" || echo "No changes"
-        git push origin ${{ env.BUILD_BRANCH }}
