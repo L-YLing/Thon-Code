@@ -1,0 +1,5 @@
+ThonCode 0.1.4
+Build: 20260809074326
+Date: 2026-08-09 07:44:41
+Platform: Windows
+Commit: 5ae927cffd97c74e535c3fe05afa53d4de56b24b
