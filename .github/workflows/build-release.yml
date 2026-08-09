@@ -833,6 +833,7 @@ jobs:
           ```bash
           Invoke-WebRequest -Uri "https://github.com/${{ github.repository }}/releases/download/v${{ needs.prepare-build.outputs.version }}-prerelease.${{ needs.prepare-build.outputs.build_number }}/ThonCode-Windows-x86_64-b${{ needs.prepare-build.outputs.version }}-Pyinstaller-${{ needs.prepare-build.outputs.build_number }}.zip" -OutFile "ThonCode.zip"
           Expand-Archive ThonCode.zip -DestinationPath "ThonCode"
+          ```
           
           Linux (Nuitka):
           ```bash
