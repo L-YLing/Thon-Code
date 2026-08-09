@@ -8,25 +8,68 @@ import tkinter as tk
 from libs import font_loader
 
 class CodeEditor:
-    def __init__(self, master, main_window=None, language="python", font_ligatures=True, tab_size=4):
+    def __init__(self, master, main_window=None, language="python", font_ligatures=True, tab_size=4, current_file=None):
         self.master = master
         self.language = language
         self.tab_size = tab_size
         self.main_window = main_window
+        self.current_file = current_file
+        self._completion_enabled = self._should_enable_completion(current_file)
         self.groups = []
-        self.bracket_pairs = {'(': ')', '[': ']', '{': '}'}
         self._bracket_tag = None
-        self.current_file = None
         self._saving = False
+        self._folded_lines = {}
+        self._fold_markers = {}
+        self.bracket_pairs = {'(': ')', '[': ']', '{': '}'}
 
-        self.textbox = ctk.CTkTextbox(master, wrap="none")
+        self.main_frame = ctk.CTkFrame(master, fg_color="transparent")
+        
+        self.font = ("Consolas", 12)
+        if font_ligatures:
+            try:
+                from libs import font_loader
+                loaded_font = font_loader.load_fira_code_font(master, 12, font_ligatures)
+                font_name = loaded_font.actual('family')
+                font_size = int(loaded_font.actual('size'))
+                self.font = (font_name, font_size)
+            except:
+                self.font = ("Consolas", 12)
+        else:
+            self.font = ("Consolas", 12)
+
+        self.line_numbers = ctk.CTkTextbox(
+            self.main_frame,
+            width=50,
+            fg_color="#1e1e1e",
+            text_color="#858585",
+            font=self.font,
+            wrap="none",
+            state="disabled"
+        )
+        self.line_numbers.pack(side="left", fill="y", padx=(0, 0))
+        
+        self.textbox = ctk.CTkTextbox(self.main_frame, wrap="none", font=self.font)
         self._textbox = self.textbox._textbox
-        self.font = font_loader.load_fira_code_font(master, 12, font_ligatures)
-        self._textbox.config(font=self.font)
-        self._textbox.tag_config("sel", background="#002346", foreground="white")
 
+        self._tk_font = tk.font.Font(family=self.font[0], size=self.font[1])
+        self._textbox.config(font=self._tk_font)
+        self._textbox.tag_config("sel", background="#002346", foreground="white")
         self._textbox.config(undo=True, maxundo=100)
         self._textbox.edit_modified(False)
+        self.textbox.pack(side="left", fill="both", expand=True)
+
+        self._textbox.bind("<MouseWheel>", self._on_scroll)
+        self._textbox.bind("<Button-4>", self._on_scroll)
+        self._textbox.bind("<Button-5>", self._on_scroll)
+        self._textbox.bind("<KeyRelease>", self._on_text_change)
+        self._textbox.bind("<Configure>", self._update_line_numbers)
+        self._textbox.bind("<<Modified>>", self._on_modified)
+
+        self.line_numbers._textbox.bind("<Button-1>", self._on_line_number_click)
+        
+        self.line_numbers._textbox.bind("<MouseWheel>", self._on_line_scroll)
+        self.line_numbers._textbox.bind("<Button-4>", self._on_line_scroll)
+        self.line_numbers._textbox.bind("<Button-5>", self._on_line_scroll)
 
         self.completion_window = None
         self.completion_listbox = None
@@ -37,7 +80,6 @@ class CodeEditor:
         self._is_selecting = False
         self._init_completion_window()
 
-        # 快捷键绑定
         self._textbox.bind("<Control-s>", self._on_ctrl_s)
         self._textbox.bind("<Control-S>", self._on_ctrl_s)
         self._textbox.bind("<Control-z>", self._on_ctrl_z)
@@ -61,8 +103,170 @@ class CodeEditor:
         self.load_language(language)
         self.highlight_all()
 
+    def _on_line_number_click(self, event):
+        if self.language != "python":
+            return
+        
+        index = self.line_numbers._textbox.index(f"@{event.x},{event.y}")
+        line_num = int(index.split('.')[0])
+        
+        fold_regions = self._get_foldable_regions()
+        foldable_starts = [start for start, _ in fold_regions]
+        
+        if line_num in foldable_starts:
+            self.toggle_fold(line_num)
+        elif line_num in self._folded_lines:
+            self.toggle_fold(line_num)
+
+    def _get_foldable_regions(self):
+        if self.language != "python":
+            return []
+        
+        content = self._textbox.get("1.0", "end-1c")
+        lines = content.splitlines()
+        fold_regions = []
+        stack = []
+        
+        for i, line in enumerate(lines, 1):
+            stripped = line.strip()
+            
+            if stripped.startswith('def ') or stripped.startswith('async def '):
+                base_indent = len(line) - len(line.lstrip(' '))
+                end_line = self._find_block_end(lines, i, base_indent + 4)
+                if end_line > i:
+                    fold_regions.append((i, end_line))
+            
+            elif stripped.startswith('class '):
+                base_indent = len(line) - len(line.lstrip(' '))
+                end_line = self._find_block_end(lines, i, base_indent + 4)
+                if end_line > i:
+                    fold_regions.append((i, end_line))
+            
+            elif any(ch in line for ch in '({['):
+                pass
+        
+        return fold_regions
+
+    def _on_line_scroll(self, event):
+        try:
+            if hasattr(event, 'num'):
+                if event.num == 4:
+                    self._textbox.yview_scroll(-1, "units")
+                elif event.num == 5:
+                    self._textbox.yview_scroll(1, "units")
+            else:
+                delta = -1 * (event.delta / 120)
+                self._textbox.yview_scroll(int(delta), "units")
+        except:
+            pass
+        self.line_numbers._textbox.yview_moveto(self._textbox.yview()[0])
+        
+        return "break"
+
+    def _find_block_end(self, lines, start_line, min_indent):
+        """查找代码块的结束行"""
+        if start_line >= len(lines):
+            return start_line
+        
+        # 从下一行开始查找
+        for i in range(start_line, len(lines)):
+            line = lines[i]
+            if not line.strip():  # 空行跳过
+                continue
+            
+            # 计算缩进
+            indent = len(line) - len(line.lstrip(' '))
+            
+            # 如果缩进小于最小缩进，说明块结束
+            if indent < min_indent:
+                return i
+        
+        return len(lines)
+
+    def toggle_fold(self, line_num):
+        if line_num in self._folded_lines:
+            end_line = self._folded_lines.pop(line_num)
+            self._textbox.edit_modified(False)
+            self._update_line_numbers()
+            self.highlight_all()
+        else:
+            fold_regions = self._get_foldable_regions()
+            for start, end in fold_regions:
+                if start == line_num and end > start + 1:
+                    self._folded_lines[start] = end
+                    self._textbox.edit_modified(False)
+                    self._update_line_numbers()
+                    self.highlight_all()
+                    break
+
+    def _update_line_numbers(self, event=None):
+        if not self._textbox:
+            return
+        
+        try:
+            line_count = int(self._textbox.index('end-1c').split('.')[0])
+        except:
+            line_count = 1
+        
+        lines = [str(i) for i in range(1, line_count + 1)]
+
+        self.line_numbers._textbox.config(state="normal")
+        self.line_numbers.delete("1.0", "end")
+        self.line_numbers.insert("1.0", "\n".join(lines))
+        self.line_numbers._textbox.config(state="disabled")
+
+        self.line_numbers._textbox.yview_moveto(self._textbox.yview()[0])
+
+    def _on_text_change(self, event=None):
+        if hasattr(self, '_after_line_id'):
+            self.master.after_cancel(self._after_line_id)
+        self._after_line_id = self.master.after(50, self._update_line_numbers)
+
+    def _on_modified(self, event=None):
+        self._update_line_numbers()
+        self._textbox.edit_modified(False)
+
+    def _on_scroll(self, event):
+        try:
+            if hasattr(event, 'num'):
+                if event.num == 4:
+                    self._textbox.yview_scroll(-1, "units")
+                elif event.num == 5:
+                    self._textbox.yview_scroll(1, "units")
+            else:
+                delta = -1 * (event.delta / 120)
+                self._textbox.yview_scroll(int(delta), "units")
+        except:
+            pass
+        self.line_numbers._textbox.yview_moveto(self._textbox.yview()[0])
+        
+        return None
+
+    def _should_enable_completion(self, file_path):
+        if not file_path:
+            return False
+        
+        ext = os.path.splitext(file_path)[1].lower()
+        # 支持自动补全的扩展名
+        completion_supported = {
+            '.py', 
+            '.js', 
+            '.jsx', 
+            '.ts', 
+            '.tsx', 
+            '.java', 
+            '.go', 
+            '.rs', 
+            '.rb', 
+            '.php',
+            '.c', 
+            '.cpp', 
+            '.h', 
+            '.hpp'
+        }
+        return ext in completion_supported
+
     def _on_ctrl_s(self, event):
-        """Ctrl+S"""
         if not self.main_window:
             return "break"
         
@@ -77,6 +281,9 @@ class CodeEditor:
                 master.update_title()
                 master.status_bar.configure(text=f"已保存: {master.current_file}")
                 self._textbox.edit_modified(False)
+                # 同步当前文件路径
+                self.current_file = master.current_file
+                self._completion_enabled = self._should_enable_completion(self.current_file)
                 print(f"已保存: {master.current_file}")
             except Exception as e:
                 messagebox.showerror("错误", f"保存失败：{e}")
@@ -113,6 +320,9 @@ class CodeEditor:
         return "break"
 
     def get_widget(self):
+        return self.main_frame
+
+    def get_textbox(self):
         return self.textbox
 
     def _init_completion_window(self):
@@ -200,13 +410,17 @@ class CodeEditor:
         self.highlight_all()
 
     def _update_completion(self):
-        # 抑制刷新
         if self._is_selecting:
+            return
+
+        if not self._completion_enabled:
+            self._hide_completion()
             return
 
         if not self._textbox.get("1.0", "end-1c").strip():
             self._hide_completion()
             return
+            
         if not self.current_file or not self.current_file.endswith('.py'):
             self._hide_completion()
             return
@@ -303,7 +517,6 @@ class CodeEditor:
         self._hide_completion()
         self.highlight_all()
 
-    # 编程语言配置
     def load_language(self, language):
         config_dir = "assets/languages"
         os.makedirs(config_dir, exist_ok=True)
@@ -321,6 +534,9 @@ class CodeEditor:
         self._textbox.tag_config("function", foreground="#61AFEF")
         self._textbox.tag_config("classname", foreground="#E5C07B")
         self._textbox.tag_config("bracket_match", background="#FFFF00")
+        
+        self._folded_lines.clear()
+        self._fold_markers.clear()
 
     def _create_default_language_file(self, language, path):
         if language == "python":
@@ -337,19 +553,20 @@ class CodeEditor:
         with open(path, "w", encoding="utf-8") as f:
             json.dump(default, f, indent=4, ensure_ascii=False)
 
-    # 键盘释放事件
     def on_key_release(self, event=None):
         self.highlight_all()
         self.highlight_matching_bracket()
+
+        self._update_line_numbers()
+        if self.current_file:
+            self._completion_enabled = self._should_enable_completion(self.current_file)
         if self._after_completion_id:
             self.master.after_cancel(self._after_completion_id)
         self._after_completion_id = self.master.after(100, self._update_completion)
-
-    # 光标移动
+    
     def on_cursor_move(self, event):
         self.highlight_matching_bracket()
 
-    # 高亮
     def highlight_all(self, event=None):
         text_widget = self._textbox
         content = text_widget.get("1.0", "end-1c")
@@ -502,7 +719,21 @@ class CodeEditor:
                         return text_widget.index(f"1.0+{popped}c")
         return None
 
-    # 全选
+    def set_language(self, language):
+        if self.language != language:
+            self.language = language
+            self.current_file = None
+            for tag in self._textbox.tag_names():
+                if tag.startswith("kw_") or tag in ("comment","string","number","function","classname","bracket_match"):
+                    self._textbox.tag_delete(tag)
+            self.load_language(language)
+            self.highlight_all()
+            self._update_line_numbers()
+        
+        self._completion_enabled = self._should_enable_completion(self.current_file)
+        if not self._completion_enabled:
+            self._hide_completion()
+
     def select_all(self, event=None):
         self._hide_completion()
         self._textbox.tag_add("sel", "1.0", "end")
