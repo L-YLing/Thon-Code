@@ -7,7 +7,7 @@ import libs.cfg_handle as cfg_handle
 class EditorManager:
     def __init__(self, parent, main_window, status_callback, update_title_callback):
         self.parent = parent
-        self.main_window = main_window  # 新增
+        self.main_window = main_window
         self.status_callback = status_callback
         self.update_title_callback = update_title_callback
         
