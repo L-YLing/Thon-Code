@@ -105,25 +105,23 @@ jobs:
           
           mkdir -p windows linux latest
           
-          cat > README.md << 'EOF'
-          # ThonCode Build Artifacts
-          
-          这个分支存储 ThonCode 的自动构建产物。
-          
-          ## 目录结构
-          
-          - windows/ - Windows 版本构建产物
-            - YYYYMMDD_HHMMSS/ - 按时间戳组织的构建
-            - latest/ - 最新构建版本
-          - linux/ - Linux 版本构建产物
-            - YYYYMMDD_HHMMSS/ - 按时间戳组织的构建
-            - latest/ - 最新构建版本
-          - version.txt - 当前版本信息
-          
-          ## 构建信息
-          
-          这些是自动构建的预发布版本，仅供测试使用。
-          EOF
+          echo "# ThonCode Build Artifacts" > README.md
+          echo "" >> README.md
+          echo "这个分支存储 ThonCode 的自动构建产物。" >> README.md
+          echo "" >> README.md
+          echo "## 目录结构" >> README.md
+          echo "" >> README.md
+          echo "- windows/ - Windows 版本构建产物" >> README.md
+          echo "  - YYYYMMDD_HHMMSS/ - 按时间戳组织的构建" >> README.md
+          echo "  - latest/ - 最新构建版本" >> README.md
+          echo "- linux/ - Linux 版本构建产物" >> README.md
+          echo "  - YYYYMMDD_HHMMSS/ - 按时间戳组织的构建" >> README.md
+          echo "  - latest/ - 最新构建版本" >> README.md
+          echo "- version.txt - 当前版本信息" >> README.md
+          echo "" >> README.md
+          echo "## 构建信息" >> README.md
+          echo "" >> README.md
+          echo "这些是自动构建的预发布版本，仅供测试使用。" >> README.md
           
           git add README.md
           git commit -m "Initialize build artifacts branch"
@@ -365,8 +363,8 @@ jobs:
         
         chmod +x dist_linux/thoncode
         
-        cat > dist_linux/version.txt << EOF
-        ThonCode $VERSION
+        cat > dist_linux/version.txt << 'EOF'
+        ThonCode ${{ needs.prepare-build.outputs.version }}
         Build: ${{ needs.prepare-build.outputs.build_number }}
         Date: $(date '+%Y-%m-%d %H:%M:%S')
         Platform: Linux
@@ -374,7 +372,7 @@ jobs:
         EOF
         
         cd dist_linux
-        tar -czf ../ThonCode-Linux-$VERSION.tar.gz *
+        tar -czf ../ThonCode-Linux-${{ needs.prepare-build.outputs.version }}.tar.gz *
         cd ..
     
     - name: Upload to build branch
