@@ -1,0 +1,494 @@
+name: Build and Release ThonCode (Pre-release)
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - develop
+  workflow_dispatch:
+    inputs:
+      version_bump:
+        description: '版本更新类型 (patch/minor/major)'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+      custom_version:
+        description: '自定义版本号 (可选，如: 1.2.3)'
+        required: false
+        type: string
+
+env:
+  PROJECT_NAME: ThonCode
+  BUILD_BRANCH: build-artifacts
+  VERSION_FILE: .version
+
+jobs:
+  prepare-build:
+    name: Prepare Build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      build_number: ${{ steps.build-number.outputs.number }}
+      is_prerelease: true
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Get or create version file
+      id: version
+      run: |
+        if [ -f "${{ env.VERSION_FILE }}" ]; then
+          CURRENT_VERSION=$(cat ${{ env.VERSION_FILE }})
+          echo "Current version: $CURRENT_VERSION"
+        else
+          CURRENT_VERSION="0.1.0"
+          echo "$CURRENT_VERSION" > ${{ env.VERSION_FILE }}
+          echo "Created version file with: $CURRENT_VERSION"
+        fi
+        
+        MAJOR=$(echo $CURRENT_VERSION | cut -d. -f1)
+        MINOR=$(echo $CURRENT_VERSION | cut -d. -f2)
+        PATCH=$(echo $CURRENT_VERSION | cut -d. -f3)
+        
+        if [ "${{ github.event.inputs.custom_version }}" != "" ]; then
+          NEW_VERSION="${{ github.event.inputs.custom_version }}"
+        elif [ "${{ github.event.inputs.version_bump }}" == "major" ]; then
+          NEW_VERSION="$((MAJOR+1)).0.0"
+        elif [ "${{ github.event.inputs.version_bump }}" == "minor" ]; then
+          NEW_VERSION="$MAJOR.$((MINOR+1)).0"
+        else
+          NEW_VERSION="$MAJOR.$MINOR.$((PATCH+1))"
+        fi
+        
+        echo "New version: $NEW_VERSION"
+        echo "$NEW_VERSION" > ${{ env.VERSION_FILE }}
+        echo "version=$NEW_VERSION" >> $GITHUB_OUTPUT
+        
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git add ${{ env.VERSION_FILE }}
+        git commit -m "Bump version to $NEW_VERSION [skip ci]" || echo "No changes to commit"
+        git push origin ${{ github.ref_name }} || echo "Push failed, continuing..."
+    
+    - name: Generate build number
+      id: build-number
+      run: |
+        BUILD_NUM=$(date +'%Y%m%d%H%M%S')
+        echo "number=$BUILD_NUM" >> $GITHUB_OUTPUT
+        echo "Build number: $BUILD_NUM"
+    
+    - name: Create/Update build branch
+      run: |
+        if git ls-remote --heads origin ${{ env.BUILD_BRANCH }} | grep -q ${{ env.BUILD_BRANCH }}; then
+          echo "Build branch ${{ env.BUILD_BRANCH }} exists"
+          git checkout ${{ env.BUILD_BRANCH }}
+          git pull origin ${{ env.BUILD_BRANCH }}
+        else
+          echo "Creating new build branch: ${{ env.BUILD_BRANCH }}"
+          git checkout --orphan ${{ env.BUILD_BRANCH }}
+          git rm -rf .
+          
+          mkdir -p windows linux latest
+          
+          cat > README.md << 'EOF'
+          # ThonCode Build Artifacts
+          
+          这个分支存储 ThonCode 的自动构建产物。
+          
+          ## 目录结构
+          
+          - windows/ - Windows 版本构建产物
+            - YYYYMMDD_HHMMSS/ - 按时间戳组织的构建
+            - latest/ - 最新构建版本
+          - linux/ - Linux 版本构建产物
+            - YYYYMMDD_HHMMSS/ - 按时间戳组织的构建
+            - latest/ - 最新构建版本
+          - version.txt - 当前版本信息
+          
+          ## 构建信息
+          
+          这些是自动构建的预发布版本，仅供测试使用。
+          EOF
+          
+          git add README.md
+          git commit -m "Initialize build artifacts branch"
+          git push origin ${{ env.BUILD_BRANCH }}
+        fi
+        
+        BUILD_DIR="build_${{ steps.build-number.outputs.number }}"
+        mkdir -p $BUILD_DIR
+        
+        echo "build_dir=$BUILD_DIR" >> $GITHUB_ENV
+    
+    - name: Save version info
+      run: |
+        echo "ThonCode ${{ steps.version.outputs.version }}" > version_info.txt
+        echo "Build: ${{ steps.build-number.outputs.number }}" >> version_info.txt
+        echo "Date: $(date '+%Y-%m-%d %H:%M:%S')" >> version_info.txt
+        echo "Commit: ${{ github.sha }}" >> version_info.txt
+        echo "Branch: ${{ github.ref_name }}" >> version_info.txt
+
+  build-windows:
+    name: Build Windows (PyInstaller)
+    needs: prepare-build
+    runs-on: windows-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyinstaller
+        pip install customtkinter pillow send2trash
+        if (Test-Path requirements.txt) {
+          pip install -r requirements.txt
+        }
+        if (Test-Path pyproject.toml) {
+          pip install .
+        }
+    
+    - name: Build with PyInstaller
+      working-directory: src/thoncode
+      run: |
+        pyinstaller --name ThonCode `
+          --onedir `
+          --windowed `
+          --icon "assets/icon.ico" `
+          --add-data "assets;assets" `
+          --add-data "libs;libs" `
+          --hidden-import customtkinter `
+          --hidden-import PIL `
+          --hidden-import PIL.Image `
+          --hidden-import PIL.ImageTk `
+          --hidden-import send2trash `
+          --hidden-import libs `
+          --hidden-import libs.code_editor `
+          --hidden-import libs.cfg_handle `
+          --hidden-import libs.font_loader `
+          --hidden-import libs.json_handle `
+          --hidden-import libs.langs_handle `
+          --collect-all libs `
+          main.py
+    
+    - name: Prepare Windows artifacts
+      run: |
+        $BUILD_DIR = "build_${{ needs.prepare-build.outputs.build_number }}"
+        $VERSION = "${{ needs.prepare-build.outputs.version }}"
+        
+        New-Item -ItemType Directory -Force -Path "dist_windows"
+        Copy-Item -Recurse -Force src/thoncode/dist/* dist_windows/
+        
+        @"
+        ThonCode $VERSION
+        Build: ${{ needs.prepare-build.outputs.build_number }}
+        Date: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+        Platform: Windows
+        Commit: ${{ github.sha }}
+        "@ | Out-File -FilePath dist_windows/version.txt -Encoding UTF8
+        
+        Compress-Archive -Path dist_windows/* -DestinationPath "ThonCode-Windows-$VERSION.zip" -Force
+    
+    - name: Upload to build branch
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        
+        git fetch origin ${{ env.BUILD_BRANCH }}
+        git checkout ${{ env.BUILD_BRANCH }} || git checkout -b ${{ env.BUILD_BRANCH }}
+        
+        $BUILD_DIR = "build_${{ needs.prepare-build.outputs.build_number }}"
+        $VERSION = "${{ needs.prepare-build.outputs.version }}"
+        
+        New-Item -ItemType Directory -Force -Path "windows/$BUILD_DIR"
+        New-Item -ItemType Directory -Force -Path "windows/latest"
+        
+        Copy-Item "ThonCode-Windows-$VERSION.zip" "windows/$BUILD_DIR/"
+        Copy-Item "ThonCode-Windows-$VERSION.zip" "windows/latest/ThonCode-Windows-latest.zip"
+        
+        @"
+        ThonCode $VERSION
+        Build: ${{ needs.prepare-build.outputs.build_number }}
+        Date: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+        Platform: Windows
+        Commit: ${{ github.sha }}
+        "@ | Out-File -FilePath "windows/$BUILD_DIR/version.txt" -Encoding UTF8
+        Copy-Item "windows/$BUILD_DIR/version.txt" "windows/latest/version.txt" -Force
+        
+        git add windows/
+        git commit -m "Add Windows build $VERSION-${{ needs.prepare-build.outputs.build_number }} [skip ci]" || echo "No changes to commit"
+        git push origin ${{ env.BUILD_BRANCH }}
+    
+    - name: Upload Windows artifact (workflow)
+      uses: actions/upload-artifact@v4
+      with:
+        name: ThonCode-Windows-${{ needs.prepare-build.outputs.version }}
+        path: ThonCode-Windows-${{ needs.prepare-build.outputs.version }}.zip
+        retention-days: 30
+
+  build-linux:
+    name: Build Linux (Nuitka)
+    needs: prepare-build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+    
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          python3-dev \
+          python3-tk \
+          patchelf \
+          ccache \
+          gcc \
+          g++ \
+          make \
+          libx11-dev \
+          libxext-dev \
+          libxrender-dev \
+          libxft-dev \
+          libxcb-xfixes0-dev
+    
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install nuitka zstandard ordered-set
+        pip install customtkinter pillow send2trash
+        if [ -f requirements.txt ]; then
+          pip install -r requirements.txt
+        fi
+        if [ -f pyproject.toml ]; then
+          pip install -e .
+        fi
+    
+    - name: Build with Nuitka
+      working-directory: src/thoncode
+      run: |
+        export CCACHE_DIR=$HOME/.ccache
+        export CCACHE_MAXSIZE=2G
+        
+        nuitka --standalone \
+          --onefile \
+          --linux-onefile-icon=assets/icon.png \
+          --include-data-dir=assets=assets \
+          --include-package=libs \
+          --include-package=libs.code_editor \
+          --include-package=libs.cfg_handle \
+          --include-package=libs.font_loader \
+          --include-package=libs.json_handle \
+          --include-package=libs.langs_handle \
+          --include-module=customtkinter \
+          --include-module=PIL \
+          --include-module=PIL.Image \
+          --include-module=PIL.ImageTk \
+          --enable-plugin=tk-inter \
+          --output-dir=dist \
+          --no-pyi-file \
+          --remove-output \
+          main.py || true
+        
+        if [ ! -f dist/main.exe ] && [ ! -f dist/main.bin ]; then
+          echo "Onefile build failed, trying standalone..."
+          nuitka --standalone \
+            --include-data-dir=assets=assets \
+            --include-package=libs \
+            --include-package=libs.code_editor \
+            --include-package=libs.cfg_handle \
+            --include-package=libs.font_loader \
+            --include-package=libs.json_handle \
+            --include-package=libs.langs_handle \
+            --include-module=customtkinter \
+            --include-module=PIL \
+            --include-module=PIL.Image \
+            --include-module=PIL.ImageTk \
+            --enable-plugin=tk-inter \
+            --output-dir=dist-standalone \
+            --no-pyi-file \
+            --remove-output \
+            main.py
+        fi
+    
+    - name: Prepare Linux artifacts
+      run: |
+        mkdir -p dist_linux
+        VERSION="${{ needs.prepare-build.outputs.version }}"
+        
+        if [ -f src/thoncode/dist/main.exe ]; then
+          cp src/thoncode/dist/main.exe dist_linux/thoncode
+        elif [ -f src/thoncode/dist/main.bin ]; then
+          cp src/thoncode/dist/main.bin dist_linux/thoncode
+        elif [ -f src/thoncode/dist-standalone/main.dist/main.exe ]; then
+          cp -r src/thoncode/dist-standalone/main.dist/* dist_linux/
+          mv dist_linux/main.exe dist_linux/thoncode
+        else
+          echo "No executable found!"
+          find src/thoncode -name "main*" -type f
+          exit 1
+        fi
+        
+        chmod +x dist_linux/thoncode
+        
+        cat > dist_linux/version.txt << EOF
+        ThonCode $VERSION
+        Build: ${{ needs.prepare-build.outputs.build_number }}
+        Date: $(date '+%Y-%m-%d %H:%M:%S')
+        Platform: Linux
+        Commit: ${{ github.sha }}
+        EOF
+        
+        cd dist_linux
+        tar -czf ../ThonCode-Linux-$VERSION.tar.gz *
+        cd ..
+    
+    - name: Upload to build branch
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        
+        git fetch origin ${{ env.BUILD_BRANCH }}
+        git checkout ${{ env.BUILD_BRANCH }} || git checkout -b ${{ env.BUILD_BRANCH }}
+        
+        BUILD_DIR="build_${{ needs.prepare-build.outputs.build_number }}"
+        VERSION="${{ needs.prepare-build.outputs.version }}"
+        
+        mkdir -p linux/$BUILD_DIR
+        mkdir -p linux/latest
+        
+        cp ThonCode-Linux-$VERSION.tar.gz linux/$BUILD_DIR/
+        cp ThonCode-Linux-$VERSION.tar.gz linux/latest/ThonCode-Linux-latest.tar.gz
+        
+        cp dist_linux/version.txt linux/$BUILD_DIR/
+        cp dist_linux/version.txt linux/latest/
+        
+        git add linux/
+        git commit -m "Add Linux build $VERSION-${{ needs.prepare-build.outputs.build_number }} [skip ci]" || echo "No changes to commit"
+        git push origin ${{ env.BUILD_BRANCH }}
+    
+    - name: Upload Linux artifact (workflow)
+      uses: actions/upload-artifact@v4
+      with:
+        name: ThonCode-Linux-${{ needs.prepare-build.outputs.version }}
+        path: ThonCode-Linux-${{ needs.prepare-build.outputs.version }}.tar.gz
+        retention-days: 30
+
+  create-prerelease:
+    name: Create Pre-release
+    needs: [prepare-build, build-windows, build-linux]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    
+    steps:
+    - name: Checkout build branch
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ env.BUILD_BRANCH }}
+        fetch-depth: 0
+    
+    - name: Download artifacts
+      uses: actions/download-artifact@v4
+      with:
+        path: artifacts/
+    
+    - name: Create pre-release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: v${{ needs.prepare-build.outputs.version }}-prerelease.${{ needs.prepare-build.outputs.build_number }}
+        name: Pre-release v${{ needs.prepare-build.outputs.version }} (Build ${{ needs.prepare-build.outputs.build_number }})
+        body: |
+          ## 预发布版本
+          
+          这是一个自动构建的预发布版本，仅供测试使用。
+          
+          ### 版本信息
+          - 版本: v${{ needs.prepare-build.outputs.version }}
+          - 构建号: ${{ needs.prepare-build.outputs.build_number }}
+          - 构建时间: $(date '+%Y-%m-%d %H:%M:%S')
+          - 提交: ${{ github.sha }}
+          - 分支: ${{ github.ref_name }}
+          
+          ### 下载
+          
+          Windows:
+          ThonCode-Windows-${{ needs.prepare-build.outputs.version }}.zip
+          
+          Linux:
+          ThonCode-Linux-${{ needs.prepare-build.outputs.version }}.tar.gz
+          
+          ### 构建产物分支
+          所有构建产物也保存在 build-artifacts 分支中。
+          
+          ### 快速安装
+          
+          Windows:
+          Invoke-WebRequest -Uri "https://github.com/${{ github.repository }}/releases/download/v${{ needs.prepare-build.outputs.version }}-prerelease.${{ needs.prepare-build.outputs.build_number }}/ThonCode-Windows-${{ needs.prepare-build.outputs.version }}.zip" -OutFile "ThonCode.zip"
+          Expand-Archive ThonCode.zip -DestinationPath "ThonCode"
+          
+          Linux:
+          wget https://github.com/${{ github.repository }}/releases/download/v${{ needs.prepare-build.outputs.version }}-prerelease.${{ needs.prepare-build.outputs.build_number }}/ThonCode-Linux-${{ needs.prepare-build.outputs.version }}.tar.gz
+          tar -xzf ThonCode-Linux-${{ needs.prepare-build.outputs.version }}.tar.gz
+          chmod +x thoncode
+          ./thoncode
+          
+          ### 注意事项
+          - 这是预发布版本，可能包含未完成的功能或 Bug
+          - 请在使用前备份重要数据
+          - 如有问题，请提交 Issue
+        draft: false
+        prerelease: true
+        files: |
+          artifacts/**/*.zip
+          artifacts/**/*.tar.gz
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Update latest version file
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        
+        echo "v${{ needs.prepare-build.outputs.version }}" > latest_version.txt
+        echo "${{ needs.prepare-build.outputs.build_number }}" >> latest_version.txt
+        echo "$(date '+%Y-%m-%d %H:%M:%S')" >> latest_version.txt
+        
+        git add latest_version.txt
+        git commit -m "Update latest version [skip ci]" || echo "No changes"
+        git push origin ${{ env.BUILD_BRANCH }}
