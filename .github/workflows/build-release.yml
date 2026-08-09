@@ -26,7 +26,7 @@ env:
   PROJECT_NAME: ThonCode
   BUILD_BRANCH: build-artifacts
   VERSION_FILE: .version
-  KEEP_RECENT_BUILDS: 10
+  KEEP_RECENT_BUILDS: 13
 
 jobs:
   prepare-build:
@@ -262,7 +262,6 @@ jobs:
         path: ${{ env.ZIP_NAME }}
         retention-days: 30
 
-  # Windows Nuitka Build
   build-windows-nuitka:
     name: Windows (Nuitka)
     needs: prepare-build
@@ -389,7 +388,6 @@ jobs:
         path: ${{ env.ZIP_NAME }}
         retention-days: 30
 
-  # Linux Nuitka Build
   build-linux-nuitka:
     name: Linux (Nuitka)
     needs: prepare-build
@@ -582,7 +580,6 @@ jobs:
         path: ${{ env.TAR_NAME }}
         retention-days: 30
 
-  # Linux PyInstaller Build
   build-linux-pyinstaller:
     name: Linux (PyInstaller)
     needs: prepare-build
@@ -691,7 +688,7 @@ jobs:
         sed -i "s/\$ARCH/$ARCH/g" dist_staging/version.txt
         
         cd dist_staging
-        TAR_NAME=TAR_NAME="ThonCode-Linux-$ARCH-b$VERSION-pyinstaller-$BUILD_NUM.tar.gz"
+        TAR_NAME="ThonCode-Linux-$ARCH-b$VERSION-pyinstaller-$BUILD_NUM.tar.gz"
         tar -czf ../$TAR_NAME *
         cd ..
         echo "TAR_NAME=$TAR_NAME" >> $GITHUB_ENV
@@ -728,7 +725,6 @@ jobs:
         path: ${{ env.TAR_NAME }}
         retention-days: 30
 
-  # Cleanup old builds
   cleanup:
     name: Cleanup Old Builds
     needs: [prepare-build, build-windows-pyinstaller, build-windows-nuitka, build-linux-nuitka, build-linux-pyinstaller]
@@ -771,7 +767,6 @@ jobs:
         git commit -m "Cleanup old builds (kept $KEEP recent) [skip ci]" || echo "No changes to commit"
         git push origin ${{ env.BUILD_BRANCH }}
 
-  # Create pre-release
   create-prerelease:
     name: Create Pre-release
     needs: [prepare-build, build-windows-pyinstaller, build-windows-nuitka, build-linux-nuitka, build-linux-pyinstaller]
@@ -835,10 +830,9 @@ jobs:
           ### Quick Installation
           
           Windows (PyInstaller):
-          ```
+          ```bash
           Invoke-WebRequest -Uri "https://github.com/${{ github.repository }}/releases/download/v${{ needs.prepare-build.outputs.version }}-prerelease.${{ needs.prepare-build.outputs.build_number }}/ThonCode-Windows-x86_64-b${{ needs.prepare-build.outputs.version }}-Pyinstaller-${{ needs.prepare-build.outputs.build_number }}.zip" -OutFile "ThonCode.zip"
           Expand-Archive ThonCode.zip -DestinationPath "ThonCode"
-          ```
           
           Linux (Nuitka):
           ```bash
@@ -852,6 +846,7 @@ jobs:
           - This is a pre-release version that may contain incomplete features or bugs
           - Please backup your important data before using
           - Please submit an Issue if you encounter any problems
+
         draft: false
         prerelease: true
         files: |
