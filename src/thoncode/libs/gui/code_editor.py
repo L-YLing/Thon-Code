@@ -164,20 +164,16 @@ class CodeEditor:
         return "break"
 
     def _find_block_end(self, lines, start_line, min_indent):
-        """查找代码块的结束行"""
         if start_line >= len(lines):
             return start_line
         
-        # 从下一行开始查找
         for i in range(start_line, len(lines)):
             line = lines[i]
-            if not line.strip():  # 空行跳过
+            if not line.strip():
                 continue
             
-            # 计算缩进
             indent = len(line) - len(line.lstrip(' '))
             
-            # 如果缩进小于最小缩进，说明块结束
             if indent < min_indent:
                 return i
         
@@ -247,7 +243,6 @@ class CodeEditor:
             return False
         
         ext = os.path.splitext(file_path)[1].lower()
-        # 支持自动补全的扩展名
         completion_supported = {
             '.py', 
             '.js', 
@@ -281,7 +276,6 @@ class CodeEditor:
                 master.update_title()
                 master.status_bar.configure(text=f"已保存: {master.current_file}")
                 self._textbox.edit_modified(False)
-                # 同步当前文件路径
                 self.current_file = master.current_file
                 self._completion_enabled = self._should_enable_completion(self.current_file)
                 print(f"已保存: {master.current_file}")
@@ -684,7 +678,6 @@ class CodeEditor:
                 i += 1
         return False
 
-    # 括号匹配
     def highlight_matching_bracket(self):
         text_widget = self._textbox
         try:

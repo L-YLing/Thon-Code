@@ -106,9 +106,10 @@ class MainWindow:
         self.root.grid_rowconfigure(0, weight=0)
         self.root.grid_rowconfigure(1, weight=1)
         self.root.grid_rowconfigure(2, weight=0)
-        self.root.grid_columnconfigure(0, weight=0)   # 左侧
-        self.root.grid_columnconfigure(1, weight=1)   # 中间
-        self.root.grid_columnconfigure(2, weight=0)   # 右侧
+        # Left/Mid/Right
+        self.root.grid_columnconfigure(0, weight=0)
+        self.root.grid_columnconfigure(1, weight=1)
+        self.root.grid_columnconfigure(2, weight=0)
 
     def _build_menu(self):
         menubar = tk.Menu(self.root)
@@ -153,7 +154,6 @@ class MainWindow:
         self.reload_config()
     
     def apply_theme(self, theme):
-        # customtkinter theme for global
         ctk.set_appearance_mode(theme)
 
     def reload_config(self):
@@ -166,9 +166,7 @@ class MainWindow:
         self.status_bar.configure(text="配置已重新加载")
 
     def reload_language(self):
-        # 重新加载语言数据
         self.langs_cfg = langs_loader.langs()
-        # 重建菜单
         self._build_menu()
         if hasattr(self, 'welcome_frame'):
             for child in self.welcome_frame.winfo_children():
@@ -191,7 +189,6 @@ class MainWindow:
         style.configure("Treeview.Heading",
                         background="#1e1e1e",
                         foreground="white")
-        # 选中
         style.map('Treeview', background=[('selected', '#0078D7')])
 
     def _init_components(self) -> None:
@@ -199,7 +196,6 @@ class MainWindow:
         self._create_top_right_controls()
         self.menu_bar.grid(row=0, column=0, columnspan=3, sticky="ew")
 
-        # PanedWindow
         self.paned = ttk.PanedWindow(self.root, orient='horizontal')
         self.paned.grid(row=1, column=0, columnspan=2, sticky="nsew")
 
@@ -211,10 +207,8 @@ class MainWindow:
         self.paned.add(self.center_frame, weight=1)
         self._build_center_pane()
 
-        # 分隔条拖动事件
         self.paned.bind("<ButtonRelease-1>", self._on_sash_release)
 
-        # 独立右侧框架
         self.right_frame = ctk.CTkFrame(self.root, fg_color="gray25", width=self.right_width)
         self.right_frame.grid(row=1, column=2, sticky="ns")
         self._build_right_pane()
@@ -222,7 +216,6 @@ class MainWindow:
         self.status_bar = ctk.CTkLabel(self.root, text="就绪", anchor="w", height=25)
         self.status_bar.grid(row=2, column=0, columnspan=3, sticky="ew")
 
-        # 创建欢迎页
         self.welcome_page = WelcomePage(
             self.root,
             new_file_callback=self.new_file,
