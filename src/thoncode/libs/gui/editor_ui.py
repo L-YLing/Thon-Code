@@ -2,25 +2,7 @@ import customtkinter as ctk
 import tkinter as tk
 import tkinter.font as tkfont
 
-
-class LazyLoader:
-    """Universal lazy loader for GUI components and heavy libraries"""
-    _instances = {}
-    
-    @classmethod
-    def get(cls, module_path, class_name=None):
-        cache_key = f"{module_path}:{class_name}" if class_name else module_path
-        if cache_key in cls._instances:
-            return cls._instances[cache_key]
-        
-        module = __import__(module_path, fromlist=[class_name] if class_name else [])
-        if class_name:
-            result = getattr(module, class_name)
-        else:
-            result = module
-        cls._instances[cache_key] = result
-        return result
-
+from libs.gui.lazy_loader import LazyLoader
 
 class EditorUI:
     def __init__(self, parent):

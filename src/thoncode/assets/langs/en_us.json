@@ -10,19 +10,32 @@
     "main.menu.save.as": "Save As",
 
     "main.menu.exit": "Exit",
-
     "main.menu.file": "File",
-
     "main.menu.edit": "Edit",
-
     "main.menu.copy": "Copy",
-    
     "main.menu.paste": "Paste",
 
-    "main.menu.project": "Project",
+    "main.menu.select.all": "Select All",
 
+    "main.menu.project": "Project",
     "main.menu.project_cfg": "Project Settings",
 
-    "search_placeholder": "Search..."
+    "search_placeholder": "Search...",
     
+    "license_title": "License Manager",
+    "license_select": "Select License:",
+    "license_browse": "Browse File",
+    "license_custom_name": "Or enter custom license name:",
+    "license_variables": "Custom Variables (optional):",
+    "license_year": "Year:",
+    "license_author": "Author:",
+    "license_preview": "Preview:",
+    "license_apply": "Apply License",
+    "license_remove": "Remove License",
+    "license_close": "Close",
+    "license_success": "License applied successfully",
+    "license_removed": "LICENSE file removed",
+    "license_no_license": "No licenses found",
+    "license_existing": "Existing LICENSE file found",
+    "license_confirm_remove": "Remove LICENSE file from project?"
 }

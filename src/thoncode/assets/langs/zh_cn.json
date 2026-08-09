@@ -10,19 +10,16 @@
     "main.menu.save.as": "另存为",
 
     "main.menu.exit": "退出",
-
     "main.menu.file": "文件",
-
     "main.menu.edit": "编辑",
-
     "main.menu.copy": "复制",
 
     "main.menu.paste": "粘贴",
 
-    "main.menu.project": "项目",
+    "main.menu.select.all": "全选",
 
-    "main.menu.project_cfg": "项目配置",
+    "main.menu.project": "项目",
+    "main.menu.project.cfg": "项目配置",
 
     "search_placeholder": "搜索..."
-    
 }

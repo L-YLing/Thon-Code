@@ -1,5 +1,5 @@
 {
-    "language": "en_us",
+    "language": "zh_cn",
     "theme": "dark",
     "auto_save": true,
     "auto_save_time_sec": 15,
@@ -8,5 +8,8 @@
     "show_welcome": true,
     "python_path": "",
     "run_args": "",
-    "auto_reload": true
+    "auto_reload": true,
+    "recent_projects": [
+        "C:/Users/yydsh/Desktop/ProjectForStudio/ThonCode"
+    ]
 }

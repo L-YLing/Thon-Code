@@ -128,11 +128,11 @@ class MainWindow:
 
         edit_menu = tk.Menu(menubar, tearoff=0)
         menubar.add_cascade(label=self.langs_cfg.main_menu_edit, menu=edit_menu)
-        edit_menu.add_command(label="剪切", accelerator="Ctrl+X", command=self.cut)
-        edit_menu.add_command(label="复制", accelerator="Ctrl+C", command=self.copy)
-        edit_menu.add_command(label="粘贴", accelerator="Ctrl+V", command=self.paste)
+        edit_menu.add_command(label=self.langs_cfg.main_menu_cut, accelerator="Ctrl+X", command=self.cut)
+        edit_menu.add_command(label=self.langs_cfg.main_menu_copy, accelerator="Ctrl+C", command=self.copy)
+        edit_menu.add_command(label=self.langs_cfg.main_menu_paste, accelerator="Ctrl+V", command=self.paste)
         edit_menu.add_separator()
-        edit_menu.add_command(label="全选", accelerator="Ctrl+A", command=self.select_all)
+        edit_menu.add_command(label=self.langs_cfg.main_menu_select_all, accelerator="Ctrl+A", command=self.select_all)
 
         run_menu = tk.Menu(menubar, tearoff=0)
         menubar.add_cascade(label="运行", menu=run_menu)
@@ -142,6 +142,8 @@ class MainWindow:
         tools_menu = tk.Menu(menubar, tearoff=0)
         menubar.add_cascade(label="工具", menu=tools_menu)
         tools_menu.add_command(label="设置", command=self._open_settings)
+        tools_menu.add_command(label="Git Integration", command=self.show_git_integration)
+        tools_menu.add_command(label="Directory Structure Viewer", command=self.show_struct_viewer)
         tools_menu.add_command(label="Git集成", accelerator="F3", command=self._open_settings)
 
     def _open_settings(self):
@@ -475,6 +477,15 @@ class MainWindow:
         if self.welcome_show_check:
             self.welcome_show_check.set(show)
     
+    def show_struct_viewer(self):
+        """Open directory structure viewer"""
+        StructViewerWindow = LazyLoader.get('libs.gui.struct_ui', 'StructViewerWindow')
+        StructViewerWindow(
+            self.root,
+            root_path=self.project_root,
+            status_callback=lambda msg: self.status_bar.configure(text=msg)
+        )
+
     def run_current_file(self):
         RunFileDialog = LazyLoader.get('libs.gui.run_file', 'RunFileDialog')
         RunFileDialog(
@@ -497,6 +508,15 @@ class MainWindow:
         ConfigureRuntimeWindow = LazyLoader.get('libs.gui.configure_runtime', 'ConfigureRuntimeWindow')
         ConfigureRuntimeWindow(
             self.root, 
+            status_callback=lambda msg: self.status_bar.configure(text=msg)
+        )
+
+    def show_git_integration(self):
+        """Open Git integration window"""
+        GitIntegrationWindow = LazyLoader.get('libs.gui.git_window', 'GitIntegrationWindow')
+        GitIntegrationWindow(
+            self.root,
+            project_root=self.project_root,
             status_callback=lambda msg: self.status_bar.configure(text=msg)
         )
 
