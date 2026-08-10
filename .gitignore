@@ -33,3 +33,4 @@ src/.thoncode/project.json
 # Test components (auto-excluded from commits)
 src/thoncode/test/log/
 *.log
+src/thoncode/assets/config.json
