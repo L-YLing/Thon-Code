@@ -1,11 +1,11 @@
 {
     "language": "zh_cn",
-    "theme": "dark",
+    "theme": "light",
     "auto_save": true,
     "auto_save_time_sec": 15,
     "tab_size": 4,
     "font_ligatures": true,
-    "show_welcome": true,
+    "show_welcome": false,
     "python_path": "",
     "run_args": "",
     "auto_reload": true,
