@@ -1,9 +1,10 @@
-# libs/git_functions.py
+# libs/git_functions.py - Complete file with parent attribute
 
 import os
 import subprocess
 from typing import Optional, List, Dict, Any
 from tkinter import messagebox
+from libs.gui.lazy_loader import LazyLoader
 
 
 class GitFunctions:
@@ -22,6 +23,11 @@ class GitFunctions:
         """
         self.project_root = project_root or os.getcwd()
         self.status_callback = status_callback
+        self.parent = None  # Will be set by window if needed
+    
+    def set_parent(self, parent):
+        """Set parent window for dialogs"""
+        self.parent = parent
     
     def _run_git_command(self, args: List[str], check_output: bool = False) -> tuple:
         """
@@ -102,15 +108,12 @@ class GitFunctions:
             code = line[:2]
             file_path = line[3:].strip()
             
-            # Staged changes
             if code[0] in ('M', 'A', 'D', 'R', 'C'):
                 status['staged'].append(file_path)
             
-            # Unstaged changes
             if code[1] in ('M', 'D'):
                 status['unstaged'].append(file_path)
             
-            # Untracked files
             if code == '??':
                 status['untracked'].append(file_path)
         
@@ -258,3 +261,44 @@ class GitFunctions:
         if success and output:
             return [f.strip() for f in output.splitlines() if f.strip()]
         return []
+    
+    def manage_changelog(self):
+        """Open changelog manager window"""
+        ChangelogWindow = LazyLoader.get('libs.gui.changelog_ui', 'ChangelogWindow')
+        if self.parent:
+            ChangelogWindow(
+                self.parent,
+                project_root=self.project_root,
+                status_callback=self.status_callback
+            )
+        else:
+            # Fallback: create a temporary root
+            import customtkinter as ctk
+            root = ctk.CTk()
+            root.withdraw()
+            ChangelogWindow(
+                root,
+                project_root=self.project_root,
+                status_callback=self.status_callback
+            )
+            root.mainloop()
+    
+    def manage_license(self):
+        """Open license manager window"""
+        LicenseManagerWindow = LazyLoader.get('libs.gui.license_ui', 'LicenseManagerWindow')
+        if self.parent:
+            LicenseManagerWindow(
+                self.parent,
+                project_root=self.project_root,
+                status_callback=self.status_callback
+            )
+        else:
+            import customtkinter as ctk
+            root = ctk.CTk()
+            root.withdraw()
+            LicenseManagerWindow(
+                root,
+                project_root=self.project_root,
+                status_callback=self.status_callback
+            )
+            root.mainloop()

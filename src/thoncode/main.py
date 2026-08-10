@@ -1,4 +1,6 @@
+# pyright: reportAttributeAccessIssue=false
 #! /usr/bin/env python3
+
 import sys
 import os
 
@@ -15,14 +17,14 @@ def get_assets_path():
         external_assets = os.path.join(exe_dir, 'assets')
         if os.path.exists(external_assets):
             return external_assets
-        return os.path.join(sys._MEIPASS, 'assets')
+        return os.path.join(sys._MEIPASS, 'assets') # pyright: ignore[reportAttributeAccessIssue]
     else:
         return os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets')
 
 ASSETS_PATH = get_assets_path()
 
 if getattr(sys, 'frozen', False):
-    base_path = sys._MEIPASS
+    base_path = sys._MEIPASS # pyright: ignore[reportAttributeAccessIssue]
     sys.tracebacklimit = 0
 else:
     base_path = os.path.dirname(os.path.abspath(__file__))
@@ -114,7 +116,7 @@ class MainWindow:
         self.root.config(menu=menubar)
 
         project_menu = tk.Menu(menubar, tearoff=0)
-        menubar.add_cascade(label=self.langs_cfg.main_menu_project, menu=project_menu)
+        menubar.add_cascade(label=self.langs_cfg.main_menu_project, menu=project_menu) 
         project_menu.add_command(label=self.langs_cfg.main_menu_project_cfg, command=self.show_project_config)
 
         file_menu = tk.Menu(menubar, tearoff=0)
@@ -142,9 +144,8 @@ class MainWindow:
         tools_menu = tk.Menu(menubar, tearoff=0)
         menubar.add_cascade(label="工具", menu=tools_menu)
         tools_menu.add_command(label="设置", command=self._open_settings)
-        tools_menu.add_command(label="Git Integration", command=self.show_git_integration)
         tools_menu.add_command(label="Directory Structure Viewer", command=self.show_struct_viewer)
-        tools_menu.add_command(label="Git集成", accelerator="F3", command=self._open_settings)
+        tools_menu.add_command(label=self.langs_cfg.main_menu_git_integration, accelerator="F3", command=self.show_git_integration)
 
     def _open_settings(self):
         SettingsWindow = LazyLoader.get('libs.gui.settings_win', 'SettingsWindow')
@@ -170,7 +171,7 @@ class MainWindow:
         self.langs_cfg = langs_loader.langs()
         self._build_menu()
         if hasattr(self, 'welcome_page') and self.welcome_page:
-            for child in self.welcome_frame.winfo_children():
+            for child in self.welcome_frame.winfo_children(): # pyright: ignore[reportOptionalMemberAccess]
                 if isinstance(child, ctk.CTkFrame):
                     for sub in child.winfo_children():
                         if isinstance(sub, ctk.CTkButton) and sub.cget("text") in ("新建文件", "打开文件...", "打开文件夹"):
@@ -354,7 +355,7 @@ class MainWindow:
 
     def toggle_welcome_config(self):
         cfg = cfg_handle.cfg_handle().read_cfg()["data"]
-        cfg["show_welcome"] = bool(self.welcome_show_check.get())
+        cfg["show_welcome"] = bool(self.welcome_show_check.get()) # pyright: ignore[reportOptionalMemberAccess]
         cfg_handle.cfg_handle().write_cfg(cfg)
 
     def do_search(self) -> None:

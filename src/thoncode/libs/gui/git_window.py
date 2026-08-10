@@ -22,14 +22,21 @@ class GitIntegrationWindow:
         self.parent = parent
         self.project_root = project_root or os.getcwd()
         self.status_callback = status_callback
+        
+        if not os.path.exists(self.project_root):
+            self.project_root = os.getcwd()
+        
         self.git = GitFunctions(self.project_root, self._log_output)
+        
         self.license_handle = LicenseHandle()
         
         self.selected_branch = None
         self.selected_file = None
         self.repo_initialized = False
         
-        self._create_window()
+        self._create_window()  # This creates self.window
+        self.git.parent = self.window  # Now self.window exists
+        
         self._check_repo_status()
         self._load_branches()
         self._load_status()
@@ -76,10 +83,15 @@ class GitIntegrationWindow:
         info_frame = ctk.CTkFrame(parent)
         info_frame.pack(fill="x", pady=(0, 5))
         
+        # Project path with ellipsis if too long
+        display_path = self.project_root
+        if len(display_path) > 60:
+            display_path = "..." + display_path[-57:]
+        
         path_label = ctk.CTkLabel(
             info_frame, 
-            text=f"Project: {os.path.basename(self.project_root)}",
-            font=("Microsoft YaHei", 14, "bold")
+            text=f"Project: {display_path}",
+            font=("Microsoft YaHei", 12, "bold")
         )
         path_label.pack(side="left", padx=10)
         
@@ -136,6 +148,7 @@ class GitIntegrationWindow:
             ("Push", self._git_push, "#2d5a8a"),
             ("Pull", self._git_pull, "#5a2d8a"),
             ("Status", self._load_status, "#2d8a7a"),
+            ("Changelog", self._git_changelog, "#6a2d8a"),
         ]
         
         for i, (label, command, color) in enumerate(operations):
@@ -177,6 +190,31 @@ class GitIntegrationWindow:
             font=("Microsoft YaHei", 10),
             text_color="gray"
         ).pack(side="left", padx=10)
+        
+        # Project selector
+        project_frame = ctk.CTkFrame(parent)
+        project_frame.pack(fill="x", pady=(10, 0))
+        
+        ctk.CTkLabel(project_frame, text="Project", font=("Microsoft YaHei", 12, "bold")).pack(anchor="w", padx=10)
+        
+        project_btn_frame = ctk.CTkFrame(project_frame, fg_color="transparent")
+        project_btn_frame.pack(fill="x", padx=10, pady=5)
+        
+        ctk.CTkButton(
+            project_btn_frame,
+            text="Select Project",
+            command=self._select_project,
+            width=120,
+            fg_color="#2d5a8a"
+        ).pack(side="left", padx=2)
+        
+        ctk.CTkButton(
+            project_btn_frame,
+            text="Refresh",
+            command=self._refresh_project,
+            width=80,
+            fg_color="#2d6b8a"
+        ).pack(side="left", padx=2)
     
     def _create_right_panel(self, parent):
         """Create right panel with file status and output"""
@@ -225,6 +263,25 @@ class GitIntegrationWindow:
             font=("Microsoft YaHei", 10)
         )
         self.status_bar.pack(fill="x", pady=(5, 0))
+    
+    def _select_project(self):
+        """Select a different project directory"""
+        path = filedialog.askdirectory(
+            title="Select Project Directory",
+            initialdir=self.project_root
+        )
+        if path and os.path.exists(path):
+            self.project_root = path
+            self.git.project_root = path
+            self._refresh_project()
+            self._log_output(f"Switched to project: {path}")
+    
+    def _refresh_project(self):
+        """Refresh the current project status"""
+        self._check_repo_status()
+        self._load_branches()
+        self._load_status()
+        self._log_output("Project refreshed")
     
     def _check_repo_status(self):
         """Check if current directory is a git repository"""
@@ -442,6 +499,10 @@ class GitIntegrationWindow:
             project_root=self.project_root,
             status_callback=self._log_output
         )
+    
+    def _git_changelog(self):
+        """Open changelog manager"""
+        self.git.manage_changelog()
     
     def _log_output(self, message: str):
         """Log output to the output text widget"""
