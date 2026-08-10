@@ -13,6 +13,7 @@ import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
 import ttkbootstrap as ttkb
 
+from libs.gui import theme
 import libs.langs_loader as langs_loader
 from libs.struct_handle import get_dir_structure
 
@@ -90,8 +91,7 @@ class StructViewerWindow:
         self.tree_frame.pack(fill="both", expand=True)
 
         # Text widget for tree display
-        self.tree_text = tk.Text(self.tree_frame, wrap="none", font=("Consolas", 10),
-                                 bg="#1e1e1e", fg="#d4d4d4", relief="flat")
+        self.tree_text = theme.themed_text(self.tree_frame, font=("Consolas", 10))
         self.tree_text.pack(side="left", fill="both", expand=True)
 
         # Scrollbars
@@ -104,8 +104,7 @@ class StructViewerWindow:
     def _create_json_view(self):
         self.json_frame = ttk.Frame(self.display_frame)
 
-        self.json_text = tk.Text(self.json_frame, wrap="none", font=("Consolas", 10),
-                                 bg="#1e1e1e", fg="#d4d4d4", relief="flat")
+        self.json_text = theme.themed_text(self.json_frame, font=("Consolas", 10))
         self.json_text.pack(side="left", fill="both", expand=True)
 
         v_scroll = ttk.Scrollbar(self.json_frame, orient="vertical", command=self.json_text.yview)

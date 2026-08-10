@@ -112,16 +112,10 @@ class GitIntegrationWindow:
 
         ttk.Label(branch_frame, text=self._get_text("git.branches"), font=("Microsoft YaHei", 12, "bold")).pack(anchor="w", padx=10)
 
-        self.branch_listbox = tk.Listbox(
+        self.branch_listbox = theme.themed_listbox(
             branch_frame,
             height=6,
-            bg="#2b2b2b",
-            fg="#ffffff",
-            selectbackground="#0078D7",
-            selectforeground="#ffffff",
             font=("Consolas", 10),
-            relief="flat",
-            highlightthickness=0
         )
         self.branch_listbox.pack(fill="x", padx=10, pady=5)
         self.branch_listbox.bind("<<ListboxSelect>>", self._on_branch_select)
@@ -210,16 +204,10 @@ class GitIntegrationWindow:
 
         ttk.Label(status_frame, text=self._get_text("git.file_status"), font=("Microsoft YaHei", 12, "bold")).pack(anchor="w", padx=10)
 
-        self.file_listbox = tk.Listbox(
+        self.file_listbox = theme.themed_listbox(
             status_frame,
             height=8,
-            bg="#2b2b2b",
-            fg="#d4d4d4",
-            selectbackground="#0078D7",
-            selectforeground="#ffffff",
             font=("Consolas", 9),
-            relief="flat",
-            highlightthickness=0
         )
         self.file_listbox.pack(fill="both", expand=True, padx=10, pady=5)
         self.file_listbox.bind("<<ListboxSelect>>", self._on_file_select)

@@ -131,16 +131,10 @@ class ChangelogWindow:
 
         ttk.Label(header_frame, text=self._get_text("changelog_version"), font=("Microsoft YaHei", 12, "bold")).pack(side="left", padx=10)
 
-        self.version_listbox = tk.Listbox(
+        self.version_listbox = theme.themed_listbox(
             parent,
             height=15,
-            bg="#2b2b2b",
-            fg="#ffffff",
-            selectbackground="#0078D7",
-            selectforeground="#ffffff",
             font=("Consolas", 11),
-            relief="flat",
-            highlightthickness=0
         )
         self.version_listbox.pack(fill="both", expand=True, padx=10, pady=5)
         self.version_listbox.bind("<<ListboxSelect>>", self._on_version_select)
@@ -193,16 +187,10 @@ class ChangelogWindow:
         ttk.Button(tab_frame, text=self._get_text("changelog_add_section"), command=self._add_section).pack(side="right", padx=2)
         ttk.Button(tab_frame, text=self._get_text("changelog_remove_section"), command=self._remove_section).pack(side="right", padx=2)
 
-        self.section_tabs = tk.Listbox(
+        self.section_tabs = theme.themed_listbox(
             sections_frame,
             height=3,
-            bg="#2b2b2b",
-            fg="#ffffff",
-            selectbackground="#0078D7",
-            selectforeground="#ffffff",
             font=("Consolas", 10),
-            relief="flat",
-            highlightthickness=0
         )
         self.section_tabs.pack(fill="x", padx=10, pady=5)
         self.section_tabs.bind("<<ListboxSelect>>", self._on_section_select)
@@ -213,16 +201,10 @@ class ChangelogWindow:
 
         ttk.Label(items_frame, text=self._get_text("changelog_items"), font=("Microsoft YaHei", 11, "bold")).pack(anchor="w", padx=10)
 
-        self.items_listbox = tk.Listbox(
+        self.items_listbox = theme.themed_listbox(
             items_frame,
             height=6,
-            bg="#2b2b2b",
-            fg="#d4d4d4",
-            selectbackground="#0078D7",
-            selectforeground="#ffffff",
             font=("Consolas", 10),
-            relief="flat",
-            highlightthickness=0
         )
         self.items_listbox.pack(fill="both", expand=True, padx=10, pady=5)
 

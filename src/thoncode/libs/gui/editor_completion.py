@@ -1,5 +1,7 @@
 import tkinter as tk
 
+from libs.gui import theme
+
 
 class EditorCompletion:
     """Code completion popup manager for the editor.
@@ -32,24 +34,14 @@ class EditorCompletion:
 
     def _init_completion_window(self):
         """Create the completion popup Toplevel window and listbox."""
-        self.completion_window = tk.Toplevel(self.widget_parent)
+        self.completion_window = theme.themed_toplevel(self.widget_parent)
         self.completion_window.wm_overrideredirect(True)
         self.completion_window.wm_attributes("-topmost", True)
         self.completion_window.withdraw()
-        self.completion_window.configure(bg="#2b2b2b")
 
-        self.completion_listbox = tk.Listbox(
+        self.completion_listbox = theme.themed_listbox(
             self.completion_window,
-            bg="#2b2b2b",
-            fg="white",
-            selectbackground="#0078D7",
-            selectforeground="white",
             font=("Microsoft YaHei", 10),
-            relief="flat",
-            borderwidth=0,
-            highlightthickness=0,
-            activestyle="none",
-            takefocus=0
         )
         self.completion_listbox.pack(fill="both", expand=True, padx=1, pady=1)
         self.completion_listbox.bind("<ButtonRelease-1>", self._select_completion)

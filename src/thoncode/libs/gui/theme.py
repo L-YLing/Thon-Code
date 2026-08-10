@@ -166,15 +166,13 @@ def themed_text(parent, **kwargs) -> tk.Text:
     Returns:
         tk.Text: Text box with theme-adapted colors
     """
-    is_dark = _current_theme in DARK_THEME_NAMES
-    bg = "#1e1e1e" if is_dark else "#ffffff"
-    fg = "#d4d4d4" if bg == "#1e1e1e" else "#1e1e1e"
+    colors = get_colors()
     defaults = {
-        "bg": bg,
-        "fg": fg,
-        "insertbackground": fg,
-        "selectbackground": "#264f78",
-        "selectforeground": "#ffffff",
+        "bg": colors["bg"],
+        "fg": colors["fg"],
+        "insertbackground": colors["fg"],
+        "selectbackground": colors["sel_bg"],
+        "selectforeground": colors["sel_fg"],
         "relief": "flat",
         "borderwidth": 0,
         "highlightthickness": 0,
@@ -195,6 +193,86 @@ def themed_scrollbar(parent, orient="vertical", **kwargs) -> ttk.Scrollbar:
         ttk.Scrollbar: Themed scrollbar
     """
     return ttk.Scrollbar(parent, orient=orient, **kwargs)
+
+
+def themed_toplevel(parent, **kwargs) -> tk.Toplevel:
+    """Create themed Toplevel window with theme-aware background.
+
+    Args:
+        parent: Parent widget
+        **kwargs: Additional arguments passed to tk.Toplevel
+    Returns:
+        tk.Toplevel: Toplevel window with theme colors
+    """
+    colors = get_colors()
+    defaults = {"bg": colors["bg_panel"]}
+    defaults.update(kwargs)
+    return tk.Toplevel(parent, **defaults)
+
+
+def themed_listbox(parent, **kwargs) -> tk.Listbox:
+    """Create themed Listbox with theme-aware colors.
+
+    Args:
+        parent: Parent widget
+        **kwargs: Additional arguments passed to tk.Listbox
+    Returns:
+        tk.Listbox: Listbox with theme colors
+    """
+    colors = get_colors()
+    defaults = {
+        "bg": colors["bg_panel"],
+        "fg": colors["fg"],
+        "selectbackground": colors["sel_bg"],
+        "selectforeground": colors["sel_fg"],
+        "relief": "flat",
+        "borderwidth": 0,
+        "highlightthickness": 0,
+        "activestyle": "none",
+        "takefocus": 0,
+    }
+    defaults.update(kwargs)
+    return tk.Listbox(parent, **defaults)
+
+
+def themed_label_widget(parent, **kwargs) -> tk.Label:
+    """Create themed tk.Label with theme-aware colors (for non-ttk labels).
+
+    Args:
+        parent: Parent widget
+        **kwargs: Additional arguments passed to tk.Label
+    Returns:
+        tk.Label: Label with theme colors
+    """
+    colors = get_colors()
+    defaults = {
+        "bg": colors.get("bg", "#ffffff"),
+        "fg": colors.get("fg", "#1e1e1e"),
+    }
+    defaults.update(kwargs)
+    return tk.Label(parent, **defaults)
+
+
+def themed_menu(parent, **kwargs) -> tk.Menu:
+    """Create themed Menu with theme-aware colors.
+
+    Args:
+        parent: Parent widget
+        **kwargs: Additional arguments passed to tk.Menu
+    Returns:
+        tk.Menu: Menu with theme colors
+    """
+    colors = get_colors()
+    defaults = {
+        "bg": colors["bg_panel"],
+        "fg": colors["fg"],
+        "activebackground": colors["sel_bg"],
+        "activeforeground": colors["sel_fg"],
+        "selectcolor": colors["sel_bg"],
+        "tearoff": 0,
+    }
+    defaults.update(kwargs)
+    return tk.Menu(parent, **defaults)
 
 
 # Theme-related color constants for non-ttk components (e.g., tk.Text, tk.Menu)
@@ -227,6 +305,78 @@ COLORS_VSCODE_DARK: dict = {
     "editor_group": "#252526",
 }
 
+COLORS_FLATLY: dict = {
+    "bg": "#ffffff",
+    "bg_alt": "#f8f9fa",
+    "bg_panel": "#e9ecef",
+    "fg": "#212529",
+    "fg_dim": "#6c757d",
+    "accent": "#007bff",
+    "border": "#dee2e6",
+    "sel_bg": "#b6d4fe",
+    "sel_fg": "#000000",
+}
+
+COLORS_CYBORG: dict = {
+    "bg": "#060606",
+    "bg_alt": "#0f0f0f",
+    "bg_panel": "#151515",
+    "fg": "#c5c8c6",
+    "fg_dim": "#5d6d7e",
+    "accent": "#2a9fd6",
+    "border": "#222222",
+    "sel_bg": "#2a9fd6",
+    "sel_fg": "#ffffff",
+}
+
+COLORS_SUPERHERO: dict = {
+    "bg": "#2b2b2b",
+    "bg_alt": "#363636",
+    "bg_panel": "#3f3f3f",
+    "fg": "#bdbdbd",
+    "fg_dim": "#6c757d",
+    "accent": "#2780e3",
+    "border": "#4a4a4a",
+    "sel_bg": "#2780e3",
+    "sel_fg": "#ffffff",
+}
+
+COLORS_VAPOR: dict = {
+    "bg": "#9c0d4f",
+    "bg_alt": "#890b46",
+    "bg_panel": "#750a3d",
+    "fg": "#f8b3cd",
+    "fg_dim": "#e87aa8",
+    "accent": "#b880d9",
+    "border": "#600a33",
+    "sel_bg": "#b880d9",
+    "sel_fg": "#ffffff",
+}
+
+COLORS_SOLAR: dict = {
+    "bg": "#002b36",
+    "bg_alt": "#073642",
+    "bg_panel": "#0a3a46",
+    "fg": "#93a1a1",
+    "fg_dim": "#586e75",
+    "accent": "#268bd2",
+    "border": "#073642",
+    "sel_bg": "#268bd2",
+    "sel_fg": "#ffffff",
+}
+
+COLORS_DRACULA: dict = {
+    "bg": "#282a36",
+    "bg_alt": "#343746",
+    "bg_panel": "#44475a",
+    "fg": "#f8f8f2",
+    "fg_dim": "#6272a4",
+    "accent": "#bd93f9",
+    "border": "#44475a",
+    "sel_bg": "#bd93f9",
+    "sel_fg": "#ffffff",
+}
+
 COLORS_LIGHT: dict = {
     "bg": "#ffffff",
     "bg_alt": "#f5f5f5",
@@ -239,13 +389,23 @@ COLORS_LIGHT: dict = {
     "sel_fg": "#000000",
 }
 
+# Map theme names to their color schemes
+_THEME_COLOR_MAP: dict = {
+    "darkly": COLORS_DARK,
+    "flatly": COLORS_FLATLY,
+    "cyborg": COLORS_CYBORG,
+    "superhero": COLORS_SUPERHERO,
+    "vapor": COLORS_VAPOR,
+    "solar": COLORS_SOLAR,
+    "dracula": COLORS_DRACULA,
+    "vscode_dark": COLORS_VSCODE_DARK,
+}
+
 
 def get_colors() -> dict:
-    """Get color scheme of the current theme
+    """Get color scheme of the current theme.
 
     Returns:
-        dict: Dictionary containing color keys like bg/fg/accent
+        dict: Dictionary containing color keys like bg/fg/accent/sel_bg
     """
-    if _current_theme == "vscode_dark":
-        return COLORS_VSCODE_DARK
-    return COLORS_DARK if _current_theme in DARK_THEME_NAMES else COLORS_LIGHT
+    return _THEME_COLOR_MAP.get(_current_theme, COLORS_DARK)
