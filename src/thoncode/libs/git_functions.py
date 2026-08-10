@@ -272,8 +272,8 @@ class GitFunctions:
             )
         else:
             # Fallback: create a temporary root
-            import customtkinter as ctk
-            root = ctk.CTk()
+            import ttkbootstrap as ttkb
+            root = ttkb.Window(themename="darkly")
             root.withdraw()
             ChangelogWindow(
                 root,
@@ -292,8 +292,8 @@ class GitFunctions:
                 status_callback=self.status_callback
             )
         else:
-            import customtkinter as ctk
-            root = ctk.CTk()
+            import ttkbootstrap as ttkb
+            root = ttkb.Window(themename="darkly")
             root.withdraw()
             LicenseManagerWindow(
                 root,

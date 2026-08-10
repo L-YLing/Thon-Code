@@ -1,10 +1,19 @@
+#! /usr/bin/env python3
+
+package: dict = {
+    "ID": "thon-code-gui",
+    "Name": "Thon Code Tree Manager",
+    "Path": ".main.libs.gui.tree_manager",
+    "Entrance": "main.py"
+}
+
 import os
 import tkinter as tk
-from tkinter import ttk, filedialog, messagebox
+from tkinter import ttk, filedialog, messagebox, simpledialog
 import shutil
-import customtkinter as ctk
 
 from libs.gui.lazy_loader import LazyLoader
+import libs.langs_loader as langs_loader
 
 
 class TreeManager:
@@ -14,7 +23,9 @@ class TreeManager:
         self.project_root = project_root
         self.open_file_callback = open_file_callback
         self.status_callback = status_callback
-        
+
+        self.lang = langs_loader.langs()
+
         self.folder_icon = None
         self.default_file_icon = None
         self.file_icons = {}
@@ -22,10 +33,13 @@ class TreeManager:
         self._right_click_path = None
         self._icon_cache = {}
         self._children_loaded = set()
-        
+
         self._load_icons_lazy()
         self._build_tree()
-    
+
+    def _get_text(self, key):
+        return getattr(self.lang, key.replace('.', '_'), key)
+
     def _build_tree(self):
         self.tree = ttk.Treeview(self.root_widget, selectmode="browse",
                                  columns=("path",), show="tree")
@@ -36,12 +50,11 @@ class TreeManager:
         self.tree.bind("<Button-3>", self.on_tree_right_click)
         self.tree.bind("<<TreeviewOpen>>", self._on_tree_open)
         self._populate_root()
-    
+
     def _load_icons_lazy(self):
-        """Load icons only when needed"""
         if self._icon_cache:
             return
-        
+
         base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         icon_dir = os.path.join(base_dir, "assets", "images")
         target_size = (16, 16)
@@ -62,13 +75,13 @@ class TreeManager:
                         icon = self._load_icon_with_resize(full_path, target_size)
                         if icon:
                             self.file_icons[ext] = icon
-        
+
         self._icon_cache['loaded'] = True
-    
+
     def _load_icon_with_resize(self, file_path, target_size=(16, 16)):
         if not file_path or not os.path.exists(file_path):
             return None
-        
+
         Image, ImageTk = LazyLoader.get_pil()
         if Image and ImageTk:
             try:
@@ -79,35 +92,33 @@ class TreeManager:
                 return tk.PhotoImage(file=file_path)
         else:
             return tk.PhotoImage(file=file_path)
-    
+
     def get_tree(self):
         return self.tree
-    
+
     def _populate_root(self):
-        """Populate only the root node initially"""
         for item in self.tree.get_children():
             self.tree.delete(item)
-        
+
         self._children_loaded.clear()
-        
+
         if not os.path.exists(self.project_root):
             return
-        
+
         node = self.tree.insert("", "end", text=os.path.basename(self.project_root), open=False)
         self.tree.set(node, "path", self.project_root)
-        
+
         self._add_children(node, self.project_root, load_icons=True)
         self._children_loaded.add(node)
-    
+
     def populate_tree(self, parent="", path=None):
-        """Full tree refresh - use with caution on large projects"""
         self._load_icons_lazy()
         expanded_paths = self._get_expanded_paths()
         for item in self.tree.get_children():
             self.tree.delete(item)
-        
+
         self._children_loaded.clear()
-        
+
         if path is None:
             path = self.project_root
             node = self.tree.insert(parent, "end", text=os.path.basename(path), open=True)
@@ -121,30 +132,28 @@ class TreeManager:
             self._children_loaded.add(node)
 
         self._restore_expanded_paths(expanded_paths)
-    
+
     def _on_tree_open(self, event):
-        """Load children when a tree node is expanded"""
         item = self.tree.focus()
         if not item:
             return
-        
+
         path = self.tree.set(item, "path")
         if not path or not os.path.isdir(path):
             return
-        
+
         if item not in self._children_loaded:
             self._load_icons_lazy()
             self._add_children(item, path, load_icons=True)
             self._children_loaded.add(item)
-    
+
     def refresh(self):
-        """Refresh the entire tree"""
         self._populate_root()
-    
+
     def set_project_root(self, path):
         self.project_root = path
         self._populate_root()
-    
+
     def _get_expanded_paths(self):
         expanded = []
         def collect(item):
@@ -157,7 +166,7 @@ class TreeManager:
         for root in self.tree.get_children():
             collect(root)
         return expanded
-    
+
     def _restore_expanded_paths(self, expanded_paths):
         def restore(item):
             path = self.tree.set(item, "path")
@@ -170,14 +179,13 @@ class TreeManager:
                 restore(child)
         for root in self.tree.get_children():
             restore(root)
-    
+
     def _add_children(self, parent, path, load_icons=True):
-        """Add children to a tree node"""
         try:
             items = sorted(os.listdir(path))
         except PermissionError:
             return
-        
+
         for name in items:
             full_path = os.path.join(path, name)
             if name.startswith('.') or name in ('__pycache__', '.git', '.idea', '.vscode', 'node_modules', 'dist', 'build'):
@@ -192,9 +200,8 @@ class TreeManager:
                 icon = self.file_icons.get(ext, self.default_file_icon)
                 node = self.tree.insert(parent, "end", text=name, image=icon if icon else '')
                 self.tree.set(node, "path", full_path)
-    
+
     def on_tree_double_click(self, event):
-        """Handle double click on tree items"""
         selected = self.tree.selection()
         if not selected:
             return
@@ -211,9 +218,8 @@ class TreeManager:
                     self._load_icons_lazy()
                     self._add_children(item, path, load_icons=True)
                     self._children_loaded.add(item)
-    
+
     def on_tree_right_click(self, event):
-        """Handle right click on tree items"""
         item = self.tree.identify_row(event.y)
         if item:
             self.tree.selection_set(item)
@@ -224,23 +230,21 @@ class TreeManager:
             self._right_click_path = self.project_root
 
         menu = tk.Menu(self.parent, tearoff=0)
-        menu.add_command(label="Refresh", command=self.refresh)
+        menu.add_command(label=self._get_text("tree.refresh"), command=self.refresh)
         menu.add_separator()
-        menu.add_command(label="New File", command=self.menu_new_file)
-        menu.add_command(label="New Folder", command=self.menu_new_folder)
+        menu.add_command(label=self._get_text("tree.new_file"), command=self.menu_new_file)
+        menu.add_command(label=self._get_text("tree.new_folder"), command=self.menu_new_folder)
         menu.add_separator()
-        menu.add_command(label="Rename", command=self.menu_rename)
-        menu.add_command(label="Delete", command=self.menu_delete)
-        menu.add_command(label="Move to Trash", command=self.menu_move_to_trash)
+        menu.add_command(label=self._get_text("tree.rename"), command=self.menu_rename)
+        menu.add_command(label=self._get_text("tree.delete"), command=self.menu_delete)
+        menu.add_command(label=self._get_text("tree.move_trash"), command=self.menu_move_to_trash)
         menu.post(event.x_root, event.y_root)
-    
+
     def menu_new_file(self):
-        """Create a new file"""
         parent_path = self._right_click_path if self._right_click_item else self.project_root
         if os.path.isfile(parent_path):
             parent_path = os.path.dirname(parent_path)
-        dialog = ctk.CTkInputDialog(text="Enter file name (with extension):", title="New File")
-        name = dialog.get_input()
+        name = simpledialog.askstring(self._get_text("tree.new_file"), self._get_text("tree.enter_file_name"))
         if not name:
             return
         full_path = os.path.join(parent_path, name)
@@ -249,15 +253,13 @@ class TreeManager:
                 pass
             self.refresh()
         except Exception as e:
-            messagebox.showerror("Error", f"Failed to create file: {e}")
-    
+            messagebox.showerror(self._get_text("settings.error_title"), self._get_text("tree.failed_create") + f" {e}")
+
     def menu_new_folder(self):
-        """Create a new folder"""
         parent_path = self._right_click_path if self._right_click_item else self.project_root
         if os.path.isfile(parent_path):
             parent_path = os.path.dirname(parent_path)
-        dialog = ctk.CTkInputDialog(text="Enter folder name:", title="New Folder")
-        name = dialog.get_input()
+        name = simpledialog.askstring(self._get_text("tree.new_folder"), self._get_text("tree.enter_folder_name"))
         if not name:
             return
         full_path = os.path.join(parent_path, name)
@@ -265,16 +267,14 @@ class TreeManager:
             os.mkdir(full_path)
             self.refresh()
         except Exception as e:
-            messagebox.showerror("Error", f"Failed to create folder: {e}")
-    
+            messagebox.showerror(self._get_text("settings.error_title"), self._get_text("tree.failed_create_folder") + f" {e}")
+
     def menu_rename(self):
-        """Rename a file or folder"""
         if not self._right_click_item:
             return
         old_path = self._right_click_path
         old_name = os.path.basename(old_path)
-        dialog = ctk.CTkInputDialog(text="Enter new name:", title="Rename", initialvalue=old_name)
-        new_name = dialog.get_input()
+        new_name = simpledialog.askstring(self._get_text("tree.rename"), self._get_text("tree.enter_new_name"), initialvalue=old_name)
         if not new_name or new_name == old_name:
             return
         new_path = os.path.join(os.path.dirname(old_path), new_name)
@@ -283,15 +283,14 @@ class TreeManager:
             self.refresh()
             return old_path, new_path
         except Exception as e:
-            messagebox.showerror("Error", f"Rename failed: {e}")
+            messagebox.showerror(self._get_text("settings.error_title"), self._get_text("tree.failed_rename") + f" {e}")
             return None, None
-    
+
     def menu_delete(self):
-        """Delete a file or folder permanently"""
         if not self._right_click_item:
             return
         path = self._right_click_path
-        if not messagebox.askyesno("Confirm Delete", f"Permanently delete {os.path.basename(path)}?"):
+        if not messagebox.askyesno(self._get_text("tree.confirm_delete_title"), self._get_text("tree.confirm_delete").format(name=os.path.basename(path))):
             return
         try:
             if os.path.isfile(path):
@@ -301,22 +300,21 @@ class TreeManager:
             self.refresh()
             return path
         except Exception as e:
-            messagebox.showerror("Error", f"Delete failed: {e}")
+            messagebox.showerror(self._get_text("settings.error_title"), self._get_text("tree.failed_delete") + f" {e}")
             return None
-    
+
     def menu_move_to_trash(self):
-        """Move a file or folder to trash"""
         if not self._right_click_item:
             return
         path = self._right_click_path
-        if not messagebox.askyesno("Confirm", f"Move {os.path.basename(path)} to trash?"):
+        if not messagebox.askyesno(self._get_text("tree.confirm_trash_title"), self._get_text("tree.confirm_trash").format(name=os.path.basename(path))):
             return
         try:
             send2trash = LazyLoader.get_send2trash()
             if send2trash:
                 send2trash.send2trash(path)
             else:
-                if messagebox.askyesno("send2trash not installed", "send2trash not installed. Permanently delete instead?"):
+                if messagebox.askyesno(self._get_text("tree.send2trash_missing_title"), self._get_text("tree.send2trash_missing")):
                     if os.path.isfile(path):
                         os.remove(path)
                     else:
@@ -326,5 +324,5 @@ class TreeManager:
             self.refresh()
             return path
         except Exception as e:
-            messagebox.showerror("Error", f"Operation failed: {e}")
+            messagebox.showerror(self._get_text("settings.error_title"), self._get_text("tree.failed_trash") + f" {e}")
             return None

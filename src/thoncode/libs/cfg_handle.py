@@ -92,37 +92,37 @@ class cfg_handle:
             return {"status": "error", "data": str(e), "code": 405}
 
     def get_project_config(self, project_path):
-        """读取项目根目录下的 .thoncode/project.json 配置，若无则返回默认"""
+        """Read the .thoncode/project.json config from project root; return defaults if not found"""
         config_dir = os.path.join(project_path, ".thoncode")
         config_file = os.path.join(config_dir, "project.json")
         default = {
-            "python_path": sys.executable,   # 项目专用解释器
-            "dependencies": []               # 从 requirements.txt 读取的依赖列表
+            "python_path": sys.executable,   # Project-specific interpreter
+            "dependencies": []               # Dependency list read from requirements.txt
         }
         if os.path.exists(config_file):
             with open(config_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                # 合并默认值，保证字段存在
+                # Merge defaults to ensure fields exist
                 for key in default:
                     if key not in data:
                         data[key] = default[key]
                 return data
         else:
-            # 尝试读取 requirements.txt 初始化依赖
+            # Try reading requirements.txt to initialize dependencies
             req_file = os.path.join(project_path, "requirements.txt")
             deps = []
             if os.path.exists(req_file):
                 with open(req_file, "r", encoding="utf-8") as f:
                     deps = [line.strip() for line in f if line.strip() and not line.startswith("#")]
             default["dependencies"] = deps
-            # 自动创建配置文件
+            # Auto-create config file
             os.makedirs(config_dir, exist_ok=True)
             with open(config_file, "w", encoding="utf-8") as f:
                 json.dump(default, f, indent=4, ensure_ascii=False)
             return default
 
     def save_project_config(self, project_path, config):
-        """保存项目配置到 .thoncode/project.json"""
+        """Save project config to .thoncode/project.json"""
         config_dir = os.path.join(project_path, ".thoncode")
         os.makedirs(config_dir, exist_ok=True)
         config_file = os.path.join(config_dir, "project.json")
@@ -130,18 +130,18 @@ class cfg_handle:
             json.dump(config, f, indent=4, ensure_ascii=False)
 
     def get_recent_projects(self, limit=10):
-        """从全局配置读取最近项目列表"""
+        """Read recent projects list from global config"""
         cfg = self.read_cfg()["data"]
         return cfg.get("recent_projects", [])[:limit]
 
     def add_recent_project(self, project_path):
-        """添加项目到最近列表（去重、置顶）"""
+        """Add project to recent list (deduplicate, move to top)"""
         cfg = self.read_cfg()["data"]
         recent = cfg.get("recent_projects", [])
         if project_path in recent:
             recent.remove(project_path)
         recent.insert(0, project_path)
-        # 保持数量限制（例如10个）
+        # Maintain count limit (e.g., 10)
         if len(recent) > 10:
             recent = recent[:10]
         cfg["recent_projects"] = recent

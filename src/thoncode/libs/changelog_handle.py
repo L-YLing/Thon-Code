@@ -34,8 +34,8 @@ class ChangelogHandle:
         while i < len(lines):
             line = lines[i].strip()
             
-            # Detect version header: ## [1.0.0] - 2024-01-01 或 ## [Unreleased]
-            # 日期部分可选，以兼容无日期的 Unreleased 段
+            # Detect version header: ## [1.0.0] - 2024-01-01 or ## [Unreleased]
+            # Date part is optional for compatibility with undated Unreleased sections
             version_match = re.match(r'^##\s*\[([^\]]+)\](?:\s*[-–]\s*(.+))?$', line)
             if version_match:
                 version = version_match.group(1)

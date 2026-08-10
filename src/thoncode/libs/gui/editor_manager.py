@@ -1,5 +1,4 @@
 import os
-import customtkinter as ctk
 from libs.gui.code_editor import CodeEditor
 import libs.cfg_handle as cfg_handle
 
@@ -72,8 +71,8 @@ class EditorManager:
         self.editor_widget = self.editor.get_widget()  # 返回主框架
         self.textbox_widget = self.editor.get_textbox()  # 返回文本框
         self.editor.current_file = self.current_file
-        self.textbox_widget._textbox.bind("<<Modified>>", self._on_modified)
-        self.textbox_widget._textbox.edit_modified(False)
+        self.textbox_widget.bind("<<Modified>>", self._on_modified)
+        self.textbox_widget.edit_modified(False)
 
     def get_widget(self):
         return self.editor_widget
@@ -89,7 +88,7 @@ class EditorManager:
         self.textbox_widget.insert("1.0", content)
         self.last_saved_content = content
         self.is_dirty = False
-        self.textbox_widget._textbox.edit_modified(False)
+        self.textbox_widget.edit_modified(False)
         if self.current_file:
             self._set_editor_language(self.current_file)
         else:
@@ -136,7 +135,7 @@ class EditorManager:
             self.current_file = save_path
             self.is_dirty = False
             self.last_saved_content = content
-            self.textbox_widget._textbox.edit_modified(False)
+            self.textbox_widget.edit_modified(False)
             if hasattr(self.editor, '_saving'):
                 self.editor._saving = False
             self.update_title_callback()
@@ -151,7 +150,7 @@ class EditorManager:
         current_content = self.get_content()
         self.is_dirty = (current_content != self.last_saved_content)
         self.update_title_callback()
-        self.textbox_widget._textbox.edit_modified(False)
+        self.textbox_widget.edit_modified(False)
     
     def is_dirty(self):
         return self.is_dirty

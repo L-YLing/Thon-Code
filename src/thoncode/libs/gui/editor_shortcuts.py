@@ -1,9 +1,15 @@
 from tkinter import messagebox
 
+import libs.langs_loader as langs_loader
+
 
 class EditorShortcuts:
     def __init__(self, parent):
         self.parent = parent
+        self.lang = langs_loader.langs()
+
+    def _get_text(self, key):
+        return getattr(self.lang, key.replace('.', '_'), key)
 
     def _on_ctrl_s(self, event):
         if not self.parent.main_window:
@@ -18,12 +24,12 @@ class EditorShortcuts:
                 master.is_dirty = False
                 master.last_saved_content = content
                 master.update_title()
-                master.status_bar.configure(text=f"已保存: {master.current_file}")
+                master.status_bar.configure(text=f"{self._get_text('editor.saved')} {master.current_file}")
                 self.parent._textbox.edit_modified(False)
                 self.parent.current_file = master.current_file
                 self.parent._completion_enabled = self.parent._should_enable_completion(self.parent.current_file)
             except Exception as e:
-                messagebox.showerror("错误", f"保存失败：{e}")
+                messagebox.showerror(self._get_text('settings.error_title'), f"{self._get_text('editor.save_failed')}: {e}")
         else:
             if hasattr(master, 'save_as'):
                 master.save_as()

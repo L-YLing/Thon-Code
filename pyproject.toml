@@ -8,7 +8,8 @@ authors = [
 ]
 requires-python = ">=3.13"
 dependencies = [
-    "customtkinter>=5.2.2",
+    "ttkbootstrap>=1.10.1",
+    "Pillow>=10.0.0",
 ]
 
 [project.scripts]
