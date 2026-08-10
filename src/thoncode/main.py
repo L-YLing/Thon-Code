@@ -3,6 +3,7 @@
 
 import sys
 import os
+import time
 
 package: dict = {
     "ID": "thon-code-gui",
@@ -59,7 +60,10 @@ class MainWindow:
         """Initialize the main window.
         
         Sets up theme, UI components, i18n, and loads configuration.
+        Records startup performance metrics for optimization tracking.
         """
+        self._startup_start = time.perf_counter()
+
         # Read config to determine theme
         cfg_handle.cfg_handle().check_cfg_file()
         cfg_data = cfg_handle.cfg_handle().read_cfg()["data"]
@@ -92,6 +96,10 @@ class MainWindow:
         self._load_config()
         self._show_welcome_if_needed()
 
+        self._startup_end = time.perf_counter()
+        self._startup_time = self._startup_end - self._startup_start
+        print(f"[ThonCode] Startup time: {self._startup_time:.3f}s (lazy editor loading)")
+
     def get_text(self, key: str) -> str:
         """Get localized text by dot-separated key.
         
@@ -102,6 +110,24 @@ class MainWindow:
             Localized string or the key itself if not found
         """
         return getattr(self.langs_cfg, key.replace('.', '_'), key)
+
+    @property
+    def startup_time(self) -> float:
+        """Get the startup time in seconds.
+        
+        Returns:
+            float: Startup time in seconds
+        """
+        return self._startup_time
+
+    @property
+    def is_editor_loaded(self) -> bool:
+        """Check if the editor manager is currently loaded.
+        
+        Returns:
+            bool: True if editor manager is loaded
+        """
+        return self.editor_manager is not None
 
     def _set_icon(self):
         """Set the application icon from assets."""
@@ -279,23 +305,56 @@ class MainWindow:
         self.tree = self.tree_manager.get_tree()
 
     def _build_center_pane(self):
-        """Build the center pane with the editor."""
-        EditorManager = LazyLoader.get('libs.gui.editor_manager', 'EditorManager')
-        self.editor_manager = EditorManager(
-            self.center_frame,
-            main_window=self,
-            status_callback=lambda msg: self.status_bar.configure(text=msg),
-            update_title_callback=self.update_title
-        )
-        self.editor_widget = self.editor_manager.get_widget()
-        self.textbox_widget = self.editor_manager.get_textbox()
-        self.editor = self.editor_manager.get_editor_instance()
+        """Build the center pane with a placeholder for lazy editor loading."""
+        self.editor_placeholder = ttk.Frame(self.center_frame)
+        self.editor_placeholder.pack(fill="both", expand=True, padx=2, pady=2)
+        self.editor_manager = None
+        self.editor_widget = None
+        self.textbox_widget = None
+        self.editor = None
 
-        self.editor_widget.pack(fill="both", expand=True, padx=2, pady=2)
+    def _ensure_editor_manager(self):
+        """Lazy-initialize the EditorManager on first use.
 
-        # textbox_widget is now tk.Text (no longer wrapped by CTkTextbox)
-        self.textbox_widget.bind("<Button-3>", self._show_editor_context_menu)
-        self.textbox_widget.bind("<<Modified>>", self.editor_manager._on_modified)
+        Returns:
+            EditorManager: The initialized editor manager instance
+        """
+        if self.editor_manager is None:
+            EditorManager = LazyLoader.get('libs.gui.editor_manager', 'EditorManager')
+            self.editor_manager = EditorManager(
+                self.center_frame,
+                main_window=self,
+                status_callback=lambda msg: self.status_bar.configure(text=msg),
+                update_title_callback=self.update_title
+            )
+            self.editor_widget = self.editor_manager.get_widget()
+            self.textbox_widget = self.editor_manager.get_textbox()
+            self.editor = self.editor_manager.get_editor_instance()
+
+            self.editor_widget.pack(fill="both", expand=True, padx=2, pady=2)
+            self.textbox_widget.bind("<Button-3>", self._show_editor_context_menu)
+            self.textbox_widget.bind("<<Modified>>", self.editor_manager._on_modified)
+        return self.editor_manager
+
+    def _unload_editor_manager(self):
+        """Unload the EditorManager to free resources.
+
+        Destroys all editor widgets and releases the module cache
+        when returning to the welcome screen.
+        """
+        if self.editor_manager is not None:
+            try:
+                if self.editor_widget and self.editor_widget.winfo_exists():
+                    self.editor_widget.destroy()
+                if self.editor_placeholder and self.editor_placeholder.winfo_exists():
+                    self.editor_placeholder.pack_forget()
+                    self.editor_placeholder.pack(fill="both", expand=True, padx=2, pady=2)
+            except Exception:
+                pass
+            self.editor_manager = None
+            self.editor_widget = None
+            self.textbox_widget = None
+            self.editor = None
 
     def _build_right_pane(self):
         """Build the right pane with a placeholder label."""
@@ -384,6 +443,12 @@ class MainWindow:
         if self.welcome_page:
             self.welcome_page.place_forget()
 
+    def show_welcome(self) -> None:
+        """Show the welcome page and unload editor if no file is open."""
+        if not self.current_file and not self.is_dirty:
+            self._unload_editor_manager()
+        self._ensure_welcome_page().place(relx=0, rely=0, relwidth=1, relheight=1)
+
     def _open_recent_project(self, path):
         """Open a recently used project by path.
         
@@ -415,6 +480,7 @@ class MainWindow:
 
     def new_file(self):
         """Clear the editor and prepare for a new file."""
+        self._ensure_editor_manager()
         self.editor_manager.clear()
         self.current_file = None
         self.is_dirty = False
@@ -428,6 +494,7 @@ class MainWindow:
         Args:
             file_path: Absolute path to the file to open
         """
+        self._ensure_editor_manager()
         if self.editor_manager.open_file(file_path):
             self.current_file = self.editor_manager.current_file
             self.is_dirty = self.editor_manager.is_dirty
@@ -471,6 +538,7 @@ class MainWindow:
         """
         if not self.current_file:
             return self.save_as()
+        self._ensure_editor_manager()
         result = self.editor_manager.save_file()
         if result:
             self.current_file = self.editor_manager.current_file
@@ -492,6 +560,7 @@ class MainWindow:
         if not file_path:
             return False
 
+        self._ensure_editor_manager()
         try:
             content = self.textbox_widget.get("1.0", "end-1c")
             with open(file_path, "w", encoding="utf-8") as f:
@@ -530,20 +599,24 @@ class MainWindow:
 
     def cut(self):
         """Cut selected text in the editor."""
-        self.textbox_widget.event_generate("<<Cut>>")
+        if self.textbox_widget and self.textbox_widget.winfo_exists():
+            self.textbox_widget.event_generate("<<Cut>>")
 
     def copy(self):
         """Copy selected text in the editor."""
-        self.textbox_widget.event_generate("<<Copy>>")
+        if self.textbox_widget and self.textbox_widget.winfo_exists():
+            self.textbox_widget.event_generate("<<Copy>>")
 
     def paste(self):
         """Paste text from clipboard into the editor."""
-        self.textbox_widget.event_generate("<<Paste>>")
+        if self.textbox_widget and self.textbox_widget.winfo_exists():
+            self.textbox_widget.event_generate("<<Paste>>")
 
     def select_all(self):
         """Select all text in the editor."""
-        self.textbox_widget.focus_set()
-        self.textbox_widget.event_generate("<Control-a>")
+        if self.textbox_widget and self.textbox_widget.winfo_exists():
+            self.textbox_widget.focus_set()
+            self.textbox_widget.event_generate("<Control-a>")
 
     def _load_config(self):
         """Load configuration and update welcome page state."""
@@ -604,18 +677,21 @@ class MainWindow:
         Args:
             event: The right-click event
         """
+        if not self.textbox_widget or not self.textbox_widget.winfo_exists():
+            return
         menu = tk.Menu(self.root, tearoff=0)
         menu.add_command(label=self.langs_cfg.status_refresh_editor, command=self._refresh_editor_highlight)
         menu.post(event.x_root, event.y_root)
 
     def _refresh_editor_highlight(self):
         """Refresh editor syntax highlighting and update status."""
-        if hasattr(self, 'editor_manager') and self.editor_manager.editor:
+        if self.editor_manager and self.editor_manager.editor:
             self.editor_manager.editor.highlight_all()
             self.status_bar.configure(text=self.langs_cfg.status_ready)
 
 
 if __name__ == "__main__":
+    _boot_start = time.perf_counter()
     cfg_handle.cfg_handle().check_cfg_file()
     cfg_data = cfg_handle.cfg_handle().read_cfg()["data"]
     if "show_welcome" not in cfg_data:
@@ -627,4 +703,6 @@ if __name__ == "__main__":
     cfg_handle.cfg_handle().write_cfg(cfg_data)
 
     main_window = MainWindow()
+    _boot_end = time.perf_counter()
+    print(f"[ThonCode] Total boot time: {_boot_end - _boot_start:.3f}s")
     main_window.root.mainloop()
