@@ -39,7 +39,7 @@ class CodeEditor:
         self.ui = EditorUI(self)
         
         EditorCompletion = LazyLoader.get('libs.gui.editor_completion', 'EditorCompletion')
-        self.completion = EditorCompletion(self.master)
+        self.completion = EditorCompletion(self, self.master)
         
         EditorFolding = LazyLoader.get('libs.gui.editor_folding', 'EditorFolding')
         self.folding = EditorFolding(self)
