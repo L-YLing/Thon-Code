@@ -29,3 +29,7 @@ src/thoncode/pyinstaller_build_win.bat
 src/thoncode/nuitka_build_win.bat
 src/thoncode/assets/config.json
 src/.thoncode/project.json
+
+# Test components (auto-excluded from commits)
+src/thoncode/test/log/
+*.log

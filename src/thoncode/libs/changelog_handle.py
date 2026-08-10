@@ -34,11 +34,12 @@ class ChangelogHandle:
         while i < len(lines):
             line = lines[i].strip()
             
-            # Detect version header: ## [1.0.0] - 2024-01-01
-            version_match = re.match(r'^##\s*\[([^\]]+)\]\s*[-–]\s*(.+)$', line)
+            # Detect version header: ## [1.0.0] - 2024-01-01 或 ## [Unreleased]
+            # 日期部分可选，以兼容无日期的 Unreleased 段
+            version_match = re.match(r'^##\s*\[([^\]]+)\](?:\s*[-–]\s*(.+))?$', line)
             if version_match:
                 version = version_match.group(1)
-                date = version_match.group(2).strip()
+                date = version_match.group(2).strip() if version_match.group(2) else ""
                 
                 # Skip empty lines
                 i += 1
@@ -133,7 +134,10 @@ class ChangelogHandle:
         lines = ["# Changelog", ""]
         
         for entry in self.entries:
-            lines.append(f"## [{entry.version}] - {entry.date}")
+            if entry.date:
+                lines.append(f"## [{entry.version}] - {entry.date}")
+            else:
+                lines.append(f"## [{entry.version}]")
             lines.append("")
             
             for section_name, items in entry.sections.items():
@@ -267,9 +271,10 @@ class ChangelogHandle:
         
         lines = [
             f"# Release Notes - {entry.version}",
-            f"**Date:** {entry.date}",
-            ""
         ]
+        if entry.date:
+            lines.append(f"**Date:** {entry.date}")
+        lines.append("")
         
         for section_name, items in entry.sections.items():
             if items:
@@ -287,7 +292,10 @@ class ChangelogHandle:
         
         lines = ["## Recent Changes", ""]
         for entry in self.entries[:max_entries]:
-            lines.append(f"### [{entry.version}] - {entry.date}")
+            if entry.date:
+                lines.append(f"### [{entry.version}] - {entry.date}")
+            else:
+                lines.append(f"### [{entry.version}]")
             for section_name, items in list(entry.sections.items())[:2]:
                 if items:
                     lines.append(f"**{section_name}:**")

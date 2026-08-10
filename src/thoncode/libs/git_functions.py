@@ -6,7 +6,6 @@ from typing import Optional, List, Dict, Any
 from tkinter import messagebox
 from libs.gui.lazy_loader import LazyLoader
 
-
 class GitFunctions:
     """
     Git operations handler for project version control.

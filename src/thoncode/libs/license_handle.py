@@ -4,7 +4,6 @@ import os
 import shutil
 from typing import Optional, Dict, List, Any
 
-
 class LicenseHandle:
     """Handle license operations for projects"""
     
