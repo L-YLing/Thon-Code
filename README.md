@@ -4,22 +4,6 @@
 # 简介
 **这是一个为开源而生的IDE，由Python驱动，并且足够轻量。经过测试，打开一些中小型项目，ThonCode的启动速度与VSCode不差多少(约慢于`VSCode` 0.413s，[点击查看测试信息](#测试))。我们也在积极寻找解决运行时资源占用高、性能弱、启动速度慢等问题。**
 
-## 原生图形化 Git集成 && 开源常用功能集成
-* **LICENSE.md 开源协议管理**
-* **CHANGELOG.md 版本更新日志管理**
-* **`TODO` CODE_STYLE_GUIDE.md 代码规范管理**
-* **Git基础操作**
-    - **Init: 初始化Git仓库**
-    - **Add: 添加文件到暂存区**
-    - **Commit: 提交到本地仓库**
-    - **Push: 推送到远程仓库**
-    - **Pull: 从远程仓库拉取代码**
-    - **`TODE` Merge: 合并分支**
-* **Github工作流**
-    - * **`TODO` 拖动式(图形化)编写工作流文件**
-    - * **`TODO` 配置工作流文件**
-
-
 # 图标引用许可&原作者署名
 
 文件夹 蓝色的图标 by Papirus Development Team on <a href="https://icon-icons.com/zh/authors/550-papirus-development-team">Icon-Icons.com</a>
@@ -35,6 +19,27 @@
 * [ ] **内置Shell**
 * [ ] **DEBUG调试**
 * [ ] **搜索**
+
+# 原生图形化 Git集成 && 开源常用功能集成
+* **LICENSE.md 开源协议管理**
+* **CHANGELOG.md 版本更新日志管理**
+* **`TODO` CODE_STYLE_GUIDE.md 代码规范管理**
+* **Git基础操作**
+    - **Init: 初始化Git仓库**
+    - **Add: 添加文件到暂存区**
+    - **Commit: 提交到本地仓库**
+    - **Push: 推送到远程仓库**
+    - **Pull: 从远程仓库拉取代码**
+    - **`TODE` Merge: 合并分支**
+* **Github工作流**
+    - * **`TODO` 拖动式(图形化)编写工作流文件**
+    - * **`TODO` 配置工作流文件**
+
+# 优势
+* [x] **i18n支持，我们已经实现了十分便捷的i18n方法，您仅需要提供JSON文件即可（我们参考MC Java模组的设计开发的）**
+* [x] **跨平台：我们支持Windows/Linux/macOS(尽管我们并没有发布macOS可运行版本，但是有人试过是可以打包为macOS的安装包安装使用的，另外Linux实际上应该指所有实现了POSIX的类UNIX系统，我们在后续计划支持OpenXJ380OS)**
+* [ ] **Git深度集成**
+* [ ] **性能优势（尽管我们的启动速度稍慢，但是开项目的速度几乎秒开且与项目规模无关；资源占用低，我们的资源暂用[内存/CPU]总是显著低于VSCode/IDEA[1]）**
 
 # 运行
 **您可以选择使用打包好的可执行文件运行或者安装程序安装以使用，它们可以在项目的`release`里找到。如果您想直接运行python程序也可以，但是您需要满足以下条件：**
@@ -77,3 +82,7 @@
 
 # 骄傲的感言
 **从2023年的`HydronIDE`干到现在的`ThonCode`,我已经可以完全用`ThonCode`来开发`ThonCode`啦！**
+
+---
+
+^[1]: **数据为内部测试，可能不准**
