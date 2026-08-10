@@ -1,4 +1,11 @@
-# libs/gui/lazy_loader.py - Shared lazy loader for GUI components
+#! /usr/bin/env python3
+
+package: dict = {
+    "ID": "thon-code-gui",
+    "Name": "Thon Code Lazy Loader",
+    "Path": ".main.libs.gui.lazy_loader",
+    "Entrance": "main.py"
+}
 
 import sys
 import importlib

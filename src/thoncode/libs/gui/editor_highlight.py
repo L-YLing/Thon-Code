@@ -1,9 +1,35 @@
+#! /usr/bin/env python3
+
+package: dict = {
+    "ID": "thon-code-gui",
+    "Name": "Thon Code Editor Highlight",
+    "Path": ".main.libs.gui.editor_highlight",
+    "Entrance": "main.py"
+}
+
+
 class EditorHighlight:
+    """Handles syntax highlighting and bracket matching for the code editor.
+
+    Processes text content to apply keyword, string, number, function,
+    and classname highlighting tags based on loaded language groups.
+    """
+
     def __init__(self, parent):
+        """Initialize the highlight handler.
+
+        Args:
+            parent: CodeEditor instance that owns this handler
+        """
         self.parent = parent
         self.bracket_pairs = {'(': ')', '[': ']', '{': '}'}
 
     def highlight_all(self, event=None):
+        """Apply syntax highlighting to the entire document.
+
+        Args:
+            event: Optional event that triggered highlighting
+        """
         text_widget = self.parent._textbox
         content = text_widget.get("1.0", "end-1c")
         if not content.strip():
@@ -28,6 +54,17 @@ class EditorHighlight:
             line_num += 1
 
     def _highlight_line(self, text_widget, line_num, line_text, in_multiline_comment):
+        """Highlight syntax elements in a single line of code.
+
+        Args:
+            text_widget: The text widget to apply tags to
+            line_num: Line number being processed
+            line_text: Text content of the line
+            in_multiline_comment: Whether we are inside a multi-line comment
+
+        Returns:
+            bool: True if the line ends inside a multi-line comment
+        """
         n = len(line_text)
         i = 0
         in_string = False
@@ -121,10 +158,11 @@ class EditorHighlight:
         return False
 
     def highlight_matching_bracket(self):
+        """Highlight matching brackets at the cursor position."""
         text_widget = self.parent._textbox
         try:
             text_widget.tag_delete("bracket_match")
-        except:
+        except Exception:
             pass
         cursor_index = text_widget.index("insert")
         char = text_widget.get(cursor_index, f"{cursor_index}+1c")
@@ -138,6 +176,17 @@ class EditorHighlight:
                 text_widget.tag_config("bracket_match", background="#FFFF00")
 
     def find_matching_bracket(self, text_widget, start_idx, open_ch, close_ch):
+        """Find a matching bracket character in the text.
+
+        Args:
+            text_widget: The text widget to search in
+            start_idx: Starting index position
+            open_ch: Opening bracket character
+            close_ch: Closing bracket character
+
+        Returns:
+            Index of the matching bracket, or None if not found
+        """
         before = text_widget.get("1.0", start_idx)
         full_text = text_widget.get("1.0", "end-1c")
         offset = len(before)

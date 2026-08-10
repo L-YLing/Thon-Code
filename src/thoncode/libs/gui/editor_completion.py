@@ -1,3 +1,12 @@
+#! /usr/bin/env python3
+
+package: dict = {
+    "ID": "thon-code-gui",
+    "Name": "Thon Code Editor Completion",
+    "Path": ".main.libs.gui.editor_completion",
+    "Entrance": "main.py"
+}
+
 import tkinter as tk
 
 from libs.gui import theme

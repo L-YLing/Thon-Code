@@ -1,3 +1,12 @@
+#! /usr/bin/env python3
+
+package: dict = {
+    "ID": "thon-code-gui",
+    "Name": "Thon Code Editor",
+    "Path": ".main.libs.gui.code_editor",
+    "Entrance": "main.py"
+}
+
 from tkinter import messagebox
 import json
 import os
@@ -8,7 +17,23 @@ from libs.gui.lazy_loader import LazyLoader
 
 
 class CodeEditor:
+    """Main code editor component with syntax highlighting and auto-completion.
+
+    Delegates to specialized sub-components for UI rendering, completion,
+    folding, highlighting, and keyboard shortcuts.
+    """
+
     def __init__(self, master, main_window=None, language="python", font_ligatures=True, tab_size=4, current_file=None):
+        """Initialize the code editor.
+
+        Args:
+            master: Parent widget for the editor
+            main_window: Reference to the main window
+            language: Programming language for syntax highlighting
+            font_ligatures: Enable font ligatures in the editor
+            tab_size: Number of spaces per indentation level
+            current_file: Path to the currently open file
+        """
         self.master = master
         self.language = language
         self.tab_size = tab_size
@@ -22,19 +47,20 @@ class CodeEditor:
         self._folded_lines = {}
         self._fold_markers = {}
 
-        # Fold state is stored uniformly in self._folded_lines, EditorFolding no longer maintains an independent dictionary
+        # Fold state stored uniformly in self._folded_lines
         self.ui = None
         self.completion = None
         self.folding = None
         self.highlight = None
         self.shortcuts = None
-        
+
         self._init_components()
 
         self.load_language(language)
         self.highlight_all()
 
     def _init_components(self):
+        """Initialize sub-components using lazy loading."""
         EditorUI = LazyLoader.get('libs.gui.editor_ui', 'EditorUI')
         self.ui = EditorUI(self)
         
@@ -51,6 +77,14 @@ class CodeEditor:
         self.shortcuts = EditorShortcuts(self)
 
     def _should_enable_completion(self, file_path):
+        """Check if code completion should be enabled for the file type.
+
+        Args:
+            file_path: Path to the file to check
+
+        Returns:
+            bool: True if completion is supported for this file type
+        """
         if not file_path:
             return False
         
@@ -62,6 +96,11 @@ class CodeEditor:
         return ext in completion_supported
         
     def load_language(self, language):
+        """Load language configuration for syntax highlighting.
+
+        Args:
+            language: Language name (e.g., 'python', 'javascript')
+        """
         config_dir = "assets/languages"
         os.makedirs(config_dir, exist_ok=True)
         file_path = os.path.join(config_dir, f"{language}.json")
@@ -82,6 +121,12 @@ class CodeEditor:
         self._folded_lines.clear()
 
     def _create_default_language_file(self, language, path):
+        """Create a default language configuration file.
+
+        Args:
+            language: Language name
+            path: File path to write the default config to
+        """
         if language == "python":
             default = {
                 "groups": [
@@ -97,6 +142,11 @@ class CodeEditor:
             json.dump(default, f, indent=4, ensure_ascii=False)
 
     def on_key_release(self, event=None):
+        """Handle key release event for highlighting and completion.
+
+        Args:
+            event: The key release event
+        """
         self.highlight_all()
         self.highlight_matching_bracket()
 
@@ -108,9 +158,19 @@ class CodeEditor:
         self.completion._after_completion_id = self.master.after(100, self._update_completion)
     
     def on_cursor_move(self, event):
+        """Handle cursor movement for bracket matching.
+
+        Args:
+            event: The cursor movement event
+        """
         self.highlight_matching_bracket()
 
     def set_language(self, language):
+        """Switch the editor's programming language.
+
+        Args:
+            language: New language to set
+        """
         if self.language != language:
             self.language = language
             self.current_file = None
@@ -126,92 +186,262 @@ class CodeEditor:
             self._hide_completion()
 
     def get_widget(self):
+        """Get the editor's main frame widget.
+
+        Returns:
+            The editor frame widget
+        """
         return self.ui.get_widget()
 
     def get_textbox(self):
+        """Get the editor's textbox widget.
+
+        Returns:
+            The textbox widget
+        """
         return self.ui.get_textbox()
 
     def _update_line_numbers(self, event=None):
+        """Update the line number display.
+
+        Args:
+            event: Optional event that triggered the update
+        """
         self.ui._update_line_numbers(event)
 
     def _on_text_change(self, event=None):
+        """Handle text change events.
+
+        Args:
+            event: Optional text change event
+        """
         self.ui._on_text_change(event)
 
     def _on_modified(self, event=None):
+        """Handle text modification events.
+
+        Args:
+            event: Optional modification event
+        """
         self.ui._on_modified(event)
 
     def _on_scroll(self, event):
+        """Handle scroll events.
+
+        Args:
+            event: The scroll event
+        """
         return self.ui._on_scroll(event)
 
     def _on_line_scroll(self, event):
+        """Handle line number area scroll events.
+
+        Args:
+            event: The line scroll event
+        """
         return self.ui._on_line_scroll(event)
 
     def _on_line_number_click(self, event):
+        """Handle clicks on the line number area.
+
+        Args:
+            event: The click event
+        """
         self.ui._on_line_number_click(event)
 
     def _get_foldable_regions(self):
+        """Get all foldable code regions.
+
+        Returns:
+            List of foldable regions
+        """
         return self.folding._get_foldable_regions()
 
     def _find_block_end(self, lines, start_line, min_indent):
+        """Find the end of a code block for folding.
+
+        Args:
+            lines: List of code lines
+            start_line: Starting line index
+            min_indent: Minimum indentation level
+
+        Returns:
+            The end line index of the block
+        """
         return self.folding._find_block_end(lines, start_line, min_indent)
 
     def toggle_fold(self, line_num):
+        """Toggle code folding at the specified line.
+
+        Args:
+            line_num: Line number to toggle fold at
+        """
         self.folding.toggle_fold(line_num)
 
     def highlight_all(self, event=None):
-        """Reapply fold state after syntax highlighting
+        """Reapply syntax highlighting and fold state.
 
-        highlight_all clears text tags, fold elide tags also need to be rebuilt,
-        otherwise folded code will reappear.
+        Args:
+            event: Optional event that triggered highlighting
         """
         self.highlight.highlight_all(event)
         if self.folding:
             self.folding.apply_all_folds()
 
     def _highlight_line(self, text_widget, line_num, line_text, in_multiline_comment):
+        """Highlight a single line of code.
+
+        Args:
+            text_widget: The text widget to highlight
+            line_num: Line number to highlight
+            line_text: Text content of the line
+            in_multiline_comment: Whether the line is in a multi-line comment
+
+        Returns:
+            List of highlight ranges
+        """
         return self.highlight._highlight_line(text_widget, line_num, line_text, in_multiline_comment)
 
     def highlight_matching_bracket(self):
+        """Highlight matching brackets at the cursor position."""
         self.highlight.highlight_matching_bracket()
 
     def find_matching_bracket(self, text_widget, start_idx, open_ch, close_ch):
+        """Find a matching bracket character.
+
+        Args:
+            text_widget: The text widget to search in
+            start_idx: Starting index for the search
+            open_ch: Opening bracket character
+            close_ch: Closing bracket character
+
+        Returns:
+            Index of the matching bracket, or None if not found
+        """
         return self.highlight.find_matching_bracket(text_widget, start_idx, open_ch, close_ch)
 
     def _on_ctrl_s(self, event):
+        """Handle Ctrl+S (save) keyboard shortcut.
+
+        Args:
+            event: The keyboard event
+
+        Returns:
+            "break" to prevent default handling
+        """
         return self.shortcuts._on_ctrl_s(event)
 
     def _on_ctrl_z(self, event):
+        """Handle Ctrl+Z (undo) keyboard shortcut.
+
+        Args:
+            event: The keyboard event
+
+        Returns:
+            "break" to prevent default handling
+        """
         return self.shortcuts._on_ctrl_z(event)
 
     def _on_ctrl_y(self, event):
+        """Handle Ctrl+Y (redo) keyboard shortcut.
+
+        Args:
+            event: The keyboard event
+
+        Returns:
+            "break" to prevent default handling
+        """
         return self.shortcuts._on_ctrl_y(event)
 
     def _on_ctrl_shift_z(self, event):
+        """Handle Ctrl+Shift+Z (redo) keyboard shortcut.
+
+        Args:
+            event: The keyboard event
+
+        Returns:
+            "break" to prevent default handling
+        """
         return self.shortcuts._on_ctrl_shift_z(event)
 
     def on_tab(self, event):
+        """Handle Tab key for indentation.
+
+        Args:
+            event: The keyboard event
+
+        Returns:
+            "break" to prevent default handling
+        """
         return self.shortcuts.on_tab(event)
 
     def on_shift_tab(self, event):
+        """Handle Shift+Tab for un-indentation.
+
+        Args:
+            event: The keyboard event
+
+        Returns:
+            "break" to prevent default handling
+        """
         return self.shortcuts.on_shift_tab(event)
 
     def _indent_selection(self, direction):
+        """Indent or un-indent the current selection.
+
+        Args:
+            direction: 1 for indent, -1 for un-indent
+        """
         self.shortcuts._indent_selection(direction)
 
     def select_all(self, event=None):
+        """Select all text in the editor.
+
+        Args:
+            event: Optional keyboard event
+
+        Returns:
+            "break" to prevent default handling
+        """
         return self.shortcuts.select_all(event)
 
     def _on_key_press(self, event):
+        """Handle key press events for completion.
+
+        Args:
+            event: The keyboard event
+
+        Returns:
+            Result from completion handler
+        """
         return self.completion.on_key_press(event)
 
     def _update_completion(self):
+        """Trigger auto-completion update."""
         self.completion._update_completion()
 
     def _show_completion(self, matches, word_start, prefix):
+        """Show the auto-completion popup.
+
+        Args:
+            matches: List of completion matches
+            word_start: Start position of the word being completed
+            prefix: Current prefix text for filtering
+        """
         self.completion._show_completion(matches, word_start, prefix)
 
     def _hide_completion(self, event=None):
+        """Hide the auto-completion popup.
+
+        Args:
+            event: Optional event that triggered hiding
+        """
         self.completion._hide_completion(event)
 
     def _select_completion(self, event=None):
+        """Select the current auto-completion suggestion.
+
+        Args:
+            event: Optional event that triggered selection
+        """
         self.completion._select_completion(event)
