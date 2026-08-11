@@ -7,12 +7,15 @@ package: dict = {
     "Entrance": "main.py"
 }
 
+from libs.gui_libs.style_system import StyleSystem
+
 
 class EditorHighlight:
     """Handles syntax highlighting and bracket matching for the code editor.
 
     Processes text content to apply keyword, string, number, function,
     and classname highlighting tags based on loaded language groups.
+    Colors are sourced from StyleSystem singleton for theme consistency.
     """
 
     def __init__(self, parent):
@@ -23,6 +26,8 @@ class EditorHighlight:
         """
         self.parent = parent
         self.bracket_pairs = {'(': ')', '[': ']', '{': '}'}
+        self._style_system = StyleSystem()
+        self._style_system.sync_from_theme()
 
     def highlight_all(self, event=None):
         """Apply syntax highlighting to the entire document.
@@ -40,11 +45,11 @@ class EditorHighlight:
 
         for g in self.parent.groups:
             text_widget.tag_config(f"kw_{g['name']}", foreground=g["color"])
-        text_widget.tag_config("comment", foreground="#5C6370")
-        text_widget.tag_config("string", foreground="#98C379")
-        text_widget.tag_config("number", foreground="#D19A66")
-        text_widget.tag_config("function", foreground="#61AFEF")
-        text_widget.tag_config("classname", foreground="#E5C07B")
+        text_widget.tag_config("comment", foreground=self._style_system.get_value("highlight", "comment", "#5C6370"))
+        text_widget.tag_config("string", foreground=self._style_system.get_value("highlight", "string", "#98C379"))
+        text_widget.tag_config("number", foreground=self._style_system.get_value("highlight", "number", "#D19A66"))
+        text_widget.tag_config("function", foreground=self._style_system.get_value("highlight", "function", "#61AFEF"))
+        text_widget.tag_config("classname", foreground=self._style_system.get_value("highlight", "classname", "#E5C07B"))
 
         lines = content.splitlines(keepends=True)
         line_num = 1
@@ -173,7 +178,7 @@ class EditorHighlight:
             if match_pos:
                 text_widget.tag_add("bracket_match", cursor_index, f"{cursor_index}+1c")
                 text_widget.tag_add("bracket_match", match_pos, f"{match_pos}+1c")
-                text_widget.tag_config("bracket_match", background="#FFFF00")
+                text_widget.tag_config("bracket_match", background=self._style_system.get_value("highlight", "bracket_match_bg", "#FFFF00"))
 
     def find_matching_bracket(self, text_widget, start_idx, open_ch, close_ch):
         """Find a matching bracket character in the text.

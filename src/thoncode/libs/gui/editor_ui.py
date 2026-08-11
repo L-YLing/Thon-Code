@@ -13,6 +13,7 @@ import tkinter.font as tkfont
 
 from libs.gui.lazy_loader import LazyLoader
 from libs.gui import theme
+from libs.gui_libs.style_system import StyleSystem
 
 
 class EditorUI:
@@ -20,6 +21,7 @@ class EditorUI:
 
     Migrated to ttk + tk.Text: no longer uses CTkTextbox wrapper layer,
     both line number bar and main text box are tk.Text, unified appearance via theme colors.
+    Style configuration is sourced from StyleSystem singleton for cross-component consistency.
     """
 
     # Line number bar elide tag (independent from main text box but synchronized folding)
@@ -34,29 +36,45 @@ class EditorUI:
         self.parent = parent
         self.main_frame = ttk.Frame(parent.master)
 
+        # Initialize style system and sync with current theme
+        self._style_system = StyleSystem()
+        self._style_system.sync_from_theme()
+
         # Font loading
         self.font = ("Consolas", 12)
+        style_font_family = self._style_system.get_value("editor", "font_family", "Consolas")
+        style_font_size = self._style_system.get_value("editor", "font_size", 12)
         if parent.font_ligatures:
             try:
                 font_loader = LazyLoader.get('libs', 'font_loader')
-                loaded_font = font_loader.load_fira_code_font(parent.master, 12, parent.font_ligatures)
+                loaded_font = font_loader.load_fira_code_font(parent.master, style_font_size, parent.font_ligatures)
                 font_name = loaded_font.actual('family')
                 font_size = int(loaded_font.actual('size'))
                 self.font = (font_name, font_size)
             except Exception:
-                self.font = ("Consolas", 12)
+                self.font = (style_font_family, style_font_size)
+        else:
+            self.font = (style_font_family, style_font_size)
 
+        # Merge theme colors with style system overrides
         colors = theme.get_colors()
+        editor_bg = self._style_system.get_value("editor", "bg", colors["bg"])
+        editor_fg = self._style_system.get_value("editor", "fg", colors["fg"])
+        editor_fg_dim = self._style_system.get_value("editor", "fg_dim", colors["fg_dim"])
+        editor_cursor = self._style_system.get_value("editor", "cursor", editor_fg)
+        editor_sel_bg = self._style_system.get_value("editor", "selection_bg", colors["sel_bg"])
+        editor_sel_fg = self._style_system.get_value("editor", "selection_fg", colors["sel_fg"])
+        line_num_width = max(6, self._style_system.get_value("editor", "line_number_width", 50) // 8)
 
-        # Line number bar — tk.Text with theme colors
+        # Line number bar — tk.Text with style system colors
         self.line_numbers = tk.Text(
             self.main_frame,
-            width=6,
-            bg=colors["bg"],
-            fg=colors["fg_dim"],
-            insertbackground=colors["fg_dim"],
-            selectbackground=colors["sel_bg"],
-            selectforeground=colors["sel_fg"],
+            width=line_num_width,
+            bg=editor_bg,
+            fg=editor_fg_dim,
+            insertbackground=editor_fg_dim,
+            selectbackground=editor_sel_bg,
+            selectforeground=editor_sel_fg,
             font=self.font,
             wrap="none",
             relief="flat",
@@ -67,14 +85,14 @@ class EditorUI:
         )
         self.line_numbers.pack(side="left", fill="y", padx=(0, 0))
 
-        # Main text box — tk.Text with theme colors
+        # Main text box — tk.Text with style system colors
         self.textbox = tk.Text(
             self.main_frame,
-            bg=colors["bg"],
-            fg=colors["fg"],
-            insertbackground=colors["fg"],
-            selectbackground=colors["sel_bg"],
-            selectforeground=colors["sel_fg"],
+            bg=editor_bg,
+            fg=editor_fg,
+            insertbackground=editor_cursor,
+            selectbackground=editor_sel_bg,
+            selectforeground=editor_sel_fg,
             font=self.font,
             wrap="none",
             relief="flat",
@@ -89,7 +107,7 @@ class EditorUI:
 
         self._tk_font = tkfont.Font(family=self.font[0], size=self.font[1])
         self.textbox.config(font=self._tk_font)
-        self.textbox.tag_config("sel", background=colors["sel_bg"], foreground=colors["sel_fg"])
+        self.textbox.tag_config("sel", background=editor_sel_bg, foreground=editor_sel_fg)
         self.textbox.edit_modified(False)
         self.textbox.pack(side="left", fill="both", expand=True)
 

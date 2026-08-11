@@ -7,12 +7,15 @@ package: dict = {
     "Entrance": "main.py"
 }
 
+from libs.gui_libs.style_system import StyleSystem
+
 
 class EditorFolding:
     """Editor code folding handler
 
     Uses tk.Text's elide tag to implement real text hiding,
     fold state is stored uniformly in parent._folded_lines to avoid dual dictionary desync.
+    Fold indicators are sourced from StyleSystem for consistent configurable display.
     """
 
     # Elide tag name used for fold regions
@@ -25,7 +28,27 @@ class EditorFolding:
             parent: CodeEditor instance, provides _textbox, language, tab_size, etc.
         """
         self.parent = parent
+        self._style_system = StyleSystem()
+        self._style_system.sync_from_theme()
         # Fold state uses parent._folded_lines uniformly, no longer maintains independent dictionary
+
+    @property
+    def _collapse_indicator(self) -> str:
+        """Get the collapse indicator character from style system.
+
+        Returns:
+            str: Character used to indicate collapsible (expanded) state
+        """
+        return self._style_system.get_value("tree", "expand_indicator", "▾")
+
+    @property
+    def _expand_indicator(self) -> str:
+        """Get the expand indicator character from style system.
+
+        Returns:
+            str: Character used to indicate folded (collapsed) state
+        """
+        return self._style_system.get_value("tree", "collapse_indicator", "▸")
 
     def _ensure_fold_tag(self):
         """Ensure elide tag is configured, needs to be recreated after highlight_all clears tags"""
@@ -179,12 +202,13 @@ class EditorFolding:
         Args:
             line_num: 1-indexed line number
         Returns:
-            str: '▾' means folded, '▸' means foldable but not folded, '' means not foldable
+            str: Collapse indicator means foldable (expanded),
+                 Expand indicator means folded, '' means not foldable
         """
         if line_num in self.parent._folded_lines:
-            return '▸'  # Folded, click to unfold
+            return self._expand_indicator  # Folded, click to unfold
         # Check if it is the start of a foldable region
         for start, end in self._get_foldable_regions():
             if start == line_num and end > start:
-                return '▾'  # Foldable, click to fold
+                return self._collapse_indicator  # Foldable, click to fold
         return ''

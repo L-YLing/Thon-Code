@@ -10,13 +10,15 @@ package: dict = {
 import os
 from libs.gui.code_editor import CodeEditor
 import libs.cfg_handle as cfg_handle
+from libs.gui_libs.style_system import StyleSystem
 
 
 class EditorManager:
     """Manages the code editor instance and file operations.
 
     Handles file opening, saving, content management, and language
-    detection for syntax highlighting and auto-completion.
+    detection for syntax highlighting and auto-completion. Integrates
+    with StyleSystem singleton for cross-component theme consistency.
     """
 
     def __init__(self, parent, main_window, status_callback, update_title_callback):
@@ -32,6 +34,9 @@ class EditorManager:
         self.main_window = main_window
         self.status_callback = status_callback
         self.update_title_callback = update_title_callback
+
+        self._style_system = StyleSystem()
+        self._style_system.sync_from_theme()
 
         self.editor = None
         self.editor_widget = None
@@ -87,7 +92,7 @@ class EditorManager:
         """Create and initialize the CodeEditor widget."""
         cfg = cfg_handle.cfg_handle().read_cfg()["data"]
         ligatures = cfg.get("font_ligatures", True)
-        tab_size = cfg.get("tab_size", 4)
+        tab_size = cfg.get("tab_size", self._style_system.get_value("editor", "font_size", 4))
 
         self.editor = CodeEditor(
             self.parent,
@@ -102,6 +107,33 @@ class EditorManager:
         self.editor.current_file = self.current_file
         self.textbox_widget.bind("<<Modified>>", self._on_modified)
         self.textbox_widget.edit_modified(False)
+
+    def apply_editor_style(self, component: str = "", key: str = "", value=None) -> None:
+        """Apply a style change to the editor through StyleSystem.
+
+        Args:
+            component: Component name ('editor', 'highlight', 'tree')
+            key: Style property key
+            value: New value to set; if None, re-syncs from theme
+        """
+        if value is None:
+            self._style_system.sync_from_theme()
+        elif component and key:
+            self._style_system.set_style(component, key, value)
+
+        # Propagate style changes to all sub-components
+        if self.editor and self.editor.ui:
+            self.editor.ui._style_system = self._style_system
+        if self.editor and self.editor.highlight:
+            self.editor.highlight._style_system = self._style_system
+        if self.editor and self.editor.completion:
+            self.editor.completion._style_system = self._style_system
+        if self.editor and self.editor.folding:
+            self.editor.folding._style_system = self._style_system
+        # Refresh display
+        if self.editor:
+            self.editor.highlight_all()
+            self.editor._update_line_numbers()
 
     def get_widget(self):
         """Get the editor's main frame widget.

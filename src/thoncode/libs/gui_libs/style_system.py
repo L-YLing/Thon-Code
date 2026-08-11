@@ -266,3 +266,37 @@ class StyleSystem:
         self._styles = {"default": copy.deepcopy(DEFAULT_STYLE)}
         self._current_style = "default"
         self._notify_listeners()
+
+    def sync_from_theme(self) -> None:
+        """Synchronize editor colors from the global theme system.
+
+        Pulls current theme colors (bg, fg, selection, cursor) from
+        libs.gui.theme.get_colors() and applies them to the 'editor'
+        and 'tree' style sections. This bridges the ttkbootstrap theme
+        system with the gui_libs StyleSystem singleton so components
+        read from a unified color source.
+        """
+        try:
+            from libs.gui.theme import get_colors
+            colors = get_colors()
+            self.set_component_style("editor", {
+                "bg": colors.get("bg", "#282c34"),
+                "fg": colors.get("fg", "#abb2bf"),
+                "fg_dim": colors.get("fg_dim", "#5c6370"),
+                "line_number_bg": colors.get("bg", "#282c34"),
+                "line_number_fg": colors.get("fg_dim", "#5c6370"),
+                "fold_gutter_bg": colors.get("bg", "#282c34"),
+                "selection_bg": colors.get("sel_bg", "#264f78"),
+                "selection_fg": colors.get("sel_fg", "#ffffff"),
+                "cursor": colors.get("fg", "#abb2bf"),
+            })
+            self.set_component_style("tree", {
+                "bg": colors.get("bg", "#282c34"),
+                "fg": colors.get("fg", "#abb2bf"),
+                "fg_dim": colors.get("fg_dim", "#5c6370"),
+                "selection_bg": colors.get("sel_bg", "#264f78"),
+                "selection_fg": colors.get("sel_fg", "#ffffff"),
+                "hover_bg": colors.get("bg_alt", colors.get("bg", "#282c34")),
+            })
+        except ImportError:
+            pass

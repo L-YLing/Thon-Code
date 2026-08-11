@@ -10,13 +10,15 @@ package: dict = {
 import tkinter as tk
 
 from libs.gui import theme
+from libs.gui_libs.style_system import StyleSystem
 
 
 class EditorCompletion:
     """Code completion popup manager for the editor.
 
     Manages a completion suggestion listbox window that appears near the cursor
-    when the user types matching keywords.
+    when the user types matching keywords. Styled via StyleSystem singleton
+    for consistent appearance across all editor components.
 
     Args:
         editor: CodeEditor instance providing data source (_textbox, groups, etc.)
@@ -32,6 +34,8 @@ class EditorCompletion:
         """
         self.editor = editor
         self.widget_parent = widget_parent if widget_parent else editor.master
+        self._style_system = StyleSystem()
+        self._style_system.sync_from_theme()
         self._is_selecting = False
         self._after_completion_id = None
         self.completion_window = None
@@ -42,15 +46,21 @@ class EditorCompletion:
         self._init_completion_window()
 
     def _init_completion_window(self):
-        """Create the completion popup Toplevel window and listbox."""
+        """Create the completion popup Toplevel window and listbox.
+
+        Uses StyleSystem-derived editor font for the listbox display.
+        """
         self.completion_window = theme.themed_toplevel(self.widget_parent)
         self.completion_window.wm_overrideredirect(True)
         self.completion_window.wm_attributes("-topmost", True)
         self.completion_window.withdraw()
 
+        # Source listbox font from style system
+        completion_font_family = self._style_system.get_value("editor", "font_family", "Microsoft YaHei")
+        completion_font_size = max(9, self._style_system.get_value("editor", "font_size", 10) - 2)
         self.completion_listbox = theme.themed_listbox(
             self.completion_window,
-            font=("Microsoft YaHei", 10),
+            font=(completion_font_family, completion_font_size),
         )
         self.completion_listbox.pack(fill="both", expand=True, padx=1, pady=1)
         self.completion_listbox.bind("<ButtonRelease-1>", self._select_completion)
