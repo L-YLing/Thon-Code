@@ -195,59 +195,83 @@ class EditorManager:
         return self.textbox_widget.get("1.0", "end-1c")
 
     def open_file(self, file_path):
-        """Open a file and load its content into the editor.
+        """Open a file asynchronously and load its content into the editor.
+
+        Uses background thread for file I/O to avoid blocking the UI.
+        Content is applied on the main thread via after() callback.
 
         Args:
             file_path: Absolute path to the file to open
 
         Returns:
-            bool: True if file was opened successfully
+            bool: True if file read was initiated successfully
         """
-        try:
-            with open(file_path, "r", encoding="utf-8") as f:
-                content = f.read()
+        from libs.gui.async_utils import AsyncFileIO
+
+        def _on_read_success(content):
+            """Apply file content to editor on main thread."""
             self.set_content(content)
             self.current_file = file_path
             self.editor.current_file = file_path
             self._set_editor_language(file_path)
             self.update_title_callback()
             self.status_callback(f"Opened: {file_path}")
-            return True
-        except Exception as e:
+
+        def _on_read_error(error):
+            """Handle file read error on main thread."""
             from tkinter import messagebox
-            messagebox.showerror("Error", f"Cannot open file: {e}")
-            return False
+            messagebox.showerror("Error", f"Cannot open file: {error}")
+
+        AsyncFileIO.read_file(
+            file_path,
+            on_success=_on_read_success,
+            on_error=_on_read_error,
+        )
+        return True
 
     def save_file(self, file_path=None):
-        """Save the current editor content to a file.
+        """Save the current editor content to a file asynchronously.
+
+        Uses background thread for file I/O to avoid blocking the UI.
+        State is updated on the main thread via after() callback.
 
         Args:
             file_path: Optional path to save to (uses current_file if None)
 
         Returns:
-            bool: True if save was successful, None if no file is open
+            bool: True if save was initiated, None if no file is open
         """
         if file_path is None and not self.current_file:
             return None
 
         save_path = file_path or self.current_file
-        try:
-            content = self.get_content()
-            with open(save_path, "w", encoding="utf-8") as f:
-                f.write(content)
-            self.current_file = save_path
+        content = self.get_content()
+
+        from libs.gui.async_utils import AsyncFileIO
+
+        def _on_write_success(saved_path):
+            """Update editor state after successful save on main thread."""
+            self.current_file = saved_path
             self._is_dirty = False
             self.last_saved_content = content
             self.textbox_widget.edit_modified(False)
             if hasattr(self.editor, '_saving'):
                 self.editor._saving = False
             self.update_title_callback()
-            self.status_callback(f"Saved: {save_path}")
-            return True
-        except Exception as e:
+            self.status_callback(f"Saved: {saved_path}")
+
+        def _on_write_error(error):
+            """Handle save error on main thread."""
             from tkinter import messagebox
-            messagebox.showerror("Error", f"Save failed: {e}")
-            return False
+            messagebox.showerror("Error", f"Save failed: {error}")
+
+        AsyncFileIO.write_file(
+            save_path,
+            content,
+            on_success=_on_write_success,
+            on_error=_on_write_error,
+        )
+        return True
 
     def _on_modified(self, event):
         """Handle text modification events and update dirty state.

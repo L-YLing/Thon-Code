@@ -80,6 +80,10 @@ class MainWindow:
 
         self._set_icon()
 
+        # Initialize async task runner for non-blocking I/O
+        from libs.gui.async_utils import AsyncTaskRunner
+        AsyncTaskRunner.initialize(self.root)
+
         self.left_visible = True
         self.right_visible = True
         self.max_left_width = 350
@@ -600,7 +604,9 @@ class MainWindow:
             self.root.title(f"{base} - {self.langs_cfg.status_untitled}{'*' if self.is_dirty else ''}")
 
     def exit_app(self):
-        """Exit the application."""
+        """Exit the application and release async resources."""
+        from libs.gui.async_utils import AsyncTaskRunner
+        AsyncTaskRunner.shutdown()
         self.root.quit()
 
     def cut(self):
