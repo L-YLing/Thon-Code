@@ -307,7 +307,7 @@ class MainWindow:
     def _build_center_pane(self):
         """Build the center pane with a placeholder for lazy editor loading."""
         self.editor_placeholder = ttk.Frame(self.center_frame)
-        self.editor_placeholder.pack(fill="both", expand=True, padx=2, pady=2)
+        self.editor_placeholder.pack(fill="both", expand=True, padx=0, pady=(0, 0))
         self.editor_manager = None
         self.editor_widget = None
         self.textbox_widget = None
@@ -320,6 +320,10 @@ class MainWindow:
             EditorManager: The initialized editor manager instance
         """
         if self.editor_manager is None:
+            # Hide placeholder before loading editor to prevent layout conflicts
+            if self.editor_placeholder and self.editor_placeholder.winfo_exists():
+                self.editor_placeholder.pack_forget()
+
             EditorManager = LazyLoader.get('libs.gui.editor_manager', 'EditorManager')
             self.editor_manager = EditorManager(
                 self.center_frame,
@@ -331,7 +335,8 @@ class MainWindow:
             self.textbox_widget = self.editor_manager.get_textbox()
             self.editor = self.editor_manager.get_editor_instance()
 
-            self.editor_widget.pack(fill="both", expand=True, padx=2, pady=2)
+            # Pack editor flush against the header frame (no top padding)
+            self.editor_widget.pack(fill="both", expand=True, padx=0, pady=(0, 0))
             self.textbox_widget.bind("<Button-3>", self._show_editor_context_menu)
             self.textbox_widget.bind("<<Modified>>", self.editor_manager._on_modified)
         return self.editor_manager
@@ -346,9 +351,10 @@ class MainWindow:
             try:
                 if self.editor_widget and self.editor_widget.winfo_exists():
                     self.editor_widget.destroy()
+                # Restore placeholder with flush-top alignment
                 if self.editor_placeholder and self.editor_placeholder.winfo_exists():
                     self.editor_placeholder.pack_forget()
-                    self.editor_placeholder.pack(fill="both", expand=True, padx=2, pady=2)
+                    self.editor_placeholder.pack(fill="both", expand=True, padx=0, pady=(0, 0))
             except Exception:
                 pass
             self.editor_manager = None
