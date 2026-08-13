@@ -98,10 +98,16 @@ class CodeEditor:
     def load_language(self, language):
         """Load language configuration for syntax highlighting.
 
+        Resolves the language config directory relative to this module so the
+        editor works regardless of the current working directory (important
+        for packaged builds).
+
         Args:
             language: Language name (e.g., 'python', 'javascript')
         """
-        config_dir = "assets/languages"
+        # Resolve assets/languages relative to this file (src/thoncode/assets/languages).
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        config_dir = os.path.join(base_dir, "assets", "languages")
         os.makedirs(config_dir, exist_ok=True)
         file_path = os.path.join(config_dir, f"{language}.json")
         if not os.path.exists(file_path):
@@ -117,7 +123,7 @@ class CodeEditor:
         self._textbox.tag_config("function", foreground="#61AFEF")
         self._textbox.tag_config("classname", foreground="#E5C07B")
         self._textbox.tag_config("bracket_match", background="#FFFF00")
-        
+
         self._folded_lines.clear()
 
     def _create_default_language_file(self, language, path):
@@ -144,10 +150,14 @@ class CodeEditor:
     def on_key_release(self, event=None):
         """Handle key release event for highlighting and completion.
 
+        Uses debounced highlight scheduling so rapid keystrokes merge into a
+        single highlight pass, keeping typing responsive on large files.
+
         Args:
             event: The key release event
         """
-        self.highlight_all()
+        # Debounced highlighting (auto-selects viewport vs full by file size).
+        self.highlight.schedule_highlight()
         self.highlight_matching_bracket()
 
         self._update_line_numbers()
@@ -281,10 +291,30 @@ class CodeEditor:
     def highlight_all(self, event=None):
         """Reapply syntax highlighting and fold state.
 
+        Automatically selects viewport highlighting for large files and full
+        highlighting for small files, so explicit refresh requests stay fast
+        regardless of document size.
+
         Args:
             event: Optional event that triggered highlighting
         """
-        self.highlight.highlight_all(event)
+        try:
+            total_lines = int(self._textbox.index('end-1c').split('.')[0])
+        except Exception:
+            total_lines = 1
+        if total_lines >= self.highlight.LARGE_FILE_THRESHOLD:
+            self.highlight.highlight_visible()
+        else:
+            self.highlight.highlight_all(event)
+        if self.folding:
+            self.folding.apply_all_folds()
+
+    def highlight_visible(self):
+        """Reapply syntax highlighting to the visible viewport only.
+
+        Used for large files where full-document highlighting would be too slow.
+        """
+        self.highlight.highlight_visible()
         if self.folding:
             self.folding.apply_all_folds()
 

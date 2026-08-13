@@ -17,6 +17,9 @@ import libs.langs_loader as langs_loader
 
 
 class TreeManager:
+    # Directories ignored everywhere to keep large projects responsive.
+    IGNORED_DIRS = ('__pycache__', '.git', '.idea', '.vscode', 'node_modules', 'dist', 'build')
+
     def __init__(self, parent, root_widget, project_root, open_file_callback, status_callback):
         self.parent = parent
         self.root_widget = root_widget
@@ -148,7 +151,117 @@ class TreeManager:
             self._children_loaded.add(item)
 
     def refresh(self):
-        self._populate_root()
+        """Incrementally refresh the tree preserving expansion and loaded state.
+
+        Instead of deleting and rebuilding the whole tree, this diffs each
+        already-loaded directory against the filesystem: new entries are
+        inserted, removed entries deleted, and unchanged directories keep
+        their expansion state and loaded children. Large projects therefore
+        refresh without collapsing expanded folders or re-listing every dir.
+        """
+        if not os.path.exists(self.project_root):
+            return
+        root_children = self.tree.get_children()
+        if not root_children:
+            self._populate_root()
+            return
+        root_item = root_children[0]
+        self._refresh_children(root_item, self.project_root)
+
+    def _list_sorted(self, path):
+        """List a directory returning dir-first, case-insensitively sorted entries.
+
+        Args:
+            path: Directory to list
+
+        Returns:
+            list[tuple[str, str, bool]]: (name, full_path, is_dir) tuples with
+            directories first, each group sorted case-insensitively.
+        """
+        try:
+            names = os.listdir(path)
+        except PermissionError:
+            return []
+        dirs = []
+        files = []
+        for name in names:
+            if name.startswith('.') or name in self.IGNORED_DIRS:
+                continue
+            full_path = os.path.join(path, name)
+            is_dir = os.path.isdir(full_path)
+            entry = (name, full_path, is_dir)
+            if is_dir:
+                dirs.append(entry)
+            else:
+                files.append(entry)
+        dirs.sort(key=lambda e: e[0].lower())
+        files.sort(key=lambda e: e[0].lower())
+        return dirs + files
+
+    def _insert_node(self, parent, name, full_path, is_dir):
+        """Insert a single tree node with the appropriate icon.
+
+        Args:
+            parent: Parent tree item id
+            name: Display name
+            full_path: Absolute path stored in the "path" column
+            is_dir: Whether the entry is a directory
+
+        Returns:
+            The newly created tree item id
+        """
+        if is_dir:
+            node = self.tree.insert(parent, "end", text=name, open=False,
+                                    image=self.folder_icon if self.folder_icon else '')
+        else:
+            _, ext = os.path.splitext(name)
+            ext = ext.lstrip('.').lower()
+            icon = self.file_icons.get(ext, self.default_file_icon)
+            node = self.tree.insert(parent, "end", text=name, image=icon if icon else '')
+        self.tree.set(node, "path", full_path)
+        return node
+
+    def _refresh_children(self, parent_item, path):
+        """Refresh direct children of parent_item with minimal churn.
+
+        Diffs the current children against the filesystem: keeps unchanged
+        nodes (recursing into already-loaded directories), inserts new ones,
+        and deletes gone ones. Expansion state of kept directories is
+        preserved because their tree items are not touched.
+
+        Args:
+            parent_item: Tree item id whose children to refresh
+            path: Filesystem path of parent_item
+        """
+        entries = self._list_sorted(path)
+        # Map existing child path -> item id.
+        existing = {}
+        for child in self.tree.get_children(parent_item):
+            try:
+                existing[self.tree.set(child, "path")] = child
+            except Exception:
+                continue
+
+        new_paths = set()
+        for name, full_path, is_dir in entries:
+            new_paths.add(full_path)
+            if full_path in existing:
+                # Unchanged node: recurse into already-loaded directories.
+                child_item = existing[full_path]
+                if is_dir and child_item in self._children_loaded:
+                    child_path = self.tree.set(child_item, "path")
+                    self._refresh_children(child_item, child_path)
+            else:
+                self._insert_node(parent_item, name, full_path, is_dir)
+
+        # Delete nodes that no longer exist on disk.
+        for full_path, child_item in existing.items():
+            if full_path not in new_paths:
+                self._children_loaded.discard(child_item)
+                try:
+                    self.tree.delete(child_item)
+                except Exception:
+                    pass
 
     def set_project_root(self, path):
         self.project_root = path
@@ -181,25 +294,19 @@ class TreeManager:
             restore(root)
 
     def _add_children(self, parent, path, load_icons=True):
-        try:
-            items = sorted(os.listdir(path))
-        except PermissionError:
-            return
+        """Populate a tree node with its filesystem children.
 
-        for name in items:
-            full_path = os.path.join(path, name)
-            if name.startswith('.') or name in ('__pycache__', '.git', '.idea', '.vscode', 'node_modules', 'dist', 'build'):
-                continue
+        Uses dir-first case-insensitive sorting via _list_sorted and the
+        shared _insert_node helper so insertion logic is reused by refresh.
 
-            if os.path.isdir(full_path):
-                node = self.tree.insert(parent, "end", text=name, open=False, image=self.folder_icon if self.folder_icon else '')
-                self.tree.set(node, "path", full_path)
-            else:
-                _, ext = os.path.splitext(name)
-                ext = ext.lstrip('.').lower()
-                icon = self.file_icons.get(ext, self.default_file_icon)
-                node = self.tree.insert(parent, "end", text=name, image=icon if icon else '')
-                self.tree.set(node, "path", full_path)
+        Args:
+            parent: Parent tree item id
+            path: Filesystem path to list
+            load_icons: Whether to ensure icons are loaded first
+        """
+        entries = self._list_sorted(path)
+        for name, full_path, is_dir in entries:
+            self._insert_node(parent, name, full_path, is_dir)
 
     def on_tree_double_click(self, event):
         selected = self.tree.selection()

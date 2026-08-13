@@ -41,6 +41,10 @@ class EditorShortcuts:
     def _on_ctrl_s(self, event):
         """Handle Ctrl+S save shortcut.
 
+        Saves asynchronously via AsyncFileIO so large files do not block the
+        UI thread; editor and main-window state are updated on the main thread
+        in the success callback.
+
         Args:
             event: The keyboard event
 
@@ -52,19 +56,32 @@ class EditorShortcuts:
 
         master = self.parent.main_window
         if master.current_file:
-            try:
-                content = self.parent._textbox.get("1.0", "end-1c")
-                with open(master.current_file, "w", encoding="utf-8") as f:
-                    f.write(content)
+            content = self.parent._textbox.get("1.0", "end-1c")
+            from libs.gui.async_utils import AsyncFileIO
+
+            def _on_success(saved_path):
+                """Update editor and window state after successful save."""
                 master.is_dirty = False
                 master.last_saved_content = content
                 master.update_title()
-                master.status_bar.configure(text=f"{self._get_text('editor.saved')} {master.current_file}")
+                try:
+                    master.status_bar.configure(text=f"{self._get_text('editor.saved')} {saved_path}")
+                except Exception:
+                    pass
                 self.parent._textbox.edit_modified(False)
                 self.parent.current_file = master.current_file
                 self.parent._completion_enabled = self.parent._should_enable_completion(self.parent.current_file)
-            except Exception as e:
-                messagebox.showerror(self._get_text('settings.error_title'), f"{self._get_text('editor.save_failed')}: {e}")
+
+            def _on_error(error):
+                """Report save failure on the main thread."""
+                messagebox.showerror(self._get_text('settings.error_title'), f"{self._get_text('editor.save_failed')}: {error}")
+
+            AsyncFileIO.write_file(
+                master.current_file,
+                content,
+                on_success=_on_success,
+                on_error=_on_error,
+            )
         else:
             if hasattr(master, 'save_as'):
                 master.save_as()
@@ -124,7 +141,7 @@ class EditorShortcuts:
         Returns:
             "break" to prevent default handling
         """
-        if self.parent.completion_window and self.parent.completion_window.winfo_ismapped():
+        if self.parent.completion and self.parent.completion.completion_window and self.parent.completion.completion_window.winfo_ismapped():
             self.parent._select_completion()
             return "break"
         text_widget = self.parent._textbox

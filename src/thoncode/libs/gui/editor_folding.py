@@ -11,18 +11,22 @@ from libs.gui_libs.style_system import StyleSystem
 
 
 class EditorFolding:
-    """Editor code folding handler
+    """Editor code folding handler.
 
     Uses tk.Text's elide tag to implement real text hiding,
     fold state is stored uniformly in parent._folded_lines to avoid dual dictionary desync.
     Fold indicators are sourced from StyleSystem for consistent configurable display.
+
+    Performance: foldable regions are cached and invalidated by a content
+    version marker, so get_fold_marker / _get_foldable_regions no longer
+    re-scan the whole document on every line-number refresh.
     """
 
     # Elide tag name used for fold regions
     FOLD_TAG = "fold_elided"
 
     def __init__(self, parent):
-        """Initialize folding handler
+        """Initialize folding handler.
 
         Args:
             parent: CodeEditor instance, provides _textbox, language, tab_size, etc.
@@ -30,7 +34,9 @@ class EditorFolding:
         self.parent = parent
         self._style_system = StyleSystem()
         self._style_system.sync_from_theme()
-        # Fold state uses parent._folded_lines uniformly, no longer maintains independent dictionary
+        # Fold state uses parent._folded_lines uniformly, no longer maintains independent dictionary.
+        # Cached foldable regions: (version, regions, foldable_starts_set).
+        self._regions_cache = (None, [], set())
 
     @property
     def _collapse_indicator(self) -> str:
@@ -56,15 +62,39 @@ class EditorFolding:
         # elide=True makes tagged text hidden and non-editable
         tb.tag_config(self.FOLD_TAG, elide=True)
 
+    def _content_version(self):
+        """Get a cheap content version marker for cache invalidation.
+
+        Returns:
+            A hashable marker representing the current text content state.
+        """
+        try:
+            return self.parent._textbox.index('end-1c')
+        except Exception:
+            return None
+
+    def _invalidate_regions_cache(self):
+        """Invalidate the cached foldable regions."""
+        self._regions_cache = (None, [], set())
+
     def _get_foldable_regions(self):
-        """Scan full text, return list of foldable regions
+        """Scan full text, return list of foldable regions.
+
+        Results are cached per content version so repeated calls during
+        line-number refreshes do not re-scan the whole document.
 
         Returns:
             list[tuple[int, int]]: Each element is (start line number, end line number), line numbers start from 1;
             start line is the def/class definition line, end line is the line number of the last line of the block
         """
         if self.parent.language != "python":
+            self._regions_cache = (None, [], set())
             return []
+
+        version = self._content_version()
+        cached_version, cached_regions, cached_starts = self._regions_cache
+        if version == cached_version:
+            return cached_regions
 
         content = self.parent._textbox.get("1.0", "end-1c")
         lines = content.splitlines()
@@ -92,7 +122,18 @@ class EditorFolding:
             if end_line_idx > i + 1:
                 fold_regions.append((i + 1, end_line_idx))
 
+        foldable_starts = {start for start, _ in fold_regions}
+        self._regions_cache = (version, fold_regions, foldable_starts)
         return fold_regions
+
+    def _get_foldable_starts(self):
+        """Return the cached set of foldable start line numbers.
+
+        Returns:
+            set[int]: 1-indexed line numbers that begin a foldable region
+        """
+        self._get_foldable_regions()
+        return self._regions_cache[2]
 
     def _find_block_end(self, lines, start_idx, min_indent):
         """Find the end position of a code block
@@ -199,6 +240,9 @@ class EditorFolding:
     def get_fold_marker(self, line_num):
         """Get the fold marker character for the specified line
 
+        Uses the cached foldable starts set for O(1) lookup instead of
+        re-scanning the whole document on every call.
+
         Args:
             line_num: 1-indexed line number
         Returns:
@@ -207,8 +251,7 @@ class EditorFolding:
         """
         if line_num in self.parent._folded_lines:
             return self._expand_indicator  # Folded, click to unfold
-        # Check if it is the start of a foldable region
-        for start, end in self._get_foldable_regions():
-            if start == line_num and end > start:
-                return self._collapse_indicator  # Foldable, click to fold
+        # O(1) set lookup against cached foldable starts.
+        if line_num in self._get_foldable_starts():
+            return self._collapse_indicator  # Foldable, click to fold
         return ''

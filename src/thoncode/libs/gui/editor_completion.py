@@ -38,6 +38,9 @@ class EditorCompletion:
         self._style_system.sync_from_theme()
         self._is_selecting = False
         self._after_completion_id = None
+        # Cached keyword list and its signature, rebuilt only when groups change.
+        self._keywords_cache = None
+        self._keywords_signature = None
         self.completion_window = None
         self.completion_listbox = None
         self.completion_matches = []
@@ -108,9 +111,8 @@ class EditorCompletion:
             self._hide_completion()
             return
 
-        all_keywords = []
-        for group in self.editor.groups:
-            all_keywords.extend(group.get("words", []))
+        # Use cached keyword list, rebuilt only when groups change.
+        all_keywords = self._get_keywords()
         matches = [kw for kw in all_keywords if kw.startswith(prefix)]
         if not matches:
             self._hide_completion()
@@ -118,6 +120,21 @@ class EditorCompletion:
 
         matches = list(dict.fromkeys(matches))[:30]
         self._show_completion(matches, word_start, prefix)
+
+    def _get_keywords(self):
+        """Return the cached flat keyword list, rebuilding on groups change.
+
+        Returns:
+            list[str]: Flat list of all keywords across groups
+        """
+        sig = tuple((g.get("name"), len(g.get("words", []))) for g in self.editor.groups)
+        if sig != self._keywords_signature:
+            all_keywords = []
+            for group in self.editor.groups:
+                all_keywords.extend(group.get("words", []))
+            self._keywords_cache = all_keywords
+            self._keywords_signature = sig
+        return self._keywords_cache
 
     def _show_completion(self, matches, word_start, prefix):
         """Display the completion popup with matched keywords.

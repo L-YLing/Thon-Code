@@ -592,7 +592,7 @@ class MainWindow:
     def refresh_tree(self):
         """Refresh the project tree view."""
         if hasattr(self, 'tree_manager'):
-            self.tree_manager.refresh_tree()
+            self.tree_manager.refresh()
 
     def update_title(self):
         """Update the window title with the current file name."""

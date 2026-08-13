@@ -114,6 +114,12 @@ class EditorUI:
         # Line number bar elide tag configuration
         self.line_numbers.tag_config(self.LINE_FOLD_TAG, elide=True)
 
+        # Signature of the last rendered line-number content; when unchanged
+        # only scroll sync is needed, skipping the costly delete+insert rebuild.
+        self._ln_signature = None
+        # Debounce handle for viewport highlight triggered by scrolling.
+        self._viewport_highlight_after_id = None
+
         self._setup_bindings()
 
     def _setup_bindings(self):
@@ -162,7 +168,11 @@ class EditorUI:
 
         Line number bar and main text box use the same elide logic:
         - Line numbers corresponding to folded regions are also elided in the line number bar, ensuring visual alignment
-        - Foldable lines show ▾ marker, folded lines show ▸ marker
+        - Foldable lines show collapse marker, folded lines show expand marker
+
+        Performance: a signature of (line_count, folded state, foldable starts,
+        content version) is cached; when unchanged the costly delete+insert
+        rebuild is skipped and only scroll sync runs.
         """
         if not self.parent._textbox:
             return
@@ -173,12 +183,23 @@ class EditorUI:
         except Exception:
             line_count = 1
 
-        # Get foldable regions and folded state
-        fold_regions = []
+        # Get foldable starts and folded state via cached folding helpers.
         folded = self.parent._folded_lines
+        foldable_starts = set()
         if self.parent.folding and self.parent.language == "python":
-            fold_regions = self.parent._get_foldable_regions()
-        foldable_starts = {start for start, _ in fold_regions}
+            foldable_starts = self.parent.folding._get_foldable_starts()
+
+        # Build a cheap signature; skip rebuild when nothing changed.
+        content_version = self.parent._textbox.index('end-1c')
+        signature = (line_count, frozenset(folded.items()), frozenset(foldable_starts), content_version)
+        if signature == self._ln_signature:
+            # Content unchanged: only resync scroll position.
+            try:
+                self.line_numbers.yview_moveto(self.parent._textbox.yview()[0])
+            except Exception:
+                pass
+            return
+        self._ln_signature = signature
 
         # Generate line number text (with fold markers)
         line_texts = []
@@ -260,6 +281,34 @@ class EditorUI:
             self.line_numbers.yview_moveto(self.parent._textbox.yview()[0])
         except Exception:
             pass
+        # For large files, refresh viewport highlighting on scroll so newly
+        # exposed lines are tagged without re-highlighting the whole document.
+        self._schedule_viewport_highlight()
+
+    def _schedule_viewport_highlight(self):
+        """Debounce viewport highlighting during scrolling for large files."""
+        try:
+            total_lines = int(self.parent._textbox.index('end-1c').split('.')[0])
+        except Exception:
+            return
+        if total_lines < self.parent.highlight.LARGE_FILE_THRESHOLD:
+            return
+        if self._viewport_highlight_after_id is not None:
+            try:
+                self.parent.master.after_cancel(self._viewport_highlight_after_id)
+            except Exception:
+                pass
+        self._viewport_highlight_after_id = self.parent.master.after(
+            60, self._run_viewport_highlight
+        )
+
+    def _run_viewport_highlight(self):
+        """Execute the deferred viewport highlight pass."""
+        self._viewport_highlight_after_id = None
+        try:
+            self.parent.highlight.highlight_visible()
+        except Exception:
+            pass
 
     def _on_line_number_click(self, event):
         """Click line number bar: fold/unfold corresponding line"""
@@ -269,9 +318,8 @@ class EditorUI:
         index = self.line_numbers.index(f"@{event.x},{event.y}")
         line_num = int(index.split('.')[0])
 
-        # Get foldable regions
-        fold_regions = self.parent._get_foldable_regions()
-        foldable_starts = [start for start, _ in fold_regions]
+        # Use cached foldable starts set for O(1) membership test.
+        foldable_starts = self.parent.folding._get_foldable_starts() if self.parent.folding else set()
 
         # Use parent._folded_lines uniformly to check fold state
         if line_num in foldable_starts or line_num in self.parent._folded_lines:
