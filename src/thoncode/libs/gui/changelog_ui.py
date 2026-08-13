@@ -64,7 +64,7 @@ class ChangelogWindow:
         """Create the changelog management window"""
         self.window = ttkb.Toplevel(self.parent)
         self.window.title(self._get_text("changelog_git_title"))
-        self.window.geometry("950x700")
+        self.window.geometry("960x540")
         self.window.transient(self.parent)
         self.window.lift()
         self.window.focus_force()
@@ -532,7 +532,7 @@ class ChangelogWindow:
             return
         preview_window = ttkb.Toplevel(self.window)
         preview_window.title(self._get_text("changelog_preview"))
-        preview_window.geometry("600x500")
+        preview_window.geometry("640x360")
         preview_window.transient(self.window)
         preview_window.lift()
         preview_window.focus_force()

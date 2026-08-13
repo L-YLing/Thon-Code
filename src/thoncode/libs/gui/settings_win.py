@@ -23,8 +23,10 @@ class SettingsWindow(ttkb.Toplevel):
     Apply button persists settings without closing the window.
     """
 
-    THEME_COMBO_VALUES = ["darkly", "flatly", "cyborg", "superhero", "vapor", "solar", "dracula", "vscode_dark"]
-    DARK_THEMES = ["darkly", "cyborg", "superhero", "vapor", "solar", "dracula", "vscode_dark"]
+    THEME_COMBO_VALUES = ["darkly", "flatly", "cyborg", "superhero", "vapor", "solar",
+                          "dracula", "vscode_dark", "vscode_dark_blue"]
+    DARK_THEMES = ["darkly", "cyborg", "superhero", "vapor", "solar",
+                   "dracula", "vscode_dark", "vscode_dark_blue"]
 
     def __init__(self, master, on_settings_changed=None):
         """Initialize the settings window.
@@ -40,7 +42,7 @@ class SettingsWindow(ttkb.Toplevel):
         self.lang = langs_loader.langs()
 
         self.title(self._get_text("settings.title"))
-        self.geometry("400x530")
+        self.geometry("800x450")
         self.resizable(False, False)
 
         self.cfg = cfg_handle.cfg_handle().read_cfg()["data"]

@@ -81,7 +81,7 @@ class GitIntegrationWindow:
     def _create_window(self):
         self.window = ttkb.Toplevel(self.parent)
         self.window.title(self._get_text("git.title"))
-        self.window.geometry("960x720")
+        self.window.geometry("960x540")
         self.window.transient(self.parent)
         self.window.lift()
         self.window.focus_force()

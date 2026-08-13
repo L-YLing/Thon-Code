@@ -28,6 +28,7 @@
     "search": "Search:",
     "search_dev": "(feature in development)",
     "search_enter_keyword": "Enter search keyword",
+    "search_no_result": "No matching files found",
 
     "status.ready": "Ready",
     "status.language_updated": "Language updated",
@@ -320,5 +321,14 @@
 
     "settings.accent_color": "Accent Colour (Monet Picker)",
     "settings.custom_color": "Custom...",
-    "settings.reset_color": "Reset"
+    "settings.reset_color": "Reset",
+
+    "welcome.shortcuts": "Shortcuts",
+    "welcome.shortcut_new": "New File",
+    "welcome.shortcut_open": "Open File",
+    "welcome.shortcut_save": "Save File",
+    "welcome.shortcut_save_as": "Save As",
+    "welcome.shortcut_run": "Run",
+    "welcome.shortcut_git": "Git Integration",
+    "welcome.shortcut_exit": "Exit"
 }

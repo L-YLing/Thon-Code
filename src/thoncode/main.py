@@ -244,6 +244,8 @@ class MainWindow:
         self._build_menu()
         self.root.update_idletasks()
         self.status_bar.configure(text=self.langs_cfg.status_config_reloaded)
+        # Notify plugins that the theme changed
+        self.plugin_manager.call_hook("theme_change", theme_name)
 
     def reload_language(self):
         """Reload language settings and rebuild UI."""
@@ -508,12 +510,56 @@ class MainWindow:
         self._cached_cfg_data = cfg
 
     def do_search(self) -> None:
-        """Perform search based on the search entry text."""
+        """Search for files in the project tree matching the keyword.
+
+        Walks the file tree and selects the first item whose name contains
+        the search keyword (case-insensitive). If the tree is available,
+        the match is scrolled into view and focus is set so the user can
+        press F3/Enter to open it.
+        """
         keyword = self.search_entry.get().strip()
-        if keyword:
-            self.status_bar.configure(text=f"{self.langs_cfg.search} {keyword} {self.langs_cfg.search_dev}")
-        else:
+        if not keyword:
             self.status_bar.configure(text=self.langs_cfg.search_enter_keyword)
+            return
+
+        if not self.tree_manager:
+            self.status_bar.configure(text=self.langs_cfg.search_dev)
+            return
+
+        tree = self.tree_manager.get_tree()
+        kw_lower = keyword.lower()
+        match = self._search_tree_recursive(tree, "", kw_lower)
+        if match:
+            tree.selection_set(match)
+            tree.focus(match)
+            tree.see(match)
+            path = tree.set(match, "path")
+            self.status_bar.configure(
+                text=f"{self.langs_cfg.search}: {os.path.basename(path)}")
+        else:
+            self.status_bar.configure(
+                text=f"{self.langs_cfg.search}: '{keyword}' - {self.langs_cfg.search_no_result}")
+
+    def _search_tree_recursive(self, tree, parent, kw_lower):
+        """Recursively search tree items for a name matching the keyword.
+
+        Args:
+            tree: The ttk.Treeview widget
+            parent: Parent item id to search under ("" for root)
+            kw_lower: Lowercase search keyword
+
+        Returns:
+            The first matching item id, or None if no match found
+        """
+        for item in tree.get_children(parent):
+            text = tree.item(item, "text")
+            if text and kw_lower in text.lower():
+                return item
+            # Recurse into children
+            result = self._search_tree_recursive(tree, item, kw_lower)
+            if result:
+                return result
+        return None
 
     def new_file(self):
         """Clear the editor and prepare for a new file."""
@@ -565,6 +611,8 @@ class MainWindow:
             self.tree_manager.set_project_root(folder)
             self.hide_welcome()
             self.status_bar.configure(text=f"{self.langs_cfg.status_opened_project} {folder}")
+            # Notify plugins that a project was opened
+            self.plugin_manager.call_hook("project_open", folder)
         except Exception as e:
             messagebox.showerror(self.langs_cfg.settings_error_title, f"{self.langs_cfg.status_open_failed}: {e}")
             self.status_bar.configure(text=f"{self.langs_cfg.status_open_failed}: {e}")
@@ -592,6 +640,8 @@ class MainWindow:
             self.is_dirty = self.editor_manager.is_dirty
             self.last_saved_content = self.editor_manager.last_saved_content
             self.update_title()
+            # Notify plugins that a file was saved
+            self.plugin_manager.call_hook("file_save", self.current_file)
         return result
 
     def save_as(self):

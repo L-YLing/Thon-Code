@@ -26,20 +26,24 @@ _THEME_MAP: dict = {
     "solar": "solar",
     "dracula": "dracula",
     "vscode_dark": "vscode_dark",
+    "vscode_dark_blue": "vscode_dark_blue",
 }
 
 # Full list of supported ttkbootstrap theme names
 ALL_THEMES: list = [
-    "darkly", "flatly", "cyborg", "superhero", "vapor", "solar", "dracula", "vscode_dark"
+    "darkly", "flatly", "cyborg", "superhero", "vapor", "solar",
+    "dracula", "vscode_dark", "vscode_dark_blue"
 ]
 
 # Dark theme identifiers (for color scheme selection)
-DARK_THEME_NAMES: tuple = ("darkly", "cyborg", "superhero", "vapor", "solar", "dracula", "vscode_dark")
+DARK_THEME_NAMES: tuple = ("darkly", "cyborg", "superhero", "vapor", "solar",
+                           "dracula", "vscode_dark", "vscode_dark_blue")
 
 # Custom themes not built into ttkbootstrap; each maps to a base theme used
 # as fallback if the custom theme cannot be registered programmatically.
 _CUSTOM_THEME_BASE: dict = {
     "vscode_dark": "darkly",
+    "vscode_dark_blue": "darkly",
     "dracula": "darkly",
 }
 
@@ -102,6 +106,16 @@ def _register_custom_themes() -> None:
             'selectbg': '#094771', 'selectfg': '#ffffff',
             'bordercolor': '#3c3c3c', 'inputbg': '#3c3c3c',
             'inputfg': '#cccccc', 'muted': '#7d7d7d',
+        },
+        "vscode_dark_blue": {
+            'primary': '#007acc', 'secondary': '#2d2d30',
+            'success': '#4ec9b0', 'info': '#75beff',
+            'warning': '#ce9178', 'danger': '#f14c4c',
+            'light': '#2d2d30', 'dark': '#1e1e1e',
+            'bg': '#1e1e1e', 'fg': '#d4d4d4',
+            'selectbg': '#094771', 'selectfg': '#ffffff',
+            'bordercolor': '#3c3c3c', 'inputbg': '#2d2d30',
+            'inputfg': '#d4d4d4', 'muted': '#858585',
         },
         "dracula": {
             'primary': '#bd93f9', 'secondary': '#44475a',
@@ -208,9 +222,10 @@ def apply_theme(theme_name: str) -> None:
 def apply_accent_color(color: str | None) -> None:
     """Override the theme's primary/accent color.
 
-    Uses ttkbootstrap's Style.colors API to update the primary color across
-    all button, selection, and focus styles. Passing None resets to the
-    theme's default primary color.
+    Updates only primary-variant styles (primary.TButton, Primary.TButton)
+    so the accent color affects buttons and highlights without changing
+    generic entry/combobox fields like the search box. Passing None resets
+    to the theme's default primary color.
 
     Args:
         color: Hex color string (e.g., "#0078D7") or None to reset
@@ -223,11 +238,11 @@ def apply_accent_color(color: str | None) -> None:
         # Update ttkbootstrap's color definition so all "primary"-styled
         # widgets (primary.TButton, etc.) pick up the new color.
         _style.colors.primary = color
-        # Re-configure the core styles that reference primary.
+        # Only re-configure primary-variant styles; leave generic TEntry,
+        # TCombobox untouched so the search box and other input fields
+        # keep the theme's default field background.
         _style.configure("primary.TButton", background=color)
         _style.configure("Primary.TButton", background=color)
-        _style.configure("TEntry", fieldbackground=color, foreground="#ffffff")
-        _style.configure("TCombobox", fieldbackground=color)
         _style.configure("TCheckbutton", foreground=color)
         _style.configure("TRadiobutton", foreground=color)
         _style.map("TButton",
@@ -517,6 +532,23 @@ COLORS_VSCODE_DARK: dict = {
     "editor_group": "#252526",
 }
 
+COLORS_VSCODE_DARK_BLUE: dict = {
+    "bg": "#1e1e1e",
+    "bg_alt": "#2d2d30",
+    "bg_panel": "#252526",
+    "fg": "#d4d4d4",
+    "fg_dim": "#858585",
+    "accent": "#007acc",
+    "border": "#3c3c3c",
+    "sel_bg": "#094771",
+    "sel_fg": "#ffffff",
+    "status_bar": "#007acc",
+    "title_bar": "#1e1e1e",
+    "sidebar": "#2d2d30",
+    "activity_bar": "#2d2d30",
+    "editor_group": "#2d2d30",
+}
+
 COLORS_FLATLY: dict = {
     "bg": "#ffffff",
     "bg_alt": "#f8f9fa",
@@ -611,6 +643,7 @@ _THEME_COLOR_MAP: dict = {
     "solar": COLORS_SOLAR,
     "dracula": COLORS_DRACULA,
     "vscode_dark": COLORS_VSCODE_DARK,
+    "vscode_dark_blue": COLORS_VSCODE_DARK_BLUE,
 }
 
 

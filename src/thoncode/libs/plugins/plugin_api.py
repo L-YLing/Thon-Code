@@ -12,10 +12,21 @@ package: dict = {
 PluginAPI wraps host application services behind a stable interface
 so plugins cannot directly access internal modules. This decoupling
 allows the host internals to change without breaking plugins.
+
+Available hooks (plugins implement any subset as on_<hook_name>):
+    on_load()              - Plugin loaded, before first use
+    on_unload()            - Plugin about to be unloaded
+    on_file_open(path)     - A file was opened in the editor
+    on_file_save(path)     - A file was saved
+    on_file_close(path)    - A file was closed
+    on_editor_change(text) - Editor content modified
+    on_tree_refresh()      - File tree was refreshed
+    on_theme_change(name)  - Theme was switched
+    on_project_open(path)  - A project folder was opened
 """
 
 import logging
-from typing import Any, Callable, Optional
+from typing import Any, Callable, Optional, List
 
 
 class PluginAPI:
@@ -65,6 +76,26 @@ class PluginAPI:
         except Exception:
             return {}
 
+    def set_config(self, key: str, value: Any) -> bool:
+        """Update a configuration key and persist to disk.
+
+        Args:
+            key: Config key to update
+            value: New value
+
+        Returns:
+            bool: True if the config was written successfully
+        """
+        try:
+            cfg = self._host._get_cfg_data()
+            cfg[key] = value
+            import libs.cfg_handle as cfg_handle
+            cfg_handle.cfg_handle().write_cfg(cfg)
+            return True
+        except Exception as e:
+            self._logger.debug("Failed to set config %s: %s", key, e)
+            return False
+
     # ------------------------------------------------------------------
     # Status bar
     # ------------------------------------------------------------------
@@ -110,6 +141,32 @@ class PluginAPI:
         except Exception:
             self._logger.debug("Failed to set editor text")
 
+    def get_editor_selection(self) -> str:
+        """Return the currently selected text in the editor.
+
+        Returns:
+            str: Selected text, or empty string if no selection
+        """
+        try:
+            if self._host.textbox_widget and self._host.textbox_widget.winfo_exists():
+                return self._host.textbox_widget.selection_get()
+        except Exception:
+            pass
+        return ""
+
+    def insert_editor_text(self, text: str, position: str = "insert") -> None:
+        """Insert text at the given position in the editor.
+
+        Args:
+            text: Text to insert
+            position: Tk index (default "insert" = cursor position)
+        """
+        try:
+            if self._host.textbox_widget and self._host.textbox_widget.winfo_exists():
+                self._host.textbox_widget.insert(position, text)
+        except Exception:
+            self._logger.debug("Failed to insert editor text")
+
     # ------------------------------------------------------------------
     # Project info
     # ------------------------------------------------------------------
@@ -136,6 +193,58 @@ class PluginAPI:
         except Exception:
             return None
 
+    def get_recent_projects(self) -> List[str]:
+        """Return the list of recently opened project paths.
+
+        Returns:
+            list[str]: Recent project paths (most recent first)
+        """
+        try:
+            import libs.cfg_handle as cfg_handle
+            return cfg_handle.cfg_handle().get_recent_projects()
+        except Exception:
+            return []
+
+    # ------------------------------------------------------------------
+    # Theme
+    # ------------------------------------------------------------------
+
+    def get_current_theme(self) -> str:
+        """Return the current theme name.
+
+        Returns:
+            str: Theme name (e.g., 'darkly', 'vscode_dark')
+        """
+        try:
+            from libs.gui import theme
+            return theme.get_theme()
+        except Exception:
+            return ""
+
+    def get_accent_color(self) -> Optional[str]:
+        """Return the current accent color override, or None.
+
+        Returns:
+            str or None: Hex color string or None if using theme default
+        """
+        try:
+            from libs.gui import theme
+            return theme.get_accent_color()
+        except Exception:
+            return None
+
+    # ------------------------------------------------------------------
+    # Tree access
+    # ------------------------------------------------------------------
+
+    def refresh_file_tree(self) -> None:
+        """Trigger a refresh of the file tree."""
+        try:
+            if self._host.tree_manager:
+                self._host.tree_manager.refresh()
+        except Exception:
+            self._logger.debug("Failed to refresh file tree")
+
     # ------------------------------------------------------------------
     # i18n
     # ------------------------------------------------------------------
@@ -153,3 +262,20 @@ class PluginAPI:
             return getattr(self._host.langs_cfg, key.replace('.', '_'), key)
         except Exception:
             return key
+
+    # ------------------------------------------------------------------
+    # Plugin management
+    # ------------------------------------------------------------------
+
+    def get_plugin_names(self) -> List[str]:
+        """Return the names of all loaded plugins.
+
+        Returns:
+            list[str]: Plugin names
+        """
+        try:
+            if self._host.plugin_manager:
+                return self._host.plugin_manager.get_plugin_names()
+        except Exception:
+            pass
+        return []

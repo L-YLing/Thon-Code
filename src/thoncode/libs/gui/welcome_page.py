@@ -66,46 +66,90 @@ class WelcomePage:
         self._initialized = True
     
     def _create_welcome_page(self):
-        """Create all welcome page UI components including recent projects."""
+        """Create all welcome page UI components including recent projects and shortcuts."""
         style = ttk.Style()
         style.configure("Recent.TButton", borderwidth=0, relief="flat", padding=2)
+        style.configure("Shortcut.TLabel", font=("Microsoft YaHei", 10))
+        style.configure("ShortcutKey.TLabel", font=("Consolas", 10, "bold"))
 
         card = ttk.Frame(self.welcome_frame)
-        card.place(relx=0.5, rely=0.4, anchor="center")
+        card.place(relx=0.5, rely=0.5, anchor="center")
 
-        title = ttk.Label(card, text=self._get_text("welcome.app_title"), font=("Microsoft YaHei", 28, "bold"))
-        title.pack(pady=(30, 10))
+        # --- Title section ---
+        title = ttk.Label(card, text=self._get_text("welcome.app_title"),
+                          font=("Microsoft YaHei", 28, "bold"))
+        title.pack(pady=(30, 5))
 
-        subtitle = ttk.Label(card, text=self._get_text("welcome.subtitle"), font=("Microsoft YaHei", 14))
+        subtitle = ttk.Label(card, text=self._get_text("welcome.subtitle"),
+                             font=("Microsoft YaHei", 14))
         subtitle.pack(pady=(0, 20))
 
+        # --- Action buttons ---
         btn_frame = ttk.Frame(card)
         btn_frame.pack(pady=10)
 
-        ttk.Button(btn_frame, text=self._get_text("welcome.new_file"), command=self.new_file_callback).pack(side="left", padx=10)
-        ttk.Button(btn_frame, text=self._get_text("welcome.open_file"), command=self.open_file_callback).pack(side="left", padx=10)
-        ttk.Button(btn_frame, text=self._get_text("welcome.open_folder"), command=self.open_folder_callback).pack(side="left", padx=10)
+        ttk.Button(btn_frame, text=self._get_text("welcome.new_file"),
+                   command=self.new_file_callback,
+                   style="primary.TButton").pack(side="left", padx=10)
+        ttk.Button(btn_frame, text=self._get_text("welcome.open_file"),
+                   command=self.open_file_callback).pack(side="left", padx=10)
+        ttk.Button(btn_frame, text=self._get_text("welcome.open_folder"),
+                   command=self.open_folder_callback).pack(side="left", padx=10)
 
-        recent_label = ttk.Label(card, text=self._get_text("welcome.recent"), font=("Microsoft YaHei", 12), anchor="w")
-        recent_label.pack(pady=(20, 5), padx=20, anchor="w")
+        # --- Two-column layout: recent projects | shortcuts ---
+        content_frame = ttk.Frame(card)
+        content_frame.pack(fill="x", pady=(20, 10), padx=20)
+
+        # Left column: Recent projects
+        left_col = ttk.Frame(content_frame)
+        left_col.pack(side="left", fill="both", expand=True, padx=(0, 10))
+
+        ttk.Label(left_col, text=self._get_text("welcome.recent"),
+                  font=("Microsoft YaHei", 12, "bold")).pack(anchor="w", pady=(0, 5))
 
         recent_projects = cfg_handle.cfg_handle().get_recent_projects()
         if recent_projects:
             for proj in recent_projects[:5]:
-                btn = ttk.Button(card, text=os.path.basename(proj),
+                btn = ttk.Button(left_col, text=os.path.basename(proj),
                                  command=lambda path=proj: self.open_recent_callback(path),
                                  style="Recent.TButton")
-                btn.pack(pady=2, padx=20, anchor="w")
+                btn.pack(pady=2, anchor="w")
         else:
-            no_recent = ttk.Label(card, text=self._get_text("welcome.no_recent"), font=("Microsoft YaHei", 10))
-            no_recent.pack(pady=5, padx=20, anchor="w")
+            ttk.Label(left_col, text=self._get_text("welcome.no_recent"),
+                      font=("Microsoft YaHei", 10)).pack(anchor="w", pady=5)
 
+        # Right column: Keyboard shortcuts
+        right_col = ttk.Frame(content_frame)
+        right_col.pack(side="right", fill="both", expand=True, padx=(10, 0))
+
+        ttk.Label(right_col, text=self._get_text("welcome.shortcuts"),
+                  font=("Microsoft YaHei", 12, "bold")).pack(anchor="w", pady=(0, 5))
+
+        shortcuts = [
+            ("Ctrl+N", "welcome.shortcut_new"),
+            ("Ctrl+O", "welcome.shortcut_open"),
+            ("Ctrl+S", "welcome.shortcut_save"),
+            ("Ctrl+Shift+S", "welcome.shortcut_save_as"),
+            ("F5", "welcome.shortcut_run"),
+            ("F3", "welcome.shortcut_git"),
+            ("Ctrl+Q", "welcome.shortcut_exit"),
+        ]
+        for key, desc_key in shortcuts:
+            row = ttk.Frame(right_col)
+            row.pack(fill="x", pady=2)
+            ttk.Label(row, text=key, style="ShortcutKey.TLabel",
+                      width=14).pack(side="left")
+            ttk.Label(row, text=self._get_text(desc_key),
+                      style="Shortcut.TLabel").pack(side="left")
+
+        # --- Footer: show on start checkbox ---
         config_frame = ttk.Frame(card)
-        config_frame.pack(pady=(20, 30))
+        config_frame.pack(pady=(10, 25))
 
-        self.welcome_show_check = ttk.Checkbutton(config_frame, text=self._get_text("welcome.show_on_start"),
-                                                  variable=self._check_var,
-                                                  command=self.toggle_welcome_callback)
+        self.welcome_show_check = ttk.Checkbutton(
+            config_frame, text=self._get_text("welcome.show_on_start"),
+            variable=self._check_var,
+            command=self.toggle_welcome_callback)
         self.welcome_show_check.pack()
     
     def get_frame(self):

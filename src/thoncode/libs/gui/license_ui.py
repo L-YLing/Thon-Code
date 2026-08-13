@@ -40,7 +40,7 @@ class LicenseManagerWindow:
         """Create the license manager window"""
         self.window = ttkb.Toplevel(self.parent)
         self.window.title(self._get_text("license.title"))
-        self.window.geometry("600x500")
+        self.window.geometry("640x360")
         self.window.transient(self.parent)
         self.window.lift()
         self.window.focus_force()

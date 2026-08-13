@@ -61,7 +61,7 @@ class PluginManagerWindow:
         """Create the plugin manager window with a treeview and buttons."""
         self.window = ttkb.Toplevel(self.parent)
         self.window.title(self._get_text("plugins.title"))
-        self.window.geometry("600x400")
+        self.window.geometry("640x360")
         self.window.transient(self.parent)
         self.window.lift()
         self.window.focus_force()

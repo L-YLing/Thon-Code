@@ -37,7 +37,7 @@ class ProjectConfigWindow:
     def _create_window(self):
         win = ttkb.Toplevel(self.parent)
         win.title(self._get_text("project_cfg.title"))
-        win.geometry("400x350")
+        win.geometry("480x270")
         win.transient(self.parent)
         win.lift()
         win.focus_force()

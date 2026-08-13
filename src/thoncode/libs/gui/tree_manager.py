@@ -286,6 +286,11 @@ class TreeManager:
     def _list_sorted(self, path):
         """List a directory returning dir-first, case-insensitively sorted entries.
 
+        Only the special '.' and '..' entries are excluded; dotfiles like
+        '.gitignore' or '.version' are valid project files and must be shown.
+        IGNORED_DIRS filters out build/cache directories that would clutter
+        the tree (e.g. __pycache__, .git, node_modules).
+
         Args:
             path: Directory to list
 
@@ -295,12 +300,15 @@ class TreeManager:
         """
         try:
             names = os.listdir(path)
-        except PermissionError:
+        except (PermissionError, OSError):
             return []
         dirs = []
         files = []
         for name in names:
-            if name.startswith('.') or name in self.IGNORED_DIRS:
+            # Exclude only '.' and '..'; keep other dotfiles like .gitignore
+            if name in ('.', '..'):
+                continue
+            if name in self.IGNORED_DIRS:
                 continue
             full_path = os.path.join(path, name)
             is_dir = os.path.isdir(full_path)

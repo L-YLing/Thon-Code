@@ -28,7 +28,7 @@ class ConfigureRuntimeWindow:
     def _create_window(self):
         win = ttkb.Toplevel(self.parent)
         win.title(self._get_text("runtime.title"))
-        win.geometry("400x200")
+        win.geometry("480x270")
         win.resizable(False, False)
         win.transient(self.parent)
         win.lift()
