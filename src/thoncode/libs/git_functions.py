@@ -218,6 +218,28 @@ class GitFunctions:
         success, _ = self._run_git_command(args, timeout=60)
         return success
 
+    def sync(self, remote: str = 'origin', branch: Optional[str] = None) -> tuple:
+        """Synchronize with remote: pull then push (VSCode-style sync).
+
+        Pulls first to incorporate remote changes, then pushes local commits.
+        If pull fails (e.g. conflicts), push is skipped and the failure is
+        reported so the user can resolve manually.
+
+        Args:
+            remote: Remote name (default 'origin')
+            branch: Optional branch; None uses default upstream
+
+        Returns:
+            tuple: (pull_success: bool, push_success: bool, message: str)
+        """
+        pull_ok = self.pull(remote, branch)
+        if not pull_ok:
+            return False, False, "Pull failed; push skipped to avoid conflicts"
+        push_ok = self.push(remote, branch)
+        if push_ok:
+            return True, True, "Sync complete (pull + push succeeded)"
+        return True, False, "Pull succeeded but push failed"
+
     def create_branch(self, branch_name: str) -> bool:
         """Create a new branch"""
         success, _ = self._run_git_command(['branch', branch_name])

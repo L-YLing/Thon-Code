@@ -68,7 +68,9 @@ class EditorUI:
         editor_sel_fg = self._style_system.get_value("editor", "selection_fg", colors["sel_fg"])
         line_num_width = max(6, self._style_system.get_value("editor", "line_number_width", 50) // 8)
 
-        # Line number bar — tk.Text with style system colors
+        # Line number bar — tk.Text with style system colors.
+        # spacing1/2/3 must match the main text box exactly so every line in
+        # the gutter aligns pixel-for-pixel with its corresponding code line.
         self.line_numbers = tk.Text(
             self.main_frame,
             width=line_num_width,
@@ -82,12 +84,16 @@ class EditorUI:
             relief="flat",
             borderwidth=0,
             highlightthickness=0,
+            spacing1=0,
+            spacing2=0,
+            spacing3=0,
             state="disabled",
             cursor="arrow",
         )
         self.line_numbers.pack(side="left", fill="y", padx=(0, 0))
 
-        # Main text box — tk.Text with style system colors
+        # Main text box — tk.Text with style system colors.
+        # spacing1/2/3 match the line-number bar so the two stay aligned.
         self.textbox = tk.Text(
             self.main_frame,
             bg=editor_bg,
@@ -100,6 +106,9 @@ class EditorUI:
             relief="flat",
             borderwidth=0,
             highlightthickness=0,
+            spacing1=0,
+            spacing2=0,
+            spacing3=0,
             undo=True,
             maxundo=100,
         )
@@ -109,6 +118,9 @@ class EditorUI:
 
         self._tk_font = tkfont.Font(family=self.font[0], size=self.font[1])
         self.textbox.config(font=self._tk_font)
+        # Share the same Font object with the line-number bar so both widgets
+        # have identical font metrics and line heights (prevents misalignment).
+        self.line_numbers.config(font=self._tk_font)
         self.textbox.tag_config("sel", background=editor_sel_bg, foreground=editor_sel_fg)
         self.textbox.edit_modified(False)
         self.textbox.pack(side="left", fill="both", expand=True)
@@ -236,10 +248,13 @@ class EditorUI:
             line_texts.append(f"{marker}{i}")
 
         # Write to line number bar (tk.Text direct operation, no ._textbox middle layer)
+        # A trailing newline is appended so the gutter has the same line count
+        # as the textbox (tk.Text always stores a trailing newline), keeping
+        # the two perfectly aligned at every scroll position.
         ln = self.line_numbers
         ln.config(state="normal")
         ln.delete("1.0", "end")
-        ln.insert("1.0", "\n".join(line_texts))
+        ln.insert("1.0", "\n".join(line_texts) + "\n")
 
         # Elide line numbers corresponding to folded regions in the line number bar
         ln.tag_remove(self.LINE_FOLD_TAG, "1.0", "end")

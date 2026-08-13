@@ -8,12 +8,15 @@ package: dict = {
 }
 
 import os
+import logging
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox, simpledialog
 import shutil
 
 from libs.gui.lazy_loader import LazyLoader
 import libs.langs_loader as langs_loader
+
+_logger = logging.getLogger("thoncode.tree_manager")
 
 
 class TreeManager:
@@ -58,6 +61,9 @@ class TreeManager:
         self.tree.bind("<Double-1>", self.on_tree_double_click)
         self.tree.bind("<Button-3>", self.on_tree_right_click)
         self.tree.bind("<<TreeviewOpen>>", self._on_tree_open)
+        # Single-click on a folder's label toggles expand/collapse so the user
+        # does not have to aim for the small triangle indicator.
+        self.tree.bind("<Button-1>", self._on_tree_click, add="+")
         self._populate_root()
 
     def _ensure_icons(self):
@@ -166,8 +172,10 @@ class TreeManager:
         self._children_loaded.clear()
 
         if not os.path.exists(self.project_root):
+            _logger.warning("Project root does not exist: %s", self.project_root)
             return
 
+        _logger.debug("Populating tree root: %s", self.project_root)
         node = self.tree.insert("", "end", text=os.path.basename(self.project_root), open=False)
         self.tree.set(node, "path", self.project_root)
 
@@ -195,6 +203,44 @@ class TreeManager:
             self._children_loaded.add(node)
 
         self._restore_expanded_paths(expanded_paths)
+
+    def _on_tree_click(self, event):
+        """Toggle expand/collapse when clicking a folder's label or indicator.
+
+        ttk natively toggles on indicator (triangle) clicks, so we skip those
+        to avoid double-toggling. For clicks on the folder's text or image we
+        toggle manually so the user doesn't have to aim for the small triangle.
+        Focus is set before toggling so <<TreeviewOpen>> receives the correct
+        item (our widget-level binding runs before ttk's class binding which
+        normally sets focus).
+
+        Args:
+            event: The mouse click event
+        """
+        item = self.tree.identify_row(event.y)
+        if not item:
+            return
+        # identify("element", ...) returns names like "Treeitem.indicator",
+        # "Treeitem.text", "Treeitem.image" etc. — check with "in" for robustness.
+        try:
+            element = self.tree.identify("element", event.x, event.y)
+        except Exception:
+            return
+        if element and "indicator" in element:
+            # ttk handles indicator clicks natively; let it through.
+            return
+        path = self.tree.set(item, "path")
+        if not path or not os.path.isdir(path):
+            return
+        # Set focus/selection BEFORE toggling so <<TreeviewOpen>> (fired
+        # synchronously by item(open=True)) sees the correct focused item.
+        self.tree.focus(item)
+        self.tree.selection_set(item)
+        # Toggle the open state; ttk fires <<TreeviewOpen>> when opening.
+        if self.tree.item(item, "open"):
+            self.tree.item(item, open=False)
+        else:
+            self.tree.item(item, open=True)
 
     def _on_tree_open(self, event):
         item = self.tree.focus()
@@ -392,6 +438,8 @@ class TreeManager:
         if path and os.path.isfile(path):
             self.open_file_callback(path)
         elif path and os.path.isdir(path):
+            # Set focus before toggling so <<TreeviewOpen>> sees the right item.
+            self.tree.focus(item)
             if self.tree.item(item, 'open'):
                 self.tree.item(item, open=False)
             else:

@@ -29,6 +29,8 @@ TEST_MODULES: list = [
     "test_license_handle",
     "test_font_loader",
     "test_git_functions",
+    "test_log_manager",
+    "test_plugin_manager",
 ]
 
 

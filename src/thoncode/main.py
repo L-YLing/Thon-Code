@@ -4,6 +4,7 @@
 import sys
 import os
 import time
+import logging
 
 package: dict = {
     "ID": "thon-code-gui",
@@ -58,11 +59,16 @@ class MainWindow:
 
     def __init__(self) -> None:
         """Initialize the main window.
-        
+
         Sets up theme, UI components, i18n, and loads configuration.
         Records startup performance metrics for optimization tracking.
         """
         self._startup_start = time.perf_counter()
+        self._logger = logging.getLogger("thoncode.main")
+
+        # Initialize plugin system (host reference set after window creation)
+        from libs.plugins import PluginManager
+        self.plugin_manager = PluginManager()
 
         # Read config to determine theme (cached once; reused by _get_cfg_data
         # to avoid repeated disk reads during startup).
@@ -106,6 +112,13 @@ class MainWindow:
 
         self._startup_end = time.perf_counter()
         self._startup_time = self._startup_end - self._startup_start
+        self._logger.info("Startup completed in %.3fs", self._startup_time)
+
+        # Load plugins after UI is ready so plugins can access host services
+        self.plugin_manager.set_host(self)
+        plugin_dir = os.path.join(base_path, "plugins")
+        self.plugin_manager.discover_and_load(plugin_dir)
+
         print(f"[ThonCode] Startup time: {self._startup_time:.3f}s (lazy editor loading)")
 
     def get_text(self, key: str) -> str:
@@ -219,6 +232,8 @@ class MainWindow:
         cfg_data = self._get_cfg_data(force_refresh=True)
         theme_name = cfg_data.get("theme", "dark")
         theme.apply_theme(theme_name)
+        # Reload i18n strings from the (possibly changed) config language
+        langs_loader.langs.reload()
         self.langs_cfg = langs_loader.langs()
         self._build_menu()
         self.root.update_idletasks()
@@ -506,7 +521,7 @@ class MainWindow:
 
     def open_file_by_path(self, file_path):
         """Open a file by its path.
-        
+
         Args:
             file_path: Absolute path to the file to open
         """
@@ -517,6 +532,8 @@ class MainWindow:
             self.last_saved_content = self.editor_manager.last_saved_content
             self.hide_welcome()
             self.update_title()
+            # Notify plugins that a file was opened
+            self.plugin_manager.call_hook("file_open", file_path)
 
     def open_file(self):
         """Open a file using a file dialog."""
@@ -610,7 +627,8 @@ class MainWindow:
             self.root.title(f"{base} - {self.langs_cfg.status_untitled}{'*' if self.is_dirty else ''}")
 
     def exit_app(self):
-        """Exit the application and release async resources."""
+        """Exit the application, unload plugins, and release async resources."""
+        self.plugin_manager.unload_all()
         from libs.gui.async_utils import AsyncTaskRunner
         AsyncTaskRunner.shutdown()
         self.root.quit()
@@ -726,6 +744,12 @@ class MainWindow:
 
 if __name__ == "__main__":
     _boot_start = time.perf_counter()
+    # Initialize logging with rotation before anything else
+    from libs.log_manager import init_logging
+    init_logging()
+    _boot_logger = logging.getLogger("thoncode.boot")
+    _boot_logger.info("Application starting")
+
     cfg_handle.cfg_handle().check_cfg_file()
     cfg_data = cfg_handle.cfg_handle().read_cfg()["data"]
     if "show_welcome" not in cfg_data:
