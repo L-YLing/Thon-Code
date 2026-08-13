@@ -32,7 +32,7 @@ class StyledInputDialog:
 
     def __init__(self, parent, title: str = "", prompt: str = "",
                  initialvalue: str = "", multiline: bool = False,
-                 width: int = 400, height: int = 150):
+                 width: int = 400, height: int = 0):
         """Initialize the styled input dialog.
 
         Args:
@@ -42,8 +42,10 @@ class StyledInputDialog:
             initialvalue: Pre-filled input value
             multiline: If True, use a Text widget; otherwise use Entry
             width: Dialog width in pixels
-            height: Dialog height in pixels
+            height: Dialog height in pixels (0 = auto: 160 single-line, 320 multi-line)
         """
+        if height <= 0:
+            height = 320 if multiline else 160
         self._result: Optional[str] = None
         self._multiline = multiline
 

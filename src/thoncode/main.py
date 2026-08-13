@@ -204,6 +204,8 @@ class MainWindow:
         tools_menu.add_command(label=self.langs_cfg.main_menu_settings, command=self._open_settings)
         tools_menu.add_command(label=self.langs_cfg.main_menu_structure_viewer, command=self.show_struct_viewer)
         tools_menu.add_command(label=self.langs_cfg.main_menu_git_integration, accelerator="F3", command=self.show_git_integration)
+        tools_menu.add_separator()
+        tools_menu.add_command(label=self.langs_cfg.plugins_title, command=self.show_plugin_manager)
 
     def _open_settings(self):
         """Open the settings window and update status bar."""
@@ -722,6 +724,11 @@ class MainWindow:
             project_root=self.project_root,
             status_callback=lambda msg: self.status_bar.configure(text=msg)
         )
+
+    def show_plugin_manager(self):
+        """Open the plugin manager window showing loaded plugins."""
+        PluginManagerWindow = LazyLoader.get('libs.gui.plugin_ui', 'PluginManagerWindow')
+        PluginManagerWindow(self.root, self.plugin_manager)
 
     def _show_editor_context_menu(self, event):
         """Show the editor right-click context menu.

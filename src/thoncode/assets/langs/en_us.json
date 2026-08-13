@@ -305,5 +305,16 @@
     "license.existing": "Existing LICENSE file",
 
     "dialog.ok": "OK",
-    "dialog.cancel": "Cancel"
+    "dialog.cancel": "Cancel",
+
+    "plugins.title": "Plugin Manager",
+    "plugins.refresh": "Refresh",
+    "plugins.close": "Close",
+    "plugins.col_name": "Name",
+    "plugins.col_version": "Version",
+    "plugins.col_description": "Description",
+    "plugins.col_status": "Status",
+    "plugins.status_loaded": "Loaded",
+    "plugins.none_loaded": "No plugins loaded",
+    "plugins.refreshed": "Refreshed, {count} plugin(s) loaded"
 }

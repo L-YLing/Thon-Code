@@ -139,12 +139,16 @@ class LicenseManagerWindow:
             self.license_var.set(self._get_text("license.no_licenses"))
 
     def _check_existing_license(self):
-        """Check if project already has a LICENSE file"""
+        """Check if project already has a LICENSE file.
+
+        Does NOT overwrite the template preview; only notifies via the
+        status callback so the user knows an existing LICENSE will be
+        replaced when they apply a new one.
+        """
         content = self.license_handle.read_project_license(self.project_root)
         if content:
-            self.preview_text.delete("1.0", "end")
-            self.preview_text.insert("1.0", f"[Existing LICENSE file]\n\n{content[:500]}{'...' if len(content) > 500 else ''}")
-            self.status_callback(self._get_text("license.existing"))
+            if self.status_callback:
+                self.status_callback(self._get_text("license.existing"))
 
     def _on_license_selected(self, license_name):
         """Handle license selection from dropdown"""

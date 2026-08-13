@@ -174,6 +174,10 @@ class EditorManager:
             self._set_editor_language(self.current_file)
         else:
             self.editor.highlight_all()
+        # Explicitly refresh line numbers: the <<Modified>> event may fire
+        # before the textbox is fully mapped or may be swallowed when the
+        # modified flag was already True, leaving the gutter stale.
+        self.editor._update_line_numbers()
 
     def clear(self):
         """Clear the editor content and reset state."""
@@ -185,6 +189,7 @@ class EditorManager:
             self.editor.current_file = None
             self.editor.set_language('text')
         self.update_title_callback()
+        self.editor._update_line_numbers()
 
     def get_content(self):
         """Get the current editor content.

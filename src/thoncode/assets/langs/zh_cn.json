@@ -305,5 +305,16 @@
     "license.existing": "已存在 LICENSE 文件",
 
     "dialog.ok": "确定",
-    "dialog.cancel": "取消"
+    "dialog.cancel": "取消",
+
+    "plugins.title": "插件管理",
+    "plugins.refresh": "刷新",
+    "plugins.close": "关闭",
+    "plugins.col_name": "名称",
+    "plugins.col_version": "版本",
+    "plugins.col_description": "描述",
+    "plugins.col_status": "状态",
+    "plugins.status_loaded": "已加载",
+    "plugins.none_loaded": "无已加载插件",
+    "plugins.refreshed": "已刷新，共加载 {count} 个插件"
 }

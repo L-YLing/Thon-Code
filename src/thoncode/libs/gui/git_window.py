@@ -93,10 +93,40 @@ class GitIntegrationWindow:
         self._initial_load()
 
     def _make_modal(self):
+        """Make the git window modal.
+
+        The grab makes the git window the only interactive window. Child
+        windows (License Manager) temporarily release this grab via
+        _with_grab_released so they can receive input independently.
+        """
         try:
             self.window.grab_set()
         except Exception:
             pass
+
+    def _with_grab_released(self, func):
+        """Run func with the window grab released, then re-acquire it.
+
+        Used when opening child windows (e.g., License Manager) that need
+        their own input grab. The git window's grab is restored after the
+        child window closes so the git window remains modal overall.
+
+        Args:
+            func: Callable to execute while grab is released
+        """
+        try:
+            self.window.grab_release()
+        except Exception:
+            pass
+        try:
+            func()
+        finally:
+            try:
+                self.window.grab_set()
+                self.window.lift()
+                self.window.focus_force()
+            except Exception:
+                pass
 
     def _initial_load(self):
         """Perform the initial repo status checks after the window is shown."""
@@ -677,12 +707,16 @@ class GitIntegrationWindow:
                         busy_msg=self._get_text("git.discarding"))
 
     def _manage_license(self):
-        LicenseManagerWindow = LazyLoader.get('libs.gui.license_ui', 'LicenseManagerWindow')
-        LicenseManagerWindow(
-            self.window,
-            project_root=self.project_root,
-            status_callback=self._log_output,
-        )
+        """Open the License Manager, releasing the git window grab so the
+        license window can receive input independently."""
+        def _open():
+            LicenseManagerWindow = LazyLoader.get('libs.gui.license_ui', 'LicenseManagerWindow')
+            LicenseManagerWindow(
+                self.window,
+                project_root=self.project_root,
+                status_callback=self._log_output,
+            )
+        self._with_grab_released(_open)
 
     def _git_changelog(self):
         self.git.manage_changelog()
@@ -704,8 +738,24 @@ class GitIntegrationWindow:
         return True
 
     def _log_output(self, message: str):
-        """Append a message to the output log and forward to status callback."""
-        self.output_text.insert("end", f"{message}\n")
+        """Append a timestamped message to the output log with visual separation.
+
+        Each log entry is prefixed with a compact HH:MM:SS timestamp so
+        consecutive operations are easy to distinguish. Multi-line git
+        output (e.g., push errors) is indented under the timestamp for
+        readability. The status callback receives the raw message.
+
+        Args:
+            message: The log message text
+        """
+        from datetime import datetime
+        timestamp = datetime.now().strftime("%H:%M:%S")
+        lines = message.splitlines() or [message]
+        # First line gets the timestamp prefix; continuation lines are indented.
+        formatted = f"[{timestamp}] {lines[0]}"
+        for line in lines[1:]:
+            formatted += f"\n          {line}"
+        self.output_text.insert("end", f"{formatted}\n")
         self.output_text.see("end")
         if self.status_callback:
             self.status_callback(message)
