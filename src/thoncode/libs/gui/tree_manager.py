@@ -19,6 +19,9 @@ import libs.langs_loader as langs_loader
 class TreeManager:
     # Directories ignored everywhere to keep large projects responsive.
     IGNORED_DIRS = ('__pycache__', '.git', '.idea', '.vscode', 'node_modules', 'dist', 'build')
+    # Tag marking placeholder child nodes used to show the expander arrow
+    # on lazy-loaded directories before their real children are loaded.
+    PLACEHOLDER_TAG = "placeholder"
 
     def __init__(self, parent, root_widget, project_root, open_file_callback, status_callback):
         self.parent = parent
@@ -37,8 +40,11 @@ class TreeManager:
         self._icon_cache = {}
         self._children_loaded = set()
 
-        self._load_icons_lazy()
         self._build_tree()
+        # Defer icon loading (PIL import + Image.open) to the first idle tick so
+        # it does not block startup; the tree renders without icons first, then
+        # icons are applied once loaded.
+        self.root_widget.after(0, self._apply_icons_to_all)
 
     def _get_text(self, key):
         return getattr(self.lang, key.replace('.', '_'), key)
@@ -53,6 +59,60 @@ class TreeManager:
         self.tree.bind("<Button-3>", self.on_tree_right_click)
         self.tree.bind("<<TreeviewOpen>>", self._on_tree_open)
         self._populate_root()
+
+    def _ensure_icons(self):
+        """Load icons on first use if not already loaded.
+
+        Called by user-triggered operations (expand, populate) so the heavy
+        PIL import and Image.open calls happen lazily rather than at startup.
+        """
+        if not self._icon_cache:
+            self._load_icons_lazy()
+
+    def _apply_icons_to_all(self):
+        """Load icons on the first idle tick and apply them to existing nodes.
+
+        Walks the whole tree and sets the correct image on each item based on
+        its stored path, so nodes created before icons were loaded get their
+        icons retroactively without rebuilding the tree.
+        """
+        self._ensure_icons()
+        for root in self.tree.get_children():
+            self._apply_icons_recursive(root)
+
+    def _apply_icons_recursive(self, item):
+        """Recursively apply the correct icon to an item and its descendants.
+
+        Args:
+            item: Tree item id to apply icons to
+        """
+        path = self.tree.set(item, "path")
+        if path:
+            if os.path.isdir(path):
+                if self.folder_icon:
+                    self.tree.item(item, image=self.folder_icon)
+            else:
+                _, ext = os.path.splitext(path)
+                ext = ext.lstrip('.').lower()
+                icon = self.file_icons.get(ext, self.default_file_icon)
+                if icon:
+                    self.tree.item(item, image=icon)
+        for child in self.tree.get_children(item):
+            self._apply_icons_recursive(child)
+
+    def _clear_placeholder(self, item):
+        """Remove placeholder child nodes from an item.
+
+        Placeholders exist only to make the ttk expander arrow visible for
+        lazy-loaded directories; they are replaced by real children on expand.
+
+        Args:
+            item: Tree item id whose placeholder children should be removed
+        """
+        for child in self.tree.get_children(item):
+            tags = self.tree.item(child, "tags") or ()
+            if self.PLACEHOLDER_TAG in tags:
+                self.tree.delete(child)
 
     def _load_icons_lazy(self):
         if self._icon_cache:
@@ -115,7 +175,7 @@ class TreeManager:
         self._children_loaded.add(node)
 
     def populate_tree(self, parent="", path=None):
-        self._load_icons_lazy()
+        self._ensure_icons()
         expanded_paths = self._get_expanded_paths()
         for item in self.tree.get_children():
             self.tree.delete(item)
@@ -146,7 +206,10 @@ class TreeManager:
             return
 
         if item not in self._children_loaded:
-            self._load_icons_lazy()
+            # Remove the placeholder child used to render the expander arrow
+            # before inserting the directory's real children.
+            self._clear_placeholder(item)
+            self._ensure_icons()
             self._add_children(item, path, load_icons=True)
             self._children_loaded.add(item)
 
@@ -201,6 +264,9 @@ class TreeManager:
     def _insert_node(self, parent, name, full_path, is_dir):
         """Insert a single tree node with the appropriate icon.
 
+        For directories a placeholder child is inserted so the ttk.Treeview
+        expander arrow is visible before real children are lazy-loaded.
+
         Args:
             parent: Parent tree item id
             name: Display name
@@ -213,13 +279,18 @@ class TreeManager:
         if is_dir:
             node = self.tree.insert(parent, "end", text=name, open=False,
                                     image=self.folder_icon if self.folder_icon else '')
+            self.tree.set(node, "path", full_path)
+            # Insert a placeholder child so the expander arrow is shown even
+            # before the directory's real children are loaded on expand.
+            self.tree.insert(node, "end", text="", tags=(self.PLACEHOLDER_TAG,))
+            return node
         else:
             _, ext = os.path.splitext(name)
             ext = ext.lstrip('.').lower()
             icon = self.file_icons.get(ext, self.default_file_icon)
             node = self.tree.insert(parent, "end", text=name, image=icon if icon else '')
-        self.tree.set(node, "path", full_path)
-        return node
+            self.tree.set(node, "path", full_path)
+            return node
 
     def _refresh_children(self, parent_item, path):
         """Refresh direct children of parent_item with minimal churn.
@@ -234,9 +305,13 @@ class TreeManager:
             path: Filesystem path of parent_item
         """
         entries = self._list_sorted(path)
-        # Map existing child path -> item id.
+        # Map existing child path -> item id, skipping placeholder nodes that
+        # only exist to render the expander arrow for lazy-loaded directories.
         existing = {}
         for child in self.tree.get_children(parent_item):
+            tags = self.tree.item(child, "tags") or ()
+            if self.PLACEHOLDER_TAG in tags:
+                continue
             try:
                 existing[self.tree.set(child, "path")] = child
             except Exception:
@@ -322,7 +397,8 @@ class TreeManager:
             else:
                 self.tree.item(item, open=True)
                 if item not in self._children_loaded:
-                    self._load_icons_lazy()
+                    self._clear_placeholder(item)
+                    self._ensure_icons()
                     self._add_children(item, path, load_icons=True)
                     self._children_loaded.add(item)
 

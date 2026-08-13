@@ -46,7 +46,9 @@ class EditorUI:
         style_font_size = self._style_system.get_value("editor", "font_size", 12)
         if parent.font_ligatures:
             try:
-                font_loader = LazyLoader.get('libs', 'font_loader')
+                # Import the lightweight font loader directly (no heavy deps)
+                # to resolve the bundled Fira Code font with a safe fallback.
+                from libs import font_loader
                 loaded_font = font_loader.load_fira_code_font(parent.master, style_font_size, parent.font_ligatures)
                 font_name = loaded_font.actual('family')
                 font_size = int(loaded_font.actual('size'))
@@ -123,39 +125,63 @@ class EditorUI:
         self._setup_bindings()
 
     def _setup_bindings(self):
-        """Bind keyboard, mouse, scroll events"""
+        """Bind keyboard, mouse, scroll events.
+
+        Scroll sync strategy: every path that can move the text-box viewport
+        (mouse wheel, button-4/5, <Configure> resize, arrow up/down and mouse
+        selection) is routed through the unified _on_scroll handler so the
+        line-number gutter yview stays locked to the text-box yview. Content
+        mutations are observed via the <<Modified>> flag and the debounced
+        _on_text_change path so the line count is rebuilt on edits, deletions,
+        pastes and undo/redo.
+        """
         parent = self.parent
-        parent._textbox.bind("<MouseWheel>", parent._on_scroll)
-        parent._textbox.bind("<Button-4>", parent._on_scroll)
-        parent._textbox.bind("<Button-5>", parent._on_scroll)
-        parent._textbox.bind("<KeyRelease>", parent._on_text_change)
-        parent._textbox.bind("<Configure>", parent._update_line_numbers)
-        parent._textbox.bind("<<Modified>>", parent._on_modified)
+        tb = parent._textbox
+
+        # Unified scroll/viewport handler. Wheel and button-4/5 also drive
+        # text-box line scrolling; <Configure> only resyncs the gutter.
+        tb.bind("<MouseWheel>", parent._on_scroll)
+        tb.bind("<Button-4>", parent._on_scroll)
+        tb.bind("<Button-5>", parent._on_scroll)
+        tb.bind("<Configure>", parent._on_scroll)
+
+        # Arrow up/down and mouse selection can shift the visible viewport;
+        # resync the gutter so line numbers track the exposed lines.
+        tb.bind("<KeyRelease-Up>", parent._on_scroll)
+        tb.bind("<KeyRelease-Down>", parent._on_scroll)
+        tb.bind("<ButtonRelease-1>", parent.on_cursor_move)
+        tb.bind("<ButtonRelease-1>", parent._on_scroll, add="+")
+
+        # Content changes (typing, delete, paste, undo/redo) flow through the
+        # modified flag; _on_text_change debounces a rebuild.
+        tb.bind("<<Modified>>", parent._on_modified)
+        tb.bind("<KeyRelease>", parent._on_text_change)
 
         self.line_numbers.bind("<Button-1>", parent._on_line_number_click)
         self.line_numbers.bind("<MouseWheel>", parent._on_line_scroll)
         self.line_numbers.bind("<Button-4>", parent._on_line_scroll)
         self.line_numbers.bind("<Button-5>", parent._on_line_scroll)
 
-        parent._textbox.bind("<Control-s>", parent._on_ctrl_s)
-        parent._textbox.bind("<Control-S>", parent._on_ctrl_s)
-        parent._textbox.bind("<Control-z>", parent._on_ctrl_z)
-        parent._textbox.bind("<Control-Z>", parent._on_ctrl_z)
-        parent._textbox.bind("<Control-y>", parent._on_ctrl_y)
-        parent._textbox.bind("<Control-Y>", parent._on_ctrl_y)
-        parent._textbox.bind("<Control-Shift-Z>", parent._on_ctrl_shift_z)
-        parent._textbox.bind("<Control-Shift-z>", parent._on_ctrl_shift_z)
+        tb.bind("<Control-s>", parent._on_ctrl_s)
+        tb.bind("<Control-S>", parent._on_ctrl_s)
+        tb.bind("<Control-z>", parent._on_ctrl_z)
+        tb.bind("<Control-Z>", parent._on_ctrl_z)
+        tb.bind("<Control-y>", parent._on_ctrl_y)
+        tb.bind("<Control-Y>", parent._on_ctrl_y)
+        tb.bind("<Control-Shift-Z>", parent._on_ctrl_shift_z)
+        tb.bind("<Control-Shift-z>", parent._on_ctrl_shift_z)
 
-        parent._textbox.bind("<Control-a>", parent.select_all)
-        parent._textbox.bind("<Control-A>", parent.select_all)
-        parent._textbox.bind("<KeyRelease>", parent.on_key_release)
-        parent._textbox.bind("<FocusIn>", parent.highlight_all)
-        parent._textbox.bind("<ButtonRelease-1>", parent.on_cursor_move)
-        parent._textbox.bind("<KeyRelease-Left>", parent.on_cursor_move)
-        parent._textbox.bind("<KeyRelease-Right>", parent.on_cursor_move)
-        parent._textbox.bind("<Key>", parent._on_key_press)
-        parent._textbox.bind("<Tab>", parent.on_tab)
-        parent._textbox.bind("<Shift-Tab>", parent.on_shift_tab)
+        tb.bind("<Control-a>", parent.select_all)
+        tb.bind("<Control-A>", parent.select_all)
+        # on_key_release also refreshes line numbers, so chain it after the
+        # debounced _on_text_change instead of overwriting it.
+        tb.bind("<KeyRelease>", parent.on_key_release, add="+")
+        tb.bind("<FocusIn>", parent.highlight_all)
+        tb.bind("<KeyRelease-Left>", parent.on_cursor_move)
+        tb.bind("<KeyRelease-Right>", parent.on_cursor_move)
+        tb.bind("<Key>", parent._on_key_press)
+        tb.bind("<Tab>", parent.on_tab)
+        tb.bind("<Shift-Tab>", parent.on_shift_tab)
 
     def get_widget(self):
         return self.main_frame
@@ -243,19 +269,27 @@ class EditorUI:
         self.parent._update_line_numbers()
         self.parent._textbox.edit_modified(False)
 
-    def _on_scroll(self, event):
-        """Synchronize line number bar when main text box scrolls"""
-        try:
-            if hasattr(event, 'num'):
-                if event.num == 4:
-                    self.parent._textbox.yview_scroll(-1, "units")
-                elif event.num == 5:
-                    self.parent._textbox.yview_scroll(1, "units")
-            else:
-                delta = -1 * (event.delta / 120)
-                self.parent._textbox.yview_scroll(int(delta), "units")
-        except Exception:
-            pass
+    def _on_scroll(self, event=None):
+        """Unified scroll/viewport handler for the main text box.
+
+        Bound to <MouseWheel>/<Button-4>/<Button-5> (which also drive text-box
+        line scrolling), to <Configure> (resize, resync only) and to
+        <KeyRelease-Up/Down>/<ButtonRelease-1> (viewport shifts). The line
+        number bar is always resynced to the text-box yview so the two stay
+        aligned regardless of which path triggered the scroll. Events without
+        a usable delta (configure, key release, button release) skip the
+        text-box scroll step and only refresh the gutter.
+        """
+        if event is not None:
+            try:
+                if hasattr(event, 'num') and event.num in (4, 5):
+                    direction = -1 if event.num == 4 else 1
+                    self.parent._textbox.yview_scroll(direction, "units")
+                elif hasattr(event, 'delta') and event.delta:
+                    delta = -1 * (event.delta / 120)
+                    self.parent._textbox.yview_scroll(int(delta), "units")
+            except Exception:
+                pass
         self._sync_line_scroll()
         return None
 

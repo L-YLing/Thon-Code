@@ -28,6 +28,8 @@ class FakeTree:
         self._children = {"": []}
         self._paths = {}
         self._opens = {}
+        self._tags = {}
+        self._images = {}
         self._counter = 0
         self.deleted = []
         self.inserted = []
@@ -35,13 +37,15 @@ class FakeTree:
     def get_children(self, item=""):
         return tuple(self._children.get(item, []))
 
-    def insert(self, parent, where, text="", open=False, image=""):
+    def insert(self, parent, where, text="", open=False, image="", tags=()):
         self._counter += 1
         item = f"I{self._counter}"
         self._children.setdefault(parent, []).append(item)
         self._children.setdefault(item, [])
         self._paths[item] = None
         self._opens[item] = open
+        self._tags[item] = tuple(tags) if tags else ()
+        self._images[item] = image
         self.inserted.append((parent, text, image))
         return item
 
@@ -60,10 +64,24 @@ class FakeTree:
                 kids.remove(item)
         self._children.pop(item, None)
         self._paths.pop(item, None)
+        self._tags.pop(item, None)
+        self._images.pop(item, None)
 
     def item(self, item, *args, **kwargs):
+        # Setter form: tree.item(item, open=...) or tree.item(item, image=...)
         if "open" in kwargs:
             self._opens[item] = kwargs["open"]
+        if "image" in kwargs:
+            self._images[item] = kwargs["image"]
+        # Getter form: tree.item(item, "tags") / "image" / "open"
+        if args:
+            option = args[0]
+            if option == "tags":
+                return self._tags.get(item, ())
+            if option == "image":
+                return self._images.get(item, "")
+            if option == "open":
+                return self._opens.get(item, False)
         return self._opens.get(item, False)
 
 
@@ -77,6 +95,8 @@ def make_tree_manager():
     tm.folder_icon = None
     tm.default_file_icon = None
     tm.file_icons = {}
+    tm._icon_cache = {}
+    tm.PLACEHOLDER_TAG = TreeManager.PLACEHOLDER_TAG
     return tm
 
 
@@ -233,12 +253,14 @@ class TreeManagerTests(unittest.TestCase):
             sub = os.path.join(d, "pkg")
             os.makedirs(sub)
             open(os.path.join(sub, "a.py"), "w").close()
-            # Populate root.
+            # Populate root: pkg is inserted with a placeholder child.
             tm._refresh_children("ROOT", d)
             pkg_item = tm.tree.get_children("ROOT")[0]
-            # Simulate the subdirectory having been loaded (expanded).
+            # Simulate the real expand flow: clear placeholder, load children,
+            # mark loaded. This matches _on_tree_open's behavior.
+            tm._clear_placeholder(pkg_item)
+            tm._add_children(pkg_item, sub)
             tm._children_loaded.add(pkg_item)
-            tm._refresh_children(pkg_item, sub)
             self.assertEqual(len(tm.tree.get_children(pkg_item)), 1)
             # Add file in subdir and refresh root; recursion should pick it up.
             open(os.path.join(sub, "b.py"), "w").close()
@@ -246,6 +268,70 @@ class TreeManagerTests(unittest.TestCase):
             self.assertEqual(len(tm.tree.get_children(pkg_item)), 2)
         logger.info("refresh_children_recurses: subdir refresh recursed correctly")
         print("[PASS] test_refresh_children_recurses: subdir refresh recursed correctly")
+
+    # ------------------------------------------------------------------
+    # Placeholder child (folder dropdown expander)
+    # ------------------------------------------------------------------
+    def test_insert_dir_adds_placeholder_child(self):
+        """Verify inserting a directory creates a placeholder child for the expander."""
+        tm = make_tree_manager()
+        node = tm._insert_node("ROOT", "src", "/p/src", True)
+        children = tm.tree.get_children(node)
+        self.assertEqual(len(children), 1)
+        tags = tm.tree.item(children[0], "tags")
+        self.assertIn(tm.PLACEHOLDER_TAG, tags)
+        logger.info("insert_dir_adds_placeholder: placeholder child created for dir")
+        print("[PASS] test_insert_dir_adds_placeholder: placeholder child created for dir")
+
+    def test_insert_file_no_placeholder(self):
+        """Verify inserting a file does not create a placeholder child."""
+        tm = make_tree_manager()
+        node = tm._insert_node("ROOT", "main.py", "/p/main.py", False)
+        self.assertEqual(len(tm.tree.get_children(node)), 0)
+        logger.info("insert_file_no_placeholder: file has no placeholder child")
+        print("[PASS] test_insert_file_no_placeholder: file has no placeholder child")
+
+    def test_clear_placeholder_removes_placeholder(self):
+        """Verify _clear_placeholder removes only placeholder children."""
+        tm = make_tree_manager()
+        node = tm._insert_node("ROOT", "src", "/p/src", True)
+        self.assertEqual(len(tm.tree.get_children(node)), 1)
+        tm._clear_placeholder(node)
+        self.assertEqual(len(tm.tree.get_children(node)), 0)
+        logger.info("clear_placeholder_removes: placeholder child removed")
+        print("[PASS] test_clear_placeholder_removes: placeholder child removed")
+
+    def test_clear_placeholder_keeps_real_children(self):
+        """Verify _clear_placeholder leaves non-placeholder children intact."""
+        tm = make_tree_manager()
+        node = tm._insert_node("ROOT", "src", "/p/src", True)
+        # Manually add a real (non-placeholder) child to the dir node.
+        real_child = tm.tree.insert(node, "end", text="real.py", tags=())
+        tm.tree.set(real_child, "path", "/p/src/real.py")
+        tm._clear_placeholder(node)
+        children = tm.tree.get_children(node)
+        self.assertEqual(len(children), 1)
+        self.assertEqual(children[0], real_child)
+        logger.info("clear_placeholder_keeps_real: real children preserved")
+        print("[PASS] test_clear_placeholder_keeps_real: real children preserved")
+
+    def test_refresh_children_skips_placeholder_in_diff(self):
+        """Verify refresh does not treat placeholder nodes as real entries."""
+        tm = make_tree_manager()
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "pkg"))
+            tm._refresh_children("ROOT", d)
+            pkg_item = tm.tree.get_children("ROOT")[0]
+            # pkg has a placeholder child; refresh root again should not delete
+            # the placeholder or duplicate entries.
+            tm._refresh_children("ROOT", d)
+            pkg_children = tm.tree.get_children(pkg_item)
+            # Placeholder remains (dir not loaded yet), no real children added.
+            self.assertEqual(len(pkg_children), 1)
+            tags = tm.tree.item(pkg_children[0], "tags")
+            self.assertIn(tm.PLACEHOLDER_TAG, tags)
+        logger.info("refresh_children_skips_placeholder: placeholder ignored in diff")
+        print("[PASS] test_refresh_children_skips_placeholder: placeholder ignored in diff")
 
 
 if __name__ == "__main__":

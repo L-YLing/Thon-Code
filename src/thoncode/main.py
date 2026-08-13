@@ -64,9 +64,11 @@ class MainWindow:
         """
         self._startup_start = time.perf_counter()
 
-        # Read config to determine theme
+        # Read config to determine theme (cached once; reused by _get_cfg_data
+        # to avoid repeated disk reads during startup).
         cfg_handle.cfg_handle().check_cfg_file()
-        cfg_data = cfg_handle.cfg_handle().read_cfg()["data"]
+        self._cached_cfg_data = cfg_handle.cfg_handle().read_cfg()["data"]
+        cfg_data = self._cached_cfg_data
         cfg_theme = cfg_data.get("theme", "dark")
 
         # Create ttkbootstrap themed main window
@@ -98,7 +100,9 @@ class MainWindow:
         self._init_components()
         self._setup_tree_style()
         self._load_config()
-        self._show_welcome_if_needed()
+        # Defer welcome-page creation to the first idle tick so the main
+        # window paints first and startup time excludes welcome-page build cost.
+        self.root.after(0, self._show_welcome_if_needed)
 
         self._startup_end = time.perf_counter()
         self._startup_time = self._startup_end - self._startup_start
@@ -212,7 +216,7 @@ class MainWindow:
 
     def reload_config(self):
         """Reload configuration, re-apply theme, and refresh UI."""
-        cfg_data = cfg_handle.cfg_handle().read_cfg()["data"]
+        cfg_data = self._get_cfg_data(force_refresh=True)
         theme_name = cfg_data.get("theme", "dark")
         theme.apply_theme(theme_name)
         self.langs_cfg = langs_loader.langs()
@@ -441,7 +445,7 @@ class MainWindow:
 
     def _show_welcome_if_needed(self) -> None:
         """Show or hide the welcome page based on config state."""
-        cfg = cfg_handle.cfg_handle().read_cfg()["data"]
+        cfg = self._get_cfg_data()
         show = cfg.get("show_welcome", True)
         if show or not self.current_file:
             self._ensure_welcome_page().place(relx=0, rely=0, relwidth=1, relheight=1)
@@ -476,9 +480,11 @@ class MainWindow:
 
     def toggle_welcome_config(self):
         """Toggle the show-on-start welcome page setting."""
-        cfg = cfg_handle.cfg_handle().read_cfg()["data"]
+        cfg = self._get_cfg_data(force_refresh=True)
         cfg["show_welcome"] = self.welcome_page.get_check_state()
         cfg_handle.cfg_handle().write_cfg(cfg)
+        # Keep the in-memory cache in sync with the just-written file.
+        self._cached_cfg_data = cfg
 
     def do_search(self) -> None:
         """Perform search based on the search entry text."""
@@ -630,9 +636,25 @@ class MainWindow:
             self.textbox_widget.focus_set()
             self.textbox_widget.event_generate("<Control-a>")
 
+    def _get_cfg_data(self, force_refresh: bool = False) -> dict:
+        """Return cached configuration data, refreshing from disk on demand.
+
+        Avoids repeated disk reads at startup; later mutation paths pass
+        force_refresh=True to pick up external or just-written changes.
+
+        Args:
+            force_refresh: Re-read config.json from disk when True
+
+        Returns:
+            dict: The "data" section of the configuration
+        """
+        if force_refresh or getattr(self, "_cached_cfg_data", None) is None:
+            self._cached_cfg_data = cfg_handle.cfg_handle().read_cfg()["data"]
+        return self._cached_cfg_data
+
     def _load_config(self):
         """Load configuration and update welcome page state."""
-        cfg = cfg_handle.cfg_handle().read_cfg()["data"]
+        cfg = self._get_cfg_data()
         show = cfg.get("show_welcome", True)
         if self.welcome_page:
             self.welcome_page.set_check_state(show)

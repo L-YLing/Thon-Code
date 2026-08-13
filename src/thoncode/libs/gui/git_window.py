@@ -44,13 +44,15 @@ class GitIntegrationWindow:
         self.selected_branch = None
         self.selected_file = None
         self.repo_initialized = False
+        self.git_installed = True
+        self.operation_buttons = []
 
         self._create_window()
         self.git.parent = self.window
 
-        self._check_repo_status()
-        self._load_branches()
-        self._load_status()
+        # Defer initial git operations until after the window is shown so the
+        # synchronous git calls do not block window creation
+        self.window.after(50, self._after_window_shown)
 
     def _get_text(self, key):
         return getattr(self.lang, key.replace('.', '_'), key)
@@ -64,6 +66,38 @@ class GitIntegrationWindow:
         self.window.focus_force()
 
         self._create_widgets()
+
+    def _after_window_shown(self):
+        """Run once the window is visible: make modal then load initial state."""
+        self._make_modal()
+        self._initial_load()
+
+    def _make_modal(self):
+        """Make the window modal to prevent duplicate windows.
+
+        grab_set must be called after the window is visible, hence this is
+        invoked from the deferred _after_window_shown callback.
+        """
+        try:
+            self.window.grab_set()
+        except Exception:
+            # grab_set can fail if another grab is active; fail silently
+            pass
+
+    def _initial_load(self):
+        """Perform the initial repo status checks after the window is shown."""
+        self._check_repo_status()
+        self._load_branches()
+        self._load_status()
+
+    def _set_operations_enabled(self, enabled: bool):
+        """Enable or disable all primary operation buttons."""
+        state = "normal" if enabled else "disabled"
+        for btn in getattr(self, 'operation_buttons', []):
+            try:
+                btn.configure(state=state)
+            except Exception:
+                pass
 
     def _create_widgets(self):
         main_frame = ttk.Frame(self.window)
@@ -145,14 +179,17 @@ class GitIntegrationWindow:
             (self._get_text("git.changelog"), self._git_changelog),
         ]
 
+        self.operation_buttons = []
         for i, (label, command) in enumerate(operations):
             row = i // 3
             col = i % 3
-            ttk.Button(
+            btn = ttk.Button(
                 btn_grid,
                 text=label,
                 command=command,
-            ).grid(row=row, column=col, padx=2, pady=2, sticky="ew")
+            )
+            btn.grid(row=row, column=col, padx=2, pady=2, sticky="ew")
+            self.operation_buttons.append(btn)
 
         btn_grid.grid_columnconfigure(0, weight=1)
         btn_grid.grid_columnconfigure(1, weight=1)
@@ -262,6 +299,15 @@ class GitIntegrationWindow:
         self._log_output(self._get_text("git.project_refreshed"))
 
     def _check_repo_status(self):
+        # Detect git availability first; without git no other command can run
+        if not self.git.is_git_installed():
+            self.git_installed = False
+            self.repo_initialized = False
+            self.repo_status_label.configure(text="🔴 git not installed")
+            self._set_operations_enabled(False)
+            return
+        self.git_installed = True
+        self._set_operations_enabled(True)
         self.repo_initialized = self.git.is_repo()
         if self.repo_initialized:
             self.repo_status_label.configure(text=f"🟢 {self._get_text('git.is_repo')}")
@@ -270,6 +316,10 @@ class GitIntegrationWindow:
 
     def _load_branches(self):
         self.branch_listbox.delete(0, tk.END)
+
+        if not self.git_installed:
+            self.branch_listbox.insert(tk.END, "git not installed")
+            return
 
         if not self.repo_initialized:
             self.branch_listbox.insert(tk.END, self._get_text("git.init_first"))
@@ -291,10 +341,17 @@ class GitIntegrationWindow:
     def _load_status(self):
         self.file_listbox.delete(0, tk.END)
 
+        if not self.git_installed:
+            self.file_listbox.insert(tk.END, "git not installed")
+            return
+
         if not self.repo_initialized:
             self.file_listbox.insert(tk.END, self._get_text("git.init_first"))
             return
 
+        # get_status already disables quotepath so real Chinese paths are shown.
+        # Each line keeps the porcelain "XY path" format so _on_file_select can
+        # parse the status code and path reliably.
         status = self.git.get_status()
         if not status:
             self.file_listbox.insert(tk.END, self._get_text("git.working_tree_clean"))
@@ -308,12 +365,24 @@ class GitIntegrationWindow:
         selection = self.branch_listbox.curselection()
         if selection:
             branch_text = self.branch_listbox.get(selection[0])
-            self.selected_branch = branch_text.lstrip('* ')
+            # Only strip the "* " marker, not every leading '*' or space char
+            if branch_text.startswith('* '):
+                self.selected_branch = branch_text[2:].strip()
+            else:
+                self.selected_branch = branch_text.strip()
 
     def _on_file_select(self, event):
         selection = self.file_listbox.curselection()
         if selection:
-            self.selected_file = self.file_listbox.get(selection[0])
+            raw = self.file_listbox.get(selection[0])
+            # Parse the porcelain "XY path" format; only treat lines that
+            # actually look like a status entry (3rd char is a space)
+            if len(raw) >= 4 and raw[2] == ' ':
+                path = raw[3:].strip()
+                # Rename/copy entries use "old -> new"; keep the new path
+                if ' -> ' in path:
+                    path = path.split(' -> ', 1)[1].strip()
+                self.selected_file = path
 
     def _git_init(self):
         if self.repo_initialized:
@@ -378,7 +447,8 @@ class GitIntegrationWindow:
             messagebox.showwarning(self._get_text("git.warning"), self._get_text("git.init_first"))
             return
 
-        if self.git.push():
+        # selected_branch may be None; push() then uses the default upstream
+        if self.git.push(branch=self.selected_branch):
             self._log_output(self._get_text("git.push_success"))
         else:
             self._log_output(self._get_text("git.failed_push"))
@@ -389,7 +459,8 @@ class GitIntegrationWindow:
             messagebox.showwarning(self._get_text("git.warning"), self._get_text("git.init_first"))
             return
 
-        if self.git.pull():
+        # selected_branch may be None; pull() then uses the default upstream
+        if self.git.pull(branch=self.selected_branch):
             self._log_output(self._get_text("git.pull_success"))
             self._load_status()
         else:

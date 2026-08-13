@@ -16,6 +16,7 @@ keyboard navigation with a style system interface.
 """
 
 import os
+import bisect
 import tkinter as tk
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
@@ -95,6 +96,9 @@ class CanvasFileTree(BaseWidget, StyleProvider, EventHandler, LazyLoadable):
         self._hover_node: Optional[TreeNode] = None
         self._nodes_by_y: List[Tuple[int, TreeNode]] = []
         self._visible_nodes: List[TreeNode] = []
+        # Cached depth and y-position per node, populated in _refresh_visible_nodes.
+        self._node_depths: Dict[TreeNode, int] = {}
+        self._node_y_pos: Dict[TreeNode, int] = {}
 
         self._project_root: str = ""
         self._indent_width: int = 16
@@ -317,14 +321,23 @@ class CanvasFileTree(BaseWidget, StyleProvider, EventHandler, LazyLoadable):
             node.children.append(child)
 
     def _refresh_visible_nodes(self) -> None:
-        """Rebuild the flat list of visible nodes from the tree hierarchy."""
+        """Rebuild the flat list of visible nodes from the tree hierarchy.
+
+        Depth is computed during traversal and cached in _node_depths so that
+        _get_depth becomes an O(1) lookup instead of an O(n) rescan per node
+        (which previously made _redraw O(n^2)).
+        """
         self._visible_nodes = []
         self._nodes_by_y = []
+        self._node_depths = {}
+        self._node_y_pos = {}
 
         def traverse(node: TreeNode, depth: int) -> None:
-            self._visible_nodes.append(node)
             y_pos = len(self._visible_nodes) * self._row_height
+            self._visible_nodes.append(node)
             self._nodes_by_y.append((y_pos, node))
+            self._node_depths[node] = depth
+            self._node_y_pos[node] = y_pos
             if node.expanded:
                 for child in node.children:
                     traverse(child, depth + 1)
@@ -333,18 +346,43 @@ class CanvasFileTree(BaseWidget, StyleProvider, EventHandler, LazyLoadable):
             traverse(self._root_node, 0)
 
     def _redraw(self) -> None:
-        """Redraw the entire tree canvas."""
+        """Redraw only the tree nodes within the current viewport.
+
+        Virtualized rendering: computes the visible y-range from the canvas
+        yview and height, and draws only nodes whose row intersects it. For
+        large projects this keeps each redraw proportional to the number of
+        on-screen rows rather than the total node count.
+        """
         if not self._canvas:
             return
 
         self._canvas.delete("all")
-        self._canvas.configure(scrollregion=(0, 0, self._canvas.winfo_width(),
-                                            len(self._visible_nodes) * self._row_height))
+        total_height = len(self._visible_nodes) * self._row_height
+        canvas_width = self._canvas.winfo_width()
+        self._canvas.configure(scrollregion=(0, 0, canvas_width, total_height))
 
-        y = 0
-        for node in self._visible_nodes:
-            self._draw_node(node, y)
-            y += self._row_height
+        # Determine the viewport y-range in canvas coordinates.
+        try:
+            yview = self._canvas.yview()
+            view_height = self._canvas.winfo_height()
+        except Exception:
+            return
+        if view_height <= 1:
+            # Widget not yet laid out; draw a small prefix so the tree is visible.
+            view_height = max(1, total_height)
+        y_top = yview[0] * total_height
+        y_bottom = y_top + view_height
+
+        # Binary-search the first node whose row bottom is below the viewport
+        # top, then iterate only until rows pass the viewport bottom.
+        # _nodes_by_y is sorted by y_pos; build a parallel keys list for bisection.
+        ys = [ny for ny, _ in self._nodes_by_y]
+        start_idx = bisect.bisect_right(ys, y_top - self._row_height)
+        for i in range(start_idx, len(self._nodes_by_y)):
+            y_pos, node = self._nodes_by_y[i]
+            if y_pos > y_bottom:
+                break
+            self._draw_node(node, y_pos)
 
     def _draw_node(self, node: TreeNode, y: int) -> None:
         """Draw a single tree node on the canvas.
@@ -353,8 +391,8 @@ class CanvasFileTree(BaseWidget, StyleProvider, EventHandler, LazyLoadable):
             node: TreeNode to draw
             y: Y coordinate for the node
         """
-        # Calculate indentation depth
-        depth = self._get_depth(node)
+        # Depth comes from the traversal cache (O(1)) instead of rescanning.
+        depth = self._node_depths.get(node, 0)
         x = depth * self._indent_width + 4
 
         # Draw selection/hover background
@@ -405,7 +443,7 @@ class CanvasFileTree(BaseWidget, StyleProvider, EventHandler, LazyLoadable):
         )
 
     def _get_depth(self, node: TreeNode) -> int:
-        """Calculate the depth of a node in the tree from the visible list.
+        """Get the cached depth of a node.
 
         Args:
             node: TreeNode to calculate depth for
@@ -413,18 +451,10 @@ class CanvasFileTree(BaseWidget, StyleProvider, EventHandler, LazyLoadable):
         Returns:
             Depth level (0 for root)
         """
-        if node not in self._visible_nodes:
-            return 0
-        depth = 0
-        idx = self._visible_nodes.index(node)
-        for i in range(idx - 1, -1, -1):
-            candidate = self._visible_nodes[i]
-            if candidate.is_dir and candidate.expanded:
-                depth += 1
-        return depth
+        return self._node_depths.get(node, 0)
 
     def _find_node_at_y(self, y: int) -> Optional[TreeNode]:
-        """Find the tree node at a given y coordinate.
+        """Find the tree node at a given y coordinate via binary search.
 
         Args:
             y: Y coordinate in canvas units
@@ -432,12 +462,21 @@ class CanvasFileTree(BaseWidget, StyleProvider, EventHandler, LazyLoadable):
         Returns:
             TreeNode at the coordinate or None
         """
+        if not self._nodes_by_y:
+            return None
         yview = self._canvas.yview()
-        y_offset = yview[0] * self._canvas.winfo_height()
+        total_height = len(self._visible_nodes) * self._row_height
+        y_offset = yview[0] * total_height
         adjusted_y = y + y_offset
-        for node_y, node in self._nodes_by_y:
-            if node_y <= adjusted_y <= node_y + self._row_height:
-                return node
+
+        ys = [ny for ny, _ in self._nodes_by_y]
+        # Locate the rightmost row start <= adjusted_y.
+        idx = bisect.bisect_right(ys, adjusted_y) - 1
+        if idx < 0:
+            return None
+        node_y, node = self._nodes_by_y[idx]
+        if node_y <= adjusted_y <= node_y + self._row_height:
+            return node
         return None
 
     def _on_left_click(self, event: tk.Event) -> None:

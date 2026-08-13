@@ -13,9 +13,16 @@ Canvas-based editor gutter for line numbers and fold indicators.
 Provides a customizable gutter component that renders line numbers
 and fold state indicators on a tkinter Canvas, supporting dynamic
 updates, click interactions, and theme-based styling.
+
+Rendering is virtualized: only the line numbers intersecting the
+current viewport are materialized as Canvas items, and existing items
+are reused across scrolls so a 1-pixel scroll only touches the few
+lines that entered or left the viewport instead of rebuilding all of
+them.
 """
 
 import tkinter as tk
+import tkinter.font as tkfont
 from typing import Callable, Dict, List, Optional, Set, Tuple
 
 from libs.gui_libs.style_system import StyleSystem
@@ -30,10 +37,11 @@ class EditorGutter(tk.Canvas):
     - Synchronized scrolling with the main text widget
     - Click handling for fold toggling and jump-to-line
     - Theme-aware color and font configuration
+    - Virtualized rendering with Canvas item reuse
     """
 
-    FOLD_EXPAND = "\u25BE"    # ▸ collapsed indicator
-    FOLD_COLLAPSE = "\u25B8"  # ▾ expanded indicator
+    FOLD_EXPAND = "\u25BE"    # ▾ expanded (click to collapse) indicator
+    FOLD_COLLAPSE = "\u25B8"  # ▸ collapsed (click to expand) indicator
 
     def __init__(self, parent: tk.Misc, text_widget: tk.Text, **kwargs) -> None:
         """Initialize the editor gutter.
@@ -57,7 +65,14 @@ class EditorGutter(tk.Canvas):
         self._bg_color: str = "#282c34"
         self._fg_color: str = "#5c6370"
         self._fg_dim_color: str = "#4b5263"
-        self._font: Optional[tk.font.Font] = None
+        self._font: Optional[tkfont.Font] = None
+        # Fold indicator glyphs sourced from StyleSystem (with constant fallback).
+        self._fold_expand_char: str = self.FOLD_EXPAND
+        self._fold_collapse_char: str = self.FOLD_COLLAPSE
+        # Canvas item cache: line_num -> item id. Only visible lines have an
+        # entry, so off-screen lines cost nothing to maintain.
+        self._line_items: Dict[int, int] = {}
+        self._fold_items: Dict[int, int] = {}
         self._on_line_click: Optional[Callable[[int], None]] = None
         self._on_fold_click: Optional[Callable[[int], None]] = None
 
@@ -86,13 +101,32 @@ class EditorGutter(tk.Canvas):
         self._fold_gutter_width = self.style_system.get_value("editor", "fold_gutter_width", 20)
         self._bg_color = self.style_system.get_value("editor", "line_number_bg", "#282c34")
         self._fg_color = self.style_system.get_value("editor", "line_number_fg", "#5c6370")
+        # Fold indicator glyphs are theme-configurable via StyleSystem but
+        # fall back to the canonical ▾/▸ constants to preserve prior behavior.
+        self._fold_expand_char = self.style_system.get_value(
+            "editor", "fold_expand_indicator", self.FOLD_EXPAND
+        )
+        self._fold_collapse_char = self.style_system.get_value(
+            "editor", "fold_collapse_indicator", self.FOLD_COLLAPSE
+        )
 
     def _setup_font(self) -> None:
-        """Configure the gutter font based on style settings."""
-        self._font = tk.font.Font(
+        """Configure the gutter font and derive the real line height.
+
+        The line height is taken from the font linespace so gutter rows align
+        with the text-widget lines (both share the same font family/size and
+        the editor uses wrap='none', so every line shares one height).
+        """
+        self._font = tkfont.Font(
             family=self._font_family,
             size=self._font_size
         )
+        try:
+            linespace = self._font.metrics("linespace")
+            if linespace > 0:
+                self._line_height = linespace
+        except Exception:
+            pass  # fall back to the StyleSystem line_height
 
     def _setup_bindings(self) -> None:
         """Setup mouse and scroll event bindings."""
@@ -155,52 +189,108 @@ class EditorGutter(tk.Canvas):
         except Exception:
             return 1
 
+    def _compute_viewport(self) -> Tuple[int, int, float]:
+        """Compute the visible line range and pixel y-offset.
+
+        Maps the text-widget fractional yview to concrete line numbers using
+        the uniform line height (the editor uses wrap='none' so every line
+        shares the same height). Returns (first_line, last_line, y_offset)
+        where y_offset is the pixel offset of the virtual content top within
+        the canvas coordinate space.
+        """
+        total = max(1, self._line_count)
+        try:
+            yview = self._text_widget.yview()
+        except Exception:
+            yview = (0.0, 1.0)
+        top_frac = yview[0] if yview else 0.0
+        y_offset = top_frac * total * self._line_height
+        canvas_h = max(1, self.winfo_height())
+        first_line = max(1, int(y_offset // self._line_height) + 1)
+        last_line = min(total, int((y_offset + canvas_h) // self._line_height) + 1)
+        # One-line overscan covers partially visible lines at both edges.
+        first_line = max(1, first_line - 1)
+        last_line = min(total, last_line + 1)
+        return first_line, last_line, y_offset
+
     def _refresh(self) -> None:
-        """Redraw the gutter with current line numbers and fold indicators."""
-        self.delete("all")
+        """Redraw visible line numbers and fold indicators (virtualized).
+
+        Only the lines currently intersecting the canvas viewport are
+        materialized as Canvas items; off-screen lines are neither created nor
+        drawn. Existing items are reused via coords/itemconfigure, and items
+        that leave the viewport (or whose fold state changed) are deleted, so
+        a small scroll only touches the few lines that changed instead of
+        rebuilding the whole gutter.
+        """
+        if self._font is None:
+            return
+
         self._line_count = self._count_lines()
+        first_line, last_line, y_offset = self._compute_viewport()
 
-        yview = self._text_widget.yview()
-        y_offset = yview[0] * self._line_count * self._line_height
+        # Drop line-number items that scrolled out of the visible window.
+        for line_num in list(self._line_items.keys()):
+            if line_num < first_line or line_num > last_line:
+                self.delete(self._line_items.pop(line_num))
 
-        for line_num in range(1, self._line_count + 1):
+        # Drop fold-indicator items that left the viewport or are no longer
+        # foldable start lines.
+        for line_num in list(self._fold_items.keys()):
+            if (line_num < first_line or line_num > last_line
+                    or line_num not in self._foldable_starts):
+                self.delete(self._fold_items.pop(line_num))
+
+        number_x = self._line_number_width - 6
+        fold_x = self._line_number_width + self._fold_gutter_width // 2
+
+        # (Re)build / reposition items for every visible line.
+        for line_num in range(first_line, last_line + 1):
             y1 = (line_num - 1) * self._line_height - y_offset
-            y2 = y1 + self._line_height
-
-            if y2 < 0 or y1 > self.winfo_height():
-                continue
-
             display_y = y1 + self._line_height // 2
+            text = str(line_num)
 
-            # Draw line number
-            self.create_text(
-                self._line_number_width - 6,
-                display_y,
-                text=str(line_num),
-                anchor="e",
-                font=self._font,
-                fill=self._fg_color,
-                tags=("line_number", f"line_{line_num}")
-            )
+            item = self._line_items.get(line_num)
+            if item is None:
+                item = self.create_text(
+                    number_x,
+                    display_y,
+                    text=text,
+                    anchor="e",
+                    font=self._font,
+                    fill=self._fg_color,
+                    tags=("line_number", f"line_{line_num}")
+                )
+                self._line_items[line_num] = item
+            else:
+                self.coords(item, number_x, display_y)
+                self.itemconfigure(item, text=text, fill=self._fg_color,
+                                   font=self._font)
 
-            # Draw fold indicator
+            # Fold indicator only on foldable start lines.
             if line_num in self._foldable_starts:
                 if line_num in self._folded_lines:
-                    indicator = self.FOLD_EXPAND
-                    fill = self._fg_color
+                    indicator = self._fold_expand_char
                 else:
-                    indicator = self.FOLD_COLLAPSE
-                    fill = self._fg_color
+                    indicator = self._fold_collapse_char
+                fill = self._fg_color
 
-                self.create_text(
-                    self._line_number_width + self._fold_gutter_width // 2,
-                    display_y,
-                    text=indicator,
-                    anchor="center",
-                    font=self._font,
-                    fill=fill,
-                    tags=("fold_indicator", f"fold_{line_num}")
-                )
+                fitem = self._fold_items.get(line_num)
+                if fitem is None:
+                    fitem = self.create_text(
+                        fold_x,
+                        display_y,
+                        text=indicator,
+                        anchor="center",
+                        font=self._font,
+                        fill=fill,
+                        tags=("fold_indicator", f"fold_{line_num}")
+                    )
+                    self._fold_items[line_num] = fitem
+                else:
+                    self.coords(fitem, fold_x, display_y)
+                    self.itemconfigure(fitem, text=indicator, fill=fill,
+                                       font=self._font)
 
     def _on_click(self, event: tk.Event) -> None:
         """Handle click events on the gutter.
@@ -211,8 +301,13 @@ class EditorGutter(tk.Canvas):
         x = event.x
         y = event.y
 
-        yview = self._text_widget.yview()
-        y_offset = yview[0] * self._line_count * self._line_height
+        total = self._count_lines()
+        try:
+            yview = self._text_widget.yview()
+        except Exception:
+            yview = (0.0, 1.0)
+        top_frac = yview[0] if yview else 0.0
+        y_offset = top_frac * total * self._line_height
         line_num = int((y + y_offset) // self._line_height) + 1
 
         if x > self._line_number_width:
@@ -253,8 +348,13 @@ class EditorGutter(tk.Canvas):
         Returns:
             Line number at the coordinate
         """
-        yview = self._text_widget.yview()
-        y_offset = yview[0] * self._line_count * self._line_height
+        total = self._count_lines()
+        try:
+            yview = self._text_widget.yview()
+        except Exception:
+            yview = (0.0, 1.0)
+        top_frac = yview[0] if yview else 0.0
+        y_offset = top_frac * total * self._line_height
         return max(1, int((y + y_offset) // self._line_height) + 1)
 
     def redraw(self) -> None:

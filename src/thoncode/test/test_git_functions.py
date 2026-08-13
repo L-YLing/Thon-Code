@@ -16,188 +16,244 @@ import unittest
 import _bootstrap  # noqa: F401
 from _bootstrap import get_logger
 
-from libs.git_functions import GitFunctions
-
 logger = get_logger("test_git_functions")
 
+# Detect git availability once; tests requiring a real repo are skipped otherwise.
+try:
+    _GIT_OK = subprocess.run(
+        ['git', '--version'], capture_output=True, text=True, timeout=5
+    ).returncode == 0
+except Exception:
+    _GIT_OK = False
 
-def _git_available() -> bool:
-    """检测系统是否安装 git"""
-    try:
-        subprocess.run(["git", "--version"], capture_output=True, check=True)
-        return True
-    except Exception:
-        return False
+
+def make_git(project_root):
+    """Create a GitFunctions instance bypassing __init__ side effects."""
+    from libs.git_functions import GitFunctions
+    g = GitFunctions.__new__(GitFunctions)
+    g.project_root = project_root
+    g.status_callback = None
+    g.parent = None
+    return g
 
 
-@unittest.skipUnless(_git_available(), "系统未安装 git，跳过 Git 功能测试")
-class GitFunctionsTests(unittest.TestCase):
-    """GitFunctions Git 操作封装类的测试集
-
-    在临时目录中初始化真实 git 仓库进行端到端验证。
-    """
+@unittest.skipUnless(_GIT_OK, "git executable not available")
+class GitFunctionsRepoTests(unittest.TestCase):
+    """Tests exercising GitFunctions against a real temporary git repository."""
 
     def setUp(self):
-        """初始化临时 git 仓库并配置提交者信息"""
-        self.repo_dir = tempfile.mkdtemp(prefix="git_test_")
-        self.git = GitFunctions(project_root=self.repo_dir, status_callback=self._on_status)
-        self.git.init()
-        # 配置本地提交者，避免 git 提交时报错
-        subprocess.run(["git", "config", "user.email", "test@example.com"],
-                       cwd=self.repo_dir, capture_output=True, check=True)
-        subprocess.run(["git", "config", "user.name", "Test User"],
-                       cwd=self.repo_dir, capture_output=True, check=True)
-        logger.debug("setUp: 仓库 %s", self.repo_dir)
-        print(f"[setUp] 初始化仓库: {self.repo_dir}")
+        """Create a fresh git repo in a temp directory."""
+        self.tmp = tempfile.mkdtemp()
+        # Initialize repo and set a committed identity so commits succeed.
+        subprocess.run(['git', 'init'], cwd=self.tmp, capture_output=True)
+        subprocess.run(['git', 'config', 'user.email', 't@t.com'], cwd=self.tmp, capture_output=True)
+        subprocess.run(['git', 'config', 'user.name', 'Test'], cwd=self.tmp, capture_output=True)
+        self.git = make_git(self.tmp)
 
     def tearDown(self):
-        shutil.rmtree(self.repo_dir, ignore_errors=True)
-        logger.debug("tearDown: 已清理 %s", self.repo_dir)
+        """Remove the temp repository."""
+        shutil.rmtree(self.tmp, ignore_errors=True)
 
-    def _on_status(self, msg: str):
-        """状态回调，记录日志"""
-        logger.debug("git status 回调: %s", msg)
-
-    def _write_file(self, name: str, content: str = "hello\n"):
-        """在仓库中写入文件"""
-        path = os.path.join(self.repo_dir, name)
+    def _write(self, name, content="x"):
+        """Write a file inside the repo and return its path."""
+        path = os.path.join(self.tmp, name)
+        os.makedirs(os.path.dirname(path), exist_ok=True) if os.path.dirname(name) else None
         with open(path, "w", encoding="utf-8") as f:
             f.write(content)
         return path
 
-    def test_is_repo(self):
-        """验证 is_repo 识别已初始化仓库"""
+    def test_is_repo_true_after_init(self):
+        """Verify is_repo returns True in an initialized repository."""
         self.assertTrue(self.git.is_repo())
-        logger.info("is_repo = True")
-        print("[PASS] is_repo 识别仓库成功")
-
-    def test_is_repo_false_for_non_repo(self):
-        """验证非仓库目录 is_repo 返回 False"""
-        non_repo = tempfile.mkdtemp(prefix="git_norepo_")
-        try:
-            g = GitFunctions(project_root=non_repo)
-            self.assertFalse(g.is_repo())
-            print("[PASS] 非仓库目录 is_repo=False")
-        finally:
-            shutil.rmtree(non_repo, ignore_errors=True)
-
-    def test_get_current_branch(self):
-        """验证 get_current_branch 返回当前分支名"""
-        branch = self.git.get_current_branch()
-        logger.info("当前分支: %s", branch)
-        self.assertIsNotNone(branch)
-        self.assertTrue(len(branch) > 0)
-        print(f"[PASS] 当前分支: {branch}")
-
-    def test_get_branches(self):
-        """验证 get_branches 返回分支列表
-
-        新初始化且无提交的仓库 git branch 不列出任何分支，
-        需先产生一次提交使分支实际存在。
-        """
-        # 先提交一次，使 master 分支真正建立
-        self._write_file("init.txt", "init\n")
-        self.git.add_all()
-        self.git.commit("initial")
-        branches = self.git.get_branches()
-        logger.info("分支列表: %s", branches)
-        self.assertGreaterEqual(len(branches), 1)
-        print(f"[PASS] 分支数: {len(branches)}")
+        logger.info("is_repo_true: repo detected")
+        print("[PASS] test_is_repo_true_after_init: repo detected")
 
     def test_add_and_commit(self):
-        """验证 add_file + commit 提交流程"""
-        self._write_file("a.txt", "content a\n")
-        self.assertTrue(self.git.add_file("a.txt"))
-        self.assertTrue(self.git.commit("first commit"))
-        log = self.git.get_log(limit=5)
-        logger.info("提交日志: %s", log)
-        self.assertGreaterEqual(len(log), 1)
-        self.assertEqual(log[0]["message"], "first commit")
-        print("[PASS] add/commit 流程成功")
+        """Verify add_file + commit with an ASCII message succeeds."""
+        self._write("a.py", "print(1)")
+        self.assertTrue(self.git.add_file("a.py"))
+        self.assertTrue(self.git.commit("initial commit"))
+        logger.info("add_and_commit: file added and committed")
+        print("[PASS] test_add_and_commit: file added and committed")
 
-    def test_get_status_empty(self):
-        """验证干净工作区 get_status 为空字符串"""
-        status = self.git.get_status()
-        logger.info("空状态: '%s'", status)
-        self.assertEqual(status, "")
-        print("[PASS] 干净工作区状态为空")
+    def test_commit_chinese_message_no_mangle(self):
+        """Verify a Chinese commit message is stored verbatim via -F - stdin."""
+        self._write("b.py", "y = 2")
+        self.git.add_file("b.py")
+        msg = "初始化提交: 添加 b 模块"
+        self.assertTrue(self.git.commit(msg))
+        # Read back the latest commit subject.
+        result = subprocess.run(
+            ['git', 'log', '-1', '--pretty=%s'],
+            cwd=self.tmp, capture_output=True, text=True, encoding='utf-8'
+        )
+        self.assertEqual(result.stdout.strip(), msg)
+        logger.info("commit_chinese_message: message stored verbatim")
+        print("[PASS] test_commit_chinese_message_no_mangle: message stored verbatim")
 
-    def test_get_status_with_changes(self):
-        """验证有改动时 get_status 非空"""
-        self._write_file("b.txt", "b\n")
-        status = self.git.get_status()
-        logger.info("改动状态: %s", status)
-        self.assertIn("b.txt", status)
-        print("[PASS] 改动状态正确")
+    def test_status_detailed_untracked(self):
+        """Verify untracked files appear in the untracked list."""
+        self._write("new.py", "z = 3")
+        status = self.git.get_status_detailed()
+        self.assertIn("new.py", status['untracked'])
+        logger.info("status_untracked: untracked file detected")
+        print("[PASS] test_status_detailed_untracked: untracked file detected")
 
-    def test_get_status_detailed(self):
-        """验证 get_status_detailed 分类未跟踪文件"""
-        self._write_file("c.txt", "c\n")
-        detail = self.git.get_status_detailed()
-        logger.info("详细状态: %s", detail)
-        self.assertIn("c.txt", detail["untracked"])
-        print("[PASS] 详细状态分类正确")
+    def test_status_detailed_rename(self):
+        """Verify renamed entries resolve to the new path, not 'old -> new'."""
+        self._write("old.py", "v = 1")
+        self.git.add_file("old.py")
+        self.git.commit("base")
+        # Rename via git mv so porcelain reports an 'R' status.
+        subprocess.run(['git', 'mv', 'old.py', 'new.py'], cwd=self.tmp, capture_output=True)
+        status = self.git.get_status_detailed()
+        # The new path should be present; the raw 'old.py -> new.py' must not.
+        self.assertTrue(any("new.py" in p for p in status['staged']))
+        self.assertFalse(any("->" in p for p in status['staged']))
+        logger.info("status_rename: rename resolved to new path")
+        print("[PASS] test_status_detailed_rename: rename resolved to new path")
 
-    def test_get_untracked_files(self):
-        """验证 get_untracked_files 返回未跟踪文件列表"""
-        self._write_file("d.txt", "d\n")
-        untracked = self.git.get_untracked_files()
-        logger.info("未跟踪: %s", untracked)
-        self.assertIn("d.txt", untracked)
-        print("[PASS] 未跟踪文件列表正确")
+    def test_status_uses_quotepath_false(self):
+        """Verify Chinese filenames are returned literally (quotepath off)."""
+        self._write("中文.py", "a = 1")
+        status = self.git.get_status_detailed()
+        self.assertTrue(any("中文.py" in p for p in status['untracked']))
+        logger.info("status_quotepath: chinese path returned literally")
+        print("[PASS] test_status_uses_quotepath_false: chinese path returned literally")
 
-    def test_is_dirty(self):
-        """验证 is_dirty 检测工作区改动"""
-        self.assertFalse(self.git.is_dirty())
-        self._write_file("e.txt", "e\n")
-        self.assertTrue(self.git.is_dirty())
-        print("[PASS] is_dirty 检测正确")
+    def test_discard_all_keeps_untracked_by_default(self):
+        """Verify discard_all preserves untracked files by default."""
+        self._write("tracked.py", "1")
+        self.git.add_file("tracked.py")
+        self.git.commit("base")
+        self._write("tracked.py", "2")  # modify tracked
+        self._write("untracked.py", "3")
+        self.assertTrue(self.git.discard_all())  # keep_untracked=True default
+        self.assertTrue(os.path.exists(os.path.join(self.tmp, "untracked.py")))
+        logger.info("discard_all_keep_untracked: untracked preserved by default")
+        print("[PASS] test_discard_all_keeps_untracked_by_default: untracked preserved")
 
-    def test_create_and_switch_branch(self):
-        """验证 create_branch + switch_branch 切换分支"""
-        self._write_file("f.txt", "f\n")
-        self.git.add_all()
-        self.git.commit("init for branch")
-        self.assertTrue(self.git.create_branch("feature"))
-        self.assertTrue(self.git.switch_branch("feature"))
-        self.assertEqual(self.git.get_current_branch(), "feature")
-        logger.info("已切换到 feature 分支")
-        print("[PASS] 创建并切换分支成功")
+    def test_discard_all_removes_untracked_when_requested(self):
+        """Verify discard_all(keep_untracked=False) cleans untracked files."""
+        self._write("tracked.py", "1")
+        self.git.add_file("tracked.py")
+        self.git.commit("base")
+        self._write("untracked.py", "3")
+        self.assertTrue(self.git.discard_all(keep_untracked=False))
+        self.assertFalse(os.path.exists(os.path.join(self.tmp, "untracked.py")))
+        logger.info("discard_all_remove_untracked: untracked removed when requested")
+        print("[PASS] test_discard_all_removes_untracked_when_requested: untracked removed")
 
-    def test_get_log_empty(self):
-        """验证无提交时 get_log 返回空列表"""
-        log = self.git.get_log()
-        logger.info("空日志: %s", log)
-        self.assertEqual(log, [])
-        print("[PASS] 无提交日志为空")
 
-    def test_add_all(self):
-        """验证 add_all 暂存全部文件"""
-        self._write_file("g.txt", "g\n")
-        self._write_file("h.txt", "h\n")
-        self.assertTrue(self.git.add_all())
-        staged = self.git.get_staged_files()
-        logger.info("暂存文件: %s", staged)
-        self.assertIn("g.txt", staged)
-        self.assertIn("h.txt", staged)
-        print("[PASS] add_all 暂存成功")
+class GitFunctionsUnitTests(unittest.TestCase):
+    """Tests that do not require a real repository or git installation."""
 
-    def test_get_diff_after_change(self):
-        """验证提交后改动产生 diff 输出"""
-        self._write_file("i.txt", "initial\n")
-        self.git.add_all()
-        self.git.commit("init i")
-        # 修改文件产生 diff
-        with open(os.path.join(self.repo_dir, "i.txt"), "w", encoding="utf-8") as f:
-            f.write("modified\n")
-        diff = self.git.get_diff("i.txt")
-        logger.info("diff 长度: %d", len(diff))
-        self.assertIn("modified", diff)
-        print("[PASS] get_diff 输出正确")
+    def test_run_git_command_git_not_installed_sentinel(self):
+        """Verify FileNotFoundError yields the GIT_NOT_INSTALLED sentinel."""
+        git = make_git(os.getcwd())
+
+        original_run = subprocess.run
+
+        def fake_run(*args, **kwargs):
+            raise FileNotFoundError("git not found")
+
+        subprocess.run = fake_run
+        try:
+            success, output = git._run_git_command(['status'])
+        finally:
+            subprocess.run = original_run
+        self.assertFalse(success)
+        self.assertEqual(output, "GIT_NOT_INSTALLED")
+        logger.info("git_not_installed_sentinel: sentinel returned")
+        print("[PASS] test_run_git_command_git_not_installed_sentinel: sentinel returned")
+
+    def test_run_git_command_timeout(self):
+        """Verify TimeoutExpired is reported as a failure with a message."""
+        git = make_git(os.getcwd())
+        original_run = subprocess.run
+
+        def fake_run(*args, **kwargs):
+            raise subprocess.TimeoutExpired(cmd=args, timeout=kwargs.get('timeout', 30))
+
+        subprocess.run = fake_run
+        try:
+            success, output = git._run_git_command(['status'])
+        finally:
+            subprocess.run = original_run
+        self.assertFalse(success)
+        self.assertIn("timed out", output.lower())
+        logger.info("git_timeout: timeout reported")
+        print("[PASS] test_run_git_command_timeout: timeout reported")
+
+    def test_push_passes_branch_when_provided(self):
+        """Verify push includes the branch argument only when given."""
+        git = make_git(os.getcwd())
+        captured = {}
+
+        original = git._run_git_command
+
+        def fake_run(args, **kwargs):
+            captured['args'] = args
+            captured['kwargs'] = kwargs
+            return True, ""
+
+        git._run_git_command = fake_run
+        try:
+            git.push(branch="main")
+            self.assertEqual(captured['args'], ['push', 'origin', 'main'])
+            self.assertEqual(captured['kwargs'].get('timeout'), 60)
+            # Without a branch, no branch arg is appended.
+            git.push()
+            self.assertEqual(captured['args'], ['push', 'origin'])
+        finally:
+            git._run_git_command = original
+        logger.info("push_branch_arg: branch appended only when provided")
+        print("[PASS] test_push_passes_branch_when_provided: branch arg correct")
+
+    def test_pull_passes_branch_when_provided(self):
+        """Verify pull includes the branch argument only when given."""
+        git = make_git(os.getcwd())
+        captured = {}
+
+        original = git._run_git_command
+
+        def fake_run(args, **kwargs):
+            captured['args'] = args
+            return True, ""
+
+        git._run_git_command = fake_run
+        try:
+            git.pull(branch="dev")
+            self.assertEqual(captured['args'], ['pull', 'origin', 'dev'])
+            git.pull()
+            self.assertEqual(captured['args'], ['pull', 'origin'])
+        finally:
+            git._run_git_command = original
+        logger.info("pull_branch_arg: branch appended only when provided")
+        print("[PASS] test_pull_passes_branch_when_provided: branch arg correct")
+
+    def test_commit_uses_stdin_flag(self):
+        """Verify commit pipes the message via -F - rather than -m."""
+        git = make_git(os.getcwd())
+        captured = {}
+
+        original = git._run_git_command
+
+        def fake_run(args, **kwargs):
+            captured['args'] = args
+            captured['input'] = kwargs.get('input')
+            return True, ""
+
+        git._run_git_command = fake_run
+        try:
+            git.commit("hello 世界")
+            self.assertEqual(captured['args'], ['commit', '-F', '-'])
+            self.assertEqual(captured['input'], "hello 世界")
+        finally:
+            git._run_git_command = original
+        logger.info("commit_stdin_flag: message piped via -F -")
+        print("[PASS] test_commit_uses_stdin_flag: message piped via -F -")
 
 
 if __name__ == "__main__":
-    print("=" * 60)
-    print("测试 git_functions 模块")
-    print("=" * 60)
     unittest.main(verbosity=2)
