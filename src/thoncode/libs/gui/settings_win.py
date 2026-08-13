@@ -9,7 +9,7 @@ package: dict = {
 
 import ttkbootstrap as ttkb
 import tkinter as tk
-from tkinter import ttk, messagebox
+from tkinter import ttk, messagebox, colorchooser
 import libs.cfg_handle as cfg_handle
 import libs.langs_loader as langs_loader
 from libs.gui import theme
@@ -124,6 +124,40 @@ class SettingsWindow(ttkb.Toplevel):
         theme_combo.pack(anchor="w", pady=(0, 15))
         theme_combo.bind("<<ComboboxSelected>>", self._on_theme_preview)
 
+        # --- Accent color (Monet-inspired palette) ---
+        self._widgets['lbl_accent'] = ttk.Label(
+            main_frame, text=self._get_text("settings.accent_color"), anchor="w")
+        self._widgets['lbl_accent'].pack(fill="x", pady=(0, 5))
+        accent_frame = ttk.Frame(main_frame)
+        accent_frame.pack(fill="x", pady=(0, 15))
+
+        self.accent_var = tk.StringVar(value=self.cfg.get("accent_color", ""))
+        # Preset color swatches
+        swatch_frame = ttk.Frame(accent_frame)
+        swatch_frame.pack(side="left", fill="x", expand=True)
+        self._swatch_widgets = []
+        for color in theme.ACCENT_PRESETS:
+            swatch = tk.Label(
+                swatch_frame, width=2, height=1,
+                background=color, relief="flat", cursor="hand2",
+                highlightthickness=1, highlightbackground="#888888")
+            swatch.pack(side="left", padx=1)
+            swatch.bind("<Button-1>", lambda e, c=color: self._on_accent_selected(c))
+            self._swatch_widgets.append((swatch, color))
+        # Custom color button
+        ttk.Button(
+            accent_frame,
+            text=self._get_text("settings.custom_color"),
+            command=self._on_custom_color,
+            style="Info.TButton",
+        ).pack(side="right", padx=(5, 0))
+        # Reset button
+        ttk.Button(
+            accent_frame,
+            text=self._get_text("settings.reset_color"),
+            command=self._on_reset_color,
+        ).pack(side="right", padx=(5, 0))
+
         # --- Auto reload ---
         self._widgets['lbl_auto_reload'] = ttk.Label(
             main_frame, text=self._get_text("settings.auto_reload"), anchor="w")
@@ -180,6 +214,7 @@ class SettingsWindow(ttkb.Toplevel):
         self.title(self._get_text("settings.title"))
         self._widgets['lbl_language'].configure(text=self._get_text("settings.language"))
         self._widgets['lbl_theme'].configure(text=self._get_text("settings.theme"))
+        self._widgets['lbl_accent'].configure(text=self._get_text("settings.accent_color"))
         self._widgets['lbl_auto_reload'].configure(text=self._get_text("settings.auto_reload"))
         self._widgets['cb_auto_reload'].configure(text=self._get_text("settings.auto_reload_desc"))
         self._widgets['lbl_tab_size'].configure(text=self._get_text("settings.tab_size"))
@@ -207,6 +242,33 @@ class SettingsWindow(ttkb.Toplevel):
         """Apply the selected theme in real-time for immediate visual preview."""
         theme.apply_theme(self.theme_var.get())
 
+    def _on_accent_selected(self, color: str):
+        """Apply a preset accent color in real-time.
+
+        Args:
+            color: Hex color string from the preset palette
+        """
+        self.accent_var.set(color)
+        theme.apply_accent_color(color)
+
+    def _on_custom_color(self):
+        """Open the system color picker for a custom accent color."""
+        initial = self.accent_var.get() or "#0078D7"
+        result = colorchooser.askcolor(
+            color=initial,
+            title=self._get_text("settings.custom_color"))
+        if result and result[1]:
+            color = result[1]
+            self.accent_var.set(color)
+            theme.apply_accent_color(color)
+
+    def _on_reset_color(self):
+        """Reset accent color to the theme's default."""
+        self.accent_var.set("")
+        theme.apply_accent_color(None)
+        # Re-apply theme to restore default primary color
+        theme.apply_theme(self.theme_var.get())
+
     def _apply_settings(self):
         """Save settings to config and apply them without closing the window."""
         self._write_cfg()
@@ -232,6 +294,7 @@ class SettingsWindow(ttkb.Toplevel):
         """Write the current settings to config and notify the callback."""
         self.cfg["language"] = self.lang_var.get()
         self.cfg["theme"] = self._combo_to_current_theme(self.theme_var.get())
+        self.cfg["accent_color"] = self.accent_var.get()
         self.cfg["auto_reload"] = self.reload_var.get()
         self.cfg["tab_size"] = self.tab_size_var.get()
         self.cfg["font_ligatures"] = self.ligature_var.get()

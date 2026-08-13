@@ -210,9 +210,11 @@ class TreeManager:
         ttk natively toggles on indicator (triangle) clicks, so we skip those
         to avoid double-toggling. For clicks on the folder's text or image we
         toggle manually so the user doesn't have to aim for the small triangle.
-        Focus is set before toggling so <<TreeviewOpen>> receives the correct
-        item (our widget-level binding runs before ttk's class binding which
-        normally sets focus).
+        Focus is set BEFORE any toggle (ours or ttk's native one) so
+        <<TreeviewOpen>> always receives the correct focused item. This is
+        critical for deep directories: without setting focus first, the
+        <<TreeviewOpen>> handler reads a stale focus (the parent) and skips
+        loading children because the parent is already in _children_loaded.
 
         Args:
             event: The mouse click event
@@ -220,6 +222,13 @@ class TreeManager:
         item = self.tree.identify_row(event.y)
         if not item:
             return
+        # Set focus/selection FIRST for ALL clicks (indicator and label).
+        # Our widget-level <Button-1> binding runs before ttk's class binding,
+        # so focus is correct when ttk's native indicator toggle fires
+        # <<TreeviewOpen>>.
+        self.tree.focus(item)
+        self.tree.selection_set(item)
+
         # identify("element", ...) returns names like "Treeitem.indicator",
         # "Treeitem.text", "Treeitem.image" etc. — check with "in" for robustness.
         try:
@@ -227,15 +236,12 @@ class TreeManager:
         except Exception:
             return
         if element and "indicator" in element:
-            # ttk handles indicator clicks natively; let it through.
+            # ttk handles indicator clicks natively; focus is already set so
+            # <<TreeviewOpen>> will see the correct item. Let it through.
             return
         path = self.tree.set(item, "path")
         if not path or not os.path.isdir(path):
             return
-        # Set focus/selection BEFORE toggling so <<TreeviewOpen>> (fired
-        # synchronously by item(open=True)) sees the correct focused item.
-        self.tree.focus(item)
-        self.tree.selection_set(item)
         # Toggle the open state; ttk fires <<TreeviewOpen>> when opening.
         if self.tree.item(item, "open"):
             self.tree.item(item, open=False)

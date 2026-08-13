@@ -200,11 +200,13 @@ class GitFunctionsUnitTests(unittest.TestCase):
         git._run_git_command = fake_run
         try:
             git.push(branch="main")
-            self.assertEqual(captured['args'], ['push', 'origin', 'main'])
-            self.assertEqual(captured['kwargs'].get('timeout'), 60)
+            # push prepends HTTP config args; verify the push-specific tail
+            self.assertEqual(captured['args'][-3:], ['push', 'origin', 'main'])
+            self.assertEqual(captured['kwargs'].get('timeout'), 120)
+            self.assertEqual(captured['kwargs'].get('retries'), 2)
             # Without a branch, no branch arg is appended.
             git.push()
-            self.assertEqual(captured['args'], ['push', 'origin'])
+            self.assertEqual(captured['args'][-2:], ['push', 'origin'])
         finally:
             git._run_git_command = original
         logger.info("push_branch_arg: branch appended only when provided")
@@ -224,9 +226,9 @@ class GitFunctionsUnitTests(unittest.TestCase):
         git._run_git_command = fake_run
         try:
             git.pull(branch="dev")
-            self.assertEqual(captured['args'], ['pull', 'origin', 'dev'])
+            self.assertEqual(captured['args'][-3:], ['pull', 'origin', 'dev'])
             git.pull()
-            self.assertEqual(captured['args'], ['pull', 'origin'])
+            self.assertEqual(captured['args'][-2:], ['pull', 'origin'])
         finally:
             git._run_git_command = original
         logger.info("pull_branch_arg: branch appended only when provided")

@@ -234,6 +234,10 @@ class MainWindow:
         cfg_data = self._get_cfg_data(force_refresh=True)
         theme_name = cfg_data.get("theme", "dark")
         theme.apply_theme(theme_name)
+        # Apply accent color override if set in config
+        accent = cfg_data.get("accent_color", "")
+        if accent:
+            theme.apply_accent_color(accent)
         # Reload i18n strings from the (possibly changed) config language
         langs_loader.langs.reload()
         self.langs_cfg = langs_loader.langs()
@@ -567,13 +571,21 @@ class MainWindow:
 
     def save_file(self):
         """Save the current file. Falls back to save_as if no file is open.
-        
+
+        Uses editor_manager.current_file as the source of truth because the
+        editor manager's state is always current (it's updated by async save
+        callbacks and file-open paths), whereas self.current_file may lag
+        behind after lazy editor initialization or async operations.
+
         Returns:
             bool: True if save was successful
         """
+        self._ensure_editor_manager()
+        # Sync self.current_file from editor_manager so Ctrl+S always saves
+        # the currently-open file instead of falling back to save_as.
+        self.current_file = self.editor_manager.current_file
         if not self.current_file:
             return self.save_as()
-        self._ensure_editor_manager()
         result = self.editor_manager.save_file()
         if result:
             self.current_file = self.editor_manager.current_file

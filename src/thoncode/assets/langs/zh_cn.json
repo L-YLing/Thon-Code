@@ -316,5 +316,9 @@
     "plugins.col_status": "状态",
     "plugins.status_loaded": "已加载",
     "plugins.none_loaded": "无已加载插件",
-    "plugins.refreshed": "已刷新，共加载 {count} 个插件"
+    "plugins.refreshed": "已刷新，共加载 {count} 个插件",
+
+    "settings.accent_color": "主题色（莫奈取色）",
+    "settings.custom_color": "自定义...",
+    "settings.reset_color": "重置"
 }

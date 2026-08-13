@@ -48,6 +48,29 @@ _current_theme: str = "darkly"
 _style: ttkb.Style | None = None
 _custom_themes_registered: bool = False
 
+# Current accent (primary) color override; None = use theme default.
+# When set, apply_accent_color() overrides the theme's primary color so
+# buttons, selections, and focus highlights match the user's chosen color.
+_accent_color: str | None = None
+
+# Preset accent colors inspired by Monet's palette (Impressionist master
+# known for nuanced color relationships). Each is a harmonious accent that
+# works well on both dark and light themes.
+ACCENT_PRESETS: list = [
+    "#0e639c",  # VS Code blue
+    "#0078D7",  # Windows blue
+    "#bd93f9",  # Dracula purple
+    "#50fa7b",  # Spring green
+    "#ff79c6",  # Pink
+    "#ffb86c",  # Amber
+    "#8be9fd",  # Cyan
+    "#f1fa8c",  # Soft yellow
+    "#ff5555",  # Coral red
+    "#a6e22e",  # Lime
+    "#ae81ff",  # Lavender
+    "#66d9ef",  # Sky blue
+]
+
 
 def _register_custom_themes() -> None:
     """Register custom theme definitions (vscode_dark, dracula) with ttkbootstrap.
@@ -155,6 +178,9 @@ def apply_theme(theme_name: str) -> None:
     registers them first and falls back to a base theme with color overrides
     if registration fails, so the app never crashes with TclError.
 
+    After applying the base theme, re-applies the accent color override so
+    the user's chosen accent persists across theme switches.
+
     Args:
         theme_name: Theme name in project config ("dark", "light", or a full
             ttkbootstrap theme name)
@@ -173,6 +199,52 @@ def apply_theme(theme_name: str) -> None:
         base = _CUSTOM_THEME_BASE.get(mapped, "darkly")
         _style = ttkb.Style(theme=base)
         _apply_color_overrides(mapped)
+
+    # Re-apply accent color so it persists across theme switches
+    if _accent_color:
+        apply_accent_color(_accent_color)
+
+
+def apply_accent_color(color: str | None) -> None:
+    """Override the theme's primary/accent color.
+
+    Uses ttkbootstrap's Style.colors API to update the primary color across
+    all button, selection, and focus styles. Passing None resets to the
+    theme's default primary color.
+
+    Args:
+        color: Hex color string (e.g., "#0078D7") or None to reset
+    """
+    global _accent_color
+    _accent_color = color
+    if _style is None or color is None:
+        return
+    try:
+        # Update ttkbootstrap's color definition so all "primary"-styled
+        # widgets (primary.TButton, etc.) pick up the new color.
+        _style.colors.primary = color
+        # Re-configure the core styles that reference primary.
+        _style.configure("primary.TButton", background=color)
+        _style.configure("Primary.TButton", background=color)
+        _style.configure("TEntry", fieldbackground=color, foreground="#ffffff")
+        _style.configure("TCombobox", fieldbackground=color)
+        _style.configure("TCheckbutton", foreground=color)
+        _style.configure("TRadiobutton", foreground=color)
+        _style.map("TButton",
+                   background=[("active", color), ("pressed", color)],
+                   foreground=[("active", "#ffffff")])
+    except Exception:
+        # ttkbootstrap internal APIs vary across versions; fail silently.
+        pass
+
+
+def get_accent_color() -> str | None:
+    """Get the current accent color override, or None if using theme default.
+
+    Returns:
+        Hex color string or None
+    """
+    return _accent_color
 
 
 def get_theme() -> str:

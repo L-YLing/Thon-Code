@@ -316,5 +316,9 @@
     "plugins.col_status": "Status",
     "plugins.status_loaded": "Loaded",
     "plugins.none_loaded": "No plugins loaded",
-    "plugins.refreshed": "Refreshed, {count} plugin(s) loaded"
+    "plugins.refreshed": "Refreshed, {count} plugin(s) loaded",
+
+    "settings.accent_color": "Accent Colour (Monet Picker)",
+    "settings.custom_color": "Custom...",
+    "settings.reset_color": "Reset"
 }

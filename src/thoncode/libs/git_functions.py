@@ -1,9 +1,24 @@
-# libs/git_functions.py - Complete file with parent attribute
+#! /usr/bin/env python3
+
+package: dict = {
+    "ID": "thon-code",
+    "Name": "Thon Code Git Functions",
+    "Path": ".main.libs.git_functions",
+    "Entrance": "main.py"
+}
+
+"""Git operations handler for project version control.
+
+Provides core git functionality (init, add, commit, push, pull, sync,
+branch management) without UI dependencies. All git commands run via
+subprocess with UTF-8 encoding, HTTP tuning for large pushes, and
+automatic retry on transient network errors for cross-platform
+reliability comparable to native Git Bash.
+"""
 
 import os
 import subprocess
 from typing import Optional, List, Dict, Any
-from tkinter import messagebox
 from libs.gui.lazy_loader import LazyLoader
 
 class GitFunctions:
@@ -28,8 +43,38 @@ class GitFunctions:
         """Set parent window for dialogs"""
         self.parent = parent
 
+    # HTTP config args prepended to push/pull/sync to improve reliability.
+    # - http.postBuffer: 500 MB, prevents "RPC failed" on large pushes
+    # - http.lowSpeedLimit/Time: tolerate slow connections for 5 minutes
+    # These match the tuning that makes Git Bash more reliable than a
+    # bare subprocess invocation with default config.
+    _HTTP_CONFIG_ARGS: List[str] = [
+        '-c', 'http.postBuffer=524288000',
+        '-c', 'http.lowSpeedLimit=1000',
+        '-c', 'http.lowSpeedTime=300',
+    ]
+
+    # Error signatures indicating transient network failures worth retrying.
+    _TRANSIENT_ERROR_SIGS: tuple = (
+        'RPC failed', 'HTTP 408', 'HTTP 502', 'HTTP 504',
+        'curl 22', 'Connection reset', 'Connection aborted',
+        'Failed to connect', 'timed out',
+    )
+
+    def _is_transient_error(self, output: str) -> bool:
+        """Check if a git error output indicates a transient network failure.
+
+        Args:
+            output: Git stderr output
+
+        Returns:
+            True if the error is likely transient and worth retrying
+        """
+        return any(sig in output for sig in self._TRANSIENT_ERROR_SIGS)
+
     def _run_git_command(self, args: List[str], check_output: bool = False,
-                         timeout: int = 30, input: Optional[str] = None) -> tuple:
+                         timeout: int = 30, input: Optional[str] = None,
+                         retries: int = 0) -> tuple:
         """
         Run a git command and return result.
 
@@ -38,56 +83,82 @@ class GitFunctions:
             check_output: If True, return output as string
             timeout: Maximum seconds to wait for the command to complete
             input: Optional string piped to the command's stdin
+            retries: Number of retry attempts on transient network errors
 
         Returns:
             tuple: (success: bool, output: str). On a missing git binary the
             output is the sentinel string "GIT_NOT_INSTALLED".
         """
-        try:
-            kwargs = {
-                'cwd': self.project_root,
-                'capture_output': True,
-                'text': True,
-                'encoding': 'utf-8',
-                'errors': 'replace',
-                'timeout': timeout,
-                'env': {
-                    **os.environ,
-                    # Prevent git from blocking on interactive credential prompts
-                    'GIT_TERMINAL_PROMPT': '0',
-                    # Force git to communicate in utf-8 (avoid GBK mangling)
-                    'GIT_ENCODING': 'utf-8',
-                },
-            }
-            if input is not None:
-                kwargs['input'] = input
-            result = subprocess.run(['git'] + args, **kwargs)
-            success = result.returncode == 0
-            output = result.stdout.strip() if success else result.stderr.strip()
+        import time as _time
 
-            if self.status_callback:
+        last_output = ""
+        for attempt in range(retries + 1):
+            try:
+                kwargs = {
+                    'cwd': self.project_root,
+                    'capture_output': True,
+                    'text': True,
+                    'encoding': 'utf-8',
+                    'errors': 'replace',
+                    'timeout': timeout,
+                    'env': {
+                        **os.environ,
+                        # Prevent git from blocking on interactive credential prompts
+                        'GIT_TERMINAL_PROMPT': '0',
+                        # Force git to communicate in utf-8 (avoid GBK mangling)
+                        'GIT_ENCODING': 'utf-8',
+                    },
+                }
+                if input is not None:
+                    kwargs['input'] = input
+                result = subprocess.run(['git'] + args, **kwargs)
+                success = result.returncode == 0
+                output = result.stdout.strip() if success else result.stderr.strip()
+                last_output = output
+
+                if self.status_callback:
+                    if success:
+                        self.status_callback(f"Git: {output[:200]}")
+                    else:
+                        self.status_callback(f"Git error: {output[:300]}")
+
                 if success:
-                    self.status_callback(f"Git: {output[:100]}")
-                else:
-                    self.status_callback(f"Git error: {output[:100]}")
+                    return True, output
 
-            return success, output
-        except FileNotFoundError:
-            # Git executable is not installed or not available on PATH
-            if self.status_callback:
-                self.status_callback("Git is not installed or not in PATH")
-            return False, "GIT_NOT_INSTALLED"
-        except subprocess.TimeoutExpired:
-            msg = f"Git command timed out after {timeout}s: {' '.join(args)}"
-            if self.status_callback:
-                self.status_callback(msg)
-            return False, msg
-        except Exception as e:
-            # Preserve the exception type so callers can distinguish failures
-            msg = f"{type(e).__name__}: {e}"
-            if self.status_callback:
-                self.status_callback(f"Git exception: {msg}")
-            return False, msg
+                # If retries remain and this is a transient error, wait and retry
+                if attempt < retries and self._is_transient_error(output):
+                    wait = 2 ** attempt  # 1s, 2s, 4s exponential backoff
+                    if self.status_callback:
+                        self.status_callback(
+                            f"Git: transient error, retrying in {wait}s "
+                            f"(attempt {attempt + 2}/{retries + 1})")
+                    _time.sleep(wait)
+                    continue
+
+                return False, output
+            except FileNotFoundError:
+                # Git executable is not installed or not available on PATH
+                if self.status_callback:
+                    self.status_callback("Git is not installed or not in PATH")
+                return False, "GIT_NOT_INSTALLED"
+            except subprocess.TimeoutExpired:
+                msg = f"Git command timed out after {timeout}s: {' '.join(args)}"
+                if attempt < retries:
+                    if self.status_callback:
+                        self.status_callback(
+                            f"Git: timeout, retrying (attempt {attempt + 2}/{retries + 1})")
+                    continue
+                if self.status_callback:
+                    self.status_callback(msg)
+                return False, msg
+            except Exception as e:
+                # Preserve the exception type so callers can distinguish failures
+                msg = f"{type(e).__name__}: {e}"
+                if self.status_callback:
+                    self.status_callback(f"Git exception: {msg}")
+                return False, msg
+
+        return False, last_output
 
     def is_git_installed(self) -> bool:
         """Return True if the git executable is available on the system."""
@@ -193,29 +264,34 @@ class GitFunctions:
         return success
 
     def push(self, remote: str = 'origin', branch: Optional[str] = None) -> bool:
-        """
-        Push to remote.
+        """Push to remote with HTTP tuning and automatic retry.
+
+        Prepends ``http.postBuffer`` and low-speed config so large pushes
+        don't fail with HTTP 408 / RPC errors (the most common cause of
+        ThonCode's high push failure rate vs. Git Bash). Retries up to 2
+        times on transient network errors with exponential backoff.
 
         When ``branch`` is None no branch is specified, letting git use the
         default upstream behaviour.
         """
-        args = ['push', remote]
+        args = self._HTTP_CONFIG_ARGS + ['push', remote]
         if branch:
             args.append(branch)
-        success, _ = self._run_git_command(args, timeout=60)
+        success, _ = self._run_git_command(args, timeout=120, retries=2)
         return success
 
     def pull(self, remote: str = 'origin', branch: Optional[str] = None) -> bool:
-        """
-        Pull from remote.
+        """Pull from remote with HTTP tuning and automatic retry.
+
+        Same HTTP config and retry logic as push() for reliability.
 
         When ``branch`` is None no branch is specified, letting git use the
         default upstream behaviour.
         """
-        args = ['pull', remote]
+        args = self._HTTP_CONFIG_ARGS + ['pull', remote]
         if branch:
             args.append(branch)
-        success, _ = self._run_git_command(args, timeout=60)
+        success, _ = self._run_git_command(args, timeout=120, retries=2)
         return success
 
     def sync(self, remote: str = 'origin', branch: Optional[str] = None) -> tuple:
@@ -328,11 +404,11 @@ class GitFunctions:
         return success
 
     def clone(self, url: str, target_dir: Optional[str] = None) -> bool:
-        """Clone a repository"""
-        args = ['clone', url]
+        """Clone a repository with HTTP tuning for large repos."""
+        args = self._HTTP_CONFIG_ARGS + ['clone', url]
         if target_dir:
             args.append(target_dir)
-        success, _ = self._run_git_command(args, timeout=60)
+        success, _ = self._run_git_command(args, timeout=120, retries=2)
         if success and target_dir:
             self.project_root = target_dir
         return success
