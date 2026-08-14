@@ -22,7 +22,7 @@
 * [ ] **内置Shell**
 * [ ] **DEBUG调试**
 * [ ] **搜索**
-* [ ] **轻量级的插件系统**
+* [ ] **轻量级的插件系统([点击前往Thon-Market插件市场](https://l-yling.github.io/Thon-Market/))**
 
 # 原生图形化 Git集成 && 开源常用功能集成
 * **LICENSE.md 开源协议管理**
@@ -53,6 +53,9 @@
 
 # 使用
 **您可以到[release](https://github.com/L-YLing/Thon-Code/release)页面下载我们发布的可执行版本以使用**
+
+# 插件
+**我们提供了官方的插件市场，[点击前往Thon-Market](https://l-yling.github.io/Thon-Market/)**
 
 # 使用截图
 <img width="1202" height="707" alt="image" src="https://github.com/user-attachments/assets/0499ca67-9980-4554-a87e-90a2ed649cd0" />
