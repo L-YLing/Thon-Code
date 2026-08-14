@@ -31,6 +31,7 @@ TEST_MODULES: list = [
     "test_git_functions",
     "test_log_manager",
     "test_plugin_manager",
+    "test_plugin_extensions",
 ]
 
 

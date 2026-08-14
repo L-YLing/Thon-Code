@@ -81,10 +81,16 @@ class GitIntegrationWindow:
     def _create_window(self):
         self.window = ttkb.Toplevel(self.parent)
         self.window.title(self._get_text("git.title"))
-        self.window.geometry("960x540")
-        self.window.transient(self.parent)
-        self.window.lift()
-        self.window.focus_force()
+        self.window.geometry("1024x640")
+
+        from libs.gui.window_helper import (
+            set_window_minimum_size,
+            apply_modal_window_order,
+        )
+        set_window_minimum_size(self.window, min_width=820, min_height=520)
+        # Apply z-order (transient+lift+focus) but defer grab_set until
+        # after the window is painted so child dialogs can still work.
+        apply_modal_window_order(self.window, self.parent, modal=False)
         self._create_widgets()
 
     def _after_window_shown(self):
@@ -707,16 +713,48 @@ class GitIntegrationWindow:
                         busy_msg=self._get_text("git.discarding"))
 
     def _manage_license(self):
-        """Open the License Manager, releasing the git window grab so the
-        license window can receive input independently."""
-        def _open():
-            LicenseManagerWindow = LazyLoader.get('libs.gui.license_ui', 'LicenseManagerWindow')
-            LicenseManagerWindow(
-                self.window,
-                project_root=self.project_root,
-                status_callback=self._log_output,
-            )
-        self._with_grab_released(_open)
+        """Open the License Manager as a true modal child of the Git window.
+
+        The former implementation used ``_with_grab_released`` which is
+        designed for *synchronous* callbacks – it would release the git
+        grab, create the License window, then *immediately* re-apply the
+        git grab on return. Because Toplevel constructors return right
+        away the license window ended up sharing a grab hierarchy with
+        its modal parent and all input clicks were rejected by Tk
+        ("grab failed: <widget> is not a descendant of <grab owner>"),
+        forcing the user to close the Git window before they could
+        manage the license.
+
+        The fix: release the git grab here, then hand a reference to
+        *this GitIntegrationWindow wrapper* (not just the raw Toplevel
+        widget) to ``LicenseManagerWindow`` so the license dialog can
+        call ``_make_modal`` on us when it closes, restoring git-modal
+        state safely after the license UI is gone.
+        """
+        # Release git's modal grab so the license dialog can own input.
+        try:
+            self.window.grab_release()
+        except Exception:
+            pass
+
+        def _after_close_restore_git_grab():
+            """Called from LicenseManagerWindow._on_close – re-establish
+            this window as the modal owner."""
+            self._make_modal()
+
+        # Temporarily bolt a ``_make_modal`` alias onto the wrapper that
+        # the license dialog already looks up. ``LicenseManagerWindow``
+        # already prefers calling ``getattr(self.parent, "_make_modal")``
+        # so no extra plumbing is required.
+
+        LicenseManagerWindow = LazyLoader.get('libs.gui.license_ui', 'LicenseManagerWindow')
+        # Pass the *wrapper object* (self, not self.window) so the child
+        # dialog can call back into wrapper methods.
+        LicenseManagerWindow(
+            self,
+            project_root=self.project_root,
+            status_callback=self._log_output,
+        )
 
     def _git_changelog(self):
         self.git.manage_changelog()

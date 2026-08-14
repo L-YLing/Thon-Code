@@ -19,7 +19,8 @@ DEFAULT_CFG_DATA: dict = {
     "auto_save": True,
     "auto_save_time_sec": 15,
     "tab_size": 4,
-    "font_ligatures": True
+    "font_ligatures": True,
+    "plugin_marketplace_url": "",
 }
 
 class cfg_handle:

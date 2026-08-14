@@ -42,8 +42,11 @@ class SettingsWindow(ttkb.Toplevel):
         self.lang = langs_loader.langs()
 
         self.title(self._get_text("settings.title"))
-        self.geometry("800x450")
-        self.resizable(False, False)
+        self.geometry("820x560")
+
+        # Window helper: resizable with minimum size (prevents 16:9 clipping)
+        from libs.gui.window_helper import set_window_minimum_size, apply_modal_window_order
+        set_window_minimum_size(self, min_width=680, min_height=460)
 
         self.cfg = cfg_handle.cfg_handle().read_cfg()["data"]
         # Remember the original theme and language so we can restore on Cancel.
@@ -55,10 +58,8 @@ class SettingsWindow(ttkb.Toplevel):
         self._widgets = {}
         self._create_widgets()
 
-        self.transient(master)
-        self.grab_set()
-        self.focus_force()
-        self.lift()
+        # Canonical z-order + modal grab after widgets exist
+        apply_modal_window_order(self, master, modal=True)
 
     def _get_text(self, key: str) -> str:
         """Get localized text by dot-separated key.
@@ -98,8 +99,13 @@ class SettingsWindow(ttkb.Toplevel):
 
     def _create_widgets(self):
         """Create all settings UI widgets, storing references for refresh."""
-        main_frame = ttk.Frame(self)
-        main_frame.pack(fill="both", expand=True, padx=20, pady=20)
+        from libs.gui.window_helper import ScrollableFrame
+        outer = ttk.Frame(self)
+        outer.pack(fill="both", expand=True, padx=14, pady=14)
+        scroll = ScrollableFrame(outer)
+        scroll.pack(fill="both", expand=True)
+        main_frame = scroll.interior
+        main_frame.configure(padding=(6, 4))
 
         # --- Language ---
         self._widgets['lbl_language'] = ttk.Label(
@@ -187,7 +193,28 @@ class SettingsWindow(ttkb.Toplevel):
             main_frame,
             text=self._get_text("settings.enable_ligatures"),
             variable=self.ligature_var)
-        self._widgets['cb_ligatures'].pack(anchor="w", pady=(0, 20))
+        self._widgets['cb_ligatures'].pack(anchor="w", pady=(0, 15))
+
+        # --- Plugin Marketplace URL ---
+        self._widgets['lbl_market'] = ttk.Label(
+            main_frame,
+            text=self._get_text("settings.plugin_market_url")
+                 or "Plugin Marketplace URL",
+            anchor="w")
+        self._widgets['lbl_market'].pack(fill="x", pady=(0, 5))
+        self.market_url_var = tk.StringVar(
+            value=self.cfg.get("plugin_marketplace_url", ""))
+        market_entry = ttk.Entry(main_frame, textvariable=self.market_url_var)
+        market_entry.pack(fill="x", pady=(0, 20))
+        self._widgets['market_entry'] = market_entry
+        ttk.Label(
+            main_frame,
+            text=self._get_text("settings.plugin_market_desc") or (
+                "Leave blank to disable. Points at a server that exposes "
+                "/index.json following the marketplace protocol."),
+            wraplength=700, justify="left",
+            foreground=theme.get_colors().get("fg_muted", "#888"),
+        ).pack(anchor="w", pady=(0, 10))
 
         # --- Buttons ---
         btn_frame = ttk.Frame(main_frame)
@@ -222,6 +249,10 @@ class SettingsWindow(ttkb.Toplevel):
         self._widgets['lbl_tab_size'].configure(text=self._get_text("settings.tab_size"))
         self._widgets['lbl_ligatures'].configure(text=self._get_text("settings.font_ligatures"))
         self._widgets['cb_ligatures'].configure(text=self._get_text("settings.enable_ligatures"))
+        if 'lbl_market' in self._widgets:
+            self._widgets['lbl_market'].configure(
+                text=self._get_text("settings.plugin_market_url")
+                     or "Plugin Marketplace URL")
         self._widgets['btn_save'].configure(text=self._get_text("settings.save"))
         self._widgets['btn_apply'].configure(text=self._get_text("settings.apply"))
         self._widgets['btn_cancel'].configure(text=self._get_text("settings.cancel"))
@@ -300,6 +331,7 @@ class SettingsWindow(ttkb.Toplevel):
         self.cfg["auto_reload"] = self.reload_var.get()
         self.cfg["tab_size"] = self.tab_size_var.get()
         self.cfg["font_ligatures"] = self.ligature_var.get()
+        self.cfg["plugin_marketplace_url"] = self.market_url_var.get().strip()
 
         result = cfg_handle.cfg_handle().write_cfg(self.cfg)
         if result["status"] == "success":

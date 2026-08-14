@@ -52,9 +52,18 @@ class StyledInputDialog:
         self.window = ttkb.Toplevel(parent)
         self.window.title(title)
         self.window.geometry(f"{width}x{height}")
-        self.window.resizable(False, False)
-        self.window.transient(parent)
-        self.window.grab_set()
+
+        # Window helper: resizable + canonical z-order/modal sequence
+        from libs.gui.window_helper import (
+            set_window_minimum_size,
+            apply_modal_window_order,
+        )
+        set_window_minimum_size(
+            self.window,
+            min_width=max(320, width - 120),
+            min_height=max(200, height - 120),
+        )
+        apply_modal_window_order(self.window, parent, modal=True)
 
         colors = theme.get_colors()
         main_frame = ttk.Frame(self.window)

@@ -10,82 +10,148 @@ package: dict = {
 """Controlled API surface exposed to plugins.
 
 PluginAPI wraps host application services behind a stable interface
-so plugins cannot directly access internal modules. This decoupling
-allows the host internals to change without breaking plugins.
+so plugins cannot directly access internal modules. All high-impact
+operations are gated behind permission checks (see plugin_base.py
+PERMISSION_* constants).
 
 Available hooks (plugins implement any subset as on_<hook_name>):
-    on_load()              - Plugin loaded, before first use
-    on_unload()            - Plugin about to be unloaded
-    on_file_open(path)     - A file was opened in the editor
-    on_file_save(path)     - A file was saved
-    on_file_close(path)    - A file was closed
-    on_editor_change(text) - Editor content modified
-    on_tree_refresh()      - File tree was refreshed
-    on_theme_change(name)  - Theme was switched
-    on_project_open(path)  - A project folder was opened
+    on_load()                         - Plugin loaded, before first use
+    on_unload()                       - Plugin about to be unloaded
+    on_file_open(path)                - A file was opened in the editor
+    on_file_save(path)                - A file was saved
+    on_file_close(path)               - A file was closed
+    on_editor_change(text)            - Editor content modified
+    on_tree_refresh()                 - File tree was refreshed
+    on_theme_change(name)             - Theme was switched
+    on_project_open(path)             - A project folder was opened
+    on_syntax_highlight_ext()         - Syntax highlight rules rebuilt
 """
 
 import logging
-from typing import Any, Callable, Optional, List
+import os
+from typing import Any, Callable, Dict, List, Optional, Tuple
+
+from libs.plugins.plugin_base import (
+    PluginBase,
+    PERMISSION_CONFIG,
+    PERMISSION_EDITOR_MODIFY,
+    PERMISSION_FILESYSTEM_READ,
+    PERMISSION_FILESYSTEM_WRITE,
+    PERMISSION_HIGHLIGHT_EXTEND,
+    PERMISSION_HOTKEY_BIND,
+    PERMISSION_MENU_REGISTER,
+    PERMISSION_PLUGIN_MANAGE,
+    PERMISSION_NETWORK,
+    PERMISSION_EXECUTE,
+)
+
+_logger = logging.getLogger("thoncode.plugins.api")
 
 
 class PluginAPI:
-    """Stable API through which plugins interact with the host application.
+    """Stable API through which plugins interact with the host.
 
-    The host constructs a PluginAPI and passes it to each plugin on load.
-    Plugins use this object to read config, log messages, show status,
-    and access editor/tree services without importing host internals.
+    Each operation either:
+      * has no side-effects (get_* / read-only), or
+      * checks ``plugin.has_permission(...)`` before mutating state.
     """
 
     def __init__(self, host: Any):
-        """Initialize the API with a reference to the host application.
-
-        Args:
-            host: The main application window object (MainWindow)
-        """
         self._host = host
         self._logger = logging.getLogger("thoncode.plugins.api")
 
+        # Per-plugin registries – keyed by plugin instance. We store the
+        # full set of registrations so we can un-register everything on
+        # unload (PluginManager calls _unregister_all_for_plugin).
+        self._menu_entries: Dict[int, List[Dict[str, Any]]] = {}
+        self._hotkey_binds: Dict[int, List[Dict[str, Any]]] = {}
+        self._highlight_providers: Dict[int, Any] = {}
+
     # ------------------------------------------------------------------
-    # Logging
+    # Permission helpers (internal)
     # ------------------------------------------------------------------
-
-    def get_logger(self, name: str) -> logging.Logger:
-        """Return a logger for the plugin.
-
-        Args:
-            name: Logger name (typically the plugin name)
-
-        Returns:
-            logging.Logger: Logger instance configured by the host
+    def _plugin_from_self(self) -> Optional[PluginBase]:
+        """Walk the Python call stack to find the plugin whose method
+        is calling us. Returns None if the caller is not a plugin.
         """
+        import inspect
+        try:
+            for frame_info in inspect.stack()[2:]:
+                frame = frame_info.frame
+                locals_ = frame.f_locals
+                # Plugin instances store self under 'self' in methods.
+                obj = locals_.get("self", None)
+                if isinstance(obj, PluginBase):
+                    return obj
+                # Also accept any explicit 'plugin' local.
+                obj = locals_.get("plugin", None)
+                if isinstance(obj, PluginBase):
+                    return obj
+        except Exception:
+            pass
+        return None
+
+    def _require(self, permission: str) -> bool:
+        """Check permission for the calling plugin.
+
+        Returns True if allowed. Logs a warning and returns False
+        otherwise so callers can short-circuit without crashing.
+        """
+        plugin = self._plugin_from_self()
+        if plugin is None:
+            # If the API is invoked directly by host code (e.g. tests),
+            # allow the operation.
+            return True
+        if not plugin.has_permission(permission):
+            self._logger.warning(
+                "Plugin '%s' denied permission '%s'", plugin.name, permission)
+            return False
+        return True
+
+    # ------------------------------------------------------------------
+    # Internal: cleanup on plugin unload
+    # ------------------------------------------------------------------
+    def _unregister_all_for_plugin(self, plugin: PluginBase) -> None:
+        """Called by PluginManager during unload_plugin()."""
+        pid = id(plugin)
+
+        # Remove menu entries
+        for entry in self._menu_entries.pop(pid, []):
+            try:
+                self._remove_menu_entry(entry)
+            except Exception as e:
+                self._logger.debug("Menu cleanup failed: %s", e)
+
+        # Unbind hotkeys
+        for bind in self._hotkey_binds.pop(pid, []):
+            try:
+                self._unbind_hotkey(bind)
+            except Exception as e:
+                self._logger.debug("Hotkey cleanup failed: %s", e)
+
+        # Deregister highlight provider
+        if pid in self._highlight_providers:
+            del self._highlight_providers[pid]
+            self._rebuild_highlight_groups()
+
+    # ==================================================================
+    # Logging
+    # ==================================================================
+    def get_logger(self, name: str) -> logging.Logger:
         return logging.getLogger(f"thoncode.plugin.{name}")
 
-    # ------------------------------------------------------------------
-    # Configuration
-    # ------------------------------------------------------------------
-
+    # ==================================================================
+    # Configuration (gated by PERMISSION_CONFIG for writes)
+    # ==================================================================
     def get_config(self) -> dict:
-        """Return the current application configuration dictionary.
-
-        Returns:
-            dict: Configuration data from config.json
-        """
         try:
             return self._host._get_cfg_data()
         except Exception:
             return {}
 
     def set_config(self, key: str, value: Any) -> bool:
-        """Update a configuration key and persist to disk.
-
-        Args:
-            key: Config key to update
-            value: New value
-
-        Returns:
-            bool: True if the config was written successfully
-        """
+        if not self._require(PERMISSION_CONFIG):
+            return False
         try:
             cfg = self._host._get_cfg_data()
             cfg[key] = value
@@ -96,31 +162,19 @@ class PluginAPI:
             self._logger.debug("Failed to set config %s: %s", key, e)
             return False
 
-    # ------------------------------------------------------------------
+    # ==================================================================
     # Status bar
-    # ------------------------------------------------------------------
-
+    # ==================================================================
     def show_status(self, message: str) -> None:
-        """Display a message in the host's status bar.
-
-        Args:
-            message: Status text to display
-        """
         try:
             self._host.status_bar.configure(text=message)
         except Exception:
             self._logger.debug("Failed to set status: %s", message)
 
-    # ------------------------------------------------------------------
-    # Editor access
-    # ------------------------------------------------------------------
-
+    # ==================================================================
+    # Editor access (writes gated by PERMISSION_EDITOR_MODIFY)
+    # ==================================================================
     def get_editor_text(self) -> str:
-        """Return the current editor content.
-
-        Returns:
-            str: Editor text content, or empty string if unavailable
-        """
         try:
             if self._host.textbox_widget and self._host.textbox_widget.winfo_exists():
                 return self._host.textbox_widget.get("1.0", "end-1c")
@@ -129,11 +183,8 @@ class PluginAPI:
         return ""
 
     def set_editor_text(self, text: str) -> None:
-        """Replace the editor content with the given text.
-
-        Args:
-            text: New editor content
-        """
+        if not self._require(PERMISSION_EDITOR_MODIFY):
+            return
         try:
             if self._host.textbox_widget and self._host.textbox_widget.winfo_exists():
                 self._host.textbox_widget.delete("1.0", "end")
@@ -142,11 +193,6 @@ class PluginAPI:
             self._logger.debug("Failed to set editor text")
 
     def get_editor_selection(self) -> str:
-        """Return the currently selected text in the editor.
-
-        Returns:
-            str: Selected text, or empty string if no selection
-        """
         try:
             if self._host.textbox_widget and self._host.textbox_widget.winfo_exists():
                 return self._host.textbox_widget.selection_get()
@@ -155,66 +201,69 @@ class PluginAPI:
         return ""
 
     def insert_editor_text(self, text: str, position: str = "insert") -> None:
-        """Insert text at the given position in the editor.
-
-        Args:
-            text: Text to insert
-            position: Tk index (default "insert" = cursor position)
-        """
+        if not self._require(PERMISSION_EDITOR_MODIFY):
+            return
         try:
             if self._host.textbox_widget and self._host.textbox_widget.winfo_exists():
                 self._host.textbox_widget.insert(position, text)
         except Exception:
             self._logger.debug("Failed to insert editor text")
 
-    # ------------------------------------------------------------------
-    # Project info
-    # ------------------------------------------------------------------
-
+    # ==================================================================
+    # Project / file info
+    # ==================================================================
     def get_project_root(self) -> str:
-        """Return the current project root directory path.
-
-        Returns:
-            str: Project root path
-        """
         try:
             return self._host.project_root
         except Exception:
             return ""
 
     def get_current_file(self) -> Optional[str]:
-        """Return the path of the currently open file.
-
-        Returns:
-            str or None: Current file path, or None if no file is open
-        """
         try:
             return self._host.current_file
         except Exception:
             return None
 
     def get_recent_projects(self) -> List[str]:
-        """Return the list of recently opened project paths.
-
-        Returns:
-            list[str]: Recent project paths (most recent first)
-        """
         try:
             import libs.cfg_handle as cfg_handle
             return cfg_handle.cfg_handle().get_recent_projects()
         except Exception:
             return []
 
-    # ------------------------------------------------------------------
+    # ==================================================================
+    # Filesystem helpers (gated) – plugins that only need project
+    # files should use get_project_root() + os.path.join. These APIs
+    # exist for plugins that need external access (backup/upload...).
+    # ==================================================================
+    def read_file_external(self, path: str) -> Optional[str]:
+        """Read a file from anywhere on disk (requires read permission)."""
+        if not self._require(PERMISSION_FILESYSTEM_READ):
+            return None
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                return f.read()
+        except Exception as e:
+            self._logger.debug("read_file_external(%s) failed: %s", path, e)
+            return None
+
+    def write_file_external(self, path: str, content: str) -> bool:
+        """Write a file anywhere on disk (requires write permission)."""
+        if not self._require(PERMISSION_FILESYSTEM_WRITE):
+            return False
+        try:
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(content)
+            return True
+        except Exception as e:
+            self._logger.debug("write_file_external(%s) failed: %s", path, e)
+            return False
+
+    # ==================================================================
     # Theme
-    # ------------------------------------------------------------------
-
+    # ==================================================================
     def get_current_theme(self) -> str:
-        """Return the current theme name.
-
-        Returns:
-            str: Theme name (e.g., 'darkly', 'vscode_dark')
-        """
         try:
             from libs.gui import theme
             return theme.get_theme()
@@ -222,60 +271,356 @@ class PluginAPI:
             return ""
 
     def get_accent_color(self) -> Optional[str]:
-        """Return the current accent color override, or None.
-
-        Returns:
-            str or None: Hex color string or None if using theme default
-        """
         try:
             from libs.gui import theme
             return theme.get_accent_color()
         except Exception:
             return None
 
-    # ------------------------------------------------------------------
-    # Tree access
-    # ------------------------------------------------------------------
-
+    # ==================================================================
+    # Tree
+    # ==================================================================
     def refresh_file_tree(self) -> None:
-        """Trigger a refresh of the file tree."""
         try:
             if self._host.tree_manager:
                 self._host.tree_manager.refresh()
         except Exception:
             self._logger.debug("Failed to refresh file tree")
 
-    # ------------------------------------------------------------------
+    # ==================================================================
     # i18n
-    # ------------------------------------------------------------------
-
+    # ==================================================================
     def get_text(self, key: str) -> str:
-        """Get a localized string by dot-separated key.
-
-        Args:
-            key: i18n key (e.g., 'status.ready')
-
-        Returns:
-            str: Localized text or the key itself if not found
-        """
         try:
             return getattr(self._host.langs_cfg, key.replace('.', '_'), key)
         except Exception:
             return key
 
-    # ------------------------------------------------------------------
-    # Plugin management
-    # ------------------------------------------------------------------
-
+    # ==================================================================
+    # Plugin management (gated by PERMISSION_PLUGIN_MANAGE)
+    # ==================================================================
     def get_plugin_names(self) -> List[str]:
-        """Return the names of all loaded plugins.
-
-        Returns:
-            list[str]: Plugin names
-        """
         try:
             if self._host.plugin_manager:
                 return self._host.plugin_manager.get_plugin_names()
         except Exception:
             pass
         return []
+
+    def reload_plugin(self, name: str) -> bool:
+        """Hot-reload another plugin (requires plugin manage permission)."""
+        if not self._require(PERMISSION_PLUGIN_MANAGE):
+            return False
+        try:
+            return self._host.plugin_manager.reload_plugin(name)
+        except Exception as e:
+            self._logger.debug("reload_plugin(%s) failed: %s", name, e)
+            return False
+
+    # ==================================================================
+    # Menu registration (gated by PERMISSION_MENU_REGISTER)
+    # ==================================================================
+    def add_menu_item(
+        self,
+        menu_path: str,
+        label: str,
+        command: Callable[[], None],
+        accelerator: str = "",
+        separator_before: bool = False,
+        separator_after: bool = False,
+    ) -> bool:
+        """Register a new menu item.
+
+        Args:
+            menu_path: Dot-separated path under the top-level menu, e.g.
+                ``"tools"`` or ``"tools.submenu"``. New top-level menus
+                are created automatically.
+            label: Display text (i18n lookup supported via get_text()
+                by the plugin before passing in).
+            command: No-argument callback invoked on click.
+            accelerator: Optional key-sequence label, e.g. "Ctrl+Shift+P".
+            separator_before/after: Insert Tk separators around the entry.
+
+        Returns:
+            True if the entry was registered.
+        """
+        if not self._require(PERMISSION_MENU_REGISTER):
+            return False
+        plugin = self._plugin_from_self()
+        try:
+            entry = self._install_menu_entry(
+                menu_path=menu_path, label=label, command=command,
+                accelerator=accelerator,
+                separator_before=separator_before,
+                separator_after=separator_after,
+            )
+            if plugin is not None:
+                self._menu_entries.setdefault(id(plugin), []).append(entry)
+            return True
+        except Exception as e:
+            self._logger.debug("add_menu_item failed: %s", e)
+            return False
+
+    def _install_menu_entry(self, **kw) -> Dict[str, Any]:
+        """Create a menu entry in the host menubar. Returns metadata
+        needed for later removal."""
+        import tkinter as tk
+        host = self._host
+        menubar: Optional[tk.Menu] = getattr(host, "menubar", None) \
+            or getattr(host, "_menubar", None)
+        # Fallback: if host stores menu via root.config(menu=...), read it
+        if menubar is None and hasattr(host, "root"):
+            menubar = host.root.cget("menu")
+        if menubar is None:
+            raise RuntimeError("Host has no menubar reference.")
+
+        parts = kw["menu_path"].split(".")
+        current_menu: tk.Menu = menubar
+        # Walk / create submenus
+        created_menus: List[Tuple[tk.Menu, str, tk.Menu]] = []  # (parent, label, submenu)
+        for i, part in enumerate(parts):
+            is_last = (i == len(parts) - 1)
+            # Find existing cascade with this label
+            found_idx = None
+            for idx in range(current_menu.index("end") + 1 if current_menu.index("end") is not None else 0):
+                try:
+                    lbl = current_menu.entrycget(idx, "label")
+                except Exception:
+                    continue
+                if str(lbl).lower() == part.lower():
+                    found_idx = idx
+                    break
+            if found_idx is None:
+                if is_last:
+                    # Don't create a submenu for the leaf path component;
+                    # we will add the command directly at this level.
+                    break
+                # Create a new submenu
+                new_sub = tk.Menu(current_menu, tearoff=0)
+                current_menu.add_cascade(label=part.capitalize(), menu=new_sub)
+                created_menus.append((current_menu, part.capitalize(), new_sub))
+                current_menu = new_sub
+            else:
+                # Navigate into the existing cascade
+                existing_sub = current_menu.nametowidget(
+                    current_menu.entrycget(found_idx, "menu")
+                ) if isinstance(current_menu, tk.Menu) else None
+                if existing_sub is not None:
+                    current_menu = existing_sub
+
+        # Now add the command to current_menu
+        added_indexes: List[Tuple[tk.Menu, int]] = []
+        if kw.get("separator_before"):
+            current_menu.add_separator()
+            added_indexes.append((current_menu, current_menu.index("end")))
+        if kw.get("accelerator"):
+            current_menu.add_command(
+                label=kw["label"], accelerator=kw["accelerator"],
+                command=kw["command"])
+        else:
+            current_menu.add_command(
+                label=kw["label"], command=kw["command"])
+        added_indexes.append((current_menu, current_menu.index("end")))
+        if kw.get("separator_after"):
+            current_menu.add_separator()
+            added_indexes.append((current_menu, current_menu.index("end")))
+
+        return {
+            "created_menus": created_menus,
+            "entries": added_indexes,
+        }
+
+    def _remove_menu_entry(self, entry: Dict[str, Any]) -> None:
+        # Remove from deepest indexes first to preserve numbering.
+        for menu, idx in reversed(entry.get("entries", [])):
+            try:
+                menu.delete(idx)
+            except Exception:
+                pass
+        # Clean up any empty submenus we created.
+        for parent, _, submenu in reversed(entry.get("created_menus", [])):
+            try:
+                if submenu.index("end") is None:
+                    # Find the cascade index pointing at submenu
+                    for idx in range(parent.index("end") + 1 if parent.index("end") is not None else 0):
+                        try:
+                            widget = parent.nametowidget(parent.entrycget(idx, "menu"))
+                        except Exception:
+                            continue
+                        if widget is submenu:
+                            parent.delete(idx)
+                            break
+            except Exception:
+                pass
+
+    # ==================================================================
+    # Hotkey binding (gated by PERMISSION_HOTKEY_BIND)
+    # ==================================================================
+    def bind_hotkey(self, sequence: str, callback: Callable[[Any], Any],
+                    scope: str = "global") -> bool:
+        """Bind a global or editor-scoped keyboard shortcut.
+
+        Args:
+            sequence: Tk-style accelerator, e.g. ``"<Control-Shift-P>"``
+                or ``"<F8>"``.
+            callback: Function receiving the Tk event argument.
+            scope: ``"global"`` (bound to root), ``"editor"`` (bound to
+                the text widget when editor exists), or ``"menu"``
+                (also registers a menu accelerator entry).
+
+        Returns:
+            True on success.
+        """
+        if not self._require(PERMISSION_HOTKEY_BIND):
+            return False
+        plugin = self._plugin_from_self()
+        try:
+            bind_meta = self._apply_hotkey_bind(sequence, callback, scope)
+            if plugin is not None:
+                self._hotkey_binds.setdefault(id(plugin), []).append(bind_meta)
+            return True
+        except Exception as e:
+            self._logger.debug("bind_hotkey failed: %s", e)
+            return False
+
+    def _apply_hotkey_bind(self, sequence: str, callback: Callable, scope: str) -> Dict[str, Any]:
+        host = self._host
+        targets = []
+        if scope in ("global", "menu") and hasattr(host, "root"):
+            targets.append(host.root)
+        if scope in ("editor",):
+            widget = getattr(host, "textbox_widget", None)
+            if widget is not None and widget.winfo_exists():
+                targets.append(widget)
+        applied = []
+        for widget in targets:
+            func_id = widget.bind(sequence, callback, add="+")
+            applied.append((widget, sequence, func_id))
+        return {"applied": applied, "scope": scope}
+
+    def _unbind_hotkey(self, bind_meta: Dict[str, Any]) -> None:
+        for widget, sequence, _ in bind_meta.get("applied", []):
+            try:
+                widget.unbind(sequence)
+            except Exception:
+                pass
+
+    # ==================================================================
+    # Syntax highlighting extension (gated by PERMISSION_HIGHLIGHT_EXTEND)
+    # ==================================================================
+    def add_syntax_groups(
+        self,
+        language_patterns: List[str],
+        groups: List[Dict[str, Any]],
+    ) -> bool:
+        """Register extra highlight groups for files matching patterns.
+
+        Args:
+            language_patterns: Matched against the current file
+                extension or CodeEditor language field, e.g.
+                ``[".rs", "rust"]``. ``["*"]`` matches every file.
+            groups: Highlight group dicts in the same format as
+                ``CodeEditor.groups`` entries:
+                ``{"name": str, "color": "#RRGGBB", "words": [...],
+                   "regex": [raw_pattern, ...]}``
+        """
+        if not self._require(PERMISSION_HIGHLIGHT_EXTEND):
+            return False
+        plugin = self._plugin_from_self()
+        if plugin is None:
+            return False
+        self._highlight_providers[id(plugin)] = {
+            "language_patterns": language_patterns,
+            "groups": groups,
+        }
+        self._rebuild_highlight_groups()
+        return True
+
+    def _rebuild_highlight_groups(self) -> None:
+        """Ask every open editor to re-evaluate highlight groups.
+
+        The editor's own base groups are preserved; providers are
+        layered on top (the CodeEditor merges with update=True).
+        """
+        try:
+            host = self._host
+            editor_widgets = []
+            if hasattr(host, "editor") and host.editor is not None:
+                editor_widgets.append(host.editor)
+            if hasattr(host, "editor_manager") and host.editor_manager is not None:
+                em = host.editor_manager
+                for attr in dir(em):
+                    val = getattr(em, attr, None)
+                    try:
+                        from libs.gui.code_editor import CodeEditor
+                        if isinstance(val, CodeEditor):
+                            editor_widgets.append(val)
+                    except Exception:
+                        continue
+            for editor in editor_widgets:
+                self._merge_providers_into_editor(editor)
+                if hasattr(editor, "highlight") and editor.highlight:
+                    editor.highlight._tags_configured = False
+                    editor.highlight._index_signature = None
+                    if hasattr(editor.highlight, "highlight_all"):
+                        try:
+                            editor.highlight.highlight_all()
+                        except Exception:
+                            pass
+        except Exception as e:
+            self._logger.debug("_rebuild_highlight_groups failed: %s", e)
+
+    def _merge_providers_into_editor(self, editor: Any) -> None:
+        file_lang = str(getattr(editor, "language", "") or "").lower()
+        file_path = getattr(editor, "current_file", None) or ""
+        file_ext = os.path.splitext(file_path)[1].lower()
+        for provider in self._highlight_providers.values():
+            patterns = [p.lower() for p in provider["language_patterns"]]
+            if "*" in patterns or file_lang in patterns or file_ext in patterns:
+                # Merge group entries; same name wins by replacing.
+                existing_names = {g.get("name") for g in editor.groups}
+                for g in provider["groups"]:
+                    name = g.get("name")
+                    if name in existing_names:
+                        # Replace in-place
+                        for i, existing in enumerate(editor.groups):
+                            if existing.get("name") == name:
+                                editor.groups[i] = dict(g)
+                                break
+                    else:
+                        editor.groups.append(dict(g))
+                        existing_names.add(name)
+
+    # ==================================================================
+    # Network / execute helpers (gated)
+    # ==================================================================
+    def http_get(self, url: str, timeout: float = 10.0) -> Optional[bytes]:
+        """Simple synchronous HTTP GET helper (requires network perm)."""
+        if not self._require(PERMISSION_NETWORK):
+            return None
+        try:
+            import urllib.request
+            with urllib.request.urlopen(url, timeout=timeout) as resp:
+                return resp.read()
+        except Exception as e:
+            self._logger.debug("http_get(%s) failed: %s", url, e)
+            return None
+
+    def run_process(self, args: List[str], cwd: Optional[str] = None,
+                    timeout: float = 30.0) -> Optional[Tuple[int, str, str]]:
+        """Run an external process (requires execute permission).
+
+        Returns:
+            (returncode, stdout, stderr) or None on policy/error.
+        """
+        if not self._require(PERMISSION_EXECUTE):
+            return None
+        import subprocess
+        try:
+            result = subprocess.run(
+                args, cwd=cwd, capture_output=True, text=True,
+                timeout=timeout)
+            return (result.returncode, result.stdout, result.stderr)
+        except Exception as e:
+            self._logger.debug("run_process(%s) failed: %s", args, e)
+            return None

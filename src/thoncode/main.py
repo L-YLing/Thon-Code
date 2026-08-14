@@ -114,10 +114,26 @@ class MainWindow:
         self._startup_time = self._startup_end - self._startup_start
         self._logger.info("Startup completed in %.3fs", self._startup_time)
 
-        # Load plugins after UI is ready so plugins can access host services
+        # Load plugins after UI is ready so plugins can access host services.
+        # PyInstaller-aware: prefer user-writable dir next to .exe, fall back
+        # to the bundled _MEIPASS copy (frozen) or source plugins/ folder.
+        from libs.plugins.plugin_manager import resolve_plugin_dirs
         self.plugin_manager.set_host(self)
-        plugin_dir = os.path.join(base_path, "plugins")
-        self.plugin_manager.discover_and_load(plugin_dir)
+        all_plugin_dirs = resolve_plugin_dirs(base_path)
+        # Also make sure the legacy <base_path>/plugins location is scanned
+        # in case resolve_plugin_dirs returned an empty list in edge cases.
+        legacy_plugin_dir = os.path.join(base_path, "plugins")
+        if os.path.isdir(legacy_plugin_dir):
+            abs_legacy = os.path.abspath(legacy_plugin_dir)
+            if abs_legacy not in {os.path.abspath(d) for d in all_plugin_dirs}:
+                all_plugin_dirs.append(abs_legacy)
+        self.plugin_manager.set_plugin_dirs(all_plugin_dirs)
+        if all_plugin_dirs:
+            # Pass the highest-priority directory as the primary; any
+            # extras are scanned via set_plugin_dirs().
+            self.plugin_manager.discover_and_load(all_plugin_dirs[0])
+        else:
+            self.plugin_manager.discover_and_load(legacy_plugin_dir)
 
         print(f"[ThonCode] Startup time: {self._startup_time:.3f}s (lazy editor loading)")
 
@@ -788,9 +804,23 @@ class MainWindow:
         )
 
     def show_plugin_manager(self):
-        """Open the plugin manager window showing loaded plugins."""
+        """Open the plugin manager window (loaded + marketplace tabs)."""
         PluginManagerWindow = LazyLoader.get('libs.gui.plugin_ui', 'PluginManagerWindow')
-        PluginManagerWindow(self.root, self.plugin_manager)
+        cfg_data = self._get_cfg_data()
+        market_url = cfg_data.get("plugin_marketplace_url", "")
+
+        def _save_url(url: str):
+            cfg = self._get_cfg_data()
+            cfg["plugin_marketplace_url"] = url
+            import libs.cfg_handle as cfg_handle
+            cfg_handle.cfg_handle().write_cfg(cfg)
+
+        PluginManagerWindow(
+            self.root, self.plugin_manager,
+            base_path=base_path,
+            marketplace_url=market_url,
+            on_save_marketplace_url=_save_url,
+        )
 
     def _show_editor_context_menu(self, event):
         """Show the editor right-click context menu.
