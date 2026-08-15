@@ -1,0 +1,1612 @@
+2026-08-10 14:07:01,358 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ezsc47p_/.git/
+2026-08-10 14:07:01,614 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ezsc47p_
+2026-08-10 14:07:02,067 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:07:02,297 [DEBUG] test_git_functions: git status 回调: Git: g.txt
+h.txt
+2026-08-10 14:07:02,297 [INFO] test_git_functions: 暂存文件: ['g.txt', 'h.txt']
+2026-08-10 14:07:02,346 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ezsc47p_
+2026-08-10 14:07:02,700 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_537ln4_1/.git/
+2026-08-10 14:07:02,879 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_537ln4_1
+2026-08-10 14:07:03,392 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:07:03,689 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) bf7d5d0] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.tx
+2026-08-10 14:07:03,862 [DEBUG] test_git_functions: git status 回调: Git: bf7d5d0e94345d89dea8de73de76d55d3856ac7b|Test User|test@example.com|2026-08-10|first commit
+2026-08-10 14:07:03,862 [INFO] test_git_functions: 提交日志: [{'hash': 'bf7d5d0e', 'author': 'Test User', 'email': 'test@example.com', 'date': '2026-08-10', 'message': 'first commit'}]
+2026-08-10 14:07:03,889 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_537ln4_1
+2026-08-10 14:07:04,205 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_5tyxd0ir/.git/
+2026-08-10 14:07:04,551 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_5tyxd0ir
+2026-08-10 14:07:04,686 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:07:04,876 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) fb4febb] init for branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 f
+2026-08-10 14:07:05,017 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:07:05,410 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:07:05,555 [DEBUG] test_git_functions: git status 回调: Git: feature
+2026-08-10 14:07:05,555 [INFO] test_git_functions: 已切换到 feature 分支
+2026-08-10 14:07:05,562 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_5tyxd0ir
+2026-08-10 14:07:05,695 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_umfse0my/.git/
+2026-08-10 14:07:05,954 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_umfse0my
+2026-08-10 14:07:06,068 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:07:06,068 [INFO] test_git_functions: 分支列表: []
+2026-08-10 14:07:06,086 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_umfse0my
+2026-08-10 14:07:06,187 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_0aw5e7ia/.git/
+2026-08-10 14:07:06,390 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_0aw5e7ia
+2026-08-10 14:07:06,450 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-10 14:07:06,450 [INFO] test_git_functions: 当前分支: master
+2026-08-10 14:07:06,455 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_0aw5e7ia
+2026-08-10 14:07:06,557 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_co16gknp/.git/
+2026-08-10 14:07:06,751 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_co16gknp
+2026-08-10 14:07:06,846 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:07:07,095 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 244f485] init i
+ 1 file changed, 1 insertion(+)
+ create mode 100644 i.txt
+2026-08-10 14:07:07,202 [DEBUG] test_git_functions: git status 回调: Git: diff --git a/i.txt b/i.txt
+index e79c5e8..2e09960 100644
+--- a/i.txt
++++ b/i.txt
+@@ -1 +1 @@
+-initia
+2026-08-10 14:07:07,202 [INFO] test_git_functions: diff 长度: 111
+2026-08-10 14:07:07,210 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_co16gknp
+2026-08-10 14:07:07,315 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_di7jlfxr/.git/
+2026-08-10 14:07:07,495 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_di7jlfxr
+2026-08-10 14:07:07,692 [DEBUG] test_git_functions: git status 回调: Git error: fatal: your current branch 'master' does not have any commits yet
+2026-08-10 14:07:07,692 [INFO] test_git_functions: 空日志: []
+2026-08-10 14:07:07,699 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_di7jlfxr
+2026-08-10 14:07:07,842 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ecge0jcl/.git/
+2026-08-10 14:07:08,031 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ecge0jcl
+2026-08-10 14:07:08,138 [DEBUG] test_git_functions: git status 回调: Git: ?? c.txt
+2026-08-10 14:07:08,138 [INFO] test_git_functions: 详细状态: {'staged': [], 'unstaged': [], 'untracked': ['c.txt']}
+2026-08-10 14:07:08,143 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ecge0jcl
+2026-08-10 14:07:08,268 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_peijpcne/.git/
+2026-08-10 14:07:08,421 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_peijpcne
+2026-08-10 14:07:08,507 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:07:08,507 [INFO] test_git_functions: 空状态: ''
+2026-08-10 14:07:08,516 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_peijpcne
+2026-08-10 14:07:08,642 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_7b8e2hoi/.git/
+2026-08-10 14:07:08,788 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_7b8e2hoi
+2026-08-10 14:07:08,853 [DEBUG] test_git_functions: git status 回调: Git: ?? b.txt
+2026-08-10 14:07:08,853 [INFO] test_git_functions: 改动状态: ?? b.txt
+2026-08-10 14:07:08,861 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_7b8e2hoi
+2026-08-10 14:07:08,957 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_u2g27l__/.git/
+2026-08-10 14:07:09,316 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_u2g27l__
+2026-08-10 14:07:09,451 [DEBUG] test_git_functions: git status 回调: Git: d.txt
+2026-08-10 14:07:09,451 [INFO] test_git_functions: 未跟踪: ['d.txt']
+2026-08-10 14:07:09,456 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_u2g27l__
+2026-08-10 14:07:09,668 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_udolk99t/.git/
+2026-08-10 14:07:10,656 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_udolk99t
+2026-08-10 14:07:11,626 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:07:12,534 [DEBUG] test_git_functions: git status 回调: Git: ?? e.txt
+2026-08-10 14:07:12,540 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_udolk99t
+2026-08-10 14:07:13,287 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_9eyss335/.git/
+2026-08-10 14:07:25,001 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_9eyss335
+2026-08-10 14:07:26,306 [DEBUG] test_git_functions: git status 回调: Git: true
+2026-08-10 14:07:26,307 [INFO] test_git_functions: is_repo = True
+2026-08-10 14:07:26,323 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_9eyss335
+2026-08-10 14:07:26,982 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_y7_1af8f/.git/
+2026-08-10 14:07:27,782 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_y7_1af8f
+2026-08-10 14:07:27,913 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_y7_1af8f
+2026-08-10 14:10:15,548 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_zme13u3q/.git/
+2026-08-10 14:10:15,681 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_zme13u3q
+2026-08-10 14:10:15,855 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:10:15,919 [DEBUG] test_git_functions: git status 回调: Git: g.txt
+h.txt
+2026-08-10 14:10:15,919 [INFO] test_git_functions: 暂存文件: ['g.txt', 'h.txt']
+2026-08-10 14:10:15,925 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_zme13u3q
+2026-08-10 14:10:16,029 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_oaj6zpab/.git/
+2026-08-10 14:10:16,132 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_oaj6zpab
+2026-08-10 14:10:16,190 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:10:16,355 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) b6ab301] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.tx
+2026-08-10 14:10:16,404 [DEBUG] test_git_functions: git status 回调: Git: b6ab301396130fa0fd682671e877bb7c0148afd9|Test User|test@example.com|2026-08-10|first commit
+2026-08-10 14:10:16,404 [INFO] test_git_functions: 提交日志: [{'hash': 'b6ab3013', 'author': 'Test User', 'email': 'test@example.com', 'date': '2026-08-10', 'message': 'first commit'}]
+2026-08-10 14:10:16,411 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_oaj6zpab
+2026-08-10 14:10:16,608 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_l45mjwc8/.git/
+2026-08-10 14:10:16,784 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_l45mjwc8
+2026-08-10 14:10:16,847 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:10:16,952 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) df6a7d8] init for branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 f
+2026-08-10 14:10:17,006 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:10:17,072 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:10:17,121 [DEBUG] test_git_functions: git status 回调: Git: feature
+2026-08-10 14:10:17,121 [INFO] test_git_functions: 已切换到 feature 分支
+2026-08-10 14:10:17,128 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_l45mjwc8
+2026-08-10 14:10:17,200 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_dn4hd64k/.git/
+2026-08-10 14:10:17,351 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_dn4hd64k
+2026-08-10 14:10:17,418 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:10:17,536 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 7f255aa] initial
+ 1 file changed, 1 insertion(+)
+ create mode 100644 init.txt
+2026-08-10 14:10:17,584 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-10 14:10:17,584 [INFO] test_git_functions: 分支列表: ['master']
+2026-08-10 14:10:17,591 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_dn4hd64k
+2026-08-10 14:10:17,673 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_f4cbm768/.git/
+2026-08-10 14:10:17,853 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_f4cbm768
+2026-08-10 14:10:17,960 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-10 14:10:17,960 [INFO] test_git_functions: 当前分支: master
+2026-08-10 14:10:17,965 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_f4cbm768
+2026-08-10 14:10:18,079 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_u0gb7a18/.git/
+2026-08-10 14:10:18,253 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_u0gb7a18
+2026-08-10 14:10:18,310 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:10:18,433 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) f3ec8b5] init i
+ 1 file changed, 1 insertion(+)
+ create mode 100644 i.txt
+2026-08-10 14:10:18,502 [DEBUG] test_git_functions: git status 回调: Git: diff --git a/i.txt b/i.txt
+index e79c5e8..2e09960 100644
+--- a/i.txt
++++ b/i.txt
+@@ -1 +1 @@
+-initia
+2026-08-10 14:10:18,503 [INFO] test_git_functions: diff 长度: 111
+2026-08-10 14:10:18,512 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_u0gb7a18
+2026-08-10 14:10:18,589 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_rt6u3s_8/.git/
+2026-08-10 14:10:18,717 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_rt6u3s_8
+2026-08-10 14:10:18,774 [DEBUG] test_git_functions: git status 回调: Git error: fatal: your current branch 'master' does not have any commits yet
+2026-08-10 14:10:18,775 [INFO] test_git_functions: 空日志: []
+2026-08-10 14:10:18,779 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_rt6u3s_8
+2026-08-10 14:10:18,868 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ld29nexu/.git/
+2026-08-10 14:10:18,969 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ld29nexu
+2026-08-10 14:10:19,024 [DEBUG] test_git_functions: git status 回调: Git: ?? c.txt
+2026-08-10 14:10:19,024 [INFO] test_git_functions: 详细状态: {'staged': [], 'unstaged': [], 'untracked': ['c.txt']}
+2026-08-10 14:10:19,030 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ld29nexu
+2026-08-10 14:10:19,120 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_nq75urtb/.git/
+2026-08-10 14:10:19,237 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_nq75urtb
+2026-08-10 14:10:19,329 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:10:19,329 [INFO] test_git_functions: 空状态: ''
+2026-08-10 14:10:19,333 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_nq75urtb
+2026-08-10 14:10:19,406 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_lv__uhw9/.git/
+2026-08-10 14:10:19,565 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_lv__uhw9
+2026-08-10 14:10:19,653 [DEBUG] test_git_functions: git status 回调: Git: ?? b.txt
+2026-08-10 14:10:19,653 [INFO] test_git_functions: 改动状态: ?? b.txt
+2026-08-10 14:10:19,658 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_lv__uhw9
+2026-08-10 14:10:19,752 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_3uhsqoea/.git/
+2026-08-10 14:10:20,006 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_3uhsqoea
+2026-08-10 14:10:20,065 [DEBUG] test_git_functions: git status 回调: Git: d.txt
+2026-08-10 14:10:20,065 [INFO] test_git_functions: 未跟踪: ['d.txt']
+2026-08-10 14:10:20,071 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_3uhsqoea
+2026-08-10 14:10:20,183 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_u2z5pwcx/.git/
+2026-08-10 14:10:20,285 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_u2z5pwcx
+2026-08-10 14:10:20,331 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:10:20,386 [DEBUG] test_git_functions: git status 回调: Git: ?? e.txt
+2026-08-10 14:10:20,391 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_u2z5pwcx
+2026-08-10 14:10:20,472 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ymwy7han/.git/
+2026-08-10 14:10:20,574 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ymwy7han
+2026-08-10 14:10:20,619 [DEBUG] test_git_functions: git status 回调: Git: true
+2026-08-10 14:10:20,619 [INFO] test_git_functions: is_repo = True
+2026-08-10 14:10:20,624 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ymwy7han
+2026-08-10 14:10:20,695 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_f0xaftjw/.git/
+2026-08-10 14:10:20,792 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_f0xaftjw
+2026-08-10 14:10:20,887 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_f0xaftjw
+2026-08-10 14:11:03,241 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_v2leea27/.git/
+2026-08-10 14:11:03,572 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_v2leea27
+2026-08-10 14:11:03,672 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:11:03,774 [DEBUG] test_git_functions: git status 回调: Git: g.txt
+h.txt
+2026-08-10 14:11:03,774 [INFO] test_git_functions: 暂存文件: ['g.txt', 'h.txt']
+2026-08-10 14:11:03,780 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_v2leea27
+2026-08-10 14:11:03,927 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_4j_pvtv2/.git/
+2026-08-10 14:11:04,142 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_4j_pvtv2
+2026-08-10 14:11:04,248 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:11:04,764 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 6694198] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.tx
+2026-08-10 14:11:04,848 [DEBUG] test_git_functions: git status 回调: Git: 669419823f6691f58efcb8999863611906340967|Test User|test@example.com|2026-08-10|first commit
+2026-08-10 14:11:04,848 [INFO] test_git_functions: 提交日志: [{'hash': '66941982', 'author': 'Test User', 'email': 'test@example.com', 'date': '2026-08-10', 'message': 'first commit'}]
+2026-08-10 14:11:04,855 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_4j_pvtv2
+2026-08-10 14:11:04,982 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test__sm2xdby/.git/
+2026-08-10 14:11:05,097 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test__sm2xdby
+2026-08-10 14:11:05,165 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:11:05,310 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 875899f] init for branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 f
+2026-08-10 14:11:05,362 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:11:05,426 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:11:05,482 [DEBUG] test_git_functions: git status 回调: Git: feature
+2026-08-10 14:11:05,482 [INFO] test_git_functions: 已切换到 feature 分支
+2026-08-10 14:11:05,490 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test__sm2xdby
+2026-08-10 14:11:05,569 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_vyd19c3n/.git/
+2026-08-10 14:11:05,724 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_vyd19c3n
+2026-08-10 14:11:05,799 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:11:05,908 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 0c865dd] initial
+ 1 file changed, 1 insertion(+)
+ create mode 100644 init.txt
+2026-08-10 14:11:05,956 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-10 14:11:05,956 [INFO] test_git_functions: 分支列表: ['master']
+2026-08-10 14:11:05,963 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_vyd19c3n
+2026-08-10 14:11:06,033 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_2_6a2hy_/.git/
+2026-08-10 14:11:06,165 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_2_6a2hy_
+2026-08-10 14:11:06,211 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-10 14:11:06,212 [INFO] test_git_functions: 当前分支: master
+2026-08-10 14:11:06,216 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_2_6a2hy_
+2026-08-10 14:11:06,329 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_k26iqrtj/.git/
+2026-08-10 14:11:06,475 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_k26iqrtj
+2026-08-10 14:11:06,578 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:11:06,724 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 36e07ae] init i
+ 1 file changed, 1 insertion(+)
+ create mode 100644 i.txt
+2026-08-10 14:11:06,786 [DEBUG] test_git_functions: git status 回调: Git: diff --git a/i.txt b/i.txt
+index e79c5e8..2e09960 100644
+--- a/i.txt
++++ b/i.txt
+@@ -1 +1 @@
+-initia
+2026-08-10 14:11:06,786 [INFO] test_git_functions: diff 长度: 111
+2026-08-10 14:11:06,798 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_k26iqrtj
+2026-08-10 14:11:06,917 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_i5ylb_4_/.git/
+2026-08-10 14:11:07,057 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_i5ylb_4_
+2026-08-10 14:11:07,119 [DEBUG] test_git_functions: git status 回调: Git error: fatal: your current branch 'master' does not have any commits yet
+2026-08-10 14:11:07,119 [INFO] test_git_functions: 空日志: []
+2026-08-10 14:11:07,124 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_i5ylb_4_
+2026-08-10 14:11:07,206 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_g5ljz7c3/.git/
+2026-08-10 14:11:07,332 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_g5ljz7c3
+2026-08-10 14:11:07,391 [DEBUG] test_git_functions: git status 回调: Git: ?? c.txt
+2026-08-10 14:11:07,391 [INFO] test_git_functions: 详细状态: {'staged': [], 'unstaged': [], 'untracked': ['c.txt']}
+2026-08-10 14:11:07,396 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_g5ljz7c3
+2026-08-10 14:11:07,481 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_estvbzaa/.git/
+2026-08-10 14:11:07,596 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_estvbzaa
+2026-08-10 14:11:07,649 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:11:07,649 [INFO] test_git_functions: 空状态: ''
+2026-08-10 14:11:07,656 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_estvbzaa
+2026-08-10 14:11:07,731 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_kj9jox7a/.git/
+2026-08-10 14:11:07,834 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_kj9jox7a
+2026-08-10 14:11:07,894 [DEBUG] test_git_functions: git status 回调: Git: ?? b.txt
+2026-08-10 14:11:07,894 [INFO] test_git_functions: 改动状态: ?? b.txt
+2026-08-10 14:11:07,899 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_kj9jox7a
+2026-08-10 14:11:07,972 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_mh8r4dza/.git/
+2026-08-10 14:11:08,083 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_mh8r4dza
+2026-08-10 14:11:08,147 [DEBUG] test_git_functions: git status 回调: Git: d.txt
+2026-08-10 14:11:08,147 [INFO] test_git_functions: 未跟踪: ['d.txt']
+2026-08-10 14:11:08,153 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_mh8r4dza
+2026-08-10 14:11:08,232 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_8e9gaeby/.git/
+2026-08-10 14:11:08,364 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_8e9gaeby
+2026-08-10 14:11:08,424 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:11:08,474 [DEBUG] test_git_functions: git status 回调: Git: ?? e.txt
+2026-08-10 14:11:08,480 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_8e9gaeby
+2026-08-10 14:11:08,585 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_kt8ggqjo/.git/
+2026-08-10 14:11:08,707 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_kt8ggqjo
+2026-08-10 14:11:08,777 [DEBUG] test_git_functions: git status 回调: Git: true
+2026-08-10 14:11:08,777 [INFO] test_git_functions: is_repo = True
+2026-08-10 14:11:08,782 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_kt8ggqjo
+2026-08-10 14:11:08,891 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_46ozkwvj/.git/
+2026-08-10 14:11:09,004 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_46ozkwvj
+2026-08-10 14:11:09,062 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_46ozkwvj
+2026-08-10 14:27:43,405 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_oq7727sf/.git/
+2026-08-10 14:27:43,499 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_oq7727sf
+2026-08-10 14:27:43,556 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:27:43,603 [DEBUG] test_git_functions: git status 回调: Git: g.txt
+h.txt
+2026-08-10 14:27:43,603 [INFO] test_git_functions: 暂存文件: ['g.txt', 'h.txt']
+2026-08-10 14:27:43,611 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_oq7727sf
+2026-08-10 14:27:43,682 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_rh80jop3/.git/
+2026-08-10 14:27:43,770 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_rh80jop3
+2026-08-10 14:27:43,824 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:27:43,916 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 5cf0c48] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.tx
+2026-08-10 14:27:43,983 [DEBUG] test_git_functions: git status 回调: Git: 5cf0c48a0b15a03bb17b7719cc8a896507806625|Test User|test@example.com|2026-08-10|first commit
+2026-08-10 14:27:43,983 [INFO] test_git_functions: 提交日志: [{'hash': '5cf0c48a', 'author': 'Test User', 'email': 'test@example.com', 'date': '2026-08-10', 'message': 'first commit'}]
+2026-08-10 14:27:43,993 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_rh80jop3
+2026-08-10 14:27:44,098 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_j8zmmy21/.git/
+2026-08-10 14:27:44,229 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_j8zmmy21
+2026-08-10 14:27:44,298 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:27:44,394 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) bc80e3b] init for branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 f
+2026-08-10 14:27:44,449 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:27:44,517 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:27:44,561 [DEBUG] test_git_functions: git status 回调: Git: feature
+2026-08-10 14:27:44,561 [INFO] test_git_functions: 已切换到 feature 分支
+2026-08-10 14:27:44,570 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_j8zmmy21
+2026-08-10 14:27:44,661 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_3okiyj0s/.git/
+2026-08-10 14:27:44,901 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_3okiyj0s
+2026-08-10 14:27:44,956 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:27:45,047 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 47fe7de] initial
+ 1 file changed, 1 insertion(+)
+ create mode 100644 init.txt
+2026-08-10 14:27:45,091 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-10 14:27:45,091 [INFO] test_git_functions: 分支列表: ['master']
+2026-08-10 14:27:45,099 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_3okiyj0s
+2026-08-10 14:27:45,177 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_2wwrys0p/.git/
+2026-08-10 14:27:45,267 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_2wwrys0p
+2026-08-10 14:27:45,309 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-10 14:27:45,309 [INFO] test_git_functions: 当前分支: master
+2026-08-10 14:27:45,315 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_2wwrys0p
+2026-08-10 14:27:45,399 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_6m9hqazt/.git/
+2026-08-10 14:27:45,484 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_6m9hqazt
+2026-08-10 14:27:45,536 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:27:45,623 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 3db2102] init i
+ 1 file changed, 1 insertion(+)
+ create mode 100644 i.txt
+2026-08-10 14:27:45,669 [DEBUG] test_git_functions: git status 回调: Git: diff --git a/i.txt b/i.txt
+index e79c5e8..2e09960 100644
+--- a/i.txt
++++ b/i.txt
+@@ -1 +1 @@
+-initia
+2026-08-10 14:27:45,669 [INFO] test_git_functions: diff 长度: 111
+2026-08-10 14:27:45,681 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_6m9hqazt
+2026-08-10 14:27:45,747 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_6ijq4uow/.git/
+2026-08-10 14:27:45,836 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_6ijq4uow
+2026-08-10 14:27:45,881 [DEBUG] test_git_functions: git status 回调: Git error: fatal: your current branch 'master' does not have any commits yet
+2026-08-10 14:27:45,881 [INFO] test_git_functions: 空日志: []
+2026-08-10 14:27:45,888 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_6ijq4uow
+2026-08-10 14:27:45,958 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_32t151n1/.git/
+2026-08-10 14:27:46,046 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_32t151n1
+2026-08-10 14:27:46,092 [DEBUG] test_git_functions: git status 回调: Git: ?? c.txt
+2026-08-10 14:27:46,093 [INFO] test_git_functions: 详细状态: {'staged': [], 'unstaged': [], 'untracked': ['c.txt']}
+2026-08-10 14:27:46,099 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_32t151n1
+2026-08-10 14:27:46,168 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_tklfctrp/.git/
+2026-08-10 14:27:46,256 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_tklfctrp
+2026-08-10 14:27:46,304 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:27:46,304 [INFO] test_git_functions: 空状态: ''
+2026-08-10 14:27:46,310 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_tklfctrp
+2026-08-10 14:27:46,384 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_v3x3ub6g/.git/
+2026-08-10 14:27:46,477 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_v3x3ub6g
+2026-08-10 14:27:46,527 [DEBUG] test_git_functions: git status 回调: Git: ?? b.txt
+2026-08-10 14:27:46,528 [INFO] test_git_functions: 改动状态: ?? b.txt
+2026-08-10 14:27:46,537 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_v3x3ub6g
+2026-08-10 14:27:46,605 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_2mnqhqz9/.git/
+2026-08-10 14:27:46,693 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_2mnqhqz9
+2026-08-10 14:27:46,745 [DEBUG] test_git_functions: git status 回调: Git: d.txt
+2026-08-10 14:27:46,745 [INFO] test_git_functions: 未跟踪: ['d.txt']
+2026-08-10 14:27:46,752 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_2mnqhqz9
+2026-08-10 14:27:46,820 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_qx5ze0ea/.git/
+2026-08-10 14:27:46,908 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_qx5ze0ea
+2026-08-10 14:27:46,953 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:27:46,996 [DEBUG] test_git_functions: git status 回调: Git: ?? e.txt
+2026-08-10 14:27:47,001 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_qx5ze0ea
+2026-08-10 14:27:47,068 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_y88sickx/.git/
+2026-08-10 14:27:47,155 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_y88sickx
+2026-08-10 14:27:47,199 [DEBUG] test_git_functions: git status 回调: Git: true
+2026-08-10 14:27:47,199 [INFO] test_git_functions: is_repo = True
+2026-08-10 14:27:47,206 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_y88sickx
+2026-08-10 14:27:47,277 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_a7ist7lm/.git/
+2026-08-10 14:27:47,378 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_a7ist7lm
+2026-08-10 14:27:47,428 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_a7ist7lm
+2026-08-10 14:52:06,760 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_96jchn5i/.git/
+2026-08-10 14:52:06,904 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_96jchn5i
+2026-08-10 14:52:06,971 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:52:07,033 [DEBUG] test_git_functions: git status 回调: Git: g.txt
+h.txt
+2026-08-10 14:52:07,033 [INFO] test_git_functions: 暂存文件: ['g.txt', 'h.txt']
+2026-08-10 14:52:07,041 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_96jchn5i
+2026-08-10 14:52:07,120 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_2pksdw60/.git/
+2026-08-10 14:52:07,236 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_2pksdw60
+2026-08-10 14:52:07,298 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:52:07,437 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) ca6827d] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.tx
+2026-08-10 14:52:07,488 [DEBUG] test_git_functions: git status 回调: Git: ca6827d3a52c1e517cc98e08bead21266b6a6452|Test User|test@example.com|2026-08-10|first commit
+2026-08-10 14:52:07,488 [INFO] test_git_functions: 提交日志: [{'hash': 'ca6827d3', 'author': 'Test User', 'email': 'test@example.com', 'date': '2026-08-10', 'message': 'first commit'}]
+2026-08-10 14:52:07,495 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_2pksdw60
+2026-08-10 14:52:07,569 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_9foz4oj_/.git/
+2026-08-10 14:52:07,669 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_9foz4oj_
+2026-08-10 14:52:07,736 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:52:08,629 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 58cbf8d] init for branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 f
+2026-08-10 14:52:08,693 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:52:08,754 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:52:08,920 [DEBUG] test_git_functions: git status 回调: Git: feature
+2026-08-10 14:52:08,920 [INFO] test_git_functions: 已切换到 feature 分支
+2026-08-10 14:52:08,928 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_9foz4oj_
+2026-08-10 14:52:09,109 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_gorqr6a9/.git/
+2026-08-10 14:52:09,375 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_gorqr6a9
+2026-08-10 14:52:09,509 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:52:09,690 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 7494e90] initial
+ 1 file changed, 1 insertion(+)
+ create mode 100644 init.txt
+2026-08-10 14:52:09,784 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-10 14:52:09,784 [INFO] test_git_functions: 分支列表: ['master']
+2026-08-10 14:52:09,791 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_gorqr6a9
+2026-08-10 14:52:09,936 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ycr7oyp4/.git/
+2026-08-10 14:52:10,091 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ycr7oyp4
+2026-08-10 14:52:10,192 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-10 14:52:10,192 [INFO] test_git_functions: 当前分支: master
+2026-08-10 14:52:10,200 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ycr7oyp4
+2026-08-10 14:52:10,328 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_q_dpms79/.git/
+2026-08-10 14:52:10,527 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_q_dpms79
+2026-08-10 14:52:10,593 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:52:10,707 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 7b1e045] init i
+ 1 file changed, 1 insertion(+)
+ create mode 100644 i.txt
+2026-08-10 14:52:10,777 [DEBUG] test_git_functions: git status 回调: Git: diff --git a/i.txt b/i.txt
+index e79c5e8..2e09960 100644
+--- a/i.txt
++++ b/i.txt
+@@ -1 +1 @@
+-initia
+2026-08-10 14:52:10,777 [INFO] test_git_functions: diff 长度: 111
+2026-08-10 14:52:10,784 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_q_dpms79
+2026-08-10 14:52:10,908 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ig3qczje/.git/
+2026-08-10 14:52:11,020 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ig3qczje
+2026-08-10 14:52:11,075 [DEBUG] test_git_functions: git status 回调: Git error: fatal: your current branch 'master' does not have any commits yet
+2026-08-10 14:52:11,075 [INFO] test_git_functions: 空日志: []
+2026-08-10 14:52:11,080 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ig3qczje
+2026-08-10 14:52:11,160 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ulhazho7/.git/
+2026-08-10 14:52:11,270 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ulhazho7
+2026-08-10 14:52:11,322 [DEBUG] test_git_functions: git status 回调: Git: ?? c.txt
+2026-08-10 14:52:11,322 [INFO] test_git_functions: 详细状态: {'staged': [], 'unstaged': [], 'untracked': ['c.txt']}
+2026-08-10 14:52:11,328 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ulhazho7
+2026-08-10 14:52:11,402 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_z869fyvl/.git/
+2026-08-10 14:52:11,614 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_z869fyvl
+2026-08-10 14:52:11,706 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:52:11,706 [INFO] test_git_functions: 空状态: ''
+2026-08-10 14:52:11,713 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_z869fyvl
+2026-08-10 14:52:11,817 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_27vmaszb/.git/
+2026-08-10 14:52:11,969 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_27vmaszb
+2026-08-10 14:52:12,027 [DEBUG] test_git_functions: git status 回调: Git: ?? b.txt
+2026-08-10 14:52:12,027 [INFO] test_git_functions: 改动状态: ?? b.txt
+2026-08-10 14:52:12,032 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_27vmaszb
+2026-08-10 14:52:12,102 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_l8cv6eb0/.git/
+2026-08-10 14:52:12,218 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_l8cv6eb0
+2026-08-10 14:52:12,271 [DEBUG] test_git_functions: git status 回调: Git: d.txt
+2026-08-10 14:52:12,271 [INFO] test_git_functions: 未跟踪: ['d.txt']
+2026-08-10 14:52:12,276 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_l8cv6eb0
+2026-08-10 14:52:12,343 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_rt60eiim/.git/
+2026-08-10 14:52:12,438 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_rt60eiim
+2026-08-10 14:52:12,485 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:52:12,537 [DEBUG] test_git_functions: git status 回调: Git: ?? e.txt
+2026-08-10 14:52:12,542 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_rt60eiim
+2026-08-10 14:52:12,622 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_d4z5hta4/.git/
+2026-08-10 14:52:12,725 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_d4z5hta4
+2026-08-10 14:52:12,779 [DEBUG] test_git_functions: git status 回调: Git: true
+2026-08-10 14:52:12,780 [INFO] test_git_functions: is_repo = True
+2026-08-10 14:52:12,784 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_d4z5hta4
+2026-08-10 14:52:12,881 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_6du1opf4/.git/
+2026-08-10 14:52:12,989 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_6du1opf4
+2026-08-10 14:52:13,059 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_6du1opf4
+2026-08-10 14:54:32,673 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_nyvevo9c/.git/
+2026-08-10 14:54:33,136 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_nyvevo9c
+2026-08-10 14:54:33,347 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:54:33,432 [DEBUG] test_git_functions: git status 回调: Git: g.txt
+h.txt
+2026-08-10 14:54:33,433 [INFO] test_git_functions: 暂存文件: ['g.txt', 'h.txt']
+2026-08-10 14:54:33,438 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_nyvevo9c
+2026-08-10 14:54:33,684 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_y_li41cd/.git/
+2026-08-10 14:54:34,275 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_y_li41cd
+2026-08-10 14:54:35,027 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:54:35,325 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 216d704] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.tx
+2026-08-10 14:54:35,374 [DEBUG] test_git_functions: git status 回调: Git: 216d704d17b4af0ab1efab195b3d179d7fa43a7e|Test User|test@example.com|2026-08-10|first commit
+2026-08-10 14:54:35,374 [INFO] test_git_functions: 提交日志: [{'hash': '216d704d', 'author': 'Test User', 'email': 'test@example.com', 'date': '2026-08-10', 'message': 'first commit'}]
+2026-08-10 14:54:35,382 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_y_li41cd
+2026-08-10 14:54:35,458 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_8dywqflt/.git/
+2026-08-10 14:54:35,576 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_8dywqflt
+2026-08-10 14:54:35,637 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:54:35,744 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) c6d6d87] init for branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 f
+2026-08-10 14:54:35,827 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:54:35,890 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:54:35,942 [DEBUG] test_git_functions: git status 回调: Git: feature
+2026-08-10 14:54:35,942 [INFO] test_git_functions: 已切换到 feature 分支
+2026-08-10 14:54:35,950 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_8dywqflt
+2026-08-10 14:54:36,029 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_9czyhtcg/.git/
+2026-08-10 14:54:36,134 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_9czyhtcg
+2026-08-10 14:54:36,189 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:54:36,419 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 1629aed] initial
+ 1 file changed, 1 insertion(+)
+ create mode 100644 init.txt
+2026-08-10 14:54:36,515 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-10 14:54:36,515 [INFO] test_git_functions: 分支列表: ['master']
+2026-08-10 14:54:36,525 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_9czyhtcg
+2026-08-10 14:54:36,623 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_2fp7uu7p/.git/
+2026-08-10 14:54:36,926 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_2fp7uu7p
+2026-08-10 14:54:36,999 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-10 14:54:37,000 [INFO] test_git_functions: 当前分支: master
+2026-08-10 14:54:37,004 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_2fp7uu7p
+2026-08-10 14:54:37,081 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_x34rszbe/.git/
+2026-08-10 14:54:37,202 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_x34rszbe
+2026-08-10 14:54:37,276 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:54:37,383 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 8496b8b] init i
+ 1 file changed, 1 insertion(+)
+ create mode 100644 i.txt
+2026-08-10 14:54:37,437 [DEBUG] test_git_functions: git status 回调: Git: diff --git a/i.txt b/i.txt
+index e79c5e8..2e09960 100644
+--- a/i.txt
++++ b/i.txt
+@@ -1 +1 @@
+-initia
+2026-08-10 14:54:37,437 [INFO] test_git_functions: diff 长度: 111
+2026-08-10 14:54:37,445 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_x34rszbe
+2026-08-10 14:54:37,540 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_owc6m765/.git/
+2026-08-10 14:54:37,643 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_owc6m765
+2026-08-10 14:54:37,704 [DEBUG] test_git_functions: git status 回调: Git error: fatal: your current branch 'master' does not have any commits yet
+2026-08-10 14:54:37,704 [INFO] test_git_functions: 空日志: []
+2026-08-10 14:54:37,709 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_owc6m765
+2026-08-10 14:54:37,781 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_888v1iwm/.git/
+2026-08-10 14:54:37,950 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_888v1iwm
+2026-08-10 14:54:38,002 [DEBUG] test_git_functions: git status 回调: Git: ?? c.txt
+2026-08-10 14:54:38,002 [INFO] test_git_functions: 详细状态: {'staged': [], 'unstaged': [], 'untracked': ['c.txt']}
+2026-08-10 14:54:38,008 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_888v1iwm
+2026-08-10 14:54:38,088 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_28haem5f/.git/
+2026-08-10 14:54:38,210 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_28haem5f
+2026-08-10 14:54:38,273 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:54:38,273 [INFO] test_git_functions: 空状态: ''
+2026-08-10 14:54:38,278 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_28haem5f
+2026-08-10 14:54:38,346 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_lq954_8_/.git/
+2026-08-10 14:54:38,461 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_lq954_8_
+2026-08-10 14:54:38,533 [DEBUG] test_git_functions: git status 回调: Git: ?? b.txt
+2026-08-10 14:54:38,533 [INFO] test_git_functions: 改动状态: ?? b.txt
+2026-08-10 14:54:38,540 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_lq954_8_
+2026-08-10 14:54:38,918 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_z536bffn/.git/
+2026-08-10 14:54:39,041 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_z536bffn
+2026-08-10 14:54:39,120 [DEBUG] test_git_functions: git status 回调: Git: d.txt
+2026-08-10 14:54:39,120 [INFO] test_git_functions: 未跟踪: ['d.txt']
+2026-08-10 14:54:39,126 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_z536bffn
+2026-08-10 14:54:39,230 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_qsiq_ilf/.git/
+2026-08-10 14:54:39,378 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_qsiq_ilf
+2026-08-10 14:54:39,461 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-10 14:54:39,541 [DEBUG] test_git_functions: git status 回调: Git: ?? e.txt
+2026-08-10 14:54:39,545 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_qsiq_ilf
+2026-08-10 14:54:39,669 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_5gk158ec/.git/
+2026-08-10 14:54:39,825 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_5gk158ec
+2026-08-10 14:54:39,929 [DEBUG] test_git_functions: git status 回调: Git: true
+2026-08-10 14:54:39,930 [INFO] test_git_functions: is_repo = True
+2026-08-10 14:54:39,934 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_5gk158ec
+2026-08-10 14:54:40,029 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_3ryzlp_z/.git/
+2026-08-10 14:54:40,166 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_3ryzlp_z
+2026-08-10 14:54:40,214 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_3ryzlp_z
+2026-08-11 16:06:39,564 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_7xgwsiu9/.git/
+2026-08-11 16:06:39,656 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_7xgwsiu9
+2026-08-11 16:06:39,723 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:06:39,770 [DEBUG] test_git_functions: git status 回调: Git: g.txt
+h.txt
+2026-08-11 16:06:39,771 [INFO] test_git_functions: 暂存文件: ['g.txt', 'h.txt']
+2026-08-11 16:06:39,776 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_7xgwsiu9
+2026-08-11 16:06:39,848 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_7011ld6s/.git/
+2026-08-11 16:06:39,946 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_7011ld6s
+2026-08-11 16:06:40,018 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:06:40,135 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 46d0184] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.tx
+2026-08-11 16:06:40,182 [DEBUG] test_git_functions: git status 回调: Git: 46d018421e675d833b57c54185034f6fceb2e1b2|Test User|test@example.com|2026-08-11|first commit
+2026-08-11 16:06:40,182 [INFO] test_git_functions: 提交日志: [{'hash': '46d01842', 'author': 'Test User', 'email': 'test@example.com', 'date': '2026-08-11', 'message': 'first commit'}]
+2026-08-11 16:06:40,189 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_7011ld6s
+2026-08-11 16:06:40,257 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_qohg58xr/.git/
+2026-08-11 16:06:40,345 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_qohg58xr
+2026-08-11 16:06:40,399 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:06:40,497 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) d773f48] init for branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 f
+2026-08-11 16:06:40,754 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:06:40,834 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:06:40,890 [DEBUG] test_git_functions: git status 回调: Git: feature
+2026-08-11 16:06:40,890 [INFO] test_git_functions: 已切换到 feature 分支
+2026-08-11 16:06:40,898 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_qohg58xr
+2026-08-11 16:06:41,005 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test__s0kui71/.git/
+2026-08-11 16:06:41,135 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test__s0kui71
+2026-08-11 16:06:41,205 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:06:41,334 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) eb62216] initial
+ 1 file changed, 1 insertion(+)
+ create mode 100644 init.txt
+2026-08-11 16:06:41,397 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 16:06:41,398 [INFO] test_git_functions: 分支列表: ['master']
+2026-08-11 16:06:41,404 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test__s0kui71
+2026-08-11 16:06:41,471 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_kkvt64ki/.git/
+2026-08-11 16:06:41,564 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_kkvt64ki
+2026-08-11 16:06:41,606 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 16:06:41,606 [INFO] test_git_functions: 当前分支: master
+2026-08-11 16:06:41,611 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_kkvt64ki
+2026-08-11 16:06:41,676 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_lnqkfyap/.git/
+2026-08-11 16:06:41,766 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_lnqkfyap
+2026-08-11 16:06:41,817 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:06:41,917 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 524f5fe] init i
+ 1 file changed, 1 insertion(+)
+ create mode 100644 i.txt
+2026-08-11 16:06:41,962 [DEBUG] test_git_functions: git status 回调: Git: diff --git a/i.txt b/i.txt
+index e79c5e8..2e09960 100644
+--- a/i.txt
++++ b/i.txt
+@@ -1 +1 @@
+-initia
+2026-08-11 16:06:41,962 [INFO] test_git_functions: diff 长度: 111
+2026-08-11 16:06:41,970 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_lnqkfyap
+2026-08-11 16:06:42,036 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_bg9xxw8e/.git/
+2026-08-11 16:06:42,125 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_bg9xxw8e
+2026-08-11 16:06:42,168 [DEBUG] test_git_functions: git status 回调: Git error: fatal: your current branch 'master' does not have any commits yet
+2026-08-11 16:06:42,168 [INFO] test_git_functions: 空日志: []
+2026-08-11 16:06:42,173 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_bg9xxw8e
+2026-08-11 16:06:42,239 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_i0mwbi0e/.git/
+2026-08-11 16:06:42,352 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_i0mwbi0e
+2026-08-11 16:06:42,420 [DEBUG] test_git_functions: git status 回调: Git: ?? c.txt
+2026-08-11 16:06:42,420 [INFO] test_git_functions: 详细状态: {'staged': [], 'unstaged': [], 'untracked': ['c.txt']}
+2026-08-11 16:06:42,424 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_i0mwbi0e
+2026-08-11 16:06:42,560 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_apkp675f/.git/
+2026-08-11 16:06:42,709 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_apkp675f
+2026-08-11 16:06:42,768 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:06:42,768 [INFO] test_git_functions: 空状态: ''
+2026-08-11 16:06:42,773 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_apkp675f
+2026-08-11 16:06:42,853 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_xxz5osk0/.git/
+2026-08-11 16:06:42,942 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_xxz5osk0
+2026-08-11 16:06:42,986 [DEBUG] test_git_functions: git status 回调: Git: ?? b.txt
+2026-08-11 16:06:42,986 [INFO] test_git_functions: 改动状态: ?? b.txt
+2026-08-11 16:06:42,991 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_xxz5osk0
+2026-08-11 16:06:43,062 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_6r6jixck/.git/
+2026-08-11 16:06:43,151 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_6r6jixck
+2026-08-11 16:06:43,196 [DEBUG] test_git_functions: git status 回调: Git: d.txt
+2026-08-11 16:06:43,196 [INFO] test_git_functions: 未跟踪: ['d.txt']
+2026-08-11 16:06:43,201 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_6r6jixck
+2026-08-11 16:06:43,274 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_nocgipak/.git/
+2026-08-11 16:06:43,364 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_nocgipak
+2026-08-11 16:06:43,408 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:06:43,457 [DEBUG] test_git_functions: git status 回调: Git: ?? e.txt
+2026-08-11 16:06:43,462 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_nocgipak
+2026-08-11 16:06:43,529 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ecyhyn94/.git/
+2026-08-11 16:06:43,618 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ecyhyn94
+2026-08-11 16:06:43,662 [DEBUG] test_git_functions: git status 回调: Git: true
+2026-08-11 16:06:43,662 [INFO] test_git_functions: is_repo = True
+2026-08-11 16:06:43,666 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ecyhyn94
+2026-08-11 16:06:43,732 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_8j52od5c/.git/
+2026-08-11 16:06:43,822 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_8j52od5c
+2026-08-11 16:06:43,868 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_8j52od5c
+2026-08-11 16:06:52,294 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_b63s0pdc/.git/
+2026-08-11 16:06:52,815 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_b63s0pdc
+2026-08-11 16:06:52,871 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:06:52,916 [DEBUG] test_git_functions: git status 回调: Git: g.txt
+h.txt
+2026-08-11 16:06:52,916 [INFO] test_git_functions: 暂存文件: ['g.txt', 'h.txt']
+2026-08-11 16:06:52,922 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_b63s0pdc
+2026-08-11 16:06:52,985 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test__4kjcdlw/.git/
+2026-08-11 16:06:53,094 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test__4kjcdlw
+2026-08-11 16:06:53,196 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:06:53,414 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 1ecc2ce] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.tx
+2026-08-11 16:06:53,466 [DEBUG] test_git_functions: git status 回调: Git: 1ecc2cecd796b4c5a0865cb80eb7ea42851b97e4|Test User|test@example.com|2026-08-11|first commit
+2026-08-11 16:06:53,466 [INFO] test_git_functions: 提交日志: [{'hash': '1ecc2cec', 'author': 'Test User', 'email': 'test@example.com', 'date': '2026-08-11', 'message': 'first commit'}]
+2026-08-11 16:06:53,473 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test__4kjcdlw
+2026-08-11 16:06:53,537 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ltwzy6hn/.git/
+2026-08-11 16:06:53,647 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ltwzy6hn
+2026-08-11 16:06:53,702 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:06:53,816 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 1e3e516] init for branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 f
+2026-08-11 16:06:53,872 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:06:53,933 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:06:53,976 [DEBUG] test_git_functions: git status 回调: Git: feature
+2026-08-11 16:06:53,976 [INFO] test_git_functions: 已切换到 feature 分支
+2026-08-11 16:06:53,984 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ltwzy6hn
+2026-08-11 16:06:54,048 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_clk5e4e1/.git/
+2026-08-11 16:06:54,135 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_clk5e4e1
+2026-08-11 16:06:54,189 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:06:54,285 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 85cc9c4] initial
+ 1 file changed, 1 insertion(+)
+ create mode 100644 init.txt
+2026-08-11 16:06:54,332 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 16:06:54,332 [INFO] test_git_functions: 分支列表: ['master']
+2026-08-11 16:06:54,339 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_clk5e4e1
+2026-08-11 16:06:54,404 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_64l841gp/.git/
+2026-08-11 16:06:54,491 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_64l841gp
+2026-08-11 16:06:54,532 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 16:06:54,533 [INFO] test_git_functions: 当前分支: master
+2026-08-11 16:06:54,537 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_64l841gp
+2026-08-11 16:06:54,611 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_i_viedem/.git/
+2026-08-11 16:06:54,699 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_i_viedem
+2026-08-11 16:06:54,747 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:06:54,861 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 5619cf7] init i
+ 1 file changed, 1 insertion(+)
+ create mode 100644 i.txt
+2026-08-11 16:06:54,928 [DEBUG] test_git_functions: git status 回调: Git: diff --git a/i.txt b/i.txt
+index e79c5e8..2e09960 100644
+--- a/i.txt
++++ b/i.txt
+@@ -1 +1 @@
+-initia
+2026-08-11 16:06:54,928 [INFO] test_git_functions: diff 长度: 111
+2026-08-11 16:06:54,934 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_i_viedem
+2026-08-11 16:06:55,016 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_82gzvy7y/.git/
+2026-08-11 16:06:55,137 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_82gzvy7y
+2026-08-11 16:06:55,181 [DEBUG] test_git_functions: git status 回调: Git error: fatal: your current branch 'master' does not have any commits yet
+2026-08-11 16:06:55,181 [INFO] test_git_functions: 空日志: []
+2026-08-11 16:06:55,185 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_82gzvy7y
+2026-08-11 16:06:55,251 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ync11ubu/.git/
+2026-08-11 16:06:55,344 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ync11ubu
+2026-08-11 16:06:55,390 [DEBUG] test_git_functions: git status 回调: Git: ?? c.txt
+2026-08-11 16:06:55,390 [INFO] test_git_functions: 详细状态: {'staged': [], 'unstaged': [], 'untracked': ['c.txt']}
+2026-08-11 16:06:55,394 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ync11ubu
+2026-08-11 16:06:55,458 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_x5pd7ztg/.git/
+2026-08-11 16:06:55,548 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_x5pd7ztg
+2026-08-11 16:06:55,593 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:06:55,593 [INFO] test_git_functions: 空状态: ''
+2026-08-11 16:06:55,598 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_x5pd7ztg
+2026-08-11 16:06:55,662 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_dxj0c6zl/.git/
+2026-08-11 16:06:55,751 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_dxj0c6zl
+2026-08-11 16:06:55,795 [DEBUG] test_git_functions: git status 回调: Git: ?? b.txt
+2026-08-11 16:06:55,795 [INFO] test_git_functions: 改动状态: ?? b.txt
+2026-08-11 16:06:55,800 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_dxj0c6zl
+2026-08-11 16:06:55,869 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_vetrr7uw/.git/
+2026-08-11 16:06:55,964 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_vetrr7uw
+2026-08-11 16:06:56,007 [DEBUG] test_git_functions: git status 回调: Git: d.txt
+2026-08-11 16:06:56,007 [INFO] test_git_functions: 未跟踪: ['d.txt']
+2026-08-11 16:06:56,012 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_vetrr7uw
+2026-08-11 16:06:56,076 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_22wv14_5/.git/
+2026-08-11 16:06:56,167 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_22wv14_5
+2026-08-11 16:06:56,210 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:06:56,258 [DEBUG] test_git_functions: git status 回调: Git: ?? e.txt
+2026-08-11 16:06:56,264 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_22wv14_5
+2026-08-11 16:06:56,336 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_mq7k4_z4/.git/
+2026-08-11 16:06:56,426 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_mq7k4_z4
+2026-08-11 16:06:56,469 [DEBUG] test_git_functions: git status 回调: Git: true
+2026-08-11 16:06:56,469 [INFO] test_git_functions: is_repo = True
+2026-08-11 16:06:56,474 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_mq7k4_z4
+2026-08-11 16:06:56,542 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_xu2gh916/.git/
+2026-08-11 16:06:56,629 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_xu2gh916
+2026-08-11 16:06:56,673 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_xu2gh916
+2026-08-11 16:07:05,302 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_k_k6r38p/.git/
+2026-08-11 16:07:05,404 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_k_k6r38p
+2026-08-11 16:07:05,467 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:07:05,514 [DEBUG] test_git_functions: git status 回调: Git: g.txt
+h.txt
+2026-08-11 16:07:05,514 [INFO] test_git_functions: 暂存文件: ['g.txt', 'h.txt']
+2026-08-11 16:07:05,521 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_k_k6r38p
+2026-08-11 16:07:05,589 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ovsjigg8/.git/
+2026-08-11 16:07:05,680 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ovsjigg8
+2026-08-11 16:07:05,737 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:07:05,837 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) a7d1516] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.tx
+2026-08-11 16:07:05,883 [DEBUG] test_git_functions: git status 回调: Git: a7d151627beb36c53e8d3f0893df060a2b4651e9|Test User|test@example.com|2026-08-11|first commit
+2026-08-11 16:07:05,883 [INFO] test_git_functions: 提交日志: [{'hash': 'a7d15162', 'author': 'Test User', 'email': 'test@example.com', 'date': '2026-08-11', 'message': 'first commit'}]
+2026-08-11 16:07:05,890 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ovsjigg8
+2026-08-11 16:07:05,963 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_q0m9vkjg/.git/
+2026-08-11 16:07:06,050 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_q0m9vkjg
+2026-08-11 16:07:06,107 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:07:06,200 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) aebd9ce] init for branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 f
+2026-08-11 16:07:06,248 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:07:06,311 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:07:06,358 [DEBUG] test_git_functions: git status 回调: Git: feature
+2026-08-11 16:07:06,358 [INFO] test_git_functions: 已切换到 feature 分支
+2026-08-11 16:07:06,365 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_q0m9vkjg
+2026-08-11 16:07:06,429 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test__m36qoqq/.git/
+2026-08-11 16:07:06,515 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test__m36qoqq
+2026-08-11 16:07:06,578 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:07:06,674 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 9b558b4] initial
+ 1 file changed, 1 insertion(+)
+ create mode 100644 init.txt
+2026-08-11 16:07:06,721 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 16:07:06,721 [INFO] test_git_functions: 分支列表: ['master']
+2026-08-11 16:07:06,728 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test__m36qoqq
+2026-08-11 16:07:06,796 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_z52kbtj9/.git/
+2026-08-11 16:07:06,889 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_z52kbtj9
+2026-08-11 16:07:06,930 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 16:07:06,930 [INFO] test_git_functions: 当前分支: master
+2026-08-11 16:07:06,935 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_z52kbtj9
+2026-08-11 16:07:06,998 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ibb4vb1o/.git/
+2026-08-11 16:07:07,104 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ibb4vb1o
+2026-08-11 16:07:07,151 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:07:07,247 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) f47f051] init i
+ 1 file changed, 1 insertion(+)
+ create mode 100644 i.txt
+2026-08-11 16:07:07,295 [DEBUG] test_git_functions: git status 回调: Git: diff --git a/i.txt b/i.txt
+index e79c5e8..2e09960 100644
+--- a/i.txt
++++ b/i.txt
+@@ -1 +1 @@
+-initia
+2026-08-11 16:07:07,295 [INFO] test_git_functions: diff 长度: 111
+2026-08-11 16:07:07,303 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ibb4vb1o
+2026-08-11 16:07:07,367 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_btjommr2/.git/
+2026-08-11 16:07:07,455 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_btjommr2
+2026-08-11 16:07:07,498 [DEBUG] test_git_functions: git status 回调: Git error: fatal: your current branch 'master' does not have any commits yet
+2026-08-11 16:07:07,498 [INFO] test_git_functions: 空日志: []
+2026-08-11 16:07:07,503 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_btjommr2
+2026-08-11 16:07:07,583 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_dp671bxm/.git/
+2026-08-11 16:07:07,669 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_dp671bxm
+2026-08-11 16:07:07,719 [DEBUG] test_git_functions: git status 回调: Git: ?? c.txt
+2026-08-11 16:07:07,719 [INFO] test_git_functions: 详细状态: {'staged': [], 'unstaged': [], 'untracked': ['c.txt']}
+2026-08-11 16:07:07,724 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_dp671bxm
+2026-08-11 16:07:07,799 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_t27_beo4/.git/
+2026-08-11 16:07:07,891 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_t27_beo4
+2026-08-11 16:07:07,936 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:07:07,936 [INFO] test_git_functions: 空状态: ''
+2026-08-11 16:07:07,941 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_t27_beo4
+2026-08-11 16:07:08,003 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ik210aod/.git/
+2026-08-11 16:07:08,091 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ik210aod
+2026-08-11 16:07:08,137 [DEBUG] test_git_functions: git status 回调: Git: ?? b.txt
+2026-08-11 16:07:08,137 [INFO] test_git_functions: 改动状态: ?? b.txt
+2026-08-11 16:07:08,142 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ik210aod
+2026-08-11 16:07:08,213 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_h3kvfqrd/.git/
+2026-08-11 16:07:08,335 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_h3kvfqrd
+2026-08-11 16:07:08,383 [DEBUG] test_git_functions: git status 回调: Git: d.txt
+2026-08-11 16:07:08,383 [INFO] test_git_functions: 未跟踪: ['d.txt']
+2026-08-11 16:07:08,388 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_h3kvfqrd
+2026-08-11 16:07:08,456 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_tsewo_uv/.git/
+2026-08-11 16:07:08,554 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_tsewo_uv
+2026-08-11 16:07:08,599 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:07:08,644 [DEBUG] test_git_functions: git status 回调: Git: ?? e.txt
+2026-08-11 16:07:08,648 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_tsewo_uv
+2026-08-11 16:07:08,725 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_xesj4x58/.git/
+2026-08-11 16:07:08,820 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_xesj4x58
+2026-08-11 16:07:08,864 [DEBUG] test_git_functions: git status 回调: Git: true
+2026-08-11 16:07:08,864 [INFO] test_git_functions: is_repo = True
+2026-08-11 16:07:08,869 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_xesj4x58
+2026-08-11 16:07:08,946 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_sa92m80x/.git/
+2026-08-11 16:07:09,036 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_sa92m80x
+2026-08-11 16:07:09,080 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_sa92m80x
+2026-08-11 16:44:29,355 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_vloiunw5/.git/
+2026-08-11 16:44:29,447 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_vloiunw5
+2026-08-11 16:44:29,504 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:44:29,548 [DEBUG] test_git_functions: git status 回调: Git: g.txt
+h.txt
+2026-08-11 16:44:29,548 [INFO] test_git_functions: 暂存文件: ['g.txt', 'h.txt']
+2026-08-11 16:44:29,556 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_vloiunw5
+2026-08-11 16:44:29,632 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_qxtrdn2l/.git/
+2026-08-11 16:44:29,716 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_qxtrdn2l
+2026-08-11 16:44:29,767 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:44:29,922 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 28bab18] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.tx
+2026-08-11 16:44:29,969 [DEBUG] test_git_functions: git status 回调: Git: 28bab186aa9ec76dd0c80f59892766d804474ad1|Test User|test@example.com|2026-08-11|first commit
+2026-08-11 16:44:29,969 [INFO] test_git_functions: 提交日志: [{'hash': '28bab186', 'author': 'Test User', 'email': 'test@example.com', 'date': '2026-08-11', 'message': 'first commit'}]
+2026-08-11 16:44:29,978 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_qxtrdn2l
+2026-08-11 16:44:30,046 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_wsiwm6r4/.git/
+2026-08-11 16:44:30,137 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_wsiwm6r4
+2026-08-11 16:44:30,187 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:44:30,275 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) c18160e] init for branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 f
+2026-08-11 16:44:30,322 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:44:30,387 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:44:30,432 [DEBUG] test_git_functions: git status 回调: Git: feature
+2026-08-11 16:44:30,432 [INFO] test_git_functions: 已切换到 feature 分支
+2026-08-11 16:44:30,441 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_wsiwm6r4
+2026-08-11 16:44:30,507 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_m7qioaw_/.git/
+2026-08-11 16:44:30,593 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_m7qioaw_
+2026-08-11 16:44:30,646 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:44:30,732 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 3d92030] initial
+ 1 file changed, 1 insertion(+)
+ create mode 100644 init.txt
+2026-08-11 16:44:30,773 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 16:44:30,774 [INFO] test_git_functions: 分支列表: ['master']
+2026-08-11 16:44:30,783 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_m7qioaw_
+2026-08-11 16:44:30,846 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_csdnf30a/.git/
+2026-08-11 16:44:30,935 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_csdnf30a
+2026-08-11 16:44:30,978 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 16:44:30,978 [INFO] test_git_functions: 当前分支: master
+2026-08-11 16:44:30,986 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_csdnf30a
+2026-08-11 16:44:31,053 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_7tpwyzu2/.git/
+2026-08-11 16:44:31,141 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_7tpwyzu2
+2026-08-11 16:44:31,191 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:44:31,280 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 6de01b1] init i
+ 1 file changed, 1 insertion(+)
+ create mode 100644 i.txt
+2026-08-11 16:44:31,324 [DEBUG] test_git_functions: git status 回调: Git: diff --git a/i.txt b/i.txt
+index e79c5e8..2e09960 100644
+--- a/i.txt
++++ b/i.txt
+@@ -1 +1 @@
+-initia
+2026-08-11 16:44:31,324 [INFO] test_git_functions: diff 长度: 111
+2026-08-11 16:44:31,332 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_7tpwyzu2
+2026-08-11 16:44:31,393 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_dkjd9awj/.git/
+2026-08-11 16:44:31,487 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_dkjd9awj
+2026-08-11 16:44:31,532 [DEBUG] test_git_functions: git status 回调: Git error: fatal: your current branch 'master' does not have any commits yet
+2026-08-11 16:44:31,532 [INFO] test_git_functions: 空日志: []
+2026-08-11 16:44:31,538 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_dkjd9awj
+2026-08-11 16:44:31,607 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_jpd63w7e/.git/
+2026-08-11 16:44:31,697 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_jpd63w7e
+2026-08-11 16:44:31,743 [DEBUG] test_git_functions: git status 回调: Git: ?? c.txt
+2026-08-11 16:44:31,743 [INFO] test_git_functions: 详细状态: {'staged': [], 'unstaged': [], 'untracked': ['c.txt']}
+2026-08-11 16:44:31,752 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_jpd63w7e
+2026-08-11 16:44:31,819 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_hq_rklqr/.git/
+2026-08-11 16:44:31,905 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_hq_rklqr
+2026-08-11 16:44:31,949 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:44:31,949 [INFO] test_git_functions: 空状态: ''
+2026-08-11 16:44:31,957 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_hq_rklqr
+2026-08-11 16:44:32,021 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_shruimn5/.git/
+2026-08-11 16:44:32,105 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_shruimn5
+2026-08-11 16:44:32,149 [DEBUG] test_git_functions: git status 回调: Git: ?? b.txt
+2026-08-11 16:44:32,149 [INFO] test_git_functions: 改动状态: ?? b.txt
+2026-08-11 16:44:32,157 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_shruimn5
+2026-08-11 16:44:32,229 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ks11dxwx/.git/
+2026-08-11 16:44:32,354 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ks11dxwx
+2026-08-11 16:44:32,417 [DEBUG] test_git_functions: git status 回调: Git: d.txt
+2026-08-11 16:44:32,417 [INFO] test_git_functions: 未跟踪: ['d.txt']
+2026-08-11 16:44:32,471 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ks11dxwx
+2026-08-11 16:44:32,568 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_axd3rxiu/.git/
+2026-08-11 16:44:32,689 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_axd3rxiu
+2026-08-11 16:44:32,757 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:44:32,833 [DEBUG] test_git_functions: git status 回调: Git: ?? e.txt
+2026-08-11 16:44:32,839 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_axd3rxiu
+2026-08-11 16:44:32,924 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_f3l_87pj/.git/
+2026-08-11 16:44:33,015 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_f3l_87pj
+2026-08-11 16:44:33,058 [DEBUG] test_git_functions: git status 回调: Git: true
+2026-08-11 16:44:33,058 [INFO] test_git_functions: is_repo = True
+2026-08-11 16:44:33,064 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_f3l_87pj
+2026-08-11 16:44:33,133 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_uyc59gnp/.git/
+2026-08-11 16:44:33,218 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_uyc59gnp
+2026-08-11 16:44:33,264 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_uyc59gnp
+2026-08-11 16:59:34,652 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_2knpavzh/.git/
+2026-08-11 16:59:34,889 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_2knpavzh
+2026-08-11 16:59:34,993 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:59:35,061 [DEBUG] test_git_functions: git status 回调: Git: g.txt
+h.txt
+2026-08-11 16:59:35,061 [INFO] test_git_functions: 暂存文件: ['g.txt', 'h.txt']
+2026-08-11 16:59:35,068 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_2knpavzh
+2026-08-11 16:59:35,165 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_1eq2j3t4/.git/
+2026-08-11 16:59:35,308 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_1eq2j3t4
+2026-08-11 16:59:35,360 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:59:35,629 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) ec9198a] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.tx
+2026-08-11 16:59:35,692 [DEBUG] test_git_functions: git status 回调: Git: ec9198afbee2ea5e73684c689457c7906d6eb81d|Test User|test@example.com|2026-08-11|first commit
+2026-08-11 16:59:35,692 [INFO] test_git_functions: 提交日志: [{'hash': 'ec9198af', 'author': 'Test User', 'email': 'test@example.com', 'date': '2026-08-11', 'message': 'first commit'}]
+2026-08-11 16:59:35,700 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_1eq2j3t4
+2026-08-11 16:59:35,829 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_bvd0roga/.git/
+2026-08-11 16:59:35,939 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_bvd0roga
+2026-08-11 16:59:35,998 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:59:36,104 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 0356c1c] init for branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 f
+2026-08-11 16:59:36,162 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:59:36,277 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:59:36,324 [DEBUG] test_git_functions: git status 回调: Git: feature
+2026-08-11 16:59:36,324 [INFO] test_git_functions: 已切换到 feature 分支
+2026-08-11 16:59:36,333 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_bvd0roga
+2026-08-11 16:59:36,401 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_3zbochs3/.git/
+2026-08-11 16:59:36,517 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_3zbochs3
+2026-08-11 16:59:36,595 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:59:36,803 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 49d2fe5] initial
+ 1 file changed, 1 insertion(+)
+ create mode 100644 init.txt
+2026-08-11 16:59:36,873 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 16:59:36,873 [INFO] test_git_functions: 分支列表: ['master']
+2026-08-11 16:59:36,880 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_3zbochs3
+2026-08-11 16:59:36,976 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_3qp74xkz/.git/
+2026-08-11 16:59:37,078 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_3qp74xkz
+2026-08-11 16:59:37,122 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 16:59:37,122 [INFO] test_git_functions: 当前分支: master
+2026-08-11 16:59:37,128 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_3qp74xkz
+2026-08-11 16:59:37,286 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_v7rf8fg6/.git/
+2026-08-11 16:59:37,404 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_v7rf8fg6
+2026-08-11 16:59:37,460 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:59:37,568 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 7413930] init i
+ 1 file changed, 1 insertion(+)
+ create mode 100644 i.txt
+2026-08-11 16:59:37,622 [DEBUG] test_git_functions: git status 回调: Git: diff --git a/i.txt b/i.txt
+index e79c5e8..2e09960 100644
+--- a/i.txt
++++ b/i.txt
+@@ -1 +1 @@
+-initia
+2026-08-11 16:59:37,622 [INFO] test_git_functions: diff 长度: 111
+2026-08-11 16:59:37,631 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_v7rf8fg6
+2026-08-11 16:59:37,758 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_5aw0qfxs/.git/
+2026-08-11 16:59:37,991 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_5aw0qfxs
+2026-08-11 16:59:38,046 [DEBUG] test_git_functions: git status 回调: Git error: fatal: your current branch 'master' does not have any commits yet
+2026-08-11 16:59:38,046 [INFO] test_git_functions: 空日志: []
+2026-08-11 16:59:38,053 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_5aw0qfxs
+2026-08-11 16:59:38,187 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_r8wnxai2/.git/
+2026-08-11 16:59:38,314 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_r8wnxai2
+2026-08-11 16:59:38,365 [DEBUG] test_git_functions: git status 回调: Git: ?? c.txt
+2026-08-11 16:59:38,365 [INFO] test_git_functions: 详细状态: {'staged': [], 'unstaged': [], 'untracked': ['c.txt']}
+2026-08-11 16:59:38,370 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_r8wnxai2
+2026-08-11 16:59:38,499 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test__9k4s2jx/.git/
+2026-08-11 16:59:38,862 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test__9k4s2jx
+2026-08-11 16:59:38,913 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:59:38,913 [INFO] test_git_functions: 空状态: ''
+2026-08-11 16:59:38,919 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test__9k4s2jx
+2026-08-11 16:59:39,330 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_lbybamob/.git/
+2026-08-11 16:59:39,531 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_lbybamob
+2026-08-11 16:59:39,586 [DEBUG] test_git_functions: git status 回调: Git: ?? b.txt
+2026-08-11 16:59:39,586 [INFO] test_git_functions: 改动状态: ?? b.txt
+2026-08-11 16:59:39,591 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_lbybamob
+2026-08-11 16:59:39,729 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_cpwwww31/.git/
+2026-08-11 16:59:39,865 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_cpwwww31
+2026-08-11 16:59:40,040 [DEBUG] test_git_functions: git status 回调: Git: d.txt
+2026-08-11 16:59:40,040 [INFO] test_git_functions: 未跟踪: ['d.txt']
+2026-08-11 16:59:40,046 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_cpwwww31
+2026-08-11 16:59:40,115 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_bk9q0_us/.git/
+2026-08-11 16:59:40,212 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_bk9q0_us
+2026-08-11 16:59:40,261 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:59:40,319 [DEBUG] test_git_functions: git status 回调: Git: ?? e.txt
+2026-08-11 16:59:40,324 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_bk9q0_us
+2026-08-11 16:59:40,397 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_l1gqmugc/.git/
+2026-08-11 16:59:40,743 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_l1gqmugc
+2026-08-11 16:59:40,798 [DEBUG] test_git_functions: git status 回调: Git: true
+2026-08-11 16:59:40,798 [INFO] test_git_functions: is_repo = True
+2026-08-11 16:59:40,802 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_l1gqmugc
+2026-08-11 16:59:40,987 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_t3hii24n/.git/
+2026-08-11 16:59:41,135 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_t3hii24n
+2026-08-11 16:59:41,187 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_t3hii24n
+2026-08-11 16:59:55,856 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_x3nw4dy3/.git/
+2026-08-11 16:59:56,021 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_x3nw4dy3
+2026-08-11 16:59:56,104 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:59:56,160 [DEBUG] test_git_functions: git status 回调: Git: g.txt
+h.txt
+2026-08-11 16:59:56,160 [INFO] test_git_functions: 暂存文件: ['g.txt', 'h.txt']
+2026-08-11 16:59:56,176 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_x3nw4dy3
+2026-08-11 16:59:56,313 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_v2urid7y/.git/
+2026-08-11 16:59:56,808 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_v2urid7y
+2026-08-11 16:59:56,923 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:59:57,476 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) a3c2a3e] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.tx
+2026-08-11 16:59:57,536 [DEBUG] test_git_functions: git status 回调: Git: a3c2a3ec65a5a2a321640e778da049c21892e169|Test User|test@example.com|2026-08-11|first commit
+2026-08-11 16:59:57,536 [INFO] test_git_functions: 提交日志: [{'hash': 'a3c2a3ec', 'author': 'Test User', 'email': 'test@example.com', 'date': '2026-08-11', 'message': 'first commit'}]
+2026-08-11 16:59:57,569 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_v2urid7y
+2026-08-11 16:59:57,671 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_o4uode72/.git/
+2026-08-11 16:59:58,075 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_o4uode72
+2026-08-11 16:59:58,172 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:59:58,781 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 6da161d] init for branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 f
+2026-08-11 16:59:58,839 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:59:58,901 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:59:58,990 [DEBUG] test_git_functions: git status 回调: Git: feature
+2026-08-11 16:59:58,991 [INFO] test_git_functions: 已切换到 feature 分支
+2026-08-11 16:59:58,998 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_o4uode72
+2026-08-11 16:59:59,091 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_s7a7uxyn/.git/
+2026-08-11 16:59:59,208 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_s7a7uxyn
+2026-08-11 16:59:59,261 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 16:59:59,392 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 5fb883f] initial
+ 1 file changed, 1 insertion(+)
+ create mode 100644 init.txt
+2026-08-11 16:59:59,481 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 16:59:59,481 [INFO] test_git_functions: 分支列表: ['master']
+2026-08-11 16:59:59,490 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_s7a7uxyn
+2026-08-11 16:59:59,571 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_4kqn4bv3/.git/
+2026-08-11 16:59:59,678 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_4kqn4bv3
+2026-08-11 16:59:59,726 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 16:59:59,726 [INFO] test_git_functions: 当前分支: master
+2026-08-11 16:59:59,733 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_4kqn4bv3
+2026-08-11 16:59:59,815 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_y6vz5km8/.git/
+2026-08-11 16:59:59,913 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_y6vz5km8
+2026-08-11 16:59:59,999 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 17:00:00,136 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 4f6ac31] init i
+ 1 file changed, 1 insertion(+)
+ create mode 100644 i.txt
+2026-08-11 17:00:00,187 [DEBUG] test_git_functions: git status 回调: Git: diff --git a/i.txt b/i.txt
+index e79c5e8..2e09960 100644
+--- a/i.txt
++++ b/i.txt
+@@ -1 +1 @@
+-initia
+2026-08-11 17:00:00,187 [INFO] test_git_functions: diff 长度: 111
+2026-08-11 17:00:00,195 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_y6vz5km8
+2026-08-11 17:00:00,277 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_96q4ner2/.git/
+2026-08-11 17:00:00,397 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_96q4ner2
+2026-08-11 17:00:00,502 [DEBUG] test_git_functions: git status 回调: Git error: fatal: your current branch 'master' does not have any commits yet
+2026-08-11 17:00:00,502 [INFO] test_git_functions: 空日志: []
+2026-08-11 17:00:00,507 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_96q4ner2
+2026-08-11 17:00:00,572 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_hasbh6od/.git/
+2026-08-11 17:00:00,680 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_hasbh6od
+2026-08-11 17:00:00,731 [DEBUG] test_git_functions: git status 回调: Git: ?? c.txt
+2026-08-11 17:00:00,731 [INFO] test_git_functions: 详细状态: {'staged': [], 'unstaged': [], 'untracked': ['c.txt']}
+2026-08-11 17:00:00,738 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_hasbh6od
+2026-08-11 17:00:00,826 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_jlrnjv83/.git/
+2026-08-11 17:00:00,938 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_jlrnjv83
+2026-08-11 17:00:01,032 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 17:00:01,032 [INFO] test_git_functions: 空状态: ''
+2026-08-11 17:00:01,037 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_jlrnjv83
+2026-08-11 17:00:01,107 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_uquxl12y/.git/
+2026-08-11 17:00:01,201 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_uquxl12y
+2026-08-11 17:00:01,252 [DEBUG] test_git_functions: git status 回调: Git: ?? b.txt
+2026-08-11 17:00:01,252 [INFO] test_git_functions: 改动状态: ?? b.txt
+2026-08-11 17:00:01,257 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_uquxl12y
+2026-08-11 17:00:01,338 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_6x934wng/.git/
+2026-08-11 17:00:02,237 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_6x934wng
+2026-08-11 17:00:02,448 [DEBUG] test_git_functions: git status 回调: Git: d.txt
+2026-08-11 17:00:02,448 [INFO] test_git_functions: 未跟踪: ['d.txt']
+2026-08-11 17:00:02,454 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_6x934wng
+2026-08-11 17:00:03,054 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_qk38m9b7/.git/
+2026-08-11 17:00:03,461 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_qk38m9b7
+2026-08-11 17:00:03,779 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 17:00:03,850 [DEBUG] test_git_functions: git status 回调: Git: ?? e.txt
+2026-08-11 17:00:03,854 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_qk38m9b7
+2026-08-11 17:00:03,957 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_cdp8xyfp/.git/
+2026-08-11 17:00:04,092 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_cdp8xyfp
+2026-08-11 17:00:04,135 [DEBUG] test_git_functions: git status 回调: Git: true
+2026-08-11 17:00:04,135 [INFO] test_git_functions: is_repo = True
+2026-08-11 17:00:04,141 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_cdp8xyfp
+2026-08-11 17:00:04,220 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_7px1_jnp/.git/
+2026-08-11 17:00:04,325 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_7px1_jnp
+2026-08-11 17:00:04,378 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_7px1_jnp
+2026-08-11 17:09:53,081 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test__7w78l3a/.git/
+2026-08-11 17:09:53,226 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test__7w78l3a
+2026-08-11 17:09:53,310 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 17:09:53,358 [DEBUG] test_git_functions: git status 回调: Git: g.txt
+h.txt
+2026-08-11 17:09:53,358 [INFO] test_git_functions: 暂存文件: ['g.txt', 'h.txt']
+2026-08-11 17:09:53,365 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test__7w78l3a
+2026-08-11 17:09:53,433 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_1nn42vuh/.git/
+2026-08-11 17:09:53,537 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_1nn42vuh
+2026-08-11 17:09:53,613 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 17:09:53,796 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 49508d3] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.tx
+2026-08-11 17:09:53,851 [DEBUG] test_git_functions: git status 回调: Git: 49508d319de892bb0417ea937c759e6186bb047a|Test User|test@example.com|2026-08-11|first commit
+2026-08-11 17:09:53,851 [INFO] test_git_functions: 提交日志: [{'hash': '49508d31', 'author': 'Test User', 'email': 'test@example.com', 'date': '2026-08-11', 'message': 'first commit'}]
+2026-08-11 17:09:53,858 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_1nn42vuh
+2026-08-11 17:09:53,938 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_1nk55yun/.git/
+2026-08-11 17:09:54,054 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_1nk55yun
+2026-08-11 17:09:54,112 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 17:09:54,273 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) f9fcef3] init for branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 f
+2026-08-11 17:09:54,328 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 17:09:54,388 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 17:09:54,433 [DEBUG] test_git_functions: git status 回调: Git: feature
+2026-08-11 17:09:54,434 [INFO] test_git_functions: 已切换到 feature 分支
+2026-08-11 17:09:54,441 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_1nk55yun
+2026-08-11 17:09:54,516 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_as_l1vo9/.git/
+2026-08-11 17:09:54,618 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_as_l1vo9
+2026-08-11 17:09:54,670 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 17:09:54,794 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 0a79354] initial
+ 1 file changed, 1 insertion(+)
+ create mode 100644 init.txt
+2026-08-11 17:09:54,845 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 17:09:54,845 [INFO] test_git_functions: 分支列表: ['master']
+2026-08-11 17:09:54,852 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_as_l1vo9
+2026-08-11 17:09:54,921 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_a8ypg5j5/.git/
+2026-08-11 17:09:55,044 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_a8ypg5j5
+2026-08-11 17:09:55,092 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 17:09:55,093 [INFO] test_git_functions: 当前分支: master
+2026-08-11 17:09:55,098 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_a8ypg5j5
+2026-08-11 17:09:55,165 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_u4t4g3a7/.git/
+2026-08-11 17:09:55,296 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_u4t4g3a7
+2026-08-11 17:09:55,348 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 17:09:55,445 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 21d1601] init i
+ 1 file changed, 1 insertion(+)
+ create mode 100644 i.txt
+2026-08-11 17:09:55,507 [DEBUG] test_git_functions: git status 回调: Git: diff --git a/i.txt b/i.txt
+index e79c5e8..2e09960 100644
+--- a/i.txt
++++ b/i.txt
+@@ -1 +1 @@
+-initia
+2026-08-11 17:09:55,508 [INFO] test_git_functions: diff 长度: 111
+2026-08-11 17:09:55,516 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_u4t4g3a7
+2026-08-11 17:09:55,618 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_bxosl8pa/.git/
+2026-08-11 17:09:55,757 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_bxosl8pa
+2026-08-11 17:09:55,805 [DEBUG] test_git_functions: git status 回调: Git error: fatal: your current branch 'master' does not have any commits yet
+2026-08-11 17:09:55,805 [INFO] test_git_functions: 空日志: []
+2026-08-11 17:09:55,812 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_bxosl8pa
+2026-08-11 17:09:55,886 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_h5egwu_i/.git/
+2026-08-11 17:09:56,001 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_h5egwu_i
+2026-08-11 17:09:56,052 [DEBUG] test_git_functions: git status 回调: Git: ?? c.txt
+2026-08-11 17:09:56,052 [INFO] test_git_functions: 详细状态: {'staged': [], 'unstaged': [], 'untracked': ['c.txt']}
+2026-08-11 17:09:56,058 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_h5egwu_i
+2026-08-11 17:09:56,130 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_hyx575bb/.git/
+2026-08-11 17:09:56,287 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_hyx575bb
+2026-08-11 17:09:56,337 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 17:09:56,337 [INFO] test_git_functions: 空状态: ''
+2026-08-11 17:09:56,342 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_hyx575bb
+2026-08-11 17:09:56,426 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_lj5yag03/.git/
+2026-08-11 17:09:56,534 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_lj5yag03
+2026-08-11 17:09:56,612 [DEBUG] test_git_functions: git status 回调: Git: ?? b.txt
+2026-08-11 17:09:56,612 [INFO] test_git_functions: 改动状态: ?? b.txt
+2026-08-11 17:09:56,617 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_lj5yag03
+2026-08-11 17:09:56,711 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_1i1x7dsz/.git/
+2026-08-11 17:09:56,885 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_1i1x7dsz
+2026-08-11 17:09:56,947 [DEBUG] test_git_functions: git status 回调: Git: d.txt
+2026-08-11 17:09:56,947 [INFO] test_git_functions: 未跟踪: ['d.txt']
+2026-08-11 17:09:56,952 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_1i1x7dsz
+2026-08-11 17:09:57,048 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_x5tf60st/.git/
+2026-08-11 17:09:57,142 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_x5tf60st
+2026-08-11 17:09:57,188 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 17:09:57,288 [DEBUG] test_git_functions: git status 回调: Git: ?? e.txt
+2026-08-11 17:09:57,294 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_x5tf60st
+2026-08-11 17:09:57,379 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_llw8setu/.git/
+2026-08-11 17:09:57,507 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_llw8setu
+2026-08-11 17:09:57,562 [DEBUG] test_git_functions: git status 回调: Git: true
+2026-08-11 17:09:57,562 [INFO] test_git_functions: is_repo = True
+2026-08-11 17:09:57,567 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_llw8setu
+2026-08-11 17:09:57,637 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_lwpz62hn/.git/
+2026-08-11 17:09:57,769 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_lwpz62hn
+2026-08-11 17:09:57,819 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_lwpz62hn
+2026-08-11 18:36:11,416 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_bwx2o8up/.git/
+2026-08-11 18:36:11,902 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_bwx2o8up
+2026-08-11 18:36:12,219 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:36:12,414 [DEBUG] test_git_functions: git status 回调: Git: g.txt
+h.txt
+2026-08-11 18:36:12,414 [INFO] test_git_functions: 暂存文件: ['g.txt', 'h.txt']
+2026-08-11 18:36:12,419 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_bwx2o8up
+2026-08-11 18:36:12,524 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_s1n4keuc/.git/
+2026-08-11 18:36:12,854 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_s1n4keuc
+2026-08-11 18:36:12,950 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:36:13,367 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 054c51d] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.tx
+2026-08-11 18:36:13,542 [DEBUG] test_git_functions: git status 回调: Git: 054c51dfbecda2bae593c15ba97b38f5ac7f7ef0|Test User|test@example.com|2026-08-11|first commit
+2026-08-11 18:36:13,542 [INFO] test_git_functions: 提交日志: [{'hash': '054c51df', 'author': 'Test User', 'email': 'test@example.com', 'date': '2026-08-11', 'message': 'first commit'}]
+2026-08-11 18:36:13,551 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_s1n4keuc
+2026-08-11 18:36:13,897 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_bq2iw_or/.git/
+2026-08-11 18:36:14,947 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_bq2iw_or
+2026-08-11 18:36:15,725 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:36:16,006 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 17566c2] init for branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 f
+2026-08-11 18:36:16,163 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:36:16,249 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:36:16,325 [DEBUG] test_git_functions: git status 回调: Git: feature
+2026-08-11 18:36:16,325 [INFO] test_git_functions: 已切换到 feature 分支
+2026-08-11 18:36:16,333 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_bq2iw_or
+2026-08-11 18:36:16,455 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_yd4pp3yg/.git/
+2026-08-11 18:36:17,245 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_yd4pp3yg
+2026-08-11 18:36:17,351 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:36:17,639 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 7395f64] initial
+ 1 file changed, 1 insertion(+)
+ create mode 100644 init.txt
+2026-08-11 18:36:17,744 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 18:36:17,745 [INFO] test_git_functions: 分支列表: ['master']
+2026-08-11 18:36:17,753 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_yd4pp3yg
+2026-08-11 18:36:18,074 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_jlk20l8b/.git/
+2026-08-11 18:36:18,199 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_jlk20l8b
+2026-08-11 18:36:18,258 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 18:36:18,258 [INFO] test_git_functions: 当前分支: master
+2026-08-11 18:36:18,263 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_jlk20l8b
+2026-08-11 18:36:18,350 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_tidy8c7d/.git/
+2026-08-11 18:36:18,471 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_tidy8c7d
+2026-08-11 18:36:18,554 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:36:18,714 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) df326b9] init i
+ 1 file changed, 1 insertion(+)
+ create mode 100644 i.txt
+2026-08-11 18:36:18,787 [DEBUG] test_git_functions: git status 回调: Git: diff --git a/i.txt b/i.txt
+index e79c5e8..2e09960 100644
+--- a/i.txt
++++ b/i.txt
+@@ -1 +1 @@
+-initia
+2026-08-11 18:36:18,787 [INFO] test_git_functions: diff 长度: 111
+2026-08-11 18:36:18,794 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_tidy8c7d
+2026-08-11 18:36:18,895 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_1h0otpx8/.git/
+2026-08-11 18:36:19,005 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_1h0otpx8
+2026-08-11 18:36:19,054 [DEBUG] test_git_functions: git status 回调: Git error: fatal: your current branch 'master' does not have any commits yet
+2026-08-11 18:36:19,054 [INFO] test_git_functions: 空日志: []
+2026-08-11 18:36:19,064 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_1h0otpx8
+2026-08-11 18:36:19,198 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_yosycol_/.git/
+2026-08-11 18:36:19,424 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_yosycol_
+2026-08-11 18:36:19,482 [DEBUG] test_git_functions: git status 回调: Git: ?? c.txt
+2026-08-11 18:36:19,482 [INFO] test_git_functions: 详细状态: {'staged': [], 'unstaged': [], 'untracked': ['c.txt']}
+2026-08-11 18:36:19,487 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_yosycol_
+2026-08-11 18:36:19,571 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ilxewnc8/.git/
+2026-08-11 18:36:19,689 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ilxewnc8
+2026-08-11 18:36:19,748 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:36:19,748 [INFO] test_git_functions: 空状态: ''
+2026-08-11 18:36:19,754 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ilxewnc8
+2026-08-11 18:36:19,844 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_60510l7g/.git/
+2026-08-11 18:36:19,959 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_60510l7g
+2026-08-11 18:36:20,035 [DEBUG] test_git_functions: git status 回调: Git: ?? b.txt
+2026-08-11 18:36:20,035 [INFO] test_git_functions: 改动状态: ?? b.txt
+2026-08-11 18:36:20,040 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_60510l7g
+2026-08-11 18:36:20,122 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_sgirfkhh/.git/
+2026-08-11 18:36:20,255 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_sgirfkhh
+2026-08-11 18:36:20,309 [DEBUG] test_git_functions: git status 回调: Git: d.txt
+2026-08-11 18:36:20,309 [INFO] test_git_functions: 未跟踪: ['d.txt']
+2026-08-11 18:36:20,314 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_sgirfkhh
+2026-08-11 18:36:20,406 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_khbuzn5e/.git/
+2026-08-11 18:36:20,522 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_khbuzn5e
+2026-08-11 18:36:20,590 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:36:20,644 [DEBUG] test_git_functions: git status 回调: Git: ?? e.txt
+2026-08-11 18:36:20,650 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_khbuzn5e
+2026-08-11 18:36:20,736 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_nfxssm84/.git/
+2026-08-11 18:36:20,847 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_nfxssm84
+2026-08-11 18:36:20,899 [DEBUG] test_git_functions: git status 回调: Git: true
+2026-08-11 18:36:20,899 [INFO] test_git_functions: is_repo = True
+2026-08-11 18:36:20,905 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_nfxssm84
+2026-08-11 18:36:20,998 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_mp5eig4e/.git/
+2026-08-11 18:36:21,129 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_mp5eig4e
+2026-08-11 18:36:21,190 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_mp5eig4e
+2026-08-11 18:38:03,709 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_lohr__t3/.git/
+2026-08-11 18:38:03,823 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_lohr__t3
+2026-08-11 18:38:03,884 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:38:03,932 [DEBUG] test_git_functions: git status 回调: Git: g.txt
+h.txt
+2026-08-11 18:38:03,933 [INFO] test_git_functions: 暂存文件: ['g.txt', 'h.txt']
+2026-08-11 18:38:03,939 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_lohr__t3
+2026-08-11 18:38:04,010 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_0ihzvzje/.git/
+2026-08-11 18:38:04,105 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_0ihzvzje
+2026-08-11 18:38:04,311 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:38:04,448 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) a58e78c] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.tx
+2026-08-11 18:38:04,498 [DEBUG] test_git_functions: git status 回调: Git: a58e78cdf0217a6ed5d4a339358f0bc704105d17|Test User|test@example.com|2026-08-11|first commit
+2026-08-11 18:38:04,498 [INFO] test_git_functions: 提交日志: [{'hash': 'a58e78cd', 'author': 'Test User', 'email': 'test@example.com', 'date': '2026-08-11', 'message': 'first commit'}]
+2026-08-11 18:38:04,506 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_0ihzvzje
+2026-08-11 18:38:04,574 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_iw3lmy78/.git/
+2026-08-11 18:38:04,671 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_iw3lmy78
+2026-08-11 18:38:04,723 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:38:04,839 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 70608da] init for branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 f
+2026-08-11 18:38:04,890 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:38:04,951 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:38:04,999 [DEBUG] test_git_functions: git status 回调: Git: feature
+2026-08-11 18:38:05,000 [INFO] test_git_functions: 已切换到 feature 分支
+2026-08-11 18:38:05,007 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_iw3lmy78
+2026-08-11 18:38:05,097 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ydfmo75j/.git/
+2026-08-11 18:38:05,221 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ydfmo75j
+2026-08-11 18:38:05,274 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:38:05,392 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 878ad83] initial
+ 1 file changed, 1 insertion(+)
+ create mode 100644 init.txt
+2026-08-11 18:38:05,439 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 18:38:05,439 [INFO] test_git_functions: 分支列表: ['master']
+2026-08-11 18:38:05,447 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ydfmo75j
+2026-08-11 18:38:05,540 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ygwrqe92/.git/
+2026-08-11 18:38:05,654 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ygwrqe92
+2026-08-11 18:38:05,720 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 18:38:05,720 [INFO] test_git_functions: 当前分支: master
+2026-08-11 18:38:05,725 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ygwrqe92
+2026-08-11 18:38:05,818 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_1sn_agc2/.git/
+2026-08-11 18:38:05,943 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_1sn_agc2
+2026-08-11 18:38:06,020 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:38:06,119 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) cd1acca] init i
+ 1 file changed, 1 insertion(+)
+ create mode 100644 i.txt
+2026-08-11 18:38:06,171 [DEBUG] test_git_functions: git status 回调: Git: diff --git a/i.txt b/i.txt
+index e79c5e8..2e09960 100644
+--- a/i.txt
++++ b/i.txt
+@@ -1 +1 @@
+-initia
+2026-08-11 18:38:06,171 [INFO] test_git_functions: diff 长度: 111
+2026-08-11 18:38:06,178 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_1sn_agc2
+2026-08-11 18:38:06,247 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_59hsetw3/.git/
+2026-08-11 18:38:06,339 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_59hsetw3
+2026-08-11 18:38:06,386 [DEBUG] test_git_functions: git status 回调: Git error: fatal: your current branch 'master' does not have any commits yet
+2026-08-11 18:38:06,387 [INFO] test_git_functions: 空日志: []
+2026-08-11 18:38:06,392 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_59hsetw3
+2026-08-11 18:38:06,462 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_n1gf31m0/.git/
+2026-08-11 18:38:06,613 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_n1gf31m0
+2026-08-11 18:38:06,961 [DEBUG] test_git_functions: git status 回调: Git: ?? c.txt
+2026-08-11 18:38:06,961 [INFO] test_git_functions: 详细状态: {'staged': [], 'unstaged': [], 'untracked': ['c.txt']}
+2026-08-11 18:38:06,966 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_n1gf31m0
+2026-08-11 18:38:07,105 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_5bjq1ch7/.git/
+2026-08-11 18:38:07,257 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_5bjq1ch7
+2026-08-11 18:38:07,312 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:38:07,312 [INFO] test_git_functions: 空状态: ''
+2026-08-11 18:38:07,317 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_5bjq1ch7
+2026-08-11 18:38:07,403 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_h506e8rd/.git/
+2026-08-11 18:38:07,558 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_h506e8rd
+2026-08-11 18:38:07,632 [DEBUG] test_git_functions: git status 回调: Git: ?? b.txt
+2026-08-11 18:38:07,632 [INFO] test_git_functions: 改动状态: ?? b.txt
+2026-08-11 18:38:07,637 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_h506e8rd
+2026-08-11 18:38:07,744 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_9bu84s3o/.git/
+2026-08-11 18:38:07,894 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_9bu84s3o
+2026-08-11 18:38:07,985 [DEBUG] test_git_functions: git status 回调: Git: d.txt
+2026-08-11 18:38:07,985 [INFO] test_git_functions: 未跟踪: ['d.txt']
+2026-08-11 18:38:07,991 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_9bu84s3o
+2026-08-11 18:38:08,096 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ga5c3598/.git/
+2026-08-11 18:38:08,205 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ga5c3598
+2026-08-11 18:38:08,255 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:38:08,312 [DEBUG] test_git_functions: git status 回调: Git: ?? e.txt
+2026-08-11 18:38:08,320 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ga5c3598
+2026-08-11 18:38:08,415 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_h3d82f2v/.git/
+2026-08-11 18:38:08,537 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_h3d82f2v
+2026-08-11 18:38:08,587 [DEBUG] test_git_functions: git status 回调: Git: true
+2026-08-11 18:38:08,587 [INFO] test_git_functions: is_repo = True
+2026-08-11 18:38:08,592 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_h3d82f2v
+2026-08-11 18:38:08,677 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_nltmfluy/.git/
+2026-08-11 18:38:08,790 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_nltmfluy
+2026-08-11 18:38:08,850 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_nltmfluy
+2026-08-11 18:38:25,580 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_u593f_c3/.git/
+2026-08-11 18:38:25,685 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_u593f_c3
+2026-08-11 18:38:25,746 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:38:25,812 [DEBUG] test_git_functions: git status 回调: Git: g.txt
+h.txt
+2026-08-11 18:38:25,812 [INFO] test_git_functions: 暂存文件: ['g.txt', 'h.txt']
+2026-08-11 18:38:25,818 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_u593f_c3
+2026-08-11 18:38:25,885 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_1q6ti1q2/.git/
+2026-08-11 18:38:25,981 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_1q6ti1q2
+2026-08-11 18:38:26,035 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:38:26,140 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) e53716d] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.tx
+2026-08-11 18:38:26,194 [DEBUG] test_git_functions: git status 回调: Git: e53716d65ba5f5924ce96a63a9de4116dd81a55b|Test User|test@example.com|2026-08-11|first commit
+2026-08-11 18:38:26,194 [INFO] test_git_functions: 提交日志: [{'hash': 'e53716d6', 'author': 'Test User', 'email': 'test@example.com', 'date': '2026-08-11', 'message': 'first commit'}]
+2026-08-11 18:38:26,201 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_1q6ti1q2
+2026-08-11 18:38:26,274 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ajt4_qcp/.git/
+2026-08-11 18:38:26,371 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ajt4_qcp
+2026-08-11 18:38:26,428 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:38:26,525 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) a25d041] init for branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 f
+2026-08-11 18:38:26,610 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:38:26,723 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:38:26,804 [DEBUG] test_git_functions: git status 回调: Git: feature
+2026-08-11 18:38:26,804 [INFO] test_git_functions: 已切换到 feature 分支
+2026-08-11 18:38:26,812 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ajt4_qcp
+2026-08-11 18:38:26,889 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_dummsdx2/.git/
+2026-08-11 18:38:27,002 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_dummsdx2
+2026-08-11 18:38:27,065 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:38:27,163 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) c4ee692] initial
+ 1 file changed, 1 insertion(+)
+ create mode 100644 init.txt
+2026-08-11 18:38:27,209 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 18:38:27,209 [INFO] test_git_functions: 分支列表: ['master']
+2026-08-11 18:38:27,216 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_dummsdx2
+2026-08-11 18:38:27,294 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_qtmi11bd/.git/
+2026-08-11 18:38:27,397 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_qtmi11bd
+2026-08-11 18:38:27,445 [DEBUG] test_git_functions: git status 回调: Git: master
+2026-08-11 18:38:27,445 [INFO] test_git_functions: 当前分支: master
+2026-08-11 18:38:27,450 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_qtmi11bd
+2026-08-11 18:38:27,534 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_gj8iiwql/.git/
+2026-08-11 18:38:27,640 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_gj8iiwql
+2026-08-11 18:38:27,710 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:38:27,810 [DEBUG] test_git_functions: git status 回调: Git: [master (root-commit) 718e117] init i
+ 1 file changed, 1 insertion(+)
+ create mode 100644 i.txt
+2026-08-11 18:38:27,862 [DEBUG] test_git_functions: git status 回调: Git: diff --git a/i.txt b/i.txt
+index e79c5e8..2e09960 100644
+--- a/i.txt
++++ b/i.txt
+@@ -1 +1 @@
+-initia
+2026-08-11 18:38:27,862 [INFO] test_git_functions: diff 长度: 111
+2026-08-11 18:38:27,869 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_gj8iiwql
+2026-08-11 18:38:27,940 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_yfrqu1to/.git/
+2026-08-11 18:38:28,040 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_yfrqu1to
+2026-08-11 18:38:28,103 [DEBUG] test_git_functions: git status 回调: Git error: fatal: your current branch 'master' does not have any commits yet
+2026-08-11 18:38:28,103 [INFO] test_git_functions: 空日志: []
+2026-08-11 18:38:28,109 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_yfrqu1to
+2026-08-11 18:38:28,224 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_3hhfcjx_/.git/
+2026-08-11 18:38:28,359 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_3hhfcjx_
+2026-08-11 18:38:28,435 [DEBUG] test_git_functions: git status 回调: Git: ?? c.txt
+2026-08-11 18:38:28,435 [INFO] test_git_functions: 详细状态: {'staged': [], 'unstaged': [], 'untracked': ['c.txt']}
+2026-08-11 18:38:28,442 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_3hhfcjx_
+2026-08-11 18:38:28,525 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_hbwsyw7j/.git/
+2026-08-11 18:38:28,630 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_hbwsyw7j
+2026-08-11 18:38:28,680 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:38:28,680 [INFO] test_git_functions: 空状态: ''
+2026-08-11 18:38:28,685 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_hbwsyw7j
+2026-08-11 18:38:28,755 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_ju_dw2zs/.git/
+2026-08-11 18:38:28,859 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_ju_dw2zs
+2026-08-11 18:38:28,907 [DEBUG] test_git_functions: git status 回调: Git: ?? b.txt
+2026-08-11 18:38:28,907 [INFO] test_git_functions: 改动状态: ?? b.txt
+2026-08-11 18:38:28,912 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_ju_dw2zs
+2026-08-11 18:38:28,978 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_gsp2f0jx/.git/
+2026-08-11 18:38:29,077 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_gsp2f0jx
+2026-08-11 18:38:29,122 [DEBUG] test_git_functions: git status 回调: Git: d.txt
+2026-08-11 18:38:29,122 [INFO] test_git_functions: 未跟踪: ['d.txt']
+2026-08-11 18:38:29,127 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_gsp2f0jx
+2026-08-11 18:38:29,200 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_jlfsji0m/.git/
+2026-08-11 18:38:29,301 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_jlfsji0m
+2026-08-11 18:38:29,346 [DEBUG] test_git_functions: git status 回调: Git: 
+2026-08-11 18:38:29,392 [DEBUG] test_git_functions: git status 回调: Git: ?? e.txt
+2026-08-11 18:38:29,397 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_jlfsji0m
+2026-08-11 18:38:29,467 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_g15lniko/.git/
+2026-08-11 18:38:29,562 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_g15lniko
+2026-08-11 18:38:29,607 [DEBUG] test_git_functions: git status 回调: Git: true
+2026-08-11 18:38:29,607 [INFO] test_git_functions: is_repo = True
+2026-08-11 18:38:29,612 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_g15lniko
+2026-08-11 18:38:29,688 [DEBUG] test_git_functions: git status 回调: Git: Initialized empty Git repository in C:/Users/yydsh/AppData/Local/Temp/git_test_gbgmid1q/.git/
+2026-08-11 18:38:29,780 [DEBUG] test_git_functions: setUp: 仓库 C:\Users\yydsh\AppData\Local\Temp\git_test_gbgmid1q
+2026-08-11 18:38:29,831 [DEBUG] test_git_functions: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\git_test_gbgmid1q
+2026-08-13 18:15:30,357 [INFO] test_git_functions: add_and_commit: file added and committed
+2026-08-13 18:15:31,441 [INFO] test_git_functions: commit_chinese_message: message stored verbatim
+2026-08-13 18:15:32,531 [INFO] test_git_functions: discard_all_keep_untracked: untracked preserved by default
+2026-08-13 18:15:33,791 [INFO] test_git_functions: discard_all_remove_untracked: untracked removed when requested
+2026-08-13 18:15:33,829 [INFO] test_git_functions: add_and_commit: file added and committed
+2026-08-13 18:15:34,422 [INFO] test_git_functions: is_repo_true: repo detected
+2026-08-13 18:15:34,826 [INFO] test_git_functions: commit_chinese_message: message stored verbatim
+2026-08-13 18:15:35,518 [INFO] test_git_functions: status_rename: rename resolved to new path
+2026-08-13 18:15:35,783 [INFO] test_git_functions: discard_all_keep_untracked: untracked preserved by default
+2026-08-13 18:15:36,057 [INFO] test_git_functions: status_untracked: untracked file detected
+2026-08-13 18:15:36,624 [INFO] test_git_functions: status_quotepath: chinese path returned literally
+2026-08-13 18:15:36,633 [INFO] test_git_functions: commit_stdin_flag: message piped via -F -
+2026-08-13 18:15:36,633 [INFO] test_git_functions: pull_branch_arg: branch appended only when provided
+2026-08-13 18:15:36,634 [INFO] test_git_functions: push_branch_arg: branch appended only when provided
+2026-08-13 18:15:36,634 [INFO] test_git_functions: git_not_installed_sentinel: sentinel returned
+2026-08-13 18:15:36,634 [INFO] test_git_functions: git_timeout: timeout reported
+2026-08-13 18:15:36,726 [INFO] test_git_functions: discard_all_remove_untracked: untracked removed when requested
+2026-08-13 18:15:37,184 [INFO] test_git_functions: is_repo_true: repo detected
+2026-08-13 18:15:37,873 [INFO] test_git_functions: status_rename: rename resolved to new path
+2026-08-13 18:15:38,190 [INFO] test_git_functions: status_untracked: untracked file detected
+2026-08-13 18:15:38,500 [INFO] test_git_functions: status_quotepath: chinese path returned literally
+2026-08-13 18:15:38,509 [INFO] test_git_functions: commit_stdin_flag: message piped via -F -
+2026-08-13 18:15:38,510 [INFO] test_git_functions: pull_branch_arg: branch appended only when provided
+2026-08-13 18:15:38,510 [INFO] test_git_functions: push_branch_arg: branch appended only when provided
+2026-08-13 18:15:38,510 [INFO] test_git_functions: git_not_installed_sentinel: sentinel returned
+2026-08-13 18:15:38,510 [INFO] test_git_functions: git_timeout: timeout reported
+2026-08-13 19:13:18,919 [INFO] test_git_functions: add_and_commit: file added and committed
+2026-08-13 19:13:20,331 [INFO] test_git_functions: commit_chinese_message: message stored verbatim
+2026-08-13 19:13:21,215 [INFO] test_git_functions: discard_all_keep_untracked: untracked preserved by default
+2026-08-13 19:13:22,674 [INFO] test_git_functions: discard_all_remove_untracked: untracked removed when requested
+2026-08-13 19:13:23,276 [INFO] test_git_functions: is_repo_true: repo detected
+2026-08-13 19:13:26,107 [INFO] test_git_functions: status_rename: rename resolved to new path
+2026-08-13 19:13:26,655 [INFO] test_git_functions: status_untracked: untracked file detected
+2026-08-13 19:13:27,720 [INFO] test_git_functions: status_quotepath: chinese path returned literally
+2026-08-13 19:13:27,737 [INFO] test_git_functions: commit_stdin_flag: message piped via -F -
+2026-08-13 19:13:27,738 [INFO] test_git_functions: pull_branch_arg: branch appended only when provided
+2026-08-13 19:13:27,738 [INFO] test_git_functions: push_branch_arg: branch appended only when provided
+2026-08-13 19:13:27,738 [INFO] test_git_functions: git_not_installed_sentinel: sentinel returned
+2026-08-13 19:13:27,739 [INFO] test_git_functions: git_timeout: timeout reported
+2026-08-13 19:14:20,608 [INFO] test_git_functions: add_and_commit: file added and committed
+2026-08-13 19:14:22,018 [INFO] test_git_functions: commit_chinese_message: message stored verbatim
+2026-08-13 19:14:22,953 [INFO] test_git_functions: discard_all_keep_untracked: untracked preserved by default
+2026-08-13 19:14:23,855 [INFO] test_git_functions: discard_all_remove_untracked: untracked removed when requested
+2026-08-13 19:14:24,481 [INFO] test_git_functions: is_repo_true: repo detected
+2026-08-13 19:14:25,364 [INFO] test_git_functions: status_rename: rename resolved to new path
+2026-08-13 19:14:25,994 [INFO] test_git_functions: status_untracked: untracked file detected
+2026-08-13 19:14:26,484 [INFO] test_git_functions: status_quotepath: chinese path returned literally
+2026-08-13 19:14:26,496 [INFO] test_git_functions: commit_stdin_flag: message piped via -F -
+2026-08-13 19:14:26,497 [INFO] test_git_functions: pull_branch_arg: branch appended only when provided
+2026-08-13 19:14:26,497 [INFO] test_git_functions: push_branch_arg: branch appended only when provided
+2026-08-13 19:14:26,497 [INFO] test_git_functions: git_not_installed_sentinel: sentinel returned
+2026-08-13 19:14:26,497 [INFO] test_git_functions: git_timeout: timeout reported
+2026-08-13 19:14:40,227 [INFO] test_git_functions: add_and_commit: file added and committed
+2026-08-13 19:14:40,869 [INFO] test_git_functions: commit_chinese_message: message stored verbatim
+2026-08-13 19:14:41,736 [INFO] test_git_functions: discard_all_keep_untracked: untracked preserved by default
+2026-08-13 19:14:42,441 [INFO] test_git_functions: discard_all_remove_untracked: untracked removed when requested
+2026-08-13 19:14:42,796 [INFO] test_git_functions: is_repo_true: repo detected
+2026-08-13 19:14:43,469 [INFO] test_git_functions: status_rename: rename resolved to new path
+2026-08-13 19:14:43,942 [INFO] test_git_functions: status_untracked: untracked file detected
+2026-08-13 19:14:44,367 [INFO] test_git_functions: status_quotepath: chinese path returned literally
+2026-08-13 19:14:44,378 [INFO] test_git_functions: commit_stdin_flag: message piped via -F -
+2026-08-13 19:14:44,379 [INFO] test_git_functions: pull_branch_arg: branch appended only when provided
+2026-08-13 19:14:44,379 [INFO] test_git_functions: push_branch_arg: branch appended only when provided
+2026-08-13 19:14:44,379 [INFO] test_git_functions: git_not_installed_sentinel: sentinel returned
+2026-08-13 19:14:44,379 [INFO] test_git_functions: git_timeout: timeout reported
+2026-08-13 19:29:56,789 [INFO] test_git_functions: add_and_commit: file added and committed
+2026-08-13 19:29:57,550 [INFO] test_git_functions: commit_chinese_message: message stored verbatim
+2026-08-13 19:29:58,167 [INFO] test_git_functions: discard_all_keep_untracked: untracked preserved by default
+2026-08-13 19:29:58,848 [INFO] test_git_functions: discard_all_remove_untracked: untracked removed when requested
+2026-08-13 19:29:59,466 [INFO] test_git_functions: is_repo_true: repo detected
+2026-08-13 19:30:00,221 [INFO] test_git_functions: status_rename: rename resolved to new path
+2026-08-13 19:30:00,574 [INFO] test_git_functions: status_untracked: untracked file detected
+2026-08-13 19:30:00,969 [INFO] test_git_functions: status_quotepath: chinese path returned literally
+2026-08-13 19:30:00,979 [INFO] test_git_functions: commit_stdin_flag: message piped via -F -
+2026-08-13 19:30:00,979 [INFO] test_git_functions: pull_branch_arg: branch appended only when provided
+2026-08-13 19:30:00,979 [INFO] test_git_functions: push_branch_arg: branch appended only when provided
+2026-08-13 19:30:00,980 [INFO] test_git_functions: git_not_installed_sentinel: sentinel returned
+2026-08-13 19:30:00,980 [INFO] test_git_functions: git_timeout: timeout reported
+2026-08-13 19:38:43,425 [INFO] test_git_functions: add_and_commit: file added and committed
+2026-08-13 19:38:44,486 [INFO] test_git_functions: commit_chinese_message: message stored verbatim
+2026-08-13 19:38:45,237 [INFO] test_git_functions: discard_all_keep_untracked: untracked preserved by default
+2026-08-13 19:38:46,062 [INFO] test_git_functions: discard_all_remove_untracked: untracked removed when requested
+2026-08-13 19:38:46,721 [INFO] test_git_functions: is_repo_true: repo detected
+2026-08-13 19:38:47,408 [INFO] test_git_functions: status_rename: rename resolved to new path
+2026-08-13 19:38:47,747 [INFO] test_git_functions: status_untracked: untracked file detected
+2026-08-13 19:38:48,086 [INFO] test_git_functions: status_quotepath: chinese path returned literally
+2026-08-13 19:38:48,094 [INFO] test_git_functions: commit_stdin_flag: message piped via -F -
+2026-08-13 19:38:48,166 [INFO] test_git_functions: git_not_installed_sentinel: sentinel returned
+2026-08-13 19:38:48,166 [INFO] test_git_functions: git_timeout: timeout reported
+2026-08-13 19:39:16,518 [INFO] test_git_functions: add_and_commit: file added and committed
+2026-08-13 19:39:17,245 [INFO] test_git_functions: commit_chinese_message: message stored verbatim
+2026-08-13 19:39:18,075 [INFO] test_git_functions: discard_all_keep_untracked: untracked preserved by default
+2026-08-13 19:39:19,048 [INFO] test_git_functions: discard_all_remove_untracked: untracked removed when requested
+2026-08-13 19:39:19,436 [INFO] test_git_functions: is_repo_true: repo detected
+2026-08-13 19:39:20,239 [INFO] test_git_functions: status_rename: rename resolved to new path
+2026-08-13 19:39:20,653 [INFO] test_git_functions: status_untracked: untracked file detected
+2026-08-13 19:39:21,135 [INFO] test_git_functions: status_quotepath: chinese path returned literally
+2026-08-13 19:39:21,144 [INFO] test_git_functions: commit_stdin_flag: message piped via -F -
+2026-08-13 19:39:21,144 [INFO] test_git_functions: pull_branch_arg: branch appended only when provided
+2026-08-13 19:39:21,144 [INFO] test_git_functions: push_branch_arg: branch appended only when provided
+2026-08-13 19:39:21,145 [INFO] test_git_functions: git_not_installed_sentinel: sentinel returned
+2026-08-13 19:39:21,146 [INFO] test_git_functions: git_timeout: timeout reported
+2026-08-13 20:40:45,316 [INFO] test_git_functions: add_and_commit: file added and committed
+2026-08-13 20:40:46,103 [INFO] test_git_functions: commit_chinese_message: message stored verbatim
+2026-08-13 20:40:46,920 [INFO] test_git_functions: discard_all_keep_untracked: untracked preserved by default
+2026-08-13 20:40:47,796 [INFO] test_git_functions: discard_all_remove_untracked: untracked removed when requested
+2026-08-13 20:40:48,270 [INFO] test_git_functions: is_repo_true: repo detected
+2026-08-13 20:40:49,245 [INFO] test_git_functions: status_rename: rename resolved to new path
+2026-08-13 20:40:49,640 [INFO] test_git_functions: status_untracked: untracked file detected
+2026-08-13 20:40:50,028 [INFO] test_git_functions: status_quotepath: chinese path returned literally
+2026-08-13 20:40:50,039 [INFO] test_git_functions: commit_stdin_flag: message piped via -F -
+2026-08-13 20:40:50,039 [INFO] test_git_functions: pull_branch_arg: branch appended only when provided
+2026-08-13 20:40:50,039 [INFO] test_git_functions: push_branch_arg: branch appended only when provided
+2026-08-13 20:40:50,040 [INFO] test_git_functions: git_not_installed_sentinel: sentinel returned
+2026-08-13 20:40:50,040 [INFO] test_git_functions: git_timeout: timeout reported
+2026-08-13 21:26:11,676 [INFO] test_git_functions: add_and_commit: file added and committed
+2026-08-13 21:26:12,319 [INFO] test_git_functions: commit_chinese_message: message stored verbatim
+2026-08-13 21:26:12,914 [INFO] test_git_functions: discard_all_keep_untracked: untracked preserved by default
+2026-08-13 21:26:13,552 [INFO] test_git_functions: discard_all_remove_untracked: untracked removed when requested
+2026-08-13 21:26:13,965 [INFO] test_git_functions: is_repo_true: repo detected
+2026-08-13 21:26:14,689 [INFO] test_git_functions: status_rename: rename resolved to new path
+2026-08-13 21:26:15,041 [INFO] test_git_functions: status_untracked: untracked file detected
+2026-08-13 21:26:15,399 [INFO] test_git_functions: status_quotepath: chinese path returned literally
+2026-08-13 21:26:15,408 [INFO] test_git_functions: commit_stdin_flag: message piped via -F -
+2026-08-13 21:26:15,409 [INFO] test_git_functions: pull_branch_arg: branch appended only when provided
+2026-08-13 21:26:15,409 [INFO] test_git_functions: push_branch_arg: branch appended only when provided
+2026-08-13 21:26:15,409 [INFO] test_git_functions: git_not_installed_sentinel: sentinel returned
+2026-08-13 21:26:15,409 [INFO] test_git_functions: git_timeout: timeout reported

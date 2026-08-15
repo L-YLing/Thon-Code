@@ -1,0 +1,500 @@
+2026-08-10 14:06:57,952 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_i1iasg6r\data.json
+2026-08-10 14:06:57,952 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_i1iasg6r\\data.json', 'code': 404}
+2026-08-10 14:06:57,953 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_i1iasg6r
+2026-08-10 14:06:57,953 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_p2doa_0x\data.json
+2026-08-10 14:06:58,042 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_p2doa_0x\\data.json', 'code': 500}
+2026-08-10 14:06:58,043 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_p2doa_0x
+2026-08-10 14:06:58,043 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_2d6tnyip\data.json
+2026-08-10 14:06:58,071 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-10 14:06:58,072 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_2d6tnyip
+2026-08-10 14:06:58,073 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_ikj483bo\data.json
+2026-08-10 14:06:58,074 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_ikj483bo\\data.json successfully.', 'code': 200}
+2026-08-10 14:06:58,108 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_ikj483bo
+2026-08-10 14:06:58,109 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_u6d613_m\data.json
+2026-08-10 14:06:58,119 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-10 14:06:58,135 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_u6d613_m
+2026-08-10 14:06:58,136 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_kiqfkgmx\data.json
+2026-08-10 14:06:58,157 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-10 14:06:58,158 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_kiqfkgmx
+2026-08-10 14:10:14,386 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_qin85id6\data.json
+2026-08-10 14:10:14,387 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_qin85id6\\data.json', 'code': 404}
+2026-08-10 14:10:14,387 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_qin85id6
+2026-08-10 14:10:14,388 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_jfmikhg0\data.json
+2026-08-10 14:10:14,399 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_jfmikhg0\\data.json', 'code': 500}
+2026-08-10 14:10:14,400 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_jfmikhg0
+2026-08-10 14:10:14,400 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_g6oj1wyk\data.json
+2026-08-10 14:10:14,402 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-10 14:10:14,403 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_g6oj1wyk
+2026-08-10 14:10:14,403 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_4bebm6ar\data.json
+2026-08-10 14:10:14,404 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_4bebm6ar\\data.json successfully.', 'code': 200}
+2026-08-10 14:10:14,406 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_4bebm6ar
+2026-08-10 14:10:14,406 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_a9twhc2i\data.json
+2026-08-10 14:10:14,408 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-10 14:10:14,408 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_a9twhc2i
+2026-08-10 14:10:14,409 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_s3828rmj\data.json
+2026-08-10 14:10:14,410 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-10 14:10:14,411 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_s3828rmj
+2026-08-10 14:11:02,302 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_ebv2g885\data.json
+2026-08-10 14:11:02,302 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_ebv2g885\\data.json', 'code': 404}
+2026-08-10 14:11:02,302 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_ebv2g885
+2026-08-10 14:11:02,303 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_w2pin78r\data.json
+2026-08-10 14:11:02,304 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_w2pin78r\\data.json', 'code': 500}
+2026-08-10 14:11:02,305 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_w2pin78r
+2026-08-10 14:11:02,305 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_vwqo00gy\data.json
+2026-08-10 14:11:02,317 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-10 14:11:02,328 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_vwqo00gy
+2026-08-10 14:11:02,328 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_him9xgux\data.json
+2026-08-10 14:11:02,329 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_him9xgux\\data.json successfully.', 'code': 200}
+2026-08-10 14:11:02,334 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_him9xgux
+2026-08-10 14:11:02,349 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_dxockjmj\data.json
+2026-08-10 14:11:02,359 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-10 14:11:02,359 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_dxockjmj
+2026-08-10 14:11:02,360 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_pmfewrk2\data.json
+2026-08-10 14:11:02,361 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-10 14:11:02,362 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_pmfewrk2
+2026-08-10 14:27:42,712 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_ubqr9doq\data.json
+2026-08-10 14:27:42,713 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_ubqr9doq\\data.json', 'code': 404}
+2026-08-10 14:27:42,714 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_ubqr9doq
+2026-08-10 14:27:42,715 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_nsbkbmyo\data.json
+2026-08-10 14:27:42,721 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_nsbkbmyo\\data.json', 'code': 500}
+2026-08-10 14:27:42,723 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_nsbkbmyo
+2026-08-10 14:27:42,725 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_kqdjvgwm\data.json
+2026-08-10 14:27:42,727 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-10 14:27:42,729 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_kqdjvgwm
+2026-08-10 14:27:42,730 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_wyml3q0a\data.json
+2026-08-10 14:27:42,731 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_wyml3q0a\\data.json successfully.', 'code': 200}
+2026-08-10 14:27:42,739 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_wyml3q0a
+2026-08-10 14:27:42,742 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_f0rvco3_\data.json
+2026-08-10 14:27:42,744 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-10 14:27:42,745 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_f0rvco3_
+2026-08-10 14:27:42,747 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_fv0pig1o\data.json
+2026-08-10 14:27:42,749 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-10 14:27:42,750 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_fv0pig1o
+2026-08-10 14:52:06,076 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_jypfmyxf\data.json
+2026-08-10 14:52:06,077 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_jypfmyxf\\data.json', 'code': 404}
+2026-08-10 14:52:06,077 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_jypfmyxf
+2026-08-10 14:52:06,078 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_k_xqfmfm\data.json
+2026-08-10 14:52:06,093 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_k_xqfmfm\\data.json', 'code': 500}
+2026-08-10 14:52:06,093 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_k_xqfmfm
+2026-08-10 14:52:06,094 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_7ahu7saf\data.json
+2026-08-10 14:52:06,095 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-10 14:52:06,096 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_7ahu7saf
+2026-08-10 14:52:06,097 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_7tprgqgw\data.json
+2026-08-10 14:52:06,097 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_7tprgqgw\\data.json successfully.', 'code': 200}
+2026-08-10 14:52:06,102 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_7tprgqgw
+2026-08-10 14:52:06,102 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_qqxc2map\data.json
+2026-08-10 14:52:06,105 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-10 14:52:06,105 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_qqxc2map
+2026-08-10 14:52:06,106 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_dlyhffqb\data.json
+2026-08-10 14:52:06,107 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-10 14:52:06,108 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_dlyhffqb
+2026-08-10 14:54:31,874 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_b9popqd4\data.json
+2026-08-10 14:54:31,874 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_b9popqd4\\data.json', 'code': 404}
+2026-08-10 14:54:31,875 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_b9popqd4
+2026-08-10 14:54:31,875 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_65ab3yze\data.json
+2026-08-10 14:54:31,877 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_65ab3yze\\data.json', 'code': 500}
+2026-08-10 14:54:31,878 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_65ab3yze
+2026-08-10 14:54:31,878 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_4z8oblp5\data.json
+2026-08-10 14:54:31,883 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-10 14:54:31,884 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_4z8oblp5
+2026-08-10 14:54:31,885 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_sxi8mdrq\data.json
+2026-08-10 14:54:31,886 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_sxi8mdrq\\data.json successfully.', 'code': 200}
+2026-08-10 14:54:31,888 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_sxi8mdrq
+2026-08-10 14:54:31,889 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_6qgbsexl\data.json
+2026-08-10 14:54:31,891 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-10 14:54:31,891 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_6qgbsexl
+2026-08-10 14:54:31,892 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_2j8d011b\data.json
+2026-08-10 14:54:31,894 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-10 14:54:31,895 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_2j8d011b
+2026-08-11 16:06:43,870 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_4tbui41z\data.json
+2026-08-11 16:06:43,872 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_4tbui41z\\data.json', 'code': 404}
+2026-08-11 16:06:43,872 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_4tbui41z
+2026-08-11 16:06:43,875 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test__684nruo\data.json
+2026-08-11 16:06:43,887 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test__684nruo\\data.json', 'code': 500}
+2026-08-11 16:06:43,887 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test__684nruo
+2026-08-11 16:06:43,890 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_z87tpi_0\data.json
+2026-08-11 16:06:43,899 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-11 16:06:43,900 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_z87tpi_0
+2026-08-11 16:06:43,902 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_e3jxcdsj\data.json
+2026-08-11 16:06:43,903 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_e3jxcdsj\\data.json successfully.', 'code': 200}
+2026-08-11 16:06:43,913 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_e3jxcdsj
+2026-08-11 16:06:43,916 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_e07fd_wn\data.json
+2026-08-11 16:06:43,926 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-11 16:06:43,926 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_e07fd_wn
+2026-08-11 16:06:43,929 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_pxrirlwa\data.json
+2026-08-11 16:06:43,937 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-11 16:06:43,959 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_pxrirlwa
+2026-08-11 16:06:56,673 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_rzm_7c9s\data.json
+2026-08-11 16:06:56,674 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_rzm_7c9s\\data.json', 'code': 404}
+2026-08-11 16:06:56,674 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_rzm_7c9s
+2026-08-11 16:06:56,674 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_u2l170_8\data.json
+2026-08-11 16:06:56,676 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_u2l170_8\\data.json', 'code': 500}
+2026-08-11 16:06:56,677 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_u2l170_8
+2026-08-11 16:06:56,677 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_d_6d7mma\data.json
+2026-08-11 16:06:56,679 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-11 16:06:56,680 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_d_6d7mma
+2026-08-11 16:06:56,680 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_jrip1jhs\data.json
+2026-08-11 16:06:56,681 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_jrip1jhs\\data.json successfully.', 'code': 200}
+2026-08-11 16:06:56,683 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_jrip1jhs
+2026-08-11 16:06:56,683 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_6t7nedwn\data.json
+2026-08-11 16:06:56,686 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-11 16:06:56,687 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_6t7nedwn
+2026-08-11 16:06:56,688 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_96mazwgn\data.json
+2026-08-11 16:06:56,690 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-11 16:06:56,690 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_96mazwgn
+2026-08-11 16:07:09,081 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_vyke8u67\data.json
+2026-08-11 16:07:09,081 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_vyke8u67\\data.json', 'code': 404}
+2026-08-11 16:07:09,081 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_vyke8u67
+2026-08-11 16:07:09,082 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test__ojj3y_4\data.json
+2026-08-11 16:07:09,084 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test__ojj3y_4\\data.json', 'code': 500}
+2026-08-11 16:07:09,084 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test__ojj3y_4
+2026-08-11 16:07:09,085 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_lnm235c0\data.json
+2026-08-11 16:07:09,088 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-11 16:07:09,089 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_lnm235c0
+2026-08-11 16:07:09,089 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_kp4x3txc\data.json
+2026-08-11 16:07:09,090 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_kp4x3txc\\data.json successfully.', 'code': 200}
+2026-08-11 16:07:09,091 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_kp4x3txc
+2026-08-11 16:07:09,092 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_v33tim9d\data.json
+2026-08-11 16:07:09,094 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-11 16:07:09,094 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_v33tim9d
+2026-08-11 16:07:09,095 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_antaiclq\data.json
+2026-08-11 16:07:09,097 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-11 16:07:09,097 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_antaiclq
+2026-08-11 16:44:28,726 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_x7dlza29\data.json
+2026-08-11 16:44:28,726 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_x7dlza29\\data.json', 'code': 404}
+2026-08-11 16:44:28,727 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_x7dlza29
+2026-08-11 16:44:28,729 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_14valyos\data.json
+2026-08-11 16:44:28,731 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_14valyos\\data.json', 'code': 500}
+2026-08-11 16:44:28,732 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_14valyos
+2026-08-11 16:44:28,734 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_7kp_e7s2\data.json
+2026-08-11 16:44:28,746 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-11 16:44:28,747 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_7kp_e7s2
+2026-08-11 16:44:28,749 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_0tjz6bkq\data.json
+2026-08-11 16:44:28,749 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_0tjz6bkq\\data.json successfully.', 'code': 200}
+2026-08-11 16:44:28,755 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_0tjz6bkq
+2026-08-11 16:44:28,756 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_5vifan7b\data.json
+2026-08-11 16:44:28,758 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-11 16:44:28,759 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_5vifan7b
+2026-08-11 16:44:28,761 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_hw6hx66j\data.json
+2026-08-11 16:44:28,772 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-11 16:44:28,773 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_hw6hx66j
+2026-08-11 16:59:41,188 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_ha7bs_n4\data.json
+2026-08-11 16:59:41,188 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_ha7bs_n4\\data.json', 'code': 404}
+2026-08-11 16:59:41,189 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_ha7bs_n4
+2026-08-11 16:59:41,189 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_esngv5yk\data.json
+2026-08-11 16:59:41,191 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_esngv5yk\\data.json', 'code': 500}
+2026-08-11 16:59:41,192 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_esngv5yk
+2026-08-11 16:59:41,192 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_jaz3_2ti\data.json
+2026-08-11 16:59:41,195 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-11 16:59:41,195 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_jaz3_2ti
+2026-08-11 16:59:41,196 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_gdd3toot\data.json
+2026-08-11 16:59:41,197 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_gdd3toot\\data.json successfully.', 'code': 200}
+2026-08-11 16:59:41,207 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_gdd3toot
+2026-08-11 16:59:41,208 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_1arsfz_2\data.json
+2026-08-11 16:59:41,220 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-11 16:59:41,220 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_1arsfz_2
+2026-08-11 16:59:41,221 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_38ppnrm1\data.json
+2026-08-11 16:59:41,223 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-11 16:59:41,225 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_38ppnrm1
+2026-08-11 17:00:04,378 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_7bdzil5j\data.json
+2026-08-11 17:00:04,379 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_7bdzil5j\\data.json', 'code': 404}
+2026-08-11 17:00:04,379 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_7bdzil5j
+2026-08-11 17:00:04,380 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_n6q368f2\data.json
+2026-08-11 17:00:04,382 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_n6q368f2\\data.json', 'code': 500}
+2026-08-11 17:00:04,383 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_n6q368f2
+2026-08-11 17:00:04,384 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_de4frwnj\data.json
+2026-08-11 17:00:04,386 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-11 17:00:04,386 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_de4frwnj
+2026-08-11 17:00:04,387 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_mxy3ij4r\data.json
+2026-08-11 17:00:04,387 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_mxy3ij4r\\data.json successfully.', 'code': 200}
+2026-08-11 17:00:04,390 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_mxy3ij4r
+2026-08-11 17:00:04,390 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_5gbizpwn\data.json
+2026-08-11 17:00:04,392 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-11 17:00:04,393 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_5gbizpwn
+2026-08-11 17:00:04,393 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_x7akv3_f\data.json
+2026-08-11 17:00:04,395 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-11 17:00:04,396 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_x7akv3_f
+2026-08-11 17:09:51,488 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_ugbhirm7\data.json
+2026-08-11 17:09:51,489 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_ugbhirm7\\data.json', 'code': 404}
+2026-08-11 17:09:51,489 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_ugbhirm7
+2026-08-11 17:09:51,490 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_18mloes5\data.json
+2026-08-11 17:09:51,491 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_18mloes5\\data.json', 'code': 500}
+2026-08-11 17:09:51,492 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_18mloes5
+2026-08-11 17:09:51,493 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_yzltephp\data.json
+2026-08-11 17:09:51,494 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-11 17:09:51,495 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_yzltephp
+2026-08-11 17:09:51,495 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_fcsxkong\data.json
+2026-08-11 17:09:51,496 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_fcsxkong\\data.json successfully.', 'code': 200}
+2026-08-11 17:09:51,498 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_fcsxkong
+2026-08-11 17:09:51,498 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_aazkoy20\data.json
+2026-08-11 17:09:51,509 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-11 17:09:51,509 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_aazkoy20
+2026-08-11 17:09:51,510 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_gx_fcecu\data.json
+2026-08-11 17:09:51,519 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-11 17:09:51,520 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_gx_fcecu
+2026-08-11 18:36:10,281 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_iwr25kul\data.json
+2026-08-11 18:36:10,282 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_iwr25kul\\data.json', 'code': 404}
+2026-08-11 18:36:10,282 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_iwr25kul
+2026-08-11 18:36:10,282 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_suduqgqz\data.json
+2026-08-11 18:36:10,284 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_suduqgqz\\data.json', 'code': 500}
+2026-08-11 18:36:10,285 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_suduqgqz
+2026-08-11 18:36:10,286 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_ihgpnfzg\data.json
+2026-08-11 18:36:10,288 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-11 18:36:10,289 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_ihgpnfzg
+2026-08-11 18:36:10,289 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_qyxmyf_e\data.json
+2026-08-11 18:36:10,290 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_qyxmyf_e\\data.json successfully.', 'code': 200}
+2026-08-11 18:36:10,292 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_qyxmyf_e
+2026-08-11 18:36:10,292 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_432h_ok_\data.json
+2026-08-11 18:36:10,294 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-11 18:36:10,295 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_432h_ok_
+2026-08-11 18:36:10,296 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_vm5_q7bo\data.json
+2026-08-11 18:36:10,298 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-11 18:36:10,298 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_vm5_q7bo
+2026-08-11 18:38:03,118 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_782wq52g\data.json
+2026-08-11 18:38:03,119 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_782wq52g\\data.json', 'code': 404}
+2026-08-11 18:38:03,119 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_782wq52g
+2026-08-11 18:38:03,122 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_ab5_46ah\data.json
+2026-08-11 18:38:03,125 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_ab5_46ah\\data.json', 'code': 500}
+2026-08-11 18:38:03,126 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_ab5_46ah
+2026-08-11 18:38:03,128 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_kzjocy9y\data.json
+2026-08-11 18:38:03,130 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-11 18:38:03,131 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_kzjocy9y
+2026-08-11 18:38:03,133 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_wbzmghtl\data.json
+2026-08-11 18:38:03,134 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_wbzmghtl\\data.json successfully.', 'code': 200}
+2026-08-11 18:38:03,136 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_wbzmghtl
+2026-08-11 18:38:03,140 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_d8v6nfbc\data.json
+2026-08-11 18:38:03,142 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-11 18:38:03,143 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_d8v6nfbc
+2026-08-11 18:38:03,145 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_a10ntckg\data.json
+2026-08-11 18:38:03,147 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-11 18:38:03,148 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_a10ntckg
+2026-08-11 18:38:25,128 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_fmx4laus\data.json
+2026-08-11 18:38:25,128 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_fmx4laus\\data.json', 'code': 404}
+2026-08-11 18:38:25,129 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_fmx4laus
+2026-08-11 18:38:25,130 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_j8dvii8r\data.json
+2026-08-11 18:38:25,131 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_j8dvii8r\\data.json', 'code': 500}
+2026-08-11 18:38:25,132 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_j8dvii8r
+2026-08-11 18:38:25,137 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_of4d8duh\data.json
+2026-08-11 18:38:25,139 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-11 18:38:25,140 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_of4d8duh
+2026-08-11 18:38:25,140 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_uatnuy4d\data.json
+2026-08-11 18:38:25,141 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_uatnuy4d\\data.json successfully.', 'code': 200}
+2026-08-11 18:38:25,144 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_uatnuy4d
+2026-08-11 18:38:25,144 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_eoy7grd8\data.json
+2026-08-11 18:38:25,146 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-11 18:38:25,147 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_eoy7grd8
+2026-08-11 18:38:25,148 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_so7086wi\data.json
+2026-08-11 18:38:25,149 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-11 18:38:25,150 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_so7086wi
+2026-08-13 18:15:31,949 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_cuho_n9x\data.json
+2026-08-13 18:15:31,949 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_cuho_n9x\\data.json', 'code': 404}
+2026-08-13 18:15:31,950 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_cuho_n9x
+2026-08-13 18:15:31,950 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_0vhqcjc_\data.json
+2026-08-13 18:15:31,961 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_0vhqcjc_\\data.json', 'code': 500}
+2026-08-13 18:15:31,962 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_0vhqcjc_
+2026-08-13 18:15:31,963 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_b47ou_dk\data.json
+2026-08-13 18:15:31,972 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-13 18:15:31,973 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_b47ou_dk
+2026-08-13 18:15:31,973 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_msoxhprz\data.json
+2026-08-13 18:15:31,974 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_msoxhprz\\data.json successfully.', 'code': 200}
+2026-08-13 18:15:31,986 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_msoxhprz
+2026-08-13 18:15:31,987 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_dzutu_ax\data.json
+2026-08-13 18:15:31,997 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-13 18:15:31,998 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_dzutu_ax
+2026-08-13 18:15:31,999 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_2nn0ir49\data.json
+2026-08-13 18:15:32,009 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-13 18:15:32,010 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_2nn0ir49
+2026-08-13 19:13:16,658 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_l_ktqkjh\data.json
+2026-08-13 19:13:16,658 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_l_ktqkjh\\data.json', 'code': 404}
+2026-08-13 19:13:16,659 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_l_ktqkjh
+2026-08-13 19:13:16,659 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_bb2_u90c\data.json
+2026-08-13 19:13:16,663 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_bb2_u90c\\data.json', 'code': 500}
+2026-08-13 19:13:16,664 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_bb2_u90c
+2026-08-13 19:13:16,665 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_36su49r6\data.json
+2026-08-13 19:13:16,670 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-13 19:13:16,671 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_36su49r6
+2026-08-13 19:13:16,671 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_yct84tl5\data.json
+2026-08-13 19:13:16,672 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_yct84tl5\\data.json successfully.', 'code': 200}
+2026-08-13 19:13:16,675 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_yct84tl5
+2026-08-13 19:13:16,676 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_iwt5ykow\data.json
+2026-08-13 19:13:16,691 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-13 19:13:16,692 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_iwt5ykow
+2026-08-13 19:13:16,694 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_bnsfa39i\data.json
+2026-08-13 19:13:16,696 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-13 19:13:16,697 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_bnsfa39i
+2026-08-13 19:14:17,629 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_0xfkwqyc\data.json
+2026-08-13 19:14:17,629 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_0xfkwqyc\\data.json', 'code': 404}
+2026-08-13 19:14:17,630 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_0xfkwqyc
+2026-08-13 19:14:17,639 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_q6931evu\data.json
+2026-08-13 19:14:17,642 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_q6931evu\\data.json', 'code': 500}
+2026-08-13 19:14:17,643 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_q6931evu
+2026-08-13 19:14:17,644 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_cjein_9g\data.json
+2026-08-13 19:14:17,655 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-13 19:14:17,658 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_cjein_9g
+2026-08-13 19:14:17,659 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_tx9q7v66\data.json
+2026-08-13 19:14:17,660 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_tx9q7v66\\data.json successfully.', 'code': 200}
+2026-08-13 19:14:17,669 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_tx9q7v66
+2026-08-13 19:14:17,670 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_3gtz1znp\data.json
+2026-08-13 19:14:17,674 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-13 19:14:17,677 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_3gtz1znp
+2026-08-13 19:14:17,698 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_oem8tcow\data.json
+2026-08-13 19:14:17,703 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-13 19:14:17,704 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_oem8tcow
+2026-08-13 19:14:38,424 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_r_k0balv\data.json
+2026-08-13 19:14:38,425 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_r_k0balv\\data.json', 'code': 404}
+2026-08-13 19:14:38,425 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_r_k0balv
+2026-08-13 19:14:38,426 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_z7luejcu\data.json
+2026-08-13 19:14:38,429 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_z7luejcu\\data.json', 'code': 500}
+2026-08-13 19:14:38,431 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_z7luejcu
+2026-08-13 19:14:38,431 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_hbxc_72c\data.json
+2026-08-13 19:14:38,435 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-13 19:14:38,436 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_hbxc_72c
+2026-08-13 19:14:38,437 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_lgt6i13h\data.json
+2026-08-13 19:14:38,437 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_lgt6i13h\\data.json successfully.', 'code': 200}
+2026-08-13 19:14:38,445 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_lgt6i13h
+2026-08-13 19:14:38,446 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_52zmbb9l\data.json
+2026-08-13 19:14:38,449 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-13 19:14:38,450 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_52zmbb9l
+2026-08-13 19:14:38,450 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_2i75h4rm\data.json
+2026-08-13 19:14:38,452 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-13 19:14:38,454 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_2i75h4rm
+2026-08-13 19:29:55,341 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_wfpp6yrn\data.json
+2026-08-13 19:29:55,342 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_wfpp6yrn\\data.json', 'code': 404}
+2026-08-13 19:29:55,342 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_wfpp6yrn
+2026-08-13 19:29:55,343 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_lfg_fj3x\data.json
+2026-08-13 19:29:55,345 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_lfg_fj3x\\data.json', 'code': 500}
+2026-08-13 19:29:55,346 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_lfg_fj3x
+2026-08-13 19:29:55,348 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_8xsl_xc0\data.json
+2026-08-13 19:29:55,352 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-13 19:29:55,353 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_8xsl_xc0
+2026-08-13 19:29:55,354 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_r0nfqa2y\data.json
+2026-08-13 19:29:55,355 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_r0nfqa2y\\data.json successfully.', 'code': 200}
+2026-08-13 19:29:55,358 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_r0nfqa2y
+2026-08-13 19:29:55,358 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_k42m_813\data.json
+2026-08-13 19:29:55,361 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-13 19:29:55,362 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_k42m_813
+2026-08-13 19:29:55,363 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_07g7eem0\data.json
+2026-08-13 19:29:55,366 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-13 19:29:55,368 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_07g7eem0
+2026-08-13 19:38:41,449 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_z2s4ioo_\data.json
+2026-08-13 19:38:41,449 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_z2s4ioo_\\data.json', 'code': 404}
+2026-08-13 19:38:41,450 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_z2s4ioo_
+2026-08-13 19:38:41,451 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_znnfr9eb\data.json
+2026-08-13 19:38:41,453 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_znnfr9eb\\data.json', 'code': 500}
+2026-08-13 19:38:41,455 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_znnfr9eb
+2026-08-13 19:38:41,455 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_tgvgp3gw\data.json
+2026-08-13 19:38:41,458 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-13 19:38:41,461 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_tgvgp3gw
+2026-08-13 19:38:41,462 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test__g9xijwx\data.json
+2026-08-13 19:38:41,462 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test__g9xijwx\\data.json successfully.', 'code': 200}
+2026-08-13 19:38:41,465 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test__g9xijwx
+2026-08-13 19:38:41,466 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_b9ebxfwo\data.json
+2026-08-13 19:38:41,468 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-13 19:38:41,469 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_b9ebxfwo
+2026-08-13 19:38:41,470 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_zpxod8z2\data.json
+2026-08-13 19:38:41,486 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-13 19:38:41,487 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_zpxod8z2
+2026-08-13 19:39:15,110 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_tgiql4p2\data.json
+2026-08-13 19:39:15,111 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_tgiql4p2\\data.json', 'code': 404}
+2026-08-13 19:39:15,111 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_tgiql4p2
+2026-08-13 19:39:15,112 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_qype1cfk\data.json
+2026-08-13 19:39:15,117 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_qype1cfk\\data.json', 'code': 500}
+2026-08-13 19:39:15,118 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_qype1cfk
+2026-08-13 19:39:15,118 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_dso1zmfg\data.json
+2026-08-13 19:39:15,121 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-13 19:39:15,122 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_dso1zmfg
+2026-08-13 19:39:15,122 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_ih1z2ksw\data.json
+2026-08-13 19:39:15,123 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_ih1z2ksw\\data.json successfully.', 'code': 200}
+2026-08-13 19:39:15,126 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_ih1z2ksw
+2026-08-13 19:39:15,126 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_b83xqx3y\data.json
+2026-08-13 19:39:15,133 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-13 19:39:15,135 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_b83xqx3y
+2026-08-13 19:39:15,135 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_omgkyq8l\data.json
+2026-08-13 19:39:15,138 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-13 19:39:15,139 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_omgkyq8l
+2026-08-13 20:40:43,530 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_357qcnhs\data.json
+2026-08-13 20:40:43,530 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_357qcnhs\\data.json', 'code': 404}
+2026-08-13 20:40:43,531 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_357qcnhs
+2026-08-13 20:40:43,531 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_zh_wh6hf\data.json
+2026-08-13 20:40:43,534 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_zh_wh6hf\\data.json', 'code': 500}
+2026-08-13 20:40:43,536 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_zh_wh6hf
+2026-08-13 20:40:43,540 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_1n3awjj_\data.json
+2026-08-13 20:40:43,543 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-13 20:40:43,544 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_1n3awjj_
+2026-08-13 20:40:43,545 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_f5q5flbr\data.json
+2026-08-13 20:40:43,546 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_f5q5flbr\\data.json successfully.', 'code': 200}
+2026-08-13 20:40:43,548 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_f5q5flbr
+2026-08-13 20:40:43,549 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_9681tces\data.json
+2026-08-13 20:40:43,552 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-13 20:40:43,556 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_9681tces
+2026-08-13 20:40:43,557 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_3whvor_u\data.json
+2026-08-13 20:40:43,559 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-13 20:40:43,560 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_3whvor_u
+2026-08-13 21:26:09,968 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_gexr4fll\data.json
+2026-08-13 21:26:09,969 [INFO] test_json_handle: get_json(不存在) 返回: {'status': 'error', 'data': 'File not found: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_gexr4fll\\data.json', 'code': 404}
+2026-08-13 21:26:09,969 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_gexr4fll
+2026-08-13 21:26:09,970 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_3l6vuj4o\data.json
+2026-08-13 21:26:09,973 [INFO] test_json_handle: get_json(格式错误) 返回: {'status': 'error', 'data': 'Invalid JSON format in file: C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_3l6vuj4o\\data.json', 'code': 500}
+2026-08-13 21:26:09,974 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_3l6vuj4o
+2026-08-13 21:26:09,975 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_9m4eiv64\data.json
+2026-08-13 21:26:09,984 [INFO] test_json_handle: get_json(正常) 返回: {'status': 'success', 'data': {'name': 'thon', 'version': '1.0', 'items': [1, 2, 3]}, 'code': 200}
+2026-08-13 21:26:09,985 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_9m4eiv64
+2026-08-13 21:26:09,986 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_4uxk7epc\data.json
+2026-08-13 21:26:09,987 [INFO] test_json_handle: write_json 返回: {'status': 'success', 'data': 'Data has been written to C:\\Users\\yydsh\\AppData\\Local\\Temp\\json_test_4uxk7epc\\data.json successfully.', 'code': 200}
+2026-08-13 21:26:09,990 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_4uxk7epc
+2026-08-13 21:26:09,991 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_2pymxzn7\data.json
+2026-08-13 21:26:09,993 [INFO] test_json_handle: unicode 原文: {
+    "greeting": "你好，世界"
+}
+2026-08-13 21:26:09,994 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_2pymxzn7
+2026-08-13 21:26:09,995 [DEBUG] test_json_handle: setUp: 临时 JSON C:\Users\yydsh\AppData\Local\Temp\json_test_2m78z0mr\data.json
+2026-08-13 21:26:09,997 [INFO] test_json_handle: roundtrip 读取: {'status': 'success', 'data': {'language': 'zh_cn', 'nested': {'a': 1}}, 'code': 200}
+2026-08-13 21:26:09,998 [DEBUG] test_json_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\json_test_2m78z0mr

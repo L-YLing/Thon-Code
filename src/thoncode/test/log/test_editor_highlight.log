@@ -1,0 +1,22 @@
+2026-08-13 18:16:28,118 [INFO] test_editor_highlight: build_word_index: words mapped to tags correctly
+2026-08-13 18:16:28,121 [INFO] test_editor_highlight: ensure_word_index_rebuilds: index invalidated on groups change
+2026-08-13 18:16:28,121 [INFO] test_editor_highlight: find_matching_bracket_forward: closing bracket found at offset 5
+2026-08-13 18:16:28,121 [INFO] test_editor_highlight: find_matching_bracket_nested: nested brackets matched correctly
+2026-08-13 18:16:28,125 [INFO] test_editor_highlight: find_matching_bracket_no_bracket: non-bracket returns None
+2026-08-13 18:16:28,126 [INFO] test_editor_highlight: find_matching_bracket_unclosed: unclosed bracket returns None
+2026-08-13 18:16:28,135 [INFO] test_editor_highlight: groups_signature_changes: signature reflects word count
+2026-08-13 18:16:28,135 [INFO] test_editor_highlight: highlight_line_classname_tag: classname tagged
+2026-08-13 18:16:28,136 [INFO] test_editor_highlight: highlight_line_function_call_tag: function call tagged
+2026-08-13 18:16:28,136 [INFO] test_editor_highlight: highlight_line_number_tag: number literal tagged
+2026-08-13 18:16:28,136 [INFO] test_editor_highlight: highlight_line_string_tag: string literal tagged
+2026-08-13 18:16:28,136 [INFO] test_editor_highlight: highlight_line_uses_word_index: keyword tagged via dict lookup
+2026-08-13 18:16:28,136 [INFO] test_editor_highlight: package_declaration: package dict verified
+2026-08-13 18:16:28,136 [INFO] test_editor_highlight: performance_constants_exist: constants verified
+2026-08-13 18:16:28,136 [INFO] test_editor_highlight: scan_line_multiline_closed_same_line: closed triple quote stays False
+2026-08-13 18:16:28,137 [INFO] test_editor_highlight: scan_line_multiline_continuation: inside multiline stays True
+2026-08-13 18:16:28,137 [INFO] test_editor_highlight: scan_line_multiline_ignores_in_string: triple quote in string ignored
+2026-08-13 18:16:28,137 [INFO] test_editor_highlight: scan_line_multiline_normal: normal line stays False
+2026-08-13 18:16:28,137 [INFO] test_editor_highlight: scan_line_multiline_terminates: closing triple quote exits multiline
+2026-08-13 18:16:28,137 [INFO] test_editor_highlight: scan_line_multiline_unclosed: unclosed triple quote enters multiline
+2026-08-13 18:16:28,137 [INFO] test_editor_highlight: tag_config_cached: tag_config applied once per invalidation
+2026-08-13 18:16:28,137 [INFO] test_editor_highlight: word_index_first_group_wins: first group precedence preserved

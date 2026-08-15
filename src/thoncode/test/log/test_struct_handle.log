@@ -1,0 +1,750 @@
+2026-08-10 14:06:58,210 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_y_7yffl3
+2026-08-10 14:06:58,231 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_y_7yffl3\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-10 14:06:58,234 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_y_7yffl3
+2026-08-10 14:06:58,245 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_oqxgcj7h
+2026-08-10 14:06:58,247 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-10 14:06:58,248 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_oqxgcj7h
+2026-08-10 14:06:58,250 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_xls2qs3x
+2026-08-10 14:06:58,251 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-10 14:06:58,252 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_xls2qs3x
+2026-08-10 14:06:58,254 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_648jxx5k
+2026-08-10 14:06:58,266 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-10 14:06:58,267 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_648jxx5k
+2026-08-10 14:06:58,275 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_2p5q7_ht
+2026-08-10 14:06:58,276 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-10 14:06:58,282 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_2p5q7_ht
+2026-08-10 14:06:58,284 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_0ow22tou
+2026-08-10 14:06:58,284 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-10 14:06:58,286 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_0ow22tou
+2026-08-10 14:06:58,289 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_9llumgld
+2026-08-10 14:06:58,290 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_9llumgld/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-10 14:06:58,291 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_9llumgld
+2026-08-10 14:06:58,293 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_m34o3lgh
+2026-08-10 14:06:58,307 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-10 14:06:58,308 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_m34o3lgh
+2026-08-10 14:10:14,470 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_xjiluo_h
+2026-08-10 14:10:14,473 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_xjiluo_h\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-10 14:10:14,476 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_xjiluo_h
+2026-08-10 14:10:14,479 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_22_kn6iy
+2026-08-10 14:10:14,481 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-10 14:10:14,482 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_22_kn6iy
+2026-08-10 14:10:14,484 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_ws_ol5za
+2026-08-10 14:10:14,485 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-10 14:10:14,486 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_ws_ol5za
+2026-08-10 14:10:14,488 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test__quw7fj5
+2026-08-10 14:10:14,520 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-10 14:10:14,522 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test__quw7fj5
+2026-08-10 14:10:14,525 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_uutv9osu
+2026-08-10 14:10:14,525 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-10 14:10:14,527 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_uutv9osu
+2026-08-10 14:10:14,529 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_0u0iuyps
+2026-08-10 14:10:14,529 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-10 14:10:14,530 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_0u0iuyps
+2026-08-10 14:10:14,532 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_np5u91q7
+2026-08-10 14:10:14,533 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_np5u91q7/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-10 14:10:14,534 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_np5u91q7
+2026-08-10 14:10:14,538 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_a_kpnoi_
+2026-08-10 14:10:14,550 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-10 14:10:14,552 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_a_kpnoi_
+2026-08-10 14:11:02,427 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_eo9s9dhb
+2026-08-10 14:11:02,435 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_eo9s9dhb\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-10 14:11:02,439 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_eo9s9dhb
+2026-08-10 14:11:02,441 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_zfb9ulzx
+2026-08-10 14:11:02,442 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-10 14:11:02,450 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_zfb9ulzx
+2026-08-10 14:11:02,452 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_73_4ftsh
+2026-08-10 14:11:02,453 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-10 14:11:02,454 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_73_4ftsh
+2026-08-10 14:11:02,456 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_11j_l5xg
+2026-08-10 14:11:02,525 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-10 14:11:02,530 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_11j_l5xg
+2026-08-10 14:11:02,532 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_7sfrm2f6
+2026-08-10 14:11:02,547 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-10 14:11:02,548 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_7sfrm2f6
+2026-08-10 14:11:02,551 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_1yuwhh2i
+2026-08-10 14:11:02,551 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-10 14:11:02,558 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_1yuwhh2i
+2026-08-10 14:11:02,562 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_60xh_gha
+2026-08-10 14:11:02,562 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_60xh_gha/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-10 14:11:02,564 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_60xh_gha
+2026-08-10 14:11:02,566 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_hzqwzo6e
+2026-08-10 14:11:02,580 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-10 14:11:02,581 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_hzqwzo6e
+2026-08-10 14:27:42,830 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_xny2hqs7
+2026-08-10 14:27:42,838 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_xny2hqs7\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-10 14:27:42,842 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_xny2hqs7
+2026-08-10 14:27:42,846 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_o427c54v
+2026-08-10 14:27:42,848 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-10 14:27:42,859 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_o427c54v
+2026-08-10 14:27:42,864 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_3rb4wk4s
+2026-08-10 14:27:42,869 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-10 14:27:42,872 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_3rb4wk4s
+2026-08-10 14:27:42,875 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_s0abj0d7
+2026-08-10 14:27:42,890 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-10 14:27:42,892 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_s0abj0d7
+2026-08-10 14:27:42,896 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_00_ip6qv
+2026-08-10 14:27:42,897 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-10 14:27:42,900 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_00_ip6qv
+2026-08-10 14:27:42,904 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_9sfhs5zk
+2026-08-10 14:27:42,905 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-10 14:27:42,907 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_9sfhs5zk
+2026-08-10 14:27:42,910 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_5hgyvww1
+2026-08-10 14:27:42,912 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_5hgyvww1/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-10 14:27:42,919 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_5hgyvww1
+2026-08-10 14:27:42,925 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_tgoexz6_
+2026-08-10 14:27:42,941 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-10 14:27:42,943 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_tgoexz6_
+2026-08-10 14:52:06,188 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_08drt2gi
+2026-08-10 14:52:06,203 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_08drt2gi\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-10 14:52:06,204 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_08drt2gi
+2026-08-10 14:52:06,206 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_vo4mmzuc
+2026-08-10 14:52:06,207 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-10 14:52:06,208 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_vo4mmzuc
+2026-08-10 14:52:06,211 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_jtbrkd7w
+2026-08-10 14:52:06,212 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-10 14:52:06,213 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_jtbrkd7w
+2026-08-10 14:52:06,217 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_ljhuvb3c
+2026-08-10 14:52:06,231 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-10 14:52:06,233 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_ljhuvb3c
+2026-08-10 14:52:06,235 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_0nz0sgsx
+2026-08-10 14:52:06,236 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-10 14:52:06,237 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_0nz0sgsx
+2026-08-10 14:52:06,239 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_p_cjlgmd
+2026-08-10 14:52:06,239 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-10 14:52:06,240 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_p_cjlgmd
+2026-08-10 14:52:06,242 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_qt9gbw4i
+2026-08-10 14:52:06,243 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_qt9gbw4i/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-10 14:52:06,244 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_qt9gbw4i
+2026-08-10 14:52:06,247 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_zftdejuy
+2026-08-10 14:52:06,256 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-10 14:52:06,258 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_zftdejuy
+2026-08-10 14:54:31,924 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_pys6pt2a
+2026-08-10 14:54:31,944 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_pys6pt2a\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-10 14:54:31,947 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_pys6pt2a
+2026-08-10 14:54:31,950 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_7k_uny9h
+2026-08-10 14:54:31,952 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-10 14:54:31,953 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_7k_uny9h
+2026-08-10 14:54:31,955 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_2y7bttyk
+2026-08-10 14:54:31,955 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-10 14:54:31,957 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_2y7bttyk
+2026-08-10 14:54:31,959 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_gsgqgq0c
+2026-08-10 14:54:31,974 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-10 14:54:31,976 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_gsgqgq0c
+2026-08-10 14:54:31,979 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_ht683zo7
+2026-08-10 14:54:31,980 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-10 14:54:31,981 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_ht683zo7
+2026-08-10 14:54:31,983 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_b0f2hmbq
+2026-08-10 14:54:31,983 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-10 14:54:31,985 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_b0f2hmbq
+2026-08-10 14:54:31,987 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_9qd1glx0
+2026-08-10 14:54:31,988 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_9qd1glx0/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-10 14:54:31,989 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_9qd1glx0
+2026-08-10 14:54:31,994 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_5a0mewaj
+2026-08-10 14:54:32,004 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-10 14:54:32,008 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_5a0mewaj
+2026-08-11 16:06:44,087 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_dnjdjzxu
+2026-08-11 16:06:44,104 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_dnjdjzxu\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-11 16:06:44,106 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_dnjdjzxu
+2026-08-11 16:06:44,110 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_b3kxstaf
+2026-08-11 16:06:44,111 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-11 16:06:44,112 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_b3kxstaf
+2026-08-11 16:06:44,116 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_2gzv2v5t
+2026-08-11 16:06:44,117 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-11 16:06:44,119 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_2gzv2v5t
+2026-08-11 16:06:44,122 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_proqxrs8
+2026-08-11 16:06:44,134 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-11 16:06:44,136 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_proqxrs8
+2026-08-11 16:06:44,140 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_fnhgy7ty
+2026-08-11 16:06:44,140 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-11 16:06:44,142 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_fnhgy7ty
+2026-08-11 16:06:44,146 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_byz6zst3
+2026-08-11 16:06:44,147 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-11 16:06:44,148 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_byz6zst3
+2026-08-11 16:06:44,152 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_nieqteu_
+2026-08-11 16:06:44,153 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_nieqteu_/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-11 16:06:44,154 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_nieqteu_
+2026-08-11 16:06:44,159 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_q5eak8jw
+2026-08-11 16:06:44,168 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-11 16:06:44,170 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_q5eak8jw
+2026-08-11 16:06:56,733 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_981zf8p7
+2026-08-11 16:06:56,736 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_981zf8p7\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-11 16:06:56,738 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_981zf8p7
+2026-08-11 16:06:56,740 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_pwld70p4
+2026-08-11 16:06:56,740 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-11 16:06:56,742 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_pwld70p4
+2026-08-11 16:06:56,744 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_au5n88og
+2026-08-11 16:06:56,744 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-11 16:06:56,746 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_au5n88og
+2026-08-11 16:06:56,748 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_6ulst728
+2026-08-11 16:06:56,758 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-11 16:06:56,760 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_6ulst728
+2026-08-11 16:06:56,762 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_95qp5f3j
+2026-08-11 16:06:56,763 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-11 16:06:56,765 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_95qp5f3j
+2026-08-11 16:06:56,767 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_cqdpxjt0
+2026-08-11 16:06:56,768 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-11 16:06:56,769 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_cqdpxjt0
+2026-08-11 16:06:56,771 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_hpgr_6tj
+2026-08-11 16:06:56,772 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_hpgr_6tj/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-11 16:06:56,773 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_hpgr_6tj
+2026-08-11 16:06:56,775 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_6ntept48
+2026-08-11 16:06:56,785 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-11 16:06:56,786 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_6ntept48
+2026-08-11 16:07:09,144 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_4_jrddca
+2026-08-11 16:07:09,147 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_4_jrddca\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-11 16:07:09,148 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_4_jrddca
+2026-08-11 16:07:09,151 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_dlicrkcz
+2026-08-11 16:07:09,152 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-11 16:07:09,153 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_dlicrkcz
+2026-08-11 16:07:09,155 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_4vq3t9ix
+2026-08-11 16:07:09,155 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-11 16:07:09,157 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_4vq3t9ix
+2026-08-11 16:07:09,209 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_3swxrnua
+2026-08-11 16:07:09,221 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-11 16:07:09,222 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_3swxrnua
+2026-08-11 16:07:09,224 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_h9xqoegr
+2026-08-11 16:07:09,224 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-11 16:07:09,225 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_h9xqoegr
+2026-08-11 16:07:09,227 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_2_sodww2
+2026-08-11 16:07:09,227 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-11 16:07:09,229 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_2_sodww2
+2026-08-11 16:07:09,231 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_22za2cif
+2026-08-11 16:07:09,231 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_22za2cif/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-11 16:07:09,232 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_22za2cif
+2026-08-11 16:07:09,234 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_7ry5ys1d
+2026-08-11 16:07:09,243 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-11 16:07:09,244 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_7ry5ys1d
+2026-08-11 16:44:28,831 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_cna7rgyd
+2026-08-11 16:44:28,836 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_cna7rgyd\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-11 16:44:28,838 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_cna7rgyd
+2026-08-11 16:44:28,842 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_8g3n36hk
+2026-08-11 16:44:28,843 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-11 16:44:28,846 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_8g3n36hk
+2026-08-11 16:44:28,850 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_c001nivn
+2026-08-11 16:44:28,852 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-11 16:44:28,854 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_c001nivn
+2026-08-11 16:44:28,857 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_dtwcgc93
+2026-08-11 16:44:28,870 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-11 16:44:28,872 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_dtwcgc93
+2026-08-11 16:44:28,876 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_vwvfa_g1
+2026-08-11 16:44:28,878 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-11 16:44:28,880 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_vwvfa_g1
+2026-08-11 16:44:28,883 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_rj0e4apn
+2026-08-11 16:44:28,884 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-11 16:44:28,886 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_rj0e4apn
+2026-08-11 16:44:28,889 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_rpzngpwk
+2026-08-11 16:44:28,894 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_rpzngpwk/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-11 16:44:28,896 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_rpzngpwk
+2026-08-11 16:44:28,900 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_rxqj_k3u
+2026-08-11 16:44:28,911 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-11 16:44:28,913 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_rxqj_k3u
+2026-08-11 16:59:41,293 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_kugebuja
+2026-08-11 16:59:41,297 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_kugebuja\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-11 16:59:41,298 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_kugebuja
+2026-08-11 16:59:41,301 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_7ynep8_x
+2026-08-11 16:59:41,302 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-11 16:59:41,303 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_7ynep8_x
+2026-08-11 16:59:41,305 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_moscy05n
+2026-08-11 16:59:41,306 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-11 16:59:41,307 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_moscy05n
+2026-08-11 16:59:41,309 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_s9ych2du
+2026-08-11 16:59:41,322 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-11 16:59:41,323 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_s9ych2du
+2026-08-11 16:59:41,326 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_blv4xbpf
+2026-08-11 16:59:41,326 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-11 16:59:41,328 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_blv4xbpf
+2026-08-11 16:59:41,330 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_szvjxphk
+2026-08-11 16:59:41,330 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-11 16:59:41,331 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_szvjxphk
+2026-08-11 16:59:41,333 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_8xr5quab
+2026-08-11 16:59:41,334 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_8xr5quab/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-11 16:59:41,335 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_8xr5quab
+2026-08-11 16:59:41,337 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_o6bs62hd
+2026-08-11 16:59:41,350 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-11 16:59:41,352 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_o6bs62hd
+2026-08-11 17:00:04,444 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_go6idsda
+2026-08-11 17:00:04,447 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_go6idsda\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-11 17:00:04,449 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_go6idsda
+2026-08-11 17:00:04,451 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_1x02vwcs
+2026-08-11 17:00:04,452 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-11 17:00:04,453 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_1x02vwcs
+2026-08-11 17:00:04,456 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_e2sv8vsi
+2026-08-11 17:00:04,457 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-11 17:00:04,458 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_e2sv8vsi
+2026-08-11 17:00:04,461 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_18vydaoy
+2026-08-11 17:00:04,472 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-11 17:00:04,474 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_18vydaoy
+2026-08-11 17:00:04,477 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_q_bd8aog
+2026-08-11 17:00:04,477 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-11 17:00:04,479 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_q_bd8aog
+2026-08-11 17:00:04,481 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_o8jtfi1x
+2026-08-11 17:00:04,481 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-11 17:00:04,482 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_o8jtfi1x
+2026-08-11 17:00:04,485 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_eislamc8
+2026-08-11 17:00:04,486 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_eislamc8/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-11 17:00:04,488 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_eislamc8
+2026-08-11 17:00:04,519 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_r_yhoni9
+2026-08-11 17:00:04,530 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-11 17:00:04,532 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_r_yhoni9
+2026-08-11 17:09:51,544 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_j33ytqkn
+2026-08-11 17:09:51,549 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_j33ytqkn\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-11 17:09:51,551 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_j33ytqkn
+2026-08-11 17:09:51,553 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_tz_7v10v
+2026-08-11 17:09:51,554 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-11 17:09:51,555 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_tz_7v10v
+2026-08-11 17:09:51,557 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_wq1xkd3f
+2026-08-11 17:09:51,558 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-11 17:09:51,559 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_wq1xkd3f
+2026-08-11 17:09:51,561 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_4c1lk_0h
+2026-08-11 17:09:51,573 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-11 17:09:51,574 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_4c1lk_0h
+2026-08-11 17:09:51,577 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_xc92kww0
+2026-08-11 17:09:51,577 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-11 17:09:51,578 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_xc92kww0
+2026-08-11 17:09:51,580 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_3qcya2px
+2026-08-11 17:09:51,581 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-11 17:09:51,582 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_3qcya2px
+2026-08-11 17:09:51,585 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_1iq8_ag9
+2026-08-11 17:09:51,586 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_1iq8_ag9/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-11 17:09:51,587 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_1iq8_ag9
+2026-08-11 17:09:51,590 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_jy6ncxwt
+2026-08-11 17:09:51,601 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-11 17:09:51,602 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_jy6ncxwt
+2026-08-11 18:36:10,326 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_o06alq9_
+2026-08-11 18:36:10,341 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_o06alq9_\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-11 18:36:10,342 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_o06alq9_
+2026-08-11 18:36:10,345 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_6xub9y4_
+2026-08-11 18:36:10,346 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-11 18:36:10,347 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_6xub9y4_
+2026-08-11 18:36:10,349 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_d5bwjth0
+2026-08-11 18:36:10,350 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-11 18:36:10,351 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_d5bwjth0
+2026-08-11 18:36:10,354 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_qw0rcxyc
+2026-08-11 18:36:10,364 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-11 18:36:10,365 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_qw0rcxyc
+2026-08-11 18:36:10,367 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_se4gozxr
+2026-08-11 18:36:10,368 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-11 18:36:10,369 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_se4gozxr
+2026-08-11 18:36:10,371 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_pcup2alv
+2026-08-11 18:36:10,371 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-11 18:36:10,372 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_pcup2alv
+2026-08-11 18:36:10,375 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_mcfwlxn0
+2026-08-11 18:36:10,376 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_mcfwlxn0/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-11 18:36:10,377 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_mcfwlxn0
+2026-08-11 18:36:10,388 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_zqwh2jkl
+2026-08-11 18:36:10,399 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-11 18:36:10,400 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_zqwh2jkl
+2026-08-11 18:38:03,201 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_nwv2ixac
+2026-08-11 18:38:03,205 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_nwv2ixac\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-11 18:38:03,206 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_nwv2ixac
+2026-08-11 18:38:03,211 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_lfnfbq5x
+2026-08-11 18:38:03,212 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-11 18:38:03,213 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_lfnfbq5x
+2026-08-11 18:38:03,218 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_6nq9m14i
+2026-08-11 18:38:03,219 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-11 18:38:03,220 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_6nq9m14i
+2026-08-11 18:38:03,225 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_6c8t9ba_
+2026-08-11 18:38:03,235 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-11 18:38:03,236 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_6c8t9ba_
+2026-08-11 18:38:03,241 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_rl_39pbl
+2026-08-11 18:38:03,242 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-11 18:38:03,243 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_rl_39pbl
+2026-08-11 18:38:03,247 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_bovhfc67
+2026-08-11 18:38:03,248 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-11 18:38:03,250 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_bovhfc67
+2026-08-11 18:38:03,255 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_bqwfwu_u
+2026-08-11 18:38:03,256 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_bqwfwu_u/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-11 18:38:03,257 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_bqwfwu_u
+2026-08-11 18:38:03,261 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test__j3iohro
+2026-08-11 18:38:03,273 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-11 18:38:03,274 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test__j3iohro
+2026-08-11 18:38:25,177 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_prob3n6d
+2026-08-11 18:38:25,181 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_prob3n6d\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-11 18:38:25,182 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_prob3n6d
+2026-08-11 18:38:25,185 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_4eannosy
+2026-08-11 18:38:25,187 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-11 18:38:25,188 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_4eannosy
+2026-08-11 18:38:25,190 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_mtwq411g
+2026-08-11 18:38:25,191 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-11 18:38:25,193 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_mtwq411g
+2026-08-11 18:38:25,195 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_109foo5o
+2026-08-11 18:38:25,206 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-11 18:38:25,208 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_109foo5o
+2026-08-11 18:38:25,210 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test__1uns6_x
+2026-08-11 18:38:25,210 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-11 18:38:25,212 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test__1uns6_x
+2026-08-11 18:38:25,214 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_gupd_c1n
+2026-08-11 18:38:25,214 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-11 18:38:25,215 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_gupd_c1n
+2026-08-11 18:38:25,222 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_3m9yon_m
+2026-08-11 18:38:25,222 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_3m9yon_m/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-11 18:38:25,225 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_3m9yon_m
+2026-08-11 18:38:25,227 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_9rv4uv7u
+2026-08-11 18:38:25,237 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-11 18:38:25,239 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_9rv4uv7u
+2026-08-13 18:15:32,071 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_m7pmnp5v
+2026-08-13 18:15:32,091 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_m7pmnp5v\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-13 18:15:32,094 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_m7pmnp5v
+2026-08-13 18:15:32,096 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_cppqj971
+2026-08-13 18:15:32,100 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-13 18:15:32,102 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_cppqj971
+2026-08-13 18:15:32,105 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_t_7fbcgt
+2026-08-13 18:15:32,107 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-13 18:15:32,110 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_t_7fbcgt
+2026-08-13 18:15:32,163 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test__bfphldr
+2026-08-13 18:15:32,180 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-13 18:15:32,182 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test__bfphldr
+2026-08-13 18:15:32,187 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_s_5xwr7n
+2026-08-13 18:15:32,188 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-13 18:15:32,190 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_s_5xwr7n
+2026-08-13 18:15:32,192 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_vl0f8yzk
+2026-08-13 18:15:32,193 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-13 18:15:32,195 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_vl0f8yzk
+2026-08-13 18:15:32,197 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_sfzrcg0n
+2026-08-13 18:15:32,200 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_sfzrcg0n/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-13 18:15:32,202 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_sfzrcg0n
+2026-08-13 18:15:32,205 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_it9ng9e7
+2026-08-13 18:15:32,222 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-13 18:15:32,225 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_it9ng9e7
+2026-08-13 19:13:16,753 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_t3jgdsyl
+2026-08-13 19:13:16,769 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_t3jgdsyl\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-13 19:13:16,776 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_t3jgdsyl
+2026-08-13 19:13:16,781 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_qwkx159d
+2026-08-13 19:13:16,783 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-13 19:13:16,792 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_qwkx159d
+2026-08-13 19:13:16,795 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_iyphvnbc
+2026-08-13 19:13:16,797 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-13 19:13:16,800 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_iyphvnbc
+2026-08-13 19:13:16,807 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_nkdhkyng
+2026-08-13 19:13:16,825 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-13 19:13:16,827 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_nkdhkyng
+2026-08-13 19:13:16,830 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_ztuo9x6e
+2026-08-13 19:13:16,831 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-13 19:13:16,836 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_ztuo9x6e
+2026-08-13 19:13:16,840 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_0763zyon
+2026-08-13 19:13:16,840 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-13 19:13:16,842 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_0763zyon
+2026-08-13 19:13:16,854 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_5qmbpir3
+2026-08-13 19:13:16,857 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_5qmbpir3/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-13 19:13:16,859 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_5qmbpir3
+2026-08-13 19:13:16,862 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_dku25aq9
+2026-08-13 19:13:16,891 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-13 19:13:16,894 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_dku25aq9
+2026-08-13 19:14:17,809 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_lbxg1nnu
+2026-08-13 19:14:17,858 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_lbxg1nnu\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-13 19:14:17,861 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_lbxg1nnu
+2026-08-13 19:14:17,879 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_0m75yup1
+2026-08-13 19:14:17,891 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-13 19:14:17,893 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_0m75yup1
+2026-08-13 19:14:17,905 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_886lgpdh
+2026-08-13 19:14:17,907 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-13 19:14:17,910 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_886lgpdh
+2026-08-13 19:14:17,921 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_r0n09p9f
+2026-08-13 19:14:17,941 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-13 19:14:17,957 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_r0n09p9f
+2026-08-13 19:14:17,974 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_l4ts8w5x
+2026-08-13 19:14:17,987 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-13 19:14:17,989 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_l4ts8w5x
+2026-08-13 19:14:18,035 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_6g4cztv_
+2026-08-13 19:14:18,036 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-13 19:14:18,045 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_6g4cztv_
+2026-08-13 19:14:18,048 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_t3ebb5kk
+2026-08-13 19:14:18,050 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_t3ebb5kk/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-13 19:14:18,062 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_t3ebb5kk
+2026-08-13 19:14:18,071 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_amt9dwh1
+2026-08-13 19:14:18,083 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-13 19:14:18,113 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_amt9dwh1
+2026-08-13 19:14:38,556 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_lrl7u5vs
+2026-08-13 19:14:38,561 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_lrl7u5vs\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-13 19:14:38,563 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_lrl7u5vs
+2026-08-13 19:14:38,566 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_5lu1yhh0
+2026-08-13 19:14:38,568 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-13 19:14:38,572 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_5lu1yhh0
+2026-08-13 19:14:38,577 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_li7_fwmi
+2026-08-13 19:14:38,580 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-13 19:14:38,585 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_li7_fwmi
+2026-08-13 19:14:38,588 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_llqjbdlw
+2026-08-13 19:14:38,611 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-13 19:14:38,618 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_llqjbdlw
+2026-08-13 19:14:38,627 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_rb4nhg76
+2026-08-13 19:14:38,628 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-13 19:14:38,643 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_rb4nhg76
+2026-08-13 19:14:38,663 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_a3msqx6y
+2026-08-13 19:14:38,664 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-13 19:14:38,666 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_a3msqx6y
+2026-08-13 19:14:38,669 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_9ytfqjvr
+2026-08-13 19:14:38,671 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_9ytfqjvr/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-13 19:14:38,673 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_9ytfqjvr
+2026-08-13 19:14:38,677 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_hrjtdbp4
+2026-08-13 19:14:38,722 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-13 19:14:38,727 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_hrjtdbp4
+2026-08-13 19:29:55,401 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_bd5t9rdz
+2026-08-13 19:29:55,406 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_bd5t9rdz\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-13 19:29:55,408 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_bd5t9rdz
+2026-08-13 19:29:55,412 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_s3jcysao
+2026-08-13 19:29:55,415 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-13 19:29:55,417 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_s3jcysao
+2026-08-13 19:29:55,421 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_9suzwhxx
+2026-08-13 19:29:55,423 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-13 19:29:55,425 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_9suzwhxx
+2026-08-13 19:29:55,431 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_gbkso6ii
+2026-08-13 19:29:55,443 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-13 19:29:55,447 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_gbkso6ii
+2026-08-13 19:29:55,450 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_wzw7krz0
+2026-08-13 19:29:55,452 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-13 19:29:55,455 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_wzw7krz0
+2026-08-13 19:29:55,461 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_4y773mff
+2026-08-13 19:29:55,461 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-13 19:29:55,463 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_4y773mff
+2026-08-13 19:29:55,467 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_d_g73188
+2026-08-13 19:29:55,469 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_d_g73188/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-13 19:29:55,471 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_d_g73188
+2026-08-13 19:29:55,573 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_0b_4ueoq
+2026-08-13 19:29:55,586 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-13 19:29:55,588 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_0b_4ueoq
+2026-08-13 19:38:41,556 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_gmzpa1to
+2026-08-13 19:38:41,574 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_gmzpa1to\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-13 19:38:41,576 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_gmzpa1to
+2026-08-13 19:38:41,588 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_8p36sea0
+2026-08-13 19:38:41,590 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-13 19:38:41,593 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_8p36sea0
+2026-08-13 19:38:41,595 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_mnuq6mmr
+2026-08-13 19:38:41,597 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-13 19:38:41,602 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_mnuq6mmr
+2026-08-13 19:38:41,606 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_50da54h7
+2026-08-13 19:38:41,626 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-13 19:38:41,634 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_50da54h7
+2026-08-13 19:38:41,637 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_yo3h7py6
+2026-08-13 19:38:41,638 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-13 19:38:41,640 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_yo3h7py6
+2026-08-13 19:38:41,644 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_mn_xkl4o
+2026-08-13 19:38:41,644 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-13 19:38:41,649 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_mn_xkl4o
+2026-08-13 19:38:41,653 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_9s0nej_4
+2026-08-13 19:38:41,656 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_9s0nej_4/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-13 19:38:41,658 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_9s0nej_4
+2026-08-13 19:38:41,661 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_ifqogyqy
+2026-08-13 19:38:41,676 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-13 19:38:41,681 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_ifqogyqy
+2026-08-13 19:39:15,181 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_f6g5r3bp
+2026-08-13 19:39:15,186 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_f6g5r3bp\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-13 19:39:15,188 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_f6g5r3bp
+2026-08-13 19:39:15,191 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_355w3n06
+2026-08-13 19:39:15,195 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-13 19:39:15,197 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_355w3n06
+2026-08-13 19:39:15,200 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_eg_iddx4
+2026-08-13 19:39:15,203 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-13 19:39:15,205 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_eg_iddx4
+2026-08-13 19:39:15,211 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_xef2hkgg
+2026-08-13 19:39:15,222 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-13 19:39:15,227 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_xef2hkgg
+2026-08-13 19:39:15,230 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_57f7l5si
+2026-08-13 19:39:15,231 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-13 19:39:15,234 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_57f7l5si
+2026-08-13 19:39:15,237 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_rzd47pkd
+2026-08-13 19:39:15,237 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-13 19:39:15,242 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_rzd47pkd
+2026-08-13 19:39:15,245 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_iwbbhau3
+2026-08-13 19:39:15,247 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_iwbbhau3/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-13 19:39:15,249 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_iwbbhau3
+2026-08-13 19:39:15,252 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_ltrwcztq
+2026-08-13 19:39:15,268 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-13 19:39:15,273 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_ltrwcztq
+2026-08-13 20:40:43,599 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_18yk7z3c
+2026-08-13 20:40:43,608 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_18yk7z3c\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-13 20:40:43,610 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_18yk7z3c
+2026-08-13 20:40:43,613 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_mfd37ue_
+2026-08-13 20:40:43,617 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-13 20:40:43,620 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_mfd37ue_
+2026-08-13 20:40:43,622 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_3a3yoy3y
+2026-08-13 20:40:43,624 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-13 20:40:43,629 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_3a3yoy3y
+2026-08-13 20:40:43,640 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_cxywojrn
+2026-08-13 20:40:43,660 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-13 20:40:43,664 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_cxywojrn
+2026-08-13 20:40:43,667 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_55wjretn
+2026-08-13 20:40:43,668 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-13 20:40:43,670 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_55wjretn
+2026-08-13 20:40:43,673 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_0nprq_lx
+2026-08-13 20:40:43,674 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-13 20:40:43,681 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_0nprq_lx
+2026-08-13 20:40:43,684 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_nte_zvww
+2026-08-13 20:40:43,686 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_nte_zvww/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-13 20:40:43,688 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_nte_zvww
+2026-08-13 20:40:43,718 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_jkqls77u
+2026-08-13 20:40:43,758 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-13 20:40:43,760 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_jkqls77u
+2026-08-13 21:26:10,029 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_kshowjhv
+2026-08-13 21:26:10,055 [INFO] test_struct_handle: a.py 节点: {'type': 'file', 'name': 'a.py', 'path': 'C:\\Users\\yydsh\\AppData\\Local\\Temp\\struct_test_kshowjhv\\pkg\\sub\\a.py', 'content': "print('a')\n"}
+2026-08-13 21:26:10,057 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_kshowjhv
+2026-08-13 21:26:10,060 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_hk71x1wz
+2026-08-13 21:26:10,062 [INFO] test_struct_handle: 非法格式正确抛出 ValueError
+2026-08-13 21:26:10,064 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_hk71x1wz
+2026-08-13 21:26:10,067 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_64_qx9w_
+2026-08-13 21:26:10,069 [INFO] test_struct_handle: json 顶层 keys: ['type', 'name', 'path', 'children']
+2026-08-13 21:26:10,071 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_64_qx9w_
+2026-08-13 21:26:10,074 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_obz6tkwg
+2026-08-13 21:26:10,091 [INFO] test_struct_handle: json 文件 type: dir
+2026-08-13 21:26:10,094 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_obz6tkwg
+2026-08-13 21:26:10,098 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_8hwl5zkd
+2026-08-13 21:26:10,099 [INFO] test_struct_handle: max_depth=0 children 数: 2
+2026-08-13 21:26:10,102 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_8hwl5zkd
+2026-08-13 21:26:10,105 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_3es_b_ol
+2026-08-13 21:26:10,106 [INFO] test_struct_handle: 不存在路径正确抛出 FileNotFoundError
+2026-08-13 21:26:10,108 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_3es_b_ol
+2026-08-13 21:26:10,110 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_qlvb26er
+2026-08-13 21:26:10,118 [INFO] test_struct_handle: str 输出片段:
+└── struct_test_qlvb26er/
+    ├── README.md
+    └── pkg/
+        ├── __init__.py
+        └── sub/
+            └── a.py
+2026-08-13 21:26:10,120 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_qlvb26er
+2026-08-13 21:26:10,123 [DEBUG] test_struct_handle: setUp: 临时目录树 C:\Users\yydsh\AppData\Local\Temp\struct_test_19feumj8
+2026-08-13 21:26:10,137 [INFO] test_struct_handle: 输出文件长度: 118
+2026-08-13 21:26:10,140 [DEBUG] test_struct_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\struct_test_19feumj8

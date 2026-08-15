@@ -1,0 +1,181 @@
+2026-08-11 16:05:20,401 [INFO] test_file_tree: callback_setters: all callback setters present
+2026-08-11 16:05:20,402 [INFO] test_file_tree: canvas_file_tree_class_exists: all expected methods present
+2026-08-11 16:05:20,463 [INFO] test_file_tree: file_tree_init_defaults: initialization defaults verified
+2026-08-11 16:05:20,463 [INFO] test_file_tree: file_tree_package: package declaration verified
+2026-08-11 16:05:20,464 [INFO] test_file_tree: get_widget_method: get_widget and get_canvas methods exist
+2026-08-11 16:05:20,464 [INFO] test_file_tree: implements_event_handler: EventHandler interface verified
+2026-08-11 16:05:20,465 [INFO] test_file_tree: implements_lazy_loadable: LazyLoadable interface verified
+2026-08-11 16:05:20,465 [INFO] test_file_tree: implements_style_provider: StyleProvider interface verified
+2026-08-11 16:05:20,465 [INFO] test_file_tree: is_loaded_property: is_loaded is a property
+2026-08-11 16:05:20,465 [INFO] test_file_tree: tree_node_children: children management verified
+2026-08-11 16:05:20,465 [INFO] test_file_tree: tree_node_default_icon: icon logic verified
+2026-08-11 16:05:20,466 [INFO] test_file_tree: tree_node_package: TreeNode class import verified
+2026-08-11 16:05:35,996 [INFO] test_file_tree: callback_setters: all callback setters present
+2026-08-11 16:05:35,996 [INFO] test_file_tree: canvas_file_tree_class_exists: all expected methods present
+2026-08-11 16:05:35,998 [INFO] test_file_tree: expand_indicator_config: indicators loaded via style system
+2026-08-11 16:05:35,998 [INFO] test_file_tree: file_tree_init_defaults: initialization defaults verified
+2026-08-11 16:05:35,999 [INFO] test_file_tree: file_tree_package: package declaration verified
+2026-08-11 16:05:35,999 [INFO] test_file_tree: get_widget_method: get_widget and get_canvas methods exist
+2026-08-11 16:05:35,999 [INFO] test_file_tree: implements_event_handler: EventHandler interface verified
+2026-08-11 16:05:35,999 [INFO] test_file_tree: implements_lazy_loadable: LazyLoadable interface verified
+2026-08-11 16:05:35,999 [INFO] test_file_tree: implements_style_provider: StyleProvider interface verified
+2026-08-11 16:05:35,999 [INFO] test_file_tree: is_loaded_property: is_loaded is a property
+2026-08-11 16:05:35,999 [INFO] test_file_tree: tree_node_children: children management verified
+2026-08-11 16:05:35,999 [INFO] test_file_tree: tree_node_default_icon: icon logic verified
+2026-08-11 16:05:35,999 [INFO] test_file_tree: tree_node_package: TreeNode class import verified
+2026-08-11 16:06:11,445 [INFO] test_file_tree: callback_setters: all callback setters present
+2026-08-11 16:06:11,445 [INFO] test_file_tree: canvas_file_tree_class_exists: all expected methods present
+2026-08-11 16:06:11,446 [INFO] test_file_tree: expand_indicator_config: indicators loaded via style system
+2026-08-11 16:06:11,447 [INFO] test_file_tree: file_tree_init_defaults: initialization defaults verified
+2026-08-11 16:06:11,448 [INFO] test_file_tree: file_tree_package: package declaration verified
+2026-08-11 16:06:11,448 [INFO] test_file_tree: get_widget_method: get_widget and get_canvas methods exist
+2026-08-11 16:06:11,448 [INFO] test_file_tree: implements_event_handler: EventHandler interface verified
+2026-08-11 16:06:11,448 [INFO] test_file_tree: implements_lazy_loadable: LazyLoadable interface verified
+2026-08-11 16:06:11,448 [INFO] test_file_tree: implements_style_provider: StyleProvider interface verified
+2026-08-11 16:06:11,449 [INFO] test_file_tree: is_loaded_property: is_loaded is a property
+2026-08-11 16:06:11,449 [INFO] test_file_tree: tree_node_children: children management verified
+2026-08-11 16:06:11,449 [INFO] test_file_tree: tree_node_default_icon: icon logic verified
+2026-08-11 16:06:11,449 [INFO] test_file_tree: tree_node_package: TreeNode class import verified
+2026-08-11 16:06:37,956 [INFO] test_file_tree: callback_setters: all callback setters present
+2026-08-11 16:06:37,958 [INFO] test_file_tree: canvas_file_tree_class_exists: all expected methods present
+2026-08-11 16:06:37,962 [INFO] test_file_tree: expand_indicator_config: indicators loaded via style system
+2026-08-11 16:06:37,965 [INFO] test_file_tree: file_tree_init_defaults: initialization defaults verified
+2026-08-11 16:06:37,967 [INFO] test_file_tree: file_tree_package: package declaration verified
+2026-08-11 16:06:37,970 [INFO] test_file_tree: get_widget_method: get_widget and get_canvas methods exist
+2026-08-11 16:06:37,972 [INFO] test_file_tree: implements_event_handler: EventHandler interface verified
+2026-08-11 16:06:37,974 [INFO] test_file_tree: implements_lazy_loadable: LazyLoadable interface verified
+2026-08-11 16:06:37,976 [INFO] test_file_tree: implements_style_provider: StyleProvider interface verified
+2026-08-11 16:06:37,978 [INFO] test_file_tree: is_loaded_property: is_loaded is a property
+2026-08-11 16:06:37,980 [INFO] test_file_tree: tree_node_children: children management verified
+2026-08-11 16:06:37,982 [INFO] test_file_tree: tree_node_default_icon: icon logic verified
+2026-08-11 16:06:37,984 [INFO] test_file_tree: tree_node_package: TreeNode class import verified
+2026-08-11 16:06:51,992 [INFO] test_file_tree: callback_setters: all callback setters present
+2026-08-11 16:06:51,992 [INFO] test_file_tree: canvas_file_tree_class_exists: all expected methods present
+2026-08-11 16:06:51,993 [INFO] test_file_tree: expand_indicator_config: indicators loaded via style system
+2026-08-11 16:06:51,994 [INFO] test_file_tree: file_tree_init_defaults: initialization defaults verified
+2026-08-11 16:06:51,994 [INFO] test_file_tree: file_tree_package: package declaration verified
+2026-08-11 16:06:51,994 [INFO] test_file_tree: get_widget_method: get_widget and get_canvas methods exist
+2026-08-11 16:06:51,994 [INFO] test_file_tree: implements_event_handler: EventHandler interface verified
+2026-08-11 16:06:51,995 [INFO] test_file_tree: implements_lazy_loadable: LazyLoadable interface verified
+2026-08-11 16:06:51,995 [INFO] test_file_tree: implements_style_provider: StyleProvider interface verified
+2026-08-11 16:06:51,995 [INFO] test_file_tree: is_loaded_property: is_loaded is a property
+2026-08-11 16:06:51,995 [INFO] test_file_tree: tree_node_children: children management verified
+2026-08-11 16:06:51,995 [INFO] test_file_tree: tree_node_default_icon: icon logic verified
+2026-08-11 16:06:51,995 [INFO] test_file_tree: tree_node_package: TreeNode class import verified
+2026-08-11 16:07:04,879 [INFO] test_file_tree: callback_setters: all callback setters present
+2026-08-11 16:07:04,879 [INFO] test_file_tree: canvas_file_tree_class_exists: all expected methods present
+2026-08-11 16:07:04,880 [INFO] test_file_tree: expand_indicator_config: indicators loaded via style system
+2026-08-11 16:07:04,881 [INFO] test_file_tree: file_tree_init_defaults: initialization defaults verified
+2026-08-11 16:07:04,882 [INFO] test_file_tree: file_tree_package: package declaration verified
+2026-08-11 16:07:04,882 [INFO] test_file_tree: get_widget_method: get_widget and get_canvas methods exist
+2026-08-11 16:07:04,882 [INFO] test_file_tree: implements_event_handler: EventHandler interface verified
+2026-08-11 16:07:04,882 [INFO] test_file_tree: implements_lazy_loadable: LazyLoadable interface verified
+2026-08-11 16:07:04,882 [INFO] test_file_tree: implements_style_provider: StyleProvider interface verified
+2026-08-11 16:07:04,882 [INFO] test_file_tree: is_loaded_property: is_loaded is a property
+2026-08-11 16:07:04,883 [INFO] test_file_tree: tree_node_children: children management verified
+2026-08-11 16:07:04,883 [INFO] test_file_tree: tree_node_default_icon: icon logic verified
+2026-08-11 16:07:04,883 [INFO] test_file_tree: tree_node_package: TreeNode class import verified
+2026-08-11 16:44:39,493 [INFO] test_file_tree: callback_setters: all callback setters present
+2026-08-11 16:44:39,494 [INFO] test_file_tree: canvas_file_tree_class_exists: all expected methods present
+2026-08-11 16:44:39,509 [INFO] test_file_tree: expand_indicator_config: indicators loaded via style system
+2026-08-11 16:44:39,510 [INFO] test_file_tree: file_tree_init_defaults: initialization defaults verified
+2026-08-11 16:44:39,510 [INFO] test_file_tree: file_tree_package: package declaration verified
+2026-08-11 16:44:39,511 [INFO] test_file_tree: get_widget_method: get_widget and get_canvas methods exist
+2026-08-11 16:44:39,514 [INFO] test_file_tree: implements_event_handler: EventHandler interface verified
+2026-08-11 16:44:39,516 [INFO] test_file_tree: implements_lazy_loadable: LazyLoadable interface verified
+2026-08-11 16:44:39,517 [INFO] test_file_tree: implements_style_provider: StyleProvider interface verified
+2026-08-11 16:44:39,519 [INFO] test_file_tree: is_loaded_property: is_loaded is a property
+2026-08-11 16:44:39,520 [INFO] test_file_tree: tree_node_children: children management verified
+2026-08-11 16:44:39,522 [INFO] test_file_tree: tree_node_default_icon: icon logic verified
+2026-08-11 16:44:39,524 [INFO] test_file_tree: tree_node_package: TreeNode class import verified
+2026-08-11 16:59:33,950 [INFO] test_file_tree: callback_setters: all callback setters present
+2026-08-11 16:59:33,950 [INFO] test_file_tree: canvas_file_tree_class_exists: all expected methods present
+2026-08-11 16:59:33,952 [INFO] test_file_tree: expand_indicator_config: indicators loaded via style system
+2026-08-11 16:59:33,953 [INFO] test_file_tree: file_tree_init_defaults: initialization defaults verified
+2026-08-11 16:59:33,953 [INFO] test_file_tree: file_tree_package: package declaration verified
+2026-08-11 16:59:33,953 [INFO] test_file_tree: get_widget_method: get_widget and get_canvas methods exist
+2026-08-11 16:59:33,953 [INFO] test_file_tree: implements_event_handler: EventHandler interface verified
+2026-08-11 16:59:33,953 [INFO] test_file_tree: implements_lazy_loadable: LazyLoadable interface verified
+2026-08-11 16:59:33,954 [INFO] test_file_tree: implements_style_provider: StyleProvider interface verified
+2026-08-11 16:59:33,954 [INFO] test_file_tree: is_loaded_property: is_loaded is a property
+2026-08-11 16:59:33,954 [INFO] test_file_tree: tree_node_children: children management verified
+2026-08-11 16:59:33,954 [INFO] test_file_tree: tree_node_default_icon: icon logic verified
+2026-08-11 16:59:33,954 [INFO] test_file_tree: tree_node_package: TreeNode class import verified
+2026-08-11 16:59:55,490 [INFO] test_file_tree: callback_setters: all callback setters present
+2026-08-11 16:59:55,491 [INFO] test_file_tree: canvas_file_tree_class_exists: all expected methods present
+2026-08-11 16:59:55,492 [INFO] test_file_tree: expand_indicator_config: indicators loaded via style system
+2026-08-11 16:59:55,493 [INFO] test_file_tree: file_tree_init_defaults: initialization defaults verified
+2026-08-11 16:59:55,493 [INFO] test_file_tree: file_tree_package: package declaration verified
+2026-08-11 16:59:55,494 [INFO] test_file_tree: get_widget_method: get_widget and get_canvas methods exist
+2026-08-11 16:59:55,494 [INFO] test_file_tree: implements_event_handler: EventHandler interface verified
+2026-08-11 16:59:55,499 [INFO] test_file_tree: implements_lazy_loadable: LazyLoadable interface verified
+2026-08-11 16:59:55,500 [INFO] test_file_tree: implements_style_provider: StyleProvider interface verified
+2026-08-11 16:59:55,500 [INFO] test_file_tree: is_loaded_property: is_loaded is a property
+2026-08-11 16:59:55,500 [INFO] test_file_tree: tree_node_children: children management verified
+2026-08-11 16:59:55,500 [INFO] test_file_tree: tree_node_default_icon: icon logic verified
+2026-08-11 16:59:55,500 [INFO] test_file_tree: tree_node_package: TreeNode class import verified
+2026-08-11 17:09:41,901 [INFO] test_file_tree: callback_setters: all callback setters present
+2026-08-11 17:09:41,905 [INFO] test_file_tree: canvas_file_tree_class_exists: all expected methods present
+2026-08-11 17:09:41,909 [INFO] test_file_tree: expand_indicator_config: indicators loaded via style system
+2026-08-11 17:09:41,914 [INFO] test_file_tree: file_tree_init_defaults: initialization defaults verified
+2026-08-11 17:09:41,916 [INFO] test_file_tree: file_tree_package: package declaration verified
+2026-08-11 17:09:41,919 [INFO] test_file_tree: get_widget_method: get_widget and get_canvas methods exist
+2026-08-11 17:09:41,922 [INFO] test_file_tree: implements_event_handler: EventHandler interface verified
+2026-08-11 17:09:41,924 [INFO] test_file_tree: implements_lazy_loadable: LazyLoadable interface verified
+2026-08-11 17:09:41,926 [INFO] test_file_tree: implements_style_provider: StyleProvider interface verified
+2026-08-11 17:09:41,929 [INFO] test_file_tree: is_loaded_property: is_loaded is a property
+2026-08-11 17:09:41,931 [INFO] test_file_tree: tree_node_children: children management verified
+2026-08-11 17:09:41,934 [INFO] test_file_tree: tree_node_default_icon: icon logic verified
+2026-08-11 17:09:41,937 [INFO] test_file_tree: tree_node_package: TreeNode class import verified
+2026-08-11 18:31:47,556 [INFO] test_file_tree: callback_setters: all callback setters present
+2026-08-11 18:31:47,559 [INFO] test_file_tree: canvas_file_tree_class_exists: all expected methods present
+2026-08-11 18:31:47,565 [INFO] test_file_tree: expand_indicator_config: indicators loaded via style system
+2026-08-11 18:31:47,568 [INFO] test_file_tree: file_tree_init_defaults: initialization defaults verified
+2026-08-11 18:31:47,570 [INFO] test_file_tree: file_tree_package: package declaration verified
+2026-08-11 18:31:47,572 [INFO] test_file_tree: get_widget_method: get_widget and get_canvas methods exist
+2026-08-11 18:31:47,580 [INFO] test_file_tree: implements_event_handler: EventHandler interface verified
+2026-08-11 18:31:47,582 [INFO] test_file_tree: implements_lazy_loadable: LazyLoadable interface verified
+2026-08-11 18:31:47,584 [INFO] test_file_tree: implements_style_provider: StyleProvider interface verified
+2026-08-11 18:31:47,586 [INFO] test_file_tree: is_loaded_property: is_loaded is a property
+2026-08-11 18:31:47,588 [INFO] test_file_tree: tree_node_children: children management verified
+2026-08-11 18:31:47,590 [INFO] test_file_tree: tree_node_default_icon: icon logic verified
+2026-08-11 18:31:47,608 [INFO] test_file_tree: tree_node_package: TreeNode class import verified
+2026-08-11 18:36:01,951 [INFO] test_file_tree: callback_setters: all callback setters present
+2026-08-11 18:36:01,954 [INFO] test_file_tree: canvas_file_tree_class_exists: all expected methods present
+2026-08-11 18:36:01,957 [INFO] test_file_tree: expand_indicator_config: indicators loaded via style system
+2026-08-11 18:36:01,960 [INFO] test_file_tree: file_tree_init_defaults: initialization defaults verified
+2026-08-11 18:36:01,962 [INFO] test_file_tree: file_tree_package: package declaration verified
+2026-08-11 18:36:01,966 [INFO] test_file_tree: get_widget_method: get_widget and get_canvas methods exist
+2026-08-11 18:36:01,968 [INFO] test_file_tree: implements_event_handler: EventHandler interface verified
+2026-08-11 18:36:01,971 [INFO] test_file_tree: implements_lazy_loadable: LazyLoadable interface verified
+2026-08-11 18:36:01,973 [INFO] test_file_tree: implements_style_provider: StyleProvider interface verified
+2026-08-11 18:36:01,975 [INFO] test_file_tree: is_loaded_property: is_loaded is a property
+2026-08-11 18:36:01,977 [INFO] test_file_tree: tree_node_children: children management verified
+2026-08-11 18:36:01,979 [INFO] test_file_tree: tree_node_default_icon: icon logic verified
+2026-08-11 18:36:01,983 [INFO] test_file_tree: tree_node_package: TreeNode class import verified
+2026-08-11 18:38:02,980 [INFO] test_file_tree: callback_setters: all callback setters present
+2026-08-11 18:38:02,982 [INFO] test_file_tree: canvas_file_tree_class_exists: all expected methods present
+2026-08-11 18:38:02,987 [INFO] test_file_tree: expand_indicator_config: indicators loaded via style system
+2026-08-11 18:38:02,991 [INFO] test_file_tree: file_tree_init_defaults: initialization defaults verified
+2026-08-11 18:38:02,994 [INFO] test_file_tree: file_tree_package: package declaration verified
+2026-08-11 18:38:02,997 [INFO] test_file_tree: get_widget_method: get_widget and get_canvas methods exist
+2026-08-11 18:38:03,000 [INFO] test_file_tree: implements_event_handler: EventHandler interface verified
+2026-08-11 18:38:03,004 [INFO] test_file_tree: implements_lazy_loadable: LazyLoadable interface verified
+2026-08-11 18:38:03,006 [INFO] test_file_tree: implements_style_provider: StyleProvider interface verified
+2026-08-11 18:38:03,009 [INFO] test_file_tree: is_loaded_property: is_loaded is a property
+2026-08-11 18:38:03,012 [INFO] test_file_tree: tree_node_children: children management verified
+2026-08-11 18:38:03,016 [INFO] test_file_tree: tree_node_default_icon: icon logic verified
+2026-08-11 18:38:03,018 [INFO] test_file_tree: tree_node_package: TreeNode class import verified
+2026-08-13 18:16:31,954 [INFO] test_file_tree: callback_setters: all callback setters present
+2026-08-13 18:16:31,955 [INFO] test_file_tree: canvas_file_tree_class_exists: all expected methods present
+2026-08-13 18:16:31,956 [INFO] test_file_tree: expand_indicator_config: indicators loaded via style system
+2026-08-13 18:16:31,988 [INFO] test_file_tree: file_tree_init_defaults: initialization defaults verified
+2026-08-13 18:16:31,989 [INFO] test_file_tree: file_tree_package: package declaration verified
+2026-08-13 18:16:31,989 [INFO] test_file_tree: get_widget_method: get_widget and get_canvas methods exist
+2026-08-13 18:16:31,989 [INFO] test_file_tree: implements_event_handler: EventHandler interface verified
+2026-08-13 18:16:31,989 [INFO] test_file_tree: implements_lazy_loadable: LazyLoadable interface verified
+2026-08-13 18:16:31,990 [INFO] test_file_tree: implements_style_provider: StyleProvider interface verified
+2026-08-13 18:16:31,990 [INFO] test_file_tree: is_loaded_property: is_loaded is a property
+2026-08-13 18:16:31,990 [INFO] test_file_tree: tree_node_children: children management verified
+2026-08-13 18:16:31,990 [INFO] test_file_tree: tree_node_default_icon: icon logic verified
+2026-08-13 18:16:31,990 [INFO] test_file_tree: tree_node_package: TreeNode class import verified

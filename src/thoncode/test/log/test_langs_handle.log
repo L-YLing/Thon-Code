@@ -1,0 +1,100 @@
+2026-08-10 14:06:58,308 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-10 14:06:58,309 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-10 14:06:58,319 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-10 14:06:58,320 [INFO] test_langs_handle: load_full_language 键数: 64
+2026-08-10 14:10:14,552 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-10 14:10:14,554 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-10 14:10:14,554 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-10 14:10:14,555 [INFO] test_langs_handle: load_full_language 键数: 64
+2026-08-10 14:11:02,581 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-10 14:11:02,582 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-10 14:11:02,583 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-10 14:11:02,586 [INFO] test_langs_handle: load_full_language 键数: 64
+2026-08-10 14:27:42,944 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-10 14:27:42,949 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-10 14:27:42,951 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-10 14:27:42,954 [INFO] test_langs_handle: load_full_language 键数: 64
+2026-08-10 14:52:06,259 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-10 14:52:06,260 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-10 14:52:06,260 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-10 14:52:06,261 [INFO] test_langs_handle: load_full_language 键数: 64
+2026-08-10 14:54:32,008 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-10 14:54:32,009 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-10 14:54:32,010 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-10 14:54:32,010 [INFO] test_langs_handle: load_full_language 键数: 64
+2026-08-11 16:06:43,961 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-11 16:06:43,964 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-11 16:06:43,967 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-11 16:06:43,970 [INFO] test_langs_handle: load_full_language 键数: 250
+2026-08-11 16:06:56,691 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-11 16:06:56,691 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-11 16:06:56,692 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-11 16:06:56,693 [INFO] test_langs_handle: load_full_language 键数: 250
+2026-08-11 16:07:09,098 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-11 16:07:09,099 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-11 16:07:09,099 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-11 16:07:09,100 [INFO] test_langs_handle: load_full_language 键数: 250
+2026-08-11 16:44:28,915 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-11 16:44:28,918 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-11 16:44:28,920 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-11 16:44:28,926 [INFO] test_langs_handle: load_full_language 键数: 250
+2026-08-11 16:59:41,225 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-11 16:59:41,227 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-11 16:59:41,228 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-11 16:59:41,229 [INFO] test_langs_handle: load_full_language 键数: 250
+2026-08-11 17:00:04,397 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-11 17:00:04,397 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-11 17:00:04,398 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-11 17:00:04,399 [INFO] test_langs_handle: load_full_language 键数: 250
+2026-08-11 17:09:51,602 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-11 17:09:51,603 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-11 17:09:51,604 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-11 17:09:51,605 [INFO] test_langs_handle: load_full_language 键数: 250
+2026-08-11 18:36:10,401 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-11 18:36:10,402 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-11 18:36:10,403 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-11 18:36:10,403 [INFO] test_langs_handle: load_full_language 键数: 250
+2026-08-11 18:38:03,277 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-11 18:38:03,281 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-11 18:38:03,284 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-11 18:38:03,286 [INFO] test_langs_handle: load_full_language 键数: 250
+2026-08-11 18:38:25,239 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-11 18:38:25,240 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-11 18:38:25,241 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-11 18:38:25,241 [INFO] test_langs_handle: load_full_language 键数: 250
+2026-08-13 18:15:32,225 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-13 18:15:32,226 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-13 18:15:32,229 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-13 18:15:32,230 [INFO] test_langs_handle: load_full_language 键数: 250
+2026-08-13 19:13:16,898 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-13 19:13:16,903 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-13 19:13:16,904 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-13 19:13:16,905 [INFO] test_langs_handle: load_full_language 键数: 292
+2026-08-13 19:14:18,113 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-13 19:14:18,122 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-13 19:14:18,123 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-13 19:14:18,124 [INFO] test_langs_handle: load_full_language 键数: 292
+2026-08-13 19:14:38,728 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-13 19:14:38,729 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-13 19:14:38,731 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-13 19:14:38,732 [INFO] test_langs_handle: load_full_language 键数: 292
+2026-08-13 19:29:55,589 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-13 19:29:55,590 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-13 19:29:55,591 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-13 19:29:55,593 [INFO] test_langs_handle: load_full_language 键数: 302
+2026-08-13 19:38:41,682 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-13 19:38:41,683 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-13 19:38:41,685 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-13 19:38:41,686 [INFO] test_langs_handle: load_full_language 键数: 302
+2026-08-13 19:39:15,274 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-13 19:39:15,275 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-13 19:39:15,277 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-13 19:39:15,278 [INFO] test_langs_handle: load_full_language 键数: 302
+2026-08-13 20:40:43,761 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-13 20:40:43,764 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-13 20:40:43,786 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-13 20:40:43,788 [INFO] test_langs_handle: load_full_language 键数: 305
+2026-08-13 21:26:10,141 [INFO] test_langs_handle: default_language 返回: {'status': 'success', 'data': 'zh_cn', 'code': 200}
+2026-08-13 21:26:10,143 [INFO] test_langs_handle: key_languages(main.menu.file) 返回: {'status': 'success', 'data': '文件', 'code': 200}
+2026-08-13 21:26:10,144 [INFO] test_langs_handle: key_languages(不存在) 返回: {'status': 'error', 'data': "'not.exist.key'", 'code': 405}
+2026-08-13 21:26:10,145 [INFO] test_langs_handle: load_full_language 键数: 314

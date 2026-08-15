@@ -1,0 +1,130 @@
+2026-08-11 16:00:33,907 [INFO] test_canvas_editor: canvas_editor_class_exists: all expected methods present
+2026-08-11 16:00:33,907 [INFO] test_canvas_editor: current_file_property: current_file is a property
+2026-08-11 16:00:33,908 [INFO] test_canvas_editor: editor_gutter_class_exists: all expected methods present
+2026-08-11 16:00:33,908 [INFO] test_canvas_editor: editor_gutter_package: editor_gutter package verified
+2026-08-11 16:00:33,908 [INFO] test_canvas_editor: implements_event_handler: EventHandler interface implemented
+2026-08-11 16:00:33,908 [INFO] test_canvas_editor: implements_lazy_loadable: LazyLoadable interface implemented
+2026-08-11 16:00:33,909 [INFO] test_canvas_editor: implements_style_provider: StyleProvider interface implemented
+2026-08-11 16:00:33,909 [INFO] test_canvas_editor: is_dirty_property: is_dirty is a property
+2026-08-11 16:00:33,937 [INFO] test_canvas_editor: language_detection_map: language detection covers common extensions
+2026-08-11 16:00:33,937 [INFO] test_canvas_editor: package_declaration: canvas_editor package verified
+2026-08-11 16:06:10,249 [INFO] test_canvas_editor: canvas_editor_class_exists: all expected methods present
+2026-08-11 16:06:10,249 [INFO] test_canvas_editor: current_file_property: current_file is a property
+2026-08-11 16:06:10,249 [INFO] test_canvas_editor: editor_gutter_class_exists: all expected methods present
+2026-08-11 16:06:10,249 [INFO] test_canvas_editor: editor_gutter_package: editor_gutter package verified
+2026-08-11 16:06:10,250 [INFO] test_canvas_editor: implements_event_handler: EventHandler interface implemented
+2026-08-11 16:06:10,250 [INFO] test_canvas_editor: implements_lazy_loadable: LazyLoadable interface implemented
+2026-08-11 16:06:10,250 [INFO] test_canvas_editor: implements_style_provider: StyleProvider interface implemented
+2026-08-11 16:06:10,251 [INFO] test_canvas_editor: is_dirty_property: is_dirty is a property
+2026-08-11 16:06:10,252 [INFO] test_canvas_editor: language_detection_map: language detection covers common extensions
+2026-08-11 16:06:10,252 [INFO] test_canvas_editor: package_declaration: canvas_editor package verified
+2026-08-11 16:06:16,864 [INFO] test_canvas_editor: canvas_editor_class_exists: all expected methods present
+2026-08-11 16:06:16,864 [INFO] test_canvas_editor: current_file_property: current_file is a property
+2026-08-11 16:06:16,864 [INFO] test_canvas_editor: editor_gutter_class_exists: all expected methods present
+2026-08-11 16:06:16,865 [INFO] test_canvas_editor: editor_gutter_package: editor_gutter package verified
+2026-08-11 16:06:16,865 [INFO] test_canvas_editor: implements_event_handler: EventHandler interface implemented
+2026-08-11 16:06:16,866 [INFO] test_canvas_editor: implements_lazy_loadable: LazyLoadable interface implemented
+2026-08-11 16:06:16,866 [INFO] test_canvas_editor: implements_style_provider: StyleProvider interface implemented
+2026-08-11 16:06:16,866 [INFO] test_canvas_editor: is_dirty_property: is_dirty is a property
+2026-08-11 16:06:16,867 [INFO] test_canvas_editor: language_detection_map: language detection covers common extensions
+2026-08-11 16:06:16,867 [INFO] test_canvas_editor: package_declaration: canvas_editor package verified
+2026-08-11 16:06:37,631 [INFO] test_canvas_editor: canvas_editor_class_exists: all expected methods present
+2026-08-11 16:06:37,633 [INFO] test_canvas_editor: current_file_property: current_file is a property
+2026-08-11 16:06:37,635 [INFO] test_canvas_editor: editor_gutter_class_exists: all expected methods present
+2026-08-11 16:06:37,637 [INFO] test_canvas_editor: editor_gutter_package: editor_gutter package verified
+2026-08-11 16:06:37,640 [INFO] test_canvas_editor: implements_event_handler: EventHandler interface implemented
+2026-08-11 16:06:37,642 [INFO] test_canvas_editor: implements_lazy_loadable: LazyLoadable interface implemented
+2026-08-11 16:06:37,644 [INFO] test_canvas_editor: implements_style_provider: StyleProvider interface implemented
+2026-08-11 16:06:37,646 [INFO] test_canvas_editor: is_dirty_property: is_dirty is a property
+2026-08-11 16:06:37,649 [INFO] test_canvas_editor: language_detection_map: language detection covers common extensions
+2026-08-11 16:06:37,651 [INFO] test_canvas_editor: package_declaration: canvas_editor package verified
+2026-08-11 16:06:51,917 [INFO] test_canvas_editor: canvas_editor_class_exists: all expected methods present
+2026-08-11 16:06:51,917 [INFO] test_canvas_editor: current_file_property: current_file is a property
+2026-08-11 16:06:51,918 [INFO] test_canvas_editor: editor_gutter_class_exists: all expected methods present
+2026-08-11 16:06:51,918 [INFO] test_canvas_editor: editor_gutter_package: editor_gutter package verified
+2026-08-11 16:06:51,918 [INFO] test_canvas_editor: implements_event_handler: EventHandler interface implemented
+2026-08-11 16:06:51,918 [INFO] test_canvas_editor: implements_lazy_loadable: LazyLoadable interface implemented
+2026-08-11 16:06:51,918 [INFO] test_canvas_editor: implements_style_provider: StyleProvider interface implemented
+2026-08-11 16:06:51,918 [INFO] test_canvas_editor: is_dirty_property: is_dirty is a property
+2026-08-11 16:06:51,919 [INFO] test_canvas_editor: language_detection_map: language detection covers common extensions
+2026-08-11 16:06:51,920 [INFO] test_canvas_editor: package_declaration: canvas_editor package verified
+2026-08-11 16:07:04,791 [INFO] test_canvas_editor: canvas_editor_class_exists: all expected methods present
+2026-08-11 16:07:04,791 [INFO] test_canvas_editor: current_file_property: current_file is a property
+2026-08-11 16:07:04,791 [INFO] test_canvas_editor: editor_gutter_class_exists: all expected methods present
+2026-08-11 16:07:04,792 [INFO] test_canvas_editor: editor_gutter_package: editor_gutter package verified
+2026-08-11 16:07:04,792 [INFO] test_canvas_editor: implements_event_handler: EventHandler interface implemented
+2026-08-11 16:07:04,792 [INFO] test_canvas_editor: implements_lazy_loadable: LazyLoadable interface implemented
+2026-08-11 16:07:04,792 [INFO] test_canvas_editor: implements_style_provider: StyleProvider interface implemented
+2026-08-11 16:07:04,793 [INFO] test_canvas_editor: is_dirty_property: is_dirty is a property
+2026-08-11 16:07:04,794 [INFO] test_canvas_editor: language_detection_map: language detection covers common extensions
+2026-08-11 16:07:04,794 [INFO] test_canvas_editor: package_declaration: canvas_editor package verified
+2026-08-11 16:59:33,810 [INFO] test_canvas_editor: canvas_editor_class_exists: all expected methods present
+2026-08-11 16:59:33,821 [INFO] test_canvas_editor: current_file_property: current_file is a property
+2026-08-11 16:59:33,822 [INFO] test_canvas_editor: editor_gutter_class_exists: all expected methods present
+2026-08-11 16:59:33,822 [INFO] test_canvas_editor: editor_gutter_package: editor_gutter package verified
+2026-08-11 16:59:33,822 [INFO] test_canvas_editor: implements_event_handler: EventHandler interface implemented
+2026-08-11 16:59:33,822 [INFO] test_canvas_editor: implements_lazy_loadable: LazyLoadable interface implemented
+2026-08-11 16:59:33,822 [INFO] test_canvas_editor: implements_style_provider: StyleProvider interface implemented
+2026-08-11 16:59:33,822 [INFO] test_canvas_editor: is_dirty_property: is_dirty is a property
+2026-08-11 16:59:33,832 [INFO] test_canvas_editor: language_detection_map: language detection covers common extensions
+2026-08-11 16:59:33,832 [INFO] test_canvas_editor: package_declaration: canvas_editor package verified
+2026-08-11 16:59:55,346 [INFO] test_canvas_editor: canvas_editor_class_exists: all expected methods present
+2026-08-11 16:59:55,347 [INFO] test_canvas_editor: current_file_property: current_file is a property
+2026-08-11 16:59:55,347 [INFO] test_canvas_editor: editor_gutter_class_exists: all expected methods present
+2026-08-11 16:59:55,347 [INFO] test_canvas_editor: editor_gutter_package: editor_gutter package verified
+2026-08-11 16:59:55,347 [INFO] test_canvas_editor: implements_event_handler: EventHandler interface implemented
+2026-08-11 16:59:55,347 [INFO] test_canvas_editor: implements_lazy_loadable: LazyLoadable interface implemented
+2026-08-11 16:59:55,347 [INFO] test_canvas_editor: implements_style_provider: StyleProvider interface implemented
+2026-08-11 16:59:55,348 [INFO] test_canvas_editor: is_dirty_property: is_dirty is a property
+2026-08-11 16:59:55,349 [INFO] test_canvas_editor: language_detection_map: language detection covers common extensions
+2026-08-11 16:59:55,349 [INFO] test_canvas_editor: package_declaration: canvas_editor package verified
+2026-08-11 17:09:40,079 [INFO] test_canvas_editor: canvas_editor_class_exists: all expected methods present
+2026-08-11 17:09:40,081 [INFO] test_canvas_editor: current_file_property: current_file is a property
+2026-08-11 17:09:40,083 [INFO] test_canvas_editor: editor_gutter_class_exists: all expected methods present
+2026-08-11 17:09:40,085 [INFO] test_canvas_editor: editor_gutter_package: editor_gutter package verified
+2026-08-11 17:09:40,087 [INFO] test_canvas_editor: implements_event_handler: EventHandler interface implemented
+2026-08-11 17:09:40,089 [INFO] test_canvas_editor: implements_lazy_loadable: LazyLoadable interface implemented
+2026-08-11 17:09:40,091 [INFO] test_canvas_editor: implements_style_provider: StyleProvider interface implemented
+2026-08-11 17:09:40,094 [INFO] test_canvas_editor: is_dirty_property: is_dirty is a property
+2026-08-11 17:09:40,124 [INFO] test_canvas_editor: language_detection_map: language detection covers common extensions
+2026-08-11 17:09:40,127 [INFO] test_canvas_editor: package_declaration: canvas_editor package verified
+2026-08-11 18:31:45,926 [INFO] test_canvas_editor: canvas_editor_class_exists: all expected methods present
+2026-08-11 18:31:45,929 [INFO] test_canvas_editor: current_file_property: current_file is a property
+2026-08-11 18:31:45,931 [INFO] test_canvas_editor: editor_gutter_class_exists: all expected methods present
+2026-08-11 18:31:45,934 [INFO] test_canvas_editor: editor_gutter_package: editor_gutter package verified
+2026-08-11 18:31:45,966 [INFO] test_canvas_editor: implements_event_handler: EventHandler interface implemented
+2026-08-11 18:31:45,968 [INFO] test_canvas_editor: implements_lazy_loadable: LazyLoadable interface implemented
+2026-08-11 18:31:45,970 [INFO] test_canvas_editor: implements_style_provider: StyleProvider interface implemented
+2026-08-11 18:31:45,973 [INFO] test_canvas_editor: is_dirty_property: is_dirty is a property
+2026-08-11 18:31:45,976 [INFO] test_canvas_editor: language_detection_map: language detection covers common extensions
+2026-08-11 18:31:45,978 [INFO] test_canvas_editor: package_declaration: canvas_editor package verified
+2026-08-11 18:36:00,360 [INFO] test_canvas_editor: canvas_editor_class_exists: all expected methods present
+2026-08-11 18:36:00,363 [INFO] test_canvas_editor: current_file_property: current_file is a property
+2026-08-11 18:36:00,366 [INFO] test_canvas_editor: editor_gutter_class_exists: all expected methods present
+2026-08-11 18:36:00,368 [INFO] test_canvas_editor: editor_gutter_package: editor_gutter package verified
+2026-08-11 18:36:01,645 [INFO] test_canvas_editor: implements_event_handler: EventHandler interface implemented
+2026-08-11 18:36:01,649 [INFO] test_canvas_editor: implements_lazy_loadable: LazyLoadable interface implemented
+2026-08-11 18:36:01,651 [INFO] test_canvas_editor: implements_style_provider: StyleProvider interface implemented
+2026-08-11 18:36:01,656 [INFO] test_canvas_editor: is_dirty_property: is_dirty is a property
+2026-08-11 18:36:01,659 [INFO] test_canvas_editor: language_detection_map: language detection covers common extensions
+2026-08-11 18:36:01,661 [INFO] test_canvas_editor: package_declaration: canvas_editor package verified
+2026-08-11 18:38:02,893 [INFO] test_canvas_editor: canvas_editor_class_exists: all expected methods present
+2026-08-11 18:38:02,895 [INFO] test_canvas_editor: current_file_property: current_file is a property
+2026-08-11 18:38:02,897 [INFO] test_canvas_editor: editor_gutter_class_exists: all expected methods present
+2026-08-11 18:38:02,899 [INFO] test_canvas_editor: editor_gutter_package: editor_gutter package verified
+2026-08-11 18:38:02,901 [INFO] test_canvas_editor: implements_event_handler: EventHandler interface implemented
+2026-08-11 18:38:02,903 [INFO] test_canvas_editor: implements_lazy_loadable: LazyLoadable interface implemented
+2026-08-11 18:38:02,906 [INFO] test_canvas_editor: implements_style_provider: StyleProvider interface implemented
+2026-08-11 18:38:02,909 [INFO] test_canvas_editor: is_dirty_property: is_dirty is a property
+2026-08-11 18:38:02,912 [INFO] test_canvas_editor: language_detection_map: language detection covers common extensions
+2026-08-11 18:38:02,914 [INFO] test_canvas_editor: package_declaration: canvas_editor package verified
+2026-08-13 18:16:26,609 [INFO] test_canvas_editor: canvas_editor_class_exists: all expected methods present
+2026-08-13 18:16:26,610 [INFO] test_canvas_editor: current_file_property: current_file is a property
+2026-08-13 18:16:26,610 [INFO] test_canvas_editor: editor_gutter_class_exists: all expected methods present
+2026-08-13 18:16:26,610 [INFO] test_canvas_editor: editor_gutter_package: editor_gutter package verified
+2026-08-13 18:16:26,614 [INFO] test_canvas_editor: implements_event_handler: EventHandler interface implemented
+2026-08-13 18:16:26,614 [INFO] test_canvas_editor: implements_lazy_loadable: LazyLoadable interface implemented
+2026-08-13 18:16:26,615 [INFO] test_canvas_editor: implements_style_provider: StyleProvider interface implemented
+2026-08-13 18:16:26,615 [INFO] test_canvas_editor: is_dirty_property: is_dirty is a property
+2026-08-13 18:16:26,616 [INFO] test_canvas_editor: language_detection_map: language detection covers common extensions
+2026-08-13 18:16:26,616 [INFO] test_canvas_editor: package_declaration: canvas_editor package verified

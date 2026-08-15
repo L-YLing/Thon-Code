@@ -1,0 +1,36 @@
+2026-08-13 18:15:28,886 [INFO] test_tree_manager: ignored_dirs_constant: heavy dirs filtered
+2026-08-13 18:15:28,895 [INFO] test_tree_manager: package_declaration: package dict verified
+2026-08-13 18:16:14,374 [INFO] test_tree_manager: clear_placeholder_keeps_real: real children preserved
+2026-08-13 18:16:14,374 [INFO] test_tree_manager: clear_placeholder_removes: placeholder child removed
+2026-08-13 18:16:14,375 [INFO] test_tree_manager: ignored_dirs_constant: heavy dirs filtered
+2026-08-13 18:16:14,375 [INFO] test_tree_manager: insert_dir_adds_placeholder: placeholder child created for dir
+2026-08-13 18:16:14,375 [INFO] test_tree_manager: insert_file_no_placeholder: file has no placeholder child
+2026-08-13 18:16:14,376 [INFO] test_tree_manager: insert_node_directory: directory node created with path
+2026-08-13 18:16:14,376 [INFO] test_tree_manager: insert_node_file: file node created with path
+2026-08-13 18:16:14,382 [INFO] test_tree_manager: list_sorted_case_insensitive: case-insensitive order
+2026-08-13 18:16:14,386 [INFO] test_tree_manager: list_sorted_dirs_first: directories sorted before files
+2026-08-13 18:16:14,391 [INFO] test_tree_manager: list_sorted_filters_ignored: ignored/hidden entries excluded
+2026-08-13 18:16:14,394 [INFO] test_tree_manager: list_sorted_permission_error: returns empty on PermissionError
+2026-08-13 18:16:14,394 [INFO] test_tree_manager: package_declaration: package dict verified
+2026-08-13 18:16:14,397 [INFO] test_tree_manager: refresh_children_deletes_removed: removed entry deleted
+2026-08-13 18:16:14,400 [INFO] test_tree_manager: refresh_children_inserts_new_only: new entry added, existing kept
+2026-08-13 18:16:14,402 [INFO] test_tree_manager: refresh_children_preserves_identity: unchanged node id preserved
+2026-08-13 18:16:14,406 [INFO] test_tree_manager: refresh_children_recurses: subdir refresh recursed correctly
+2026-08-13 18:16:14,409 [INFO] test_tree_manager: refresh_children_skips_placeholder: placeholder ignored in diff
+2026-08-13 18:16:33,147 [INFO] test_tree_manager: clear_placeholder_keeps_real: real children preserved
+2026-08-13 18:16:33,150 [INFO] test_tree_manager: clear_placeholder_removes: placeholder child removed
+2026-08-13 18:16:33,150 [INFO] test_tree_manager: ignored_dirs_constant: heavy dirs filtered
+2026-08-13 18:16:33,151 [INFO] test_tree_manager: insert_dir_adds_placeholder: placeholder child created for dir
+2026-08-13 18:16:33,151 [INFO] test_tree_manager: insert_file_no_placeholder: file has no placeholder child
+2026-08-13 18:16:33,151 [INFO] test_tree_manager: insert_node_directory: directory node created with path
+2026-08-13 18:16:33,152 [INFO] test_tree_manager: insert_node_file: file node created with path
+2026-08-13 18:16:33,157 [INFO] test_tree_manager: list_sorted_case_insensitive: case-insensitive order
+2026-08-13 18:16:33,162 [INFO] test_tree_manager: list_sorted_dirs_first: directories sorted before files
+2026-08-13 18:16:33,177 [INFO] test_tree_manager: list_sorted_filters_ignored: ignored/hidden entries excluded
+2026-08-13 18:16:33,180 [INFO] test_tree_manager: list_sorted_permission_error: returns empty on PermissionError
+2026-08-13 18:16:33,180 [INFO] test_tree_manager: package_declaration: package dict verified
+2026-08-13 18:16:33,183 [INFO] test_tree_manager: refresh_children_deletes_removed: removed entry deleted
+2026-08-13 18:16:33,186 [INFO] test_tree_manager: refresh_children_inserts_new_only: new entry added, existing kept
+2026-08-13 18:16:33,189 [INFO] test_tree_manager: refresh_children_preserves_identity: unchanged node id preserved
+2026-08-13 18:16:33,195 [INFO] test_tree_manager: refresh_children_recurses: subdir refresh recursed correctly
+2026-08-13 18:16:33,197 [INFO] test_tree_manager: refresh_children_skips_placeholder: placeholder ignored in diff

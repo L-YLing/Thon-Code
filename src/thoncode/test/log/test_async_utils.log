@@ -1,0 +1,80 @@
+2026-08-11 18:35:45,499 [INFO] test_async_utils: async_task_runner_class_exists: verified
+2026-08-11 18:35:45,518 [INFO] test_async_utils: initialize_and_shutdown: verified
+2026-08-11 18:35:45,520 [INFO] test_async_utils: package_declaration: async_utils package verified
+2026-08-11 18:35:45,726 [INFO] test_async_utils: run_basic_function: result=[42]
+2026-08-11 18:35:45,742 [INFO] test_async_utils: run_error_handling: error=Test error
+2026-08-11 18:35:46,274 [INFO] test_async_utils: run_in_executor: result=['executor result']
+2026-08-11 18:35:46,803 [INFO] test_async_utils: run_no_callbacks: completed without error
+2026-08-11 18:35:47,181 [INFO] test_async_utils: run_returns_thread: daemon=True
+2026-08-11 18:35:47,681 [INFO] test_async_utils: run_with_args: result=[30]
+2026-08-11 18:35:48,309 [INFO] test_async_utils: run_with_kwargs: result=['Hi, World!']
+2026-08-11 18:35:48,364 [INFO] test_async_utils: singleton_pattern: verified
+2026-08-11 18:35:48,367 [INFO] test_async_utils: async_file_io_class_exists: verified
+2026-08-11 18:35:48,524 [INFO] test_async_utils: read_file_error: error=[Errno 2] No such file or directory: '/nonexistent/path/file.txt'
+2026-08-11 18:35:48,762 [INFO] test_async_utils: read_file_success: content=Hello, Async World!
+2026-08-11 18:35:49,165 [INFO] test_async_utils: read_file_with_encoding: content=测试中文
+2026-08-11 18:35:49,319 [INFO] test_async_utils: write_file_error: error=[Errno 2] No such file or directory: '/nonexistent/dir/file.txt'
+2026-08-11 18:35:49,608 [INFO] test_async_utils: write_file_success: path=C:\Users\yydsh\AppData\Local\Temp\thon_async_test_write.txt
+2026-08-11 18:35:49,613 [INFO] test_async_utils: async_run_decorator_exists: verified
+2026-08-11 18:35:49,617 [INFO] test_async_utils: async_run_error_handling: error=Decorator error
+2026-08-11 18:35:49,621 [INFO] test_async_utils: async_run_with_string_callbacks: results=[42]
+2026-08-11 18:36:02,000 [INFO] test_async_utils: async_task_runner_class_exists: verified
+2026-08-11 18:36:02,003 [INFO] test_async_utils: initialize_and_shutdown: verified
+2026-08-11 18:36:02,005 [INFO] test_async_utils: package_declaration: async_utils package verified
+2026-08-11 18:36:02,008 [INFO] test_async_utils: run_basic_function: result=[42]
+2026-08-11 18:36:02,012 [INFO] test_async_utils: run_error_handling: error=Test error
+2026-08-11 18:36:02,518 [INFO] test_async_utils: run_in_executor: result=['executor result']
+2026-08-11 18:36:02,521 [INFO] test_async_utils: run_no_callbacks: completed without error
+2026-08-11 18:36:02,536 [INFO] test_async_utils: run_returns_thread: daemon=True
+2026-08-11 18:36:02,541 [INFO] test_async_utils: run_with_args: result=[30]
+2026-08-11 18:36:02,549 [INFO] test_async_utils: run_with_kwargs: result=['Hi, World!']
+2026-08-11 18:36:02,551 [INFO] test_async_utils: singleton_pattern: verified
+2026-08-11 18:36:02,553 [INFO] test_async_utils: async_file_io_class_exists: verified
+2026-08-11 18:36:02,560 [INFO] test_async_utils: read_file_error: error=[Errno 2] No such file or directory: '/nonexistent/path/file.txt'
+2026-08-11 18:36:02,628 [INFO] test_async_utils: read_file_success: content=Hello, Async World!
+2026-08-11 18:36:02,639 [INFO] test_async_utils: read_file_with_encoding: content=测试中文
+2026-08-11 18:36:02,646 [INFO] test_async_utils: write_file_error: error=[Errno 2] No such file or directory: '/nonexistent/dir/file.txt'
+2026-08-11 18:36:02,660 [INFO] test_async_utils: write_file_success: path=C:\Users\yydsh\AppData\Local\Temp\thon_async_test_write.txt
+2026-08-11 18:36:02,663 [INFO] test_async_utils: async_run_decorator_exists: verified
+2026-08-11 18:36:02,665 [INFO] test_async_utils: async_run_error_handling: error=Decorator error
+2026-08-11 18:36:02,670 [INFO] test_async_utils: async_run_with_string_callbacks: results=[42]
+2026-08-11 18:38:02,287 [INFO] test_async_utils: async_task_runner_class_exists: verified
+2026-08-11 18:38:02,290 [INFO] test_async_utils: initialize_and_shutdown: verified
+2026-08-11 18:38:02,292 [INFO] test_async_utils: package_declaration: async_utils package verified
+2026-08-11 18:38:02,300 [INFO] test_async_utils: run_basic_function: result=[42]
+2026-08-11 18:38:02,304 [INFO] test_async_utils: run_error_handling: error=Test error
+2026-08-11 18:38:02,807 [INFO] test_async_utils: run_in_executor: result=['executor result']
+2026-08-11 18:38:02,810 [INFO] test_async_utils: run_no_callbacks: completed without error
+2026-08-11 18:38:02,824 [INFO] test_async_utils: run_returns_thread: daemon=True
+2026-08-11 18:38:02,827 [INFO] test_async_utils: run_with_args: result=[30]
+2026-08-11 18:38:02,830 [INFO] test_async_utils: run_with_kwargs: result=['Hi, World!']
+2026-08-11 18:38:02,833 [INFO] test_async_utils: singleton_pattern: verified
+2026-08-11 18:38:02,835 [INFO] test_async_utils: async_file_io_class_exists: verified
+2026-08-11 18:38:02,838 [INFO] test_async_utils: read_file_error: error=[Errno 2] No such file or directory: '/nonexistent/path/file.txt'
+2026-08-11 18:38:02,844 [INFO] test_async_utils: read_file_success: content=Hello, Async World!
+2026-08-11 18:38:02,851 [INFO] test_async_utils: read_file_with_encoding: content=测试中文
+2026-08-11 18:38:02,854 [INFO] test_async_utils: write_file_error: error=[Errno 2] No such file or directory: '/nonexistent/dir/file.txt'
+2026-08-11 18:38:02,867 [INFO] test_async_utils: write_file_success: path=C:\Users\yydsh\AppData\Local\Temp\thon_async_test_write.txt
+2026-08-11 18:38:02,872 [INFO] test_async_utils: async_run_decorator_exists: verified
+2026-08-11 18:38:02,880 [INFO] test_async_utils: async_run_error_handling: error=Decorator error
+2026-08-11 18:38:02,882 [INFO] test_async_utils: async_run_with_string_callbacks: results=[42]
+2026-08-11 18:38:18,182 [INFO] test_async_utils: async_task_runner_class_exists: verified
+2026-08-11 18:38:18,188 [INFO] test_async_utils: initialize_and_shutdown: verified
+2026-08-11 18:38:18,191 [INFO] test_async_utils: package_declaration: async_utils package verified
+2026-08-11 18:38:18,194 [INFO] test_async_utils: run_basic_function: result=[42]
+2026-08-11 18:38:18,198 [INFO] test_async_utils: run_error_handling: error=Test error
+2026-08-11 18:38:18,703 [INFO] test_async_utils: run_in_executor: result=['executor result']
+2026-08-11 18:38:18,707 [INFO] test_async_utils: run_no_callbacks: completed without error
+2026-08-11 18:38:18,721 [INFO] test_async_utils: run_returns_thread: daemon=True
+2026-08-11 18:38:18,725 [INFO] test_async_utils: run_with_args: result=[30]
+2026-08-11 18:38:18,728 [INFO] test_async_utils: run_with_kwargs: result=['Hi, World!']
+2026-08-11 18:38:18,731 [INFO] test_async_utils: singleton_pattern: verified
+2026-08-11 18:38:18,735 [INFO] test_async_utils: async_file_io_class_exists: verified
+2026-08-11 18:38:18,738 [INFO] test_async_utils: read_file_error: error=[Errno 2] No such file or directory: '/nonexistent/path/file.txt'
+2026-08-11 18:38:18,744 [INFO] test_async_utils: read_file_success: content=Hello, Async World!
+2026-08-11 18:38:18,755 [INFO] test_async_utils: read_file_with_encoding: content=测试中文
+2026-08-11 18:38:18,760 [INFO] test_async_utils: write_file_error: error=[Errno 2] No such file or directory: '/nonexistent/dir/file.txt'
+2026-08-11 18:38:18,774 [INFO] test_async_utils: write_file_success: path=C:\Users\yydsh\AppData\Local\Temp\thon_async_test_write.txt
+2026-08-11 18:38:18,778 [INFO] test_async_utils: async_run_decorator_exists: verified
+2026-08-11 18:38:18,784 [INFO] test_async_utils: async_run_error_handling: error=Decorator error
+2026-08-11 18:38:18,787 [INFO] test_async_utils: async_run_with_string_callbacks: results=[42]

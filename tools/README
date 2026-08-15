@@ -1,6 +1,0 @@
-# 语言 | Languages
-**中文(简体)** | [**English**](#)
-
-# 工具
-* [x] **[`pyinstaller_build_win.bat`](pyinstaller_build_win.bat): 用于在`Windows10+`平台上使用pyinstaller进行打包的脚本**
-* [x] **[`nuitka_build_win.bat`](nuitka_build_win.bat): 用于在`Windows10+`平台上使用nuitka进行打包的脚本**

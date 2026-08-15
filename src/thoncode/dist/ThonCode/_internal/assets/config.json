@@ -1,0 +1,12 @@
+{
+    "language": "en_us",
+    "theme": "dark",
+    "auto_save": true,
+    "auto_save_time_sec": 15,
+    "tab_size": 4,
+    "font_ligatures": true,
+    "show_welcome": true,
+    "python_path": "",
+    "run_args": "",
+    "auto_reload": true
+}

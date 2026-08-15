@@ -1,0 +1,675 @@
+2026-08-10 14:06:57,572 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_bx6vllia\config.json
+2026-08-10 14:06:57,573 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-10 14:06:57,597 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_bx6vllia
+2026-08-10 14:06:57,598 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ar6juhwr\config.json
+2026-08-10 14:06:57,609 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_ar6juhwr\\config.json', 'code': 201}
+2026-08-10 14:06:57,609 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ar6juhwr
+2026-08-10 14:06:57,610 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_en0rfz_f\config.json
+2026-08-10 14:06:57,611 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-10 14:06:57,612 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_en0rfz_f
+2026-08-10 14:06:57,613 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_1dn3h5bh\config.json
+2026-08-10 14:06:57,613 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_1dn3h5bh\\config.json.', 'code': 200}
+2026-08-10 14:06:57,614 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_1dn3h5bh
+2026-08-10 14:06:57,615 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_6bv01uyp\config.json
+2026-08-10 14:06:57,675 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-10 14:06:57,676 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_6bv01uyp
+2026-08-10 14:06:57,676 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_88f9gb34\config.json
+2026-08-10 14:06:57,785 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-10 14:06:57,786 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_88f9gb34
+2026-08-10 14:06:57,786 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_py03dikv\config.json
+2026-08-10 14:06:57,907 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-10 14:06:57,908 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_py03dikv
+2026-08-10 14:06:57,908 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_doirzhe4\config.json
+2026-08-10 14:06:57,924 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-10 14:06:57,925 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_doirzhe4
+2026-08-10 14:06:57,926 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_fbc4nq3a\config.json
+2026-08-10 14:06:57,926 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-10 14:06:57,951 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_fbc4nq3a
+2026-08-10 14:10:14,306 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5smmid9j\config.json
+2026-08-10 14:10:14,307 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-10 14:10:14,307 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5smmid9j
+2026-08-10 14:10:14,308 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_9sx8fjq0\config.json
+2026-08-10 14:10:14,309 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_9sx8fjq0\\config.json', 'code': 201}
+2026-08-10 14:10:14,310 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_9sx8fjq0
+2026-08-10 14:10:14,310 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_q_bg10fp\config.json
+2026-08-10 14:10:14,311 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-10 14:10:14,317 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_q_bg10fp
+2026-08-10 14:10:14,317 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_zim1ehg7\config.json
+2026-08-10 14:10:14,320 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_zim1ehg7\\config.json.', 'code': 200}
+2026-08-10 14:10:14,320 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_zim1ehg7
+2026-08-10 14:10:14,321 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_bfyg7c1a\config.json
+2026-08-10 14:10:14,326 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-10 14:10:14,327 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_bfyg7c1a
+2026-08-10 14:10:14,328 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4gf96fd4\config.json
+2026-08-10 14:10:14,333 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-10 14:10:14,337 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4gf96fd4
+2026-08-10 14:10:14,338 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4nz94ccy\config.json
+2026-08-10 14:10:14,362 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-10 14:10:14,363 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4nz94ccy
+2026-08-10 14:10:14,364 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_dom5ig7s\config.json
+2026-08-10 14:10:14,372 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-10 14:10:14,374 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_dom5ig7s
+2026-08-10 14:10:14,375 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_6ijirnxr\config.json
+2026-08-10 14:10:14,376 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-10 14:10:14,385 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_6ijirnxr
+2026-08-10 14:11:02,176 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_0u6amfv2\config.json
+2026-08-10 14:11:02,179 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-10 14:11:02,181 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_0u6amfv2
+2026-08-10 14:11:02,182 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_l0afxost\config.json
+2026-08-10 14:11:02,183 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_l0afxost\\config.json', 'code': 201}
+2026-08-10 14:11:02,183 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_l0afxost
+2026-08-10 14:11:02,184 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_s0h92gic\config.json
+2026-08-10 14:11:02,185 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-10 14:11:02,235 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_s0h92gic
+2026-08-10 14:11:02,235 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_npe0lc93\config.json
+2026-08-10 14:11:02,236 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_npe0lc93\\config.json.', 'code': 200}
+2026-08-10 14:11:02,237 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_npe0lc93
+2026-08-10 14:11:02,237 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_vdd8_pk0\config.json
+2026-08-10 14:11:02,239 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-10 14:11:02,240 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_vdd8_pk0
+2026-08-10 14:11:02,240 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_p70fvhl8\config.json
+2026-08-10 14:11:02,244 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-10 14:11:02,244 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_p70fvhl8
+2026-08-10 14:11:02,245 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_p29mlgv8\config.json
+2026-08-10 14:11:02,288 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-10 14:11:02,289 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_p29mlgv8
+2026-08-10 14:11:02,289 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_v_nxhmvg\config.json
+2026-08-10 14:11:02,291 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-10 14:11:02,292 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_v_nxhmvg
+2026-08-10 14:11:02,293 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_e4jkows1\config.json
+2026-08-10 14:11:02,293 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-10 14:11:02,301 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_e4jkows1
+2026-08-10 14:27:42,630 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_i2nalfym\config.json
+2026-08-10 14:27:42,632 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-10 14:27:42,633 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_i2nalfym
+2026-08-10 14:27:42,634 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_aj0tyrei\config.json
+2026-08-10 14:27:42,634 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_aj0tyrei\\config.json', 'code': 201}
+2026-08-10 14:27:42,636 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_aj0tyrei
+2026-08-10 14:27:42,637 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5k6lmm7w\config.json
+2026-08-10 14:27:42,638 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-10 14:27:42,642 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5k6lmm7w
+2026-08-10 14:27:42,653 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ehobdfip\config.json
+2026-08-10 14:27:42,654 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_ehobdfip\\config.json.', 'code': 200}
+2026-08-10 14:27:42,655 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ehobdfip
+2026-08-10 14:27:42,657 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_pkjgzwv3\config.json
+2026-08-10 14:27:42,672 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-10 14:27:42,675 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_pkjgzwv3
+2026-08-10 14:27:42,677 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_yqmpn916\config.json
+2026-08-10 14:27:42,681 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-10 14:27:42,683 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_yqmpn916
+2026-08-10 14:27:42,685 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_gkgpyzvy\config.json
+2026-08-10 14:27:42,697 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-10 14:27:42,698 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_gkgpyzvy
+2026-08-10 14:27:42,700 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_nk5wwq1a\config.json
+2026-08-10 14:27:42,704 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-10 14:27:42,706 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_nk5wwq1a
+2026-08-10 14:27:42,707 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_b0qormgv\config.json
+2026-08-10 14:27:42,708 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-10 14:27:42,711 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_b0qormgv
+2026-08-10 14:52:05,998 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_xmfv9nnz\config.json
+2026-08-10 14:52:05,999 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-10 14:52:06,000 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_xmfv9nnz
+2026-08-10 14:52:06,000 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4dtmq0km\config.json
+2026-08-10 14:52:06,001 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_4dtmq0km\\config.json', 'code': 201}
+2026-08-10 14:52:06,002 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4dtmq0km
+2026-08-10 14:52:06,002 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_t6qzuzlg\config.json
+2026-08-10 14:52:06,004 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-10 14:52:06,007 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_t6qzuzlg
+2026-08-10 14:52:06,008 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_7lkn4hab\config.json
+2026-08-10 14:52:06,008 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_7lkn4hab\\config.json.', 'code': 200}
+2026-08-10 14:52:06,009 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_7lkn4hab
+2026-08-10 14:52:06,010 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_gl9elsy0\config.json
+2026-08-10 14:52:06,012 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-10 14:52:06,012 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_gl9elsy0
+2026-08-10 14:52:06,013 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ybdh7xae\config.json
+2026-08-10 14:52:06,026 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-10 14:52:06,027 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ybdh7xae
+2026-08-10 14:52:06,027 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_eamlui91\config.json
+2026-08-10 14:52:06,052 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-10 14:52:06,054 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_eamlui91
+2026-08-10 14:52:06,054 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_pcrgis92\config.json
+2026-08-10 14:52:06,056 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-10 14:52:06,057 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_pcrgis92
+2026-08-10 14:52:06,058 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_gpamy52e\config.json
+2026-08-10 14:52:06,058 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-10 14:52:06,076 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_gpamy52e
+2026-08-10 14:54:31,828 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_pizvn6b8\config.json
+2026-08-10 14:54:31,829 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-10 14:54:31,829 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_pizvn6b8
+2026-08-10 14:54:31,830 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_3rljhotw\config.json
+2026-08-10 14:54:31,834 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_3rljhotw\\config.json', 'code': 201}
+2026-08-10 14:54:31,835 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_3rljhotw
+2026-08-10 14:54:31,836 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_gz9n_sje\config.json
+2026-08-10 14:54:31,838 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-10 14:54:31,839 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_gz9n_sje
+2026-08-10 14:54:31,840 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_jki3tsu8\config.json
+2026-08-10 14:54:31,840 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_jki3tsu8\\config.json.', 'code': 200}
+2026-08-10 14:54:31,841 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_jki3tsu8
+2026-08-10 14:54:31,842 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_neq0lso8\config.json
+2026-08-10 14:54:31,844 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-10 14:54:31,844 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_neq0lso8
+2026-08-10 14:54:31,845 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_sd82ho1z\config.json
+2026-08-10 14:54:31,848 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-10 14:54:31,849 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_sd82ho1z
+2026-08-10 14:54:31,850 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_dq96j0aj\config.json
+2026-08-10 14:54:31,859 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-10 14:54:31,860 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_dq96j0aj
+2026-08-10 14:54:31,860 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4u6biqov\config.json
+2026-08-10 14:54:31,869 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-10 14:54:31,870 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4u6biqov
+2026-08-10 14:54:31,871 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5b1x63mo\config.json
+2026-08-10 14:54:31,872 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-10 14:54:31,874 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5b1x63mo
+2026-08-11 16:06:37,654 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_yqhfvh4n\config.json
+2026-08-11 16:06:37,670 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-11 16:06:37,671 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_yqhfvh4n
+2026-08-11 16:06:37,674 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_fplu03c8\config.json
+2026-08-11 16:06:37,674 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_fplu03c8\\config.json', 'code': 201}
+2026-08-11 16:06:37,675 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_fplu03c8
+2026-08-11 16:06:37,678 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_88zt6w3z\config.json
+2026-08-11 16:06:37,685 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-11 16:06:37,686 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_88zt6w3z
+2026-08-11 16:06:37,689 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ohvd2ix5\config.json
+2026-08-11 16:06:37,689 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_ohvd2ix5\\config.json.', 'code': 200}
+2026-08-11 16:06:37,690 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ohvd2ix5
+2026-08-11 16:06:37,693 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_vg_tln6e\config.json
+2026-08-11 16:06:37,703 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-11 16:06:37,704 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_vg_tln6e
+2026-08-11 16:06:37,706 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_tdxhk3r6\config.json
+2026-08-11 16:06:37,728 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-11 16:06:37,729 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_tdxhk3r6
+2026-08-11 16:06:37,731 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ga_y79x2\config.json
+2026-08-11 16:06:37,776 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-11 16:06:37,777 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ga_y79x2
+2026-08-11 16:06:37,780 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_pdc1osij\config.json
+2026-08-11 16:06:37,790 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-11 16:06:37,791 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_pdc1osij
+2026-08-11 16:06:37,794 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_3irm2ayz\config.json
+2026-08-11 16:06:37,794 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-11 16:06:37,822 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_3irm2ayz
+2026-08-11 16:06:51,922 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_23q57win\config.json
+2026-08-11 16:06:51,923 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-11 16:06:51,923 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_23q57win
+2026-08-11 16:06:51,924 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_rm7853po\config.json
+2026-08-11 16:06:51,924 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_rm7853po\\config.json', 'code': 201}
+2026-08-11 16:06:51,925 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_rm7853po
+2026-08-11 16:06:51,926 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_s7qbla5e\config.json
+2026-08-11 16:06:51,927 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-11 16:06:51,928 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_s7qbla5e
+2026-08-11 16:06:51,928 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_u0jmff29\config.json
+2026-08-11 16:06:51,929 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_u0jmff29\\config.json.', 'code': 200}
+2026-08-11 16:06:51,930 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_u0jmff29
+2026-08-11 16:06:51,930 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ifbcsvqh\config.json
+2026-08-11 16:06:51,932 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-11 16:06:51,933 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ifbcsvqh
+2026-08-11 16:06:51,933 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_j4y3zpag\config.json
+2026-08-11 16:06:51,937 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-11 16:06:51,938 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_j4y3zpag
+2026-08-11 16:06:51,939 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_99g085kl\config.json
+2026-08-11 16:06:51,952 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-11 16:06:51,953 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_99g085kl
+2026-08-11 16:06:51,953 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_62jx6_fs\config.json
+2026-08-11 16:06:51,955 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-11 16:06:51,957 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_62jx6_fs
+2026-08-11 16:06:51,957 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_0m5wl9oy\config.json
+2026-08-11 16:06:51,961 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-11 16:06:51,964 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_0m5wl9oy
+2026-08-11 16:07:04,797 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_1s3yh56z\config.json
+2026-08-11 16:07:04,798 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-11 16:07:04,798 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_1s3yh56z
+2026-08-11 16:07:04,799 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_imwqphrc\config.json
+2026-08-11 16:07:04,800 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_imwqphrc\\config.json', 'code': 201}
+2026-08-11 16:07:04,800 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_imwqphrc
+2026-08-11 16:07:04,801 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_yb3ud07q\config.json
+2026-08-11 16:07:04,802 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-11 16:07:04,805 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_yb3ud07q
+2026-08-11 16:07:04,806 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_h53smxb_\config.json
+2026-08-11 16:07:04,806 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_h53smxb_\\config.json.', 'code': 200}
+2026-08-11 16:07:04,808 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_h53smxb_
+2026-08-11 16:07:04,808 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_wao24osx\config.json
+2026-08-11 16:07:04,822 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-11 16:07:04,823 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_wao24osx
+2026-08-11 16:07:04,823 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_cw9eg4m5\config.json
+2026-08-11 16:07:04,829 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-11 16:07:04,829 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_cw9eg4m5
+2026-08-11 16:07:04,830 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_mav_7_a3\config.json
+2026-08-11 16:07:04,839 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-11 16:07:04,839 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_mav_7_a3
+2026-08-11 16:07:04,840 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_xyl8yyx4\config.json
+2026-08-11 16:07:04,844 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-11 16:07:04,846 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_xyl8yyx4
+2026-08-11 16:07:04,846 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_3sqj8vsl\config.json
+2026-08-11 16:07:04,847 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-11 16:07:04,849 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_3sqj8vsl
+2026-08-11 16:44:28,646 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_s8f1npu0\config.json
+2026-08-11 16:44:28,648 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-11 16:44:28,649 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_s8f1npu0
+2026-08-11 16:44:28,649 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5lqtweav\config.json
+2026-08-11 16:44:28,650 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_5lqtweav\\config.json', 'code': 201}
+2026-08-11 16:44:28,651 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5lqtweav
+2026-08-11 16:44:28,653 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ep4wxw6p\config.json
+2026-08-11 16:44:28,655 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-11 16:44:28,657 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ep4wxw6p
+2026-08-11 16:44:28,665 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ti7bijxt\config.json
+2026-08-11 16:44:28,666 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_ti7bijxt\\config.json.', 'code': 200}
+2026-08-11 16:44:28,668 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ti7bijxt
+2026-08-11 16:44:28,670 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_sebz45tl\config.json
+2026-08-11 16:44:28,672 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-11 16:44:28,675 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_sebz45tl
+2026-08-11 16:44:28,676 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_gli4s92_\config.json
+2026-08-11 16:44:28,688 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-11 16:44:28,689 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_gli4s92_
+2026-08-11 16:44:28,692 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_60c3f6bp\config.json
+2026-08-11 16:44:28,701 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-11 16:44:28,703 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_60c3f6bp
+2026-08-11 16:44:28,708 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ragofy87\config.json
+2026-08-11 16:44:28,711 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-11 16:44:28,712 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ragofy87
+2026-08-11 16:44:28,714 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_thg2et4n\config.json
+2026-08-11 16:44:28,714 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-11 16:44:28,724 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_thg2et4n
+2026-08-11 16:59:33,835 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ue7wg4wo\config.json
+2026-08-11 16:59:33,836 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-11 16:59:33,838 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ue7wg4wo
+2026-08-11 16:59:33,838 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_aafrcx6g\config.json
+2026-08-11 16:59:33,839 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_aafrcx6g\\config.json', 'code': 201}
+2026-08-11 16:59:33,844 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_aafrcx6g
+2026-08-11 16:59:33,845 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_zy5l4_8p\config.json
+2026-08-11 16:59:33,860 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-11 16:59:33,861 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_zy5l4_8p
+2026-08-11 16:59:33,861 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_i66frg0o\config.json
+2026-08-11 16:59:33,862 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_i66frg0o\\config.json.', 'code': 200}
+2026-08-11 16:59:33,862 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_i66frg0o
+2026-08-11 16:59:33,863 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_cr12h5ta\config.json
+2026-08-11 16:59:33,865 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-11 16:59:33,866 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_cr12h5ta
+2026-08-11 16:59:33,867 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_iyja7bbr\config.json
+2026-08-11 16:59:33,880 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-11 16:59:33,880 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_iyja7bbr
+2026-08-11 16:59:33,881 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_zpbhvmti\config.json
+2026-08-11 16:59:33,887 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-11 16:59:33,888 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_zpbhvmti
+2026-08-11 16:59:33,889 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ju0p4r9x\config.json
+2026-08-11 16:59:33,891 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-11 16:59:33,892 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ju0p4r9x
+2026-08-11 16:59:33,892 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ybxuy3af\config.json
+2026-08-11 16:59:33,893 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-11 16:59:33,912 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ybxuy3af
+2026-08-11 16:59:55,353 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_oqq4ynsf\config.json
+2026-08-11 16:59:55,354 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-11 16:59:55,356 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_oqq4ynsf
+2026-08-11 16:59:55,357 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_g1itx29p\config.json
+2026-08-11 16:59:55,357 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_g1itx29p\\config.json', 'code': 201}
+2026-08-11 16:59:55,359 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_g1itx29p
+2026-08-11 16:59:55,359 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_7m9_0qan\config.json
+2026-08-11 16:59:55,362 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-11 16:59:55,364 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_7m9_0qan
+2026-08-11 16:59:55,365 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_rpk8rm3e\config.json
+2026-08-11 16:59:55,366 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_rpk8rm3e\\config.json.', 'code': 200}
+2026-08-11 16:59:55,367 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_rpk8rm3e
+2026-08-11 16:59:55,373 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_hpswemsi\config.json
+2026-08-11 16:59:55,379 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-11 16:59:55,383 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_hpswemsi
+2026-08-11 16:59:55,384 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_dt975bvo\config.json
+2026-08-11 16:59:55,390 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-11 16:59:55,391 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_dt975bvo
+2026-08-11 16:59:55,392 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test__eud4p7_\config.json
+2026-08-11 16:59:55,401 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-11 16:59:55,403 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test__eud4p7_
+2026-08-11 16:59:55,404 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_y_5h5u1f\config.json
+2026-08-11 16:59:55,407 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-11 16:59:55,409 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_y_5h5u1f
+2026-08-11 16:59:55,410 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ks80z0jz\config.json
+2026-08-11 16:59:55,410 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-11 16:59:55,413 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ks80z0jz
+2026-08-11 17:09:51,377 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_vpsyj4yp\config.json
+2026-08-11 17:09:51,378 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-11 17:09:51,379 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_vpsyj4yp
+2026-08-11 17:09:51,379 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_7h6dhek2\config.json
+2026-08-11 17:09:51,380 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_7h6dhek2\\config.json', 'code': 201}
+2026-08-11 17:09:51,381 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_7h6dhek2
+2026-08-11 17:09:51,381 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_nx9e3zg9\config.json
+2026-08-11 17:09:51,382 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-11 17:09:51,385 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_nx9e3zg9
+2026-08-11 17:09:51,386 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_39z8y9c0\config.json
+2026-08-11 17:09:51,386 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_39z8y9c0\\config.json.', 'code': 200}
+2026-08-11 17:09:51,387 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_39z8y9c0
+2026-08-11 17:09:51,388 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_f2iexbvc\config.json
+2026-08-11 17:09:51,400 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-11 17:09:51,400 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_f2iexbvc
+2026-08-11 17:09:51,401 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_fq047kxv\config.json
+2026-08-11 17:09:51,405 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-11 17:09:51,406 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_fq047kxv
+2026-08-11 17:09:51,407 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_hjg5jw4o\config.json
+2026-08-11 17:09:51,415 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-11 17:09:51,416 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_hjg5jw4o
+2026-08-11 17:09:51,416 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test__cuyy2j3\config.json
+2026-08-11 17:09:51,447 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-11 17:09:51,449 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test__cuyy2j3
+2026-08-11 17:09:51,449 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ezcc0xr7\config.json
+2026-08-11 17:09:51,450 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-11 17:09:51,487 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ezcc0xr7
+2026-08-11 18:36:10,203 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4nzpdgur\config.json
+2026-08-11 18:36:10,204 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-11 18:36:10,205 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4nzpdgur
+2026-08-11 18:36:10,205 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_rji0h5id\config.json
+2026-08-11 18:36:10,206 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_rji0h5id\\config.json', 'code': 201}
+2026-08-11 18:36:10,207 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_rji0h5id
+2026-08-11 18:36:10,207 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_m_rmjfqs\config.json
+2026-08-11 18:36:10,209 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-11 18:36:10,210 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_m_rmjfqs
+2026-08-11 18:36:10,210 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5wyyvpdq\config.json
+2026-08-11 18:36:10,211 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_5wyyvpdq\\config.json.', 'code': 200}
+2026-08-11 18:36:10,212 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5wyyvpdq
+2026-08-11 18:36:10,212 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_tqp89p1m\config.json
+2026-08-11 18:36:10,214 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-11 18:36:10,214 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_tqp89p1m
+2026-08-11 18:36:10,215 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_rcg6s2_3\config.json
+2026-08-11 18:36:10,231 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-11 18:36:10,231 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_rcg6s2_3
+2026-08-11 18:36:10,232 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_1j30v4g_\config.json
+2026-08-11 18:36:10,242 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-11 18:36:10,242 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_1j30v4g_
+2026-08-11 18:36:10,243 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_6wlhcvtj\config.json
+2026-08-11 18:36:10,246 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-11 18:36:10,247 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_6wlhcvtj
+2026-08-11 18:36:10,248 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_1z6mf_3j\config.json
+2026-08-11 18:36:10,248 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-11 18:36:10,280 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_1z6mf_3j
+2026-08-11 18:38:03,049 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_jox6360l\config.json
+2026-08-11 18:38:03,049 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-11 18:38:03,050 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_jox6360l
+2026-08-11 18:38:03,053 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_w81v_nam\config.json
+2026-08-11 18:38:03,054 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_w81v_nam\\config.json', 'code': 201}
+2026-08-11 18:38:03,054 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_w81v_nam
+2026-08-11 18:38:03,057 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5g4fsf52\config.json
+2026-08-11 18:38:03,058 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-11 18:38:03,059 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5g4fsf52
+2026-08-11 18:38:03,064 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_n0rxb44t\config.json
+2026-08-11 18:38:03,064 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_n0rxb44t\\config.json.', 'code': 200}
+2026-08-11 18:38:03,065 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_n0rxb44t
+2026-08-11 18:38:03,069 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5x6etvq4\config.json
+2026-08-11 18:38:03,071 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-11 18:38:03,072 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5x6etvq4
+2026-08-11 18:38:03,074 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_bpcerh48\config.json
+2026-08-11 18:38:03,079 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-11 18:38:03,079 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_bpcerh48
+2026-08-11 18:38:03,082 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_8qcyv5mh\config.json
+2026-08-11 18:38:03,098 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-11 18:38:03,098 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_8qcyv5mh
+2026-08-11 18:38:03,101 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_eheazkd5\config.json
+2026-08-11 18:38:03,104 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-11 18:38:03,105 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_eheazkd5
+2026-08-11 18:38:03,109 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_mcen5poh\config.json
+2026-08-11 18:38:03,110 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-11 18:38:03,113 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_mcen5poh
+2026-08-11 18:38:25,082 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_3dpb81rk\config.json
+2026-08-11 18:38:25,083 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-11 18:38:25,084 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_3dpb81rk
+2026-08-11 18:38:25,084 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_v_n2qxh1\config.json
+2026-08-11 18:38:25,085 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_v_n2qxh1\\config.json', 'code': 201}
+2026-08-11 18:38:25,086 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_v_n2qxh1
+2026-08-11 18:38:25,086 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_q7fdk26v\config.json
+2026-08-11 18:38:25,087 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-11 18:38:25,088 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_q7fdk26v
+2026-08-11 18:38:25,089 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5adxsyrf\config.json
+2026-08-11 18:38:25,089 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_5adxsyrf\\config.json.', 'code': 200}
+2026-08-11 18:38:25,091 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5adxsyrf
+2026-08-11 18:38:25,091 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_p27gthib\config.json
+2026-08-11 18:38:25,093 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-11 18:38:25,094 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_p27gthib
+2026-08-11 18:38:25,094 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_uq_bo9jf\config.json
+2026-08-11 18:38:25,097 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-11 18:38:25,098 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_uq_bo9jf
+2026-08-11 18:38:25,098 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_15kaholu\config.json
+2026-08-11 18:38:25,104 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-11 18:38:25,105 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_15kaholu
+2026-08-11 18:38:25,105 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_sgtrp0fu\config.json
+2026-08-11 18:38:25,110 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-11 18:38:25,122 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_sgtrp0fu
+2026-08-11 18:38:25,125 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_7wb4f_s3\config.json
+2026-08-11 18:38:25,125 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-11 18:38:25,128 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_7wb4f_s3
+2026-08-13 18:15:31,756 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ut80_ukh\config.json
+2026-08-13 18:15:31,756 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-13 18:15:31,758 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ut80_ukh
+2026-08-13 18:15:31,758 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_gi_eftc_\config.json
+2026-08-13 18:15:31,759 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_gi_eftc_\\config.json', 'code': 201}
+2026-08-13 18:15:31,761 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_gi_eftc_
+2026-08-13 18:15:31,761 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_r5m8lfn0\config.json
+2026-08-13 18:15:31,763 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-13 18:15:31,765 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_r5m8lfn0
+2026-08-13 18:15:31,765 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ojme2s7r\config.json
+2026-08-13 18:15:31,766 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_ojme2s7r\\config.json.', 'code': 200}
+2026-08-13 18:15:31,767 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ojme2s7r
+2026-08-13 18:15:31,768 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_egn9zgsi\config.json
+2026-08-13 18:15:31,784 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-13 18:15:31,785 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_egn9zgsi
+2026-08-13 18:15:31,786 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_srv2bt3x\config.json
+2026-08-13 18:15:31,807 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-13 18:15:31,808 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_srv2bt3x
+2026-08-13 18:15:31,809 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_2rdri9jr\config.json
+2026-08-13 18:15:31,884 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-13 18:15:31,885 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_2rdri9jr
+2026-08-13 18:15:31,886 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_gbfzokkm\config.json
+2026-08-13 18:15:31,905 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-13 18:15:31,909 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_gbfzokkm
+2026-08-13 18:15:31,909 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_uj4qbd38\config.json
+2026-08-13 18:15:31,910 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-13 18:15:31,948 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_uj4qbd38
+2026-08-13 19:13:16,510 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_6uqkh3yq\config.json
+2026-08-13 19:13:16,513 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-13 19:13:16,515 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_6uqkh3yq
+2026-08-13 19:13:16,516 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_crjlk493\config.json
+2026-08-13 19:13:16,518 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_crjlk493\\config.json', 'code': 201}
+2026-08-13 19:13:16,519 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_crjlk493
+2026-08-13 19:13:16,523 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_m0_5gpjk\config.json
+2026-08-13 19:13:16,527 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-13 19:13:16,529 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_m0_5gpjk
+2026-08-13 19:13:16,530 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_v6m7hjim\config.json
+2026-08-13 19:13:16,531 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_v6m7hjim\\config.json.', 'code': 200}
+2026-08-13 19:13:16,533 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_v6m7hjim
+2026-08-13 19:13:16,533 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4z4nyl42\config.json
+2026-08-13 19:13:16,547 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-13 19:13:16,548 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4z4nyl42
+2026-08-13 19:13:16,549 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_omsgxpv2\config.json
+2026-08-13 19:13:16,565 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-13 19:13:16,567 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_omsgxpv2
+2026-08-13 19:13:16,570 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_hcvvk3fc\config.json
+2026-08-13 19:13:16,610 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-13 19:13:16,611 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_hcvvk3fc
+2026-08-13 19:13:16,612 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_pmumph6d\config.json
+2026-08-13 19:13:16,627 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-13 19:13:16,637 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_pmumph6d
+2026-08-13 19:13:16,638 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_zm7y0aej\config.json
+2026-08-13 19:13:16,638 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-13 19:13:16,657 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_zm7y0aej
+2026-08-13 19:14:17,547 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_qpuw965r\config.json
+2026-08-13 19:14:17,548 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-13 19:14:17,549 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_qpuw965r
+2026-08-13 19:14:17,550 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_xq7aq20l\config.json
+2026-08-13 19:14:17,551 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_xq7aq20l\\config.json', 'code': 201}
+2026-08-13 19:14:17,556 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_xq7aq20l
+2026-08-13 19:14:17,557 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_tb_98mka\config.json
+2026-08-13 19:14:17,559 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-13 19:14:17,561 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_tb_98mka
+2026-08-13 19:14:17,561 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_wx2q7ojq\config.json
+2026-08-13 19:14:17,562 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_wx2q7ojq\\config.json.', 'code': 200}
+2026-08-13 19:14:17,564 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_wx2q7ojq
+2026-08-13 19:14:17,565 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_6bsoprnw\config.json
+2026-08-13 19:14:17,577 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-13 19:14:17,578 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_6bsoprnw
+2026-08-13 19:14:17,580 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5oegwp7_\config.json
+2026-08-13 19:14:17,591 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-13 19:14:17,592 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5oegwp7_
+2026-08-13 19:14:17,592 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_yl1cioxw\config.json
+2026-08-13 19:14:17,607 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-13 19:14:17,611 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_yl1cioxw
+2026-08-13 19:14:17,611 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_nezar_3i\config.json
+2026-08-13 19:14:17,622 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-13 19:14:17,624 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_nezar_3i
+2026-08-13 19:14:17,625 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_zkp22xb1\config.json
+2026-08-13 19:14:17,626 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-13 19:14:17,628 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_zkp22xb1
+2026-08-13 19:14:38,359 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_l6c6087l\config.json
+2026-08-13 19:14:38,361 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-13 19:14:38,362 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_l6c6087l
+2026-08-13 19:14:38,362 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4_11siwf\config.json
+2026-08-13 19:14:38,363 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_4_11siwf\\config.json', 'code': 201}
+2026-08-13 19:14:38,364 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4_11siwf
+2026-08-13 19:14:38,364 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_08bt2eku\config.json
+2026-08-13 19:14:38,367 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-13 19:14:38,369 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_08bt2eku
+2026-08-13 19:14:38,370 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5qi7lvnp\config.json
+2026-08-13 19:14:38,370 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_5qi7lvnp\\config.json.', 'code': 200}
+2026-08-13 19:14:38,371 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5qi7lvnp
+2026-08-13 19:14:38,372 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5sda4snw\config.json
+2026-08-13 19:14:38,374 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-13 19:14:38,375 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5sda4snw
+2026-08-13 19:14:38,375 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_yp39yzox\config.json
+2026-08-13 19:14:38,379 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-13 19:14:38,380 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_yp39yzox
+2026-08-13 19:14:38,387 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_vub231cs\config.json
+2026-08-13 19:14:38,412 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-13 19:14:38,414 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_vub231cs
+2026-08-13 19:14:38,414 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_36m88q_i\config.json
+2026-08-13 19:14:38,417 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-13 19:14:38,419 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_36m88q_i
+2026-08-13 19:14:38,420 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_m8yiklvj\config.json
+2026-08-13 19:14:38,421 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-13 19:14:38,424 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_m8yiklvj
+2026-08-13 19:29:55,266 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_fe9oabzm\config.json
+2026-08-13 19:29:55,267 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-13 19:29:55,268 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_fe9oabzm
+2026-08-13 19:29:55,269 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_x5bqrtkj\config.json
+2026-08-13 19:29:55,270 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_x5bqrtkj\\config.json', 'code': 201}
+2026-08-13 19:29:55,273 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_x5bqrtkj
+2026-08-13 19:29:55,273 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_f92y5t50\config.json
+2026-08-13 19:29:55,275 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-13 19:29:55,277 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_f92y5t50
+2026-08-13 19:29:55,277 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_e9s4u_y1\config.json
+2026-08-13 19:29:55,278 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_e9s4u_y1\\config.json.', 'code': 200}
+2026-08-13 19:29:55,279 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_e9s4u_y1
+2026-08-13 19:29:55,280 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_om84hvcl\config.json
+2026-08-13 19:29:55,282 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-13 19:29:55,283 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_om84hvcl
+2026-08-13 19:29:55,284 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_3vogqp92\config.json
+2026-08-13 19:29:55,298 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-13 19:29:55,300 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_3vogqp92
+2026-08-13 19:29:55,301 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ge47y_wf\config.json
+2026-08-13 19:29:55,317 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-13 19:29:55,321 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_ge47y_wf
+2026-08-13 19:29:55,321 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5wb4t7f1\config.json
+2026-08-13 19:29:55,324 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-13 19:29:55,326 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5wb4t7f1
+2026-08-13 19:29:55,327 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_houvhhva\config.json
+2026-08-13 19:29:55,328 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-13 19:29:55,340 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_houvhhva
+2026-08-13 19:38:41,354 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5p0l7rbv\config.json
+2026-08-13 19:38:41,355 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-13 19:38:41,356 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5p0l7rbv
+2026-08-13 19:38:41,357 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_eun2r2rb\config.json
+2026-08-13 19:38:41,358 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_eun2r2rb\\config.json', 'code': 201}
+2026-08-13 19:38:41,359 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_eun2r2rb
+2026-08-13 19:38:41,360 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5o8_ygrw\config.json
+2026-08-13 19:38:41,361 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-13 19:38:41,363 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_5o8_ygrw
+2026-08-13 19:38:41,364 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_npe0es8b\config.json
+2026-08-13 19:38:41,365 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_npe0es8b\\config.json.', 'code': 200}
+2026-08-13 19:38:41,372 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_npe0es8b
+2026-08-13 19:38:41,374 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_kgkunvnv\config.json
+2026-08-13 19:38:41,376 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-13 19:38:41,377 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_kgkunvnv
+2026-08-13 19:38:41,378 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_42ktajen\config.json
+2026-08-13 19:38:41,392 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-13 19:38:41,405 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_42ktajen
+2026-08-13 19:38:41,406 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4gqqkbrq\config.json
+2026-08-13 19:38:41,433 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-13 19:38:41,434 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4gqqkbrq
+2026-08-13 19:38:41,435 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_83cuktdj\config.json
+2026-08-13 19:38:41,439 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-13 19:38:41,441 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_83cuktdj
+2026-08-13 19:38:41,442 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_l1uog3ps\config.json
+2026-08-13 19:38:41,443 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-13 19:38:41,448 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_l1uog3ps
+2026-08-13 19:39:15,061 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_qtzlyjv6\config.json
+2026-08-13 19:39:15,061 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-13 19:39:15,062 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_qtzlyjv6
+2026-08-13 19:39:15,063 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_8b7idgg2\config.json
+2026-08-13 19:39:15,064 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_8b7idgg2\\config.json', 'code': 201}
+2026-08-13 19:39:15,064 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_8b7idgg2
+2026-08-13 19:39:15,065 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_wvmx34h6\config.json
+2026-08-13 19:39:15,066 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-13 19:39:15,069 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_wvmx34h6
+2026-08-13 19:39:15,070 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_dfucajet\config.json
+2026-08-13 19:39:15,071 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_dfucajet\\config.json.', 'code': 200}
+2026-08-13 19:39:15,072 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_dfucajet
+2026-08-13 19:39:15,072 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_pv09eofo\config.json
+2026-08-13 19:39:15,074 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-13 19:39:15,075 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_pv09eofo
+2026-08-13 19:39:15,076 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4tui_zya\config.json
+2026-08-13 19:39:15,079 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-13 19:39:15,088 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4tui_zya
+2026-08-13 19:39:15,089 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_6l5q98mv\config.json
+2026-08-13 19:39:15,096 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-13 19:39:15,097 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_6l5q98mv
+2026-08-13 19:39:15,098 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_t3kwj0yc\config.json
+2026-08-13 19:39:15,104 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-13 19:39:15,106 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_t3kwj0yc
+2026-08-13 19:39:15,106 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_oe93sskd\config.json
+2026-08-13 19:39:15,107 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-13 19:39:15,109 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_oe93sskd
+2026-08-13 20:40:43,450 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_jso5yg1g\config.json
+2026-08-13 20:40:43,450 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-13 20:40:43,452 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_jso5yg1g
+2026-08-13 20:40:43,452 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4lxbf7ax\config.json
+2026-08-13 20:40:43,453 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_4lxbf7ax\\config.json', 'code': 201}
+2026-08-13 20:40:43,454 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4lxbf7ax
+2026-08-13 20:40:43,455 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_yrvbsupb\config.json
+2026-08-13 20:40:43,471 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-13 20:40:43,473 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_yrvbsupb
+2026-08-13 20:40:43,477 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_snjgc10_\config.json
+2026-08-13 20:40:43,478 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_snjgc10_\\config.json.', 'code': 200}
+2026-08-13 20:40:43,480 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_snjgc10_
+2026-08-13 20:40:43,480 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_cang88bw\config.json
+2026-08-13 20:40:43,483 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-13 20:40:43,484 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_cang88bw
+2026-08-13 20:40:43,484 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_7ly7ul47\config.json
+2026-08-13 20:40:43,488 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-13 20:40:43,491 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_7ly7ul47
+2026-08-13 20:40:43,493 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_r4drq3fg\config.json
+2026-08-13 20:40:43,502 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-13 20:40:43,503 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_r4drq3fg
+2026-08-13 20:40:43,504 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_dn3p4giu\config.json
+2026-08-13 20:40:43,511 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-13 20:40:43,513 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_dn3p4giu
+2026-08-13 20:40:43,514 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4vl52rpv\config.json
+2026-08-13 20:40:43,514 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-13 20:40:43,529 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_4vl52rpv
+2026-08-13 21:26:09,881 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_o585tsob\config.json
+2026-08-13 21:26:09,882 [INFO] test_cfg_handle: check_cfg_file(缺失) 返回: {'status': 'success', 'data': 'None', 'code': 200}
+2026-08-13 21:26:09,884 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_o585tsob
+2026-08-13 21:26:09,885 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_11opl3nz\config.json
+2026-08-13 21:26:09,886 [INFO] test_cfg_handle: check_cfg_file(存在) 返回: {'status': 'success', 'data': 'Configuration file exists: C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_11opl3nz\\config.json', 'code': 201}
+2026-08-13 21:26:09,887 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_11opl3nz
+2026-08-13 21:26:09,887 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test__cgo5cqf\config.json
+2026-08-13 21:26:09,889 [INFO] test_cfg_handle: get_project_config 返回: {'python_path': 'L:\\WindowsApp\\Python\\3.13.14_ver\\python.exe', 'dependencies': []}
+2026-08-13 21:26:09,891 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test__cgo5cqf
+2026-08-13 21:26:09,891 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_d8ks69j0\config.json
+2026-08-13 21:26:09,892 [INFO] test_cfg_handle: make_cfg_file 返回: {'status': 'success', 'data': 'Configuration file created successfully at C:\\Users\\yydsh\\AppData\\Local\\Temp\\cfg_test_d8ks69j0\\config.json.', 'code': 200}
+2026-08-13 21:26:09,893 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_d8ks69j0
+2026-08-13 21:26:09,911 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_blwb3a_3\config.json
+2026-08-13 21:26:09,916 [INFO] test_cfg_handle: read_cfg 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark'}, 'code': 200}
+2026-08-13 21:26:09,917 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_blwb3a_3
+2026-08-13 21:26:09,918 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_oogiiu1x\config.json
+2026-08-13 21:26:09,922 [INFO] test_cfg_handle: read_cfg(损坏) 返回: {'status': 'success', 'data': {'language': 'zh_cn', 'theme': 'dark', 'auto_save': True, 'auto_save_time_sec': 15, 'tab_size': 4, 'font_ligatures': True}, 'code': 200}
+2026-08-13 21:26:09,923 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_oogiiu1x
+2026-08-13 21:26:09,924 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test__bt77qkc\config.json
+2026-08-13 21:26:09,943 [INFO] test_cfg_handle: recent_projects: ['/path/a', '/path/b']
+2026-08-13 21:26:09,945 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test__bt77qkc
+2026-08-13 21:26:09,945 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test__4nhi7ns\config.json
+2026-08-13 21:26:09,952 [INFO] test_cfg_handle: save_project_config 写入: {'python_path': '/usr/bin/python3', 'dependencies': ['pytest']}
+2026-08-13 21:26:09,954 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test__4nhi7ns
+2026-08-13 21:26:09,954 [DEBUG] test_cfg_handle: setUp: 临时配置 C:\Users\yydsh\AppData\Local\Temp\cfg_test_m8zdg9ut\config.json
+2026-08-13 21:26:09,955 [INFO] test_cfg_handle: write_cfg 返回: {'status': 'success', 'data': '配置已保存', 'code': 200}
+2026-08-13 21:26:09,967 [DEBUG] test_cfg_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\cfg_test_m8zdg9ut

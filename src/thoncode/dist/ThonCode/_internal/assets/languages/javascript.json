@@ -1,0 +1,81 @@
+{
+    "groups": [
+        {
+            "name": "keyword", 
+            "color": "#C678DD", 
+            "words": [
+                "break",
+                "case",
+                "catch",
+                "class",
+                "const",
+                "continue",
+                "debugger",
+                "default",
+                "delete",
+                "do",
+                "else",
+                "export",
+                "extends",
+                "finally",
+                "for",
+                "function",
+                "if",
+                "import",
+                "in",
+                "instanceof",
+                "new","return",
+                "super","switch",
+                "this",
+                "throw",
+                "try",
+                "typeof",
+                "var",
+                "void",
+                "while",
+                "with",
+                "yield",
+                "async",
+                "await"
+            ]
+            },
+        {
+            "name": "builtin", 
+            "color": "#61AFEF", 
+            "words": [
+                "console",
+                "process",
+                "require",
+                "module",
+                "exports",
+                "global",
+                "Buffer",
+                "setTimeout",
+                "setInterval",
+                "clearTimeout",
+                "clearInterval",
+                "Promise",
+                "JSON",
+                "Math",
+                "Date",
+                "Array",
+                "Object",
+                "String",
+                "Number",
+                "Boolean"
+            ]
+        },
+        {
+            "name": "constant", 
+            "color": "#E5C07B", 
+            "words": [
+                "true",
+                "false",
+                "null",
+                "undefined",
+                "NaN",
+                "Infinity"
+            ]
+        }
+    ]
+}

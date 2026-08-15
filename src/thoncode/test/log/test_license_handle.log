@@ -1,0 +1,750 @@
+2026-08-10 14:06:58,322 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_9mtqk4su
+2026-08-10 14:06:58,322 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-10 14:06:58,386 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_9mtqk4su
+2026-08-10 14:06:58,387 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_ify04qfw
+2026-08-10 14:06:58,387 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_ify04qfw
+2026-08-10 14:06:58,388 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_q13nh7re
+2026-08-10 14:06:58,389 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_q13nh7re
+2026-08-10 14:06:58,389 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_6p3kb08j
+2026-08-10 14:06:58,422 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-10 14:06:58,423 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_6p3kb08j
+2026-08-10 14:06:58,423 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_lsrf261g
+2026-08-10 14:06:58,425 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_lsrf261g
+2026-08-10 14:06:58,426 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_cn2k8no9
+2026-08-10 14:06:58,426 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_cn2k8no9
+2026-08-10 14:06:58,426 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_0buuict0
+2026-08-10 14:06:58,427 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-10 14:06:58,427 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_0buuict0
+2026-08-10 14:06:58,427 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_npv7uvr3
+2026-08-10 14:06:58,428 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-10 14:06:58,429 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_npv7uvr3
+2026-08-10 14:06:58,429 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_f64v_cer
+2026-08-10 14:06:58,430 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_f64v_cer\Apache.md
+2026-08-10 14:06:58,430 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_f64v_cer
+2026-08-10 14:06:58,431 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_2pdw1cw1
+2026-08-10 14:06:58,431 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_2pdw1cw1
+2026-08-10 14:06:58,432 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_5corwcdl
+2026-08-10 14:06:58,441 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-10 14:06:58,442 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_5corwcdl
+2026-08-10 14:06:58,442 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test__veb237q
+2026-08-10 14:06:58,445 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test__veb237q
+2026-08-10 14:10:14,557 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_keyil6um
+2026-08-10 14:10:14,559 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-10 14:10:14,560 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_keyil6um
+2026-08-10 14:10:14,561 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_a78u1fkr
+2026-08-10 14:10:14,561 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_a78u1fkr
+2026-08-10 14:10:14,562 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_6b53n1v5
+2026-08-10 14:10:14,563 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_6b53n1v5
+2026-08-10 14:10:14,563 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_riwdxe5s
+2026-08-10 14:10:14,577 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-10 14:10:14,578 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_riwdxe5s
+2026-08-10 14:10:14,581 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_k462m59_
+2026-08-10 14:10:14,582 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_k462m59_
+2026-08-10 14:10:14,582 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_dpbtlu_s
+2026-08-10 14:10:14,583 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_dpbtlu_s
+2026-08-10 14:10:14,583 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_bnrxseya
+2026-08-10 14:10:14,584 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-10 14:10:14,584 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_bnrxseya
+2026-08-10 14:10:14,585 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_dtasf8_w
+2026-08-10 14:10:14,585 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-10 14:10:14,595 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_dtasf8_w
+2026-08-10 14:10:14,596 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_1vtl_we0
+2026-08-10 14:10:14,596 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_1vtl_we0\Apache.md
+2026-08-10 14:10:14,597 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_1vtl_we0
+2026-08-10 14:10:14,597 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_ict3d8n6
+2026-08-10 14:10:14,598 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_ict3d8n6
+2026-08-10 14:10:14,598 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_kd0avymr
+2026-08-10 14:10:14,604 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-10 14:10:14,605 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_kd0avymr
+2026-08-10 14:10:14,606 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_2bu8ruyz
+2026-08-10 14:10:14,607 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_2bu8ruyz
+2026-08-10 14:11:02,587 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_6w7yz1kp
+2026-08-10 14:11:02,588 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-10 14:11:02,594 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_6w7yz1kp
+2026-08-10 14:11:02,595 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_qr65nvs6
+2026-08-10 14:11:02,595 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_qr65nvs6
+2026-08-10 14:11:02,596 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_qv1kkim4
+2026-08-10 14:11:02,597 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_qv1kkim4
+2026-08-10 14:11:02,597 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_c14_uwlh
+2026-08-10 14:11:02,603 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-10 14:11:02,604 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_c14_uwlh
+2026-08-10 14:11:02,605 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_co5vxapg
+2026-08-10 14:11:02,606 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_co5vxapg
+2026-08-10 14:11:02,607 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_eyarp4kx
+2026-08-10 14:11:02,607 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_eyarp4kx
+2026-08-10 14:11:02,608 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_kzxtm5vz
+2026-08-10 14:11:02,608 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-10 14:11:02,609 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_kzxtm5vz
+2026-08-10 14:11:02,609 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_xf3_067g
+2026-08-10 14:11:02,609 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-10 14:11:02,610 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_xf3_067g
+2026-08-10 14:11:02,610 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_ir7hxl3k
+2026-08-10 14:11:02,611 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_ir7hxl3k\Apache.md
+2026-08-10 14:11:02,611 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_ir7hxl3k
+2026-08-10 14:11:02,612 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_van7rvcn
+2026-08-10 14:11:02,612 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_van7rvcn
+2026-08-10 14:11:02,613 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_yn07kr12
+2026-08-10 14:11:02,615 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-10 14:11:02,619 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_yn07kr12
+2026-08-10 14:11:02,620 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_d9_zyotr
+2026-08-10 14:11:02,621 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_d9_zyotr
+2026-08-10 14:27:42,975 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_wu19qxwg
+2026-08-10 14:27:42,977 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-10 14:27:42,981 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_wu19qxwg
+2026-08-10 14:27:42,983 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_w_0rrl5y
+2026-08-10 14:27:42,984 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_w_0rrl5y
+2026-08-10 14:27:42,985 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_h1rdxwh7
+2026-08-10 14:27:42,987 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_h1rdxwh7
+2026-08-10 14:27:42,988 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_y3re35_b
+2026-08-10 14:27:43,003 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-10 14:27:43,004 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_y3re35_b
+2026-08-10 14:27:43,006 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_vdr3bjjb
+2026-08-10 14:27:43,009 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_vdr3bjjb
+2026-08-10 14:27:43,011 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_9t0upim4
+2026-08-10 14:27:43,012 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_9t0upim4
+2026-08-10 14:27:43,013 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_klr10xjc
+2026-08-10 14:27:43,014 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-10 14:27:43,015 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_klr10xjc
+2026-08-10 14:27:43,016 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_fu0fvlb2
+2026-08-10 14:27:43,016 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-10 14:27:43,017 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_fu0fvlb2
+2026-08-10 14:27:43,019 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_5x96t81l
+2026-08-10 14:27:43,020 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_5x96t81l\Apache.md
+2026-08-10 14:27:43,021 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_5x96t81l
+2026-08-10 14:27:43,029 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_7jflh_qw
+2026-08-10 14:27:43,032 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_7jflh_qw
+2026-08-10 14:27:43,036 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_xxigto9m
+2026-08-10 14:27:43,038 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-10 14:27:43,040 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_xxigto9m
+2026-08-10 14:27:43,044 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_tjiz6wu5
+2026-08-10 14:27:43,045 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_tjiz6wu5
+2026-08-10 14:52:06,263 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_pysl1sdq
+2026-08-10 14:52:06,265 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-10 14:52:06,273 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_pysl1sdq
+2026-08-10 14:52:06,273 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_jpo8oa8o
+2026-08-10 14:52:06,274 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_jpo8oa8o
+2026-08-10 14:52:06,274 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_mqbev620
+2026-08-10 14:52:06,275 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_mqbev620
+2026-08-10 14:52:06,275 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_zua4uj2m
+2026-08-10 14:52:06,288 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-10 14:52:06,289 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_zua4uj2m
+2026-08-10 14:52:06,290 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_44wulcdm
+2026-08-10 14:52:06,291 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_44wulcdm
+2026-08-10 14:52:06,291 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_n5od_wtn
+2026-08-10 14:52:06,306 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_n5od_wtn
+2026-08-10 14:52:06,307 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_ozfvmt17
+2026-08-10 14:52:06,307 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-10 14:52:06,308 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_ozfvmt17
+2026-08-10 14:52:06,308 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_nkoaabhk
+2026-08-10 14:52:06,308 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-10 14:52:06,309 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_nkoaabhk
+2026-08-10 14:52:06,309 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_xeaj7djn
+2026-08-10 14:52:06,310 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_xeaj7djn\Apache.md
+2026-08-10 14:52:06,310 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_xeaj7djn
+2026-08-10 14:52:06,311 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_5hl4nq_e
+2026-08-10 14:52:06,315 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_5hl4nq_e
+2026-08-10 14:52:06,315 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_r1rkqu8b
+2026-08-10 14:52:06,317 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-10 14:52:06,325 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_r1rkqu8b
+2026-08-10 14:52:06,326 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_1bovaea6
+2026-08-10 14:52:06,327 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_1bovaea6
+2026-08-10 14:54:32,011 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_i9bttxy4
+2026-08-10 14:54:32,012 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-10 14:54:32,014 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_i9bttxy4
+2026-08-10 14:54:32,015 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_b0xu2o71
+2026-08-10 14:54:32,015 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_b0xu2o71
+2026-08-10 14:54:32,016 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_wmrqqjcx
+2026-08-10 14:54:32,016 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_wmrqqjcx
+2026-08-10 14:54:32,017 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_p29i5n1_
+2026-08-10 14:54:32,021 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-10 14:54:32,023 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_p29i5n1_
+2026-08-10 14:54:32,023 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_su2wx3a4
+2026-08-10 14:54:32,025 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_su2wx3a4
+2026-08-10 14:54:32,025 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_2fuuve2x
+2026-08-10 14:54:32,025 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_2fuuve2x
+2026-08-10 14:54:32,026 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_9u5tf_i8
+2026-08-10 14:54:32,026 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-10 14:54:32,026 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_9u5tf_i8
+2026-08-10 14:54:32,027 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_2uus9taf
+2026-08-10 14:54:32,027 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-10 14:54:32,027 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_2uus9taf
+2026-08-10 14:54:32,028 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_bibovc09
+2026-08-10 14:54:32,028 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_bibovc09\Apache.md
+2026-08-10 14:54:32,029 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_bibovc09
+2026-08-10 14:54:32,029 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_630pik8m
+2026-08-10 14:54:32,030 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_630pik8m
+2026-08-10 14:54:32,030 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_5jnqt363
+2026-08-10 14:54:32,033 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-10 14:54:32,034 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_5jnqt363
+2026-08-10 14:54:32,035 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_sc3p16fb
+2026-08-10 14:54:32,036 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_sc3p16fb
+2026-08-11 16:06:44,007 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_almrkpk2
+2026-08-11 16:06:44,008 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-11 16:06:44,017 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_almrkpk2
+2026-08-11 16:06:44,019 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_8lyg6ed1
+2026-08-11 16:06:44,020 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_8lyg6ed1
+2026-08-11 16:06:44,022 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_4_v2xtwh
+2026-08-11 16:06:44,023 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_4_v2xtwh
+2026-08-11 16:06:44,025 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_eqlgsvme
+2026-08-11 16:06:44,043 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-11 16:06:44,045 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_eqlgsvme
+2026-08-11 16:06:44,047 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_w9v0vwyg
+2026-08-11 16:06:44,049 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_w9v0vwyg
+2026-08-11 16:06:44,051 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_iw0j1fys
+2026-08-11 16:06:44,052 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_iw0j1fys
+2026-08-11 16:06:44,054 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_3vnabr_c
+2026-08-11 16:06:44,055 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-11 16:06:44,055 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_3vnabr_c
+2026-08-11 16:06:44,057 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_8ibqu825
+2026-08-11 16:06:44,058 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-11 16:06:44,058 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_8ibqu825
+2026-08-11 16:06:44,060 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_m60uoh8r
+2026-08-11 16:06:44,061 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_m60uoh8r\Apache.md
+2026-08-11 16:06:44,062 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_m60uoh8r
+2026-08-11 16:06:44,065 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_pvc2vegp
+2026-08-11 16:06:44,066 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_pvc2vegp
+2026-08-11 16:06:44,068 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_7mtnmmek
+2026-08-11 16:06:44,078 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-11 16:06:44,079 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_7mtnmmek
+2026-08-11 16:06:44,082 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_09zload_
+2026-08-11 16:06:44,083 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_09zload_
+2026-08-11 16:06:56,699 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_evu1h7ww
+2026-08-11 16:06:56,700 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-11 16:06:56,702 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_evu1h7ww
+2026-08-11 16:06:56,702 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_mmvpmpy1
+2026-08-11 16:06:56,703 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_mmvpmpy1
+2026-08-11 16:06:56,703 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_suwk8gnm
+2026-08-11 16:06:56,704 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_suwk8gnm
+2026-08-11 16:06:56,704 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_mp3vr9qw
+2026-08-11 16:06:56,716 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-11 16:06:56,717 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_mp3vr9qw
+2026-08-11 16:06:56,718 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_uin3t9kq
+2026-08-11 16:06:56,720 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_uin3t9kq
+2026-08-11 16:06:56,720 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_vh4s_7og
+2026-08-11 16:06:56,720 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_vh4s_7og
+2026-08-11 16:06:56,721 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_ijuqes0e
+2026-08-11 16:06:56,721 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-11 16:06:56,722 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_ijuqes0e
+2026-08-11 16:06:56,722 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_kjti4aq6
+2026-08-11 16:06:56,722 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-11 16:06:56,723 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_kjti4aq6
+2026-08-11 16:06:56,723 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_1hdambiz
+2026-08-11 16:06:56,724 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_1hdambiz\Apache.md
+2026-08-11 16:06:56,725 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_1hdambiz
+2026-08-11 16:06:56,725 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_8flnbrq9
+2026-08-11 16:06:56,726 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_8flnbrq9
+2026-08-11 16:06:56,726 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_1vro3nwn
+2026-08-11 16:06:56,728 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-11 16:06:56,729 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_1vro3nwn
+2026-08-11 16:06:56,730 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_29c6ldww
+2026-08-11 16:06:56,731 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_29c6ldww
+2026-08-11 16:07:09,108 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_1dczyiww
+2026-08-11 16:07:09,108 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-11 16:07:09,110 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_1dczyiww
+2026-08-11 16:07:09,111 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_6mve7887
+2026-08-11 16:07:09,111 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_6mve7887
+2026-08-11 16:07:09,111 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_hjjkactr
+2026-08-11 16:07:09,112 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_hjjkactr
+2026-08-11 16:07:09,113 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_dp_1lncj
+2026-08-11 16:07:09,126 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-11 16:07:09,127 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_dp_1lncj
+2026-08-11 16:07:09,128 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_kwacgcvk
+2026-08-11 16:07:09,129 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_kwacgcvk
+2026-08-11 16:07:09,130 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_v7edyrcp
+2026-08-11 16:07:09,130 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_v7edyrcp
+2026-08-11 16:07:09,131 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_qhgfxlae
+2026-08-11 16:07:09,131 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-11 16:07:09,132 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_qhgfxlae
+2026-08-11 16:07:09,132 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_3fymys2u
+2026-08-11 16:07:09,132 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-11 16:07:09,133 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_3fymys2u
+2026-08-11 16:07:09,134 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_uoxilynp
+2026-08-11 16:07:09,134 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_uoxilynp\Apache.md
+2026-08-11 16:07:09,135 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_uoxilynp
+2026-08-11 16:07:09,136 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_k5y928_e
+2026-08-11 16:07:09,136 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_k5y928_e
+2026-08-11 16:07:09,137 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_wmt6yxh0
+2026-08-11 16:07:09,139 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-11 16:07:09,140 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_wmt6yxh0
+2026-08-11 16:07:09,141 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_6srdn61v
+2026-08-11 16:07:09,141 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_6srdn61v
+2026-08-11 16:44:28,936 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_ge9uwuxx
+2026-08-11 16:44:28,939 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-11 16:44:28,944 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_ge9uwuxx
+2026-08-11 16:44:28,945 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_94t3yxvf
+2026-08-11 16:44:28,946 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_94t3yxvf
+2026-08-11 16:44:28,947 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_8l5ag5ec
+2026-08-11 16:44:28,949 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_8l5ag5ec
+2026-08-11 16:44:28,950 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_y97ubu9e
+2026-08-11 16:44:28,964 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-11 16:44:28,965 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_y97ubu9e
+2026-08-11 16:44:28,967 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_3eeoe2va
+2026-08-11 16:44:28,969 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_3eeoe2va
+2026-08-11 16:44:28,973 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_19sd1aqa
+2026-08-11 16:44:28,974 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_19sd1aqa
+2026-08-11 16:44:28,975 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_40tkb6b_
+2026-08-11 16:44:28,976 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-11 16:44:28,977 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_40tkb6b_
+2026-08-11 16:44:28,978 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_ryfio9qm
+2026-08-11 16:44:28,978 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-11 16:44:28,979 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_ryfio9qm
+2026-08-11 16:44:28,980 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_9td6c8ep
+2026-08-11 16:44:28,981 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_9td6c8ep\Apache.md
+2026-08-11 16:44:28,983 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_9td6c8ep
+2026-08-11 16:44:28,984 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_u9izss26
+2026-08-11 16:44:28,988 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_u9izss26
+2026-08-11 16:44:28,990 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_ktp6n3xi
+2026-08-11 16:44:28,999 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-11 16:44:29,000 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_ktp6n3xi
+2026-08-11 16:44:29,004 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_mm93mtf3
+2026-08-11 16:44:29,006 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_mm93mtf3
+2026-08-11 16:59:41,237 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_jjubgbb4
+2026-08-11 16:59:41,238 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-11 16:59:41,249 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_jjubgbb4
+2026-08-11 16:59:41,250 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_3m83cbur
+2026-08-11 16:59:41,250 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_3m83cbur
+2026-08-11 16:59:41,251 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_4vh0gn99
+2026-08-11 16:59:41,253 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_4vh0gn99
+2026-08-11 16:59:41,253 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_c927_eqq
+2026-08-11 16:59:41,275 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-11 16:59:41,276 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_c927_eqq
+2026-08-11 16:59:41,277 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_uokpavnb
+2026-08-11 16:59:41,278 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_uokpavnb
+2026-08-11 16:59:41,278 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_q7bzyb8d
+2026-08-11 16:59:41,279 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_q7bzyb8d
+2026-08-11 16:59:41,280 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_2gs43ln3
+2026-08-11 16:59:41,280 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-11 16:59:41,280 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_2gs43ln3
+2026-08-11 16:59:41,281 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_9qiualtn
+2026-08-11 16:59:41,281 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-11 16:59:41,282 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_9qiualtn
+2026-08-11 16:59:41,282 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_am0hjjw9
+2026-08-11 16:59:41,283 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_am0hjjw9\Apache.md
+2026-08-11 16:59:41,284 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_am0hjjw9
+2026-08-11 16:59:41,285 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_snmrhj4h
+2026-08-11 16:59:41,285 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_snmrhj4h
+2026-08-11 16:59:41,286 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_88p3bbin
+2026-08-11 16:59:41,288 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-11 16:59:41,289 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_88p3bbin
+2026-08-11 16:59:41,290 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_mrdh7lq0
+2026-08-11 16:59:41,291 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_mrdh7lq0
+2026-08-11 17:00:04,406 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_xeiv_9jt
+2026-08-11 17:00:04,407 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-11 17:00:04,409 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_xeiv_9jt
+2026-08-11 17:00:04,410 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_y1b_j7o6
+2026-08-11 17:00:04,410 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_y1b_j7o6
+2026-08-11 17:00:04,411 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_t8x1u5hi
+2026-08-11 17:00:04,412 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_t8x1u5hi
+2026-08-11 17:00:04,412 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_iq640aiw
+2026-08-11 17:00:04,425 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-11 17:00:04,426 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_iq640aiw
+2026-08-11 17:00:04,427 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_jgajnvxc
+2026-08-11 17:00:04,428 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_jgajnvxc
+2026-08-11 17:00:04,429 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_u7izr6e_
+2026-08-11 17:00:04,429 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_u7izr6e_
+2026-08-11 17:00:04,430 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_mal7e1b8
+2026-08-11 17:00:04,430 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-11 17:00:04,430 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_mal7e1b8
+2026-08-11 17:00:04,431 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_8ivoi2gk
+2026-08-11 17:00:04,431 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-11 17:00:04,432 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_8ivoi2gk
+2026-08-11 17:00:04,433 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_05434b_r
+2026-08-11 17:00:04,433 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_05434b_r\Apache.md
+2026-08-11 17:00:04,434 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_05434b_r
+2026-08-11 17:00:04,435 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test__a7h9fls
+2026-08-11 17:00:04,435 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test__a7h9fls
+2026-08-11 17:00:04,436 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_lc0gna_q
+2026-08-11 17:00:04,438 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-11 17:00:04,439 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_lc0gna_q
+2026-08-11 17:00:04,440 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_a70kxcxu
+2026-08-11 17:00:04,441 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_a70kxcxu
+2026-08-11 17:09:51,607 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_b2j1ytir
+2026-08-11 17:09:51,608 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-11 17:09:51,617 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_b2j1ytir
+2026-08-11 17:09:51,618 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_9qvytsrq
+2026-08-11 17:09:51,618 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_9qvytsrq
+2026-08-11 17:09:51,618 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_yr44olhr
+2026-08-11 17:09:51,619 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_yr44olhr
+2026-08-11 17:09:51,620 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_xe6g3l2o
+2026-08-11 17:09:51,635 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-11 17:09:51,636 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_xe6g3l2o
+2026-08-11 17:09:51,636 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_8mo5x1c2
+2026-08-11 17:09:51,638 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_8mo5x1c2
+2026-08-11 17:09:51,638 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_yvfu6gf2
+2026-08-11 17:09:51,638 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_yvfu6gf2
+2026-08-11 17:09:51,639 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_6igy0pg6
+2026-08-11 17:09:51,639 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-11 17:09:51,640 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_6igy0pg6
+2026-08-11 17:09:51,640 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_aqqksr2o
+2026-08-11 17:09:51,641 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-11 17:09:51,641 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_aqqksr2o
+2026-08-11 17:09:51,641 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_v3_mwoyu
+2026-08-11 17:09:51,643 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_v3_mwoyu\Apache.md
+2026-08-11 17:09:51,643 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_v3_mwoyu
+2026-08-11 17:09:51,644 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test__d_j8vdu
+2026-08-11 17:09:51,644 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test__d_j8vdu
+2026-08-11 17:09:51,645 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_057aa5zc
+2026-08-11 17:09:51,648 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-11 17:09:51,649 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_057aa5zc
+2026-08-11 17:09:51,649 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_f5gpobim
+2026-08-11 17:09:51,650 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_f5gpobim
+2026-08-11 18:36:10,406 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_i4rkmhvr
+2026-08-11 18:36:10,407 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-11 18:36:10,409 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_i4rkmhvr
+2026-08-11 18:36:10,409 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_7dn65hbi
+2026-08-11 18:36:10,410 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_7dn65hbi
+2026-08-11 18:36:10,410 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_iudb8r5m
+2026-08-11 18:36:10,411 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_iudb8r5m
+2026-08-11 18:36:10,411 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_wlunnnpw
+2026-08-11 18:36:10,422 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-11 18:36:10,423 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_wlunnnpw
+2026-08-11 18:36:10,424 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_u9cx8l60
+2026-08-11 18:36:10,425 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_u9cx8l60
+2026-08-11 18:36:10,425 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_rnex4kvg
+2026-08-11 18:36:10,426 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_rnex4kvg
+2026-08-11 18:36:10,426 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_m5yqomen
+2026-08-11 18:36:10,426 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-11 18:36:10,429 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_m5yqomen
+2026-08-11 18:36:10,429 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_0nm2voqt
+2026-08-11 18:36:10,429 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-11 18:36:10,430 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_0nm2voqt
+2026-08-11 18:36:10,430 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_9hn74mo2
+2026-08-11 18:36:10,431 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_9hn74mo2\Apache.md
+2026-08-11 18:36:10,432 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_9hn74mo2
+2026-08-11 18:36:10,432 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_ndpxq1va
+2026-08-11 18:36:10,432 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_ndpxq1va
+2026-08-11 18:36:10,433 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_9wwwqgsl
+2026-08-11 18:36:10,435 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-11 18:36:10,436 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_9wwwqgsl
+2026-08-11 18:36:10,436 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_ilpsfr4u
+2026-08-11 18:36:10,437 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_ilpsfr4u
+2026-08-11 18:38:03,300 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_9iib715d
+2026-08-11 18:38:03,301 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-11 18:38:03,306 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_9iib715d
+2026-08-11 18:38:03,309 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_fkgfj32r
+2026-08-11 18:38:03,309 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_fkgfj32r
+2026-08-11 18:38:03,313 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_t9olslye
+2026-08-11 18:38:03,314 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_t9olslye
+2026-08-11 18:38:03,316 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_5978ijen
+2026-08-11 18:38:03,328 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-11 18:38:03,329 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_5978ijen
+2026-08-11 18:38:03,332 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_7xud7z9b
+2026-08-11 18:38:03,333 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_7xud7z9b
+2026-08-11 18:38:03,336 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_vak_cg3i
+2026-08-11 18:38:03,336 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_vak_cg3i
+2026-08-11 18:38:03,339 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_khe1zwqj
+2026-08-11 18:38:03,339 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-11 18:38:03,339 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_khe1zwqj
+2026-08-11 18:38:03,343 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_b16qr1c2
+2026-08-11 18:38:03,343 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-11 18:38:03,344 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_b16qr1c2
+2026-08-11 18:38:03,346 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_1sece72n
+2026-08-11 18:38:03,347 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_1sece72n\Apache.md
+2026-08-11 18:38:03,348 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_1sece72n
+2026-08-11 18:38:03,350 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_vffr81t1
+2026-08-11 18:38:03,351 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_vffr81t1
+2026-08-11 18:38:03,353 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_qvs4mjnx
+2026-08-11 18:38:03,355 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-11 18:38:03,357 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_qvs4mjnx
+2026-08-11 18:38:03,360 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_h4_elhc9
+2026-08-11 18:38:03,361 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_h4_elhc9
+2026-08-11 18:38:25,243 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_obzv4doy
+2026-08-11 18:38:25,244 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-11 18:38:25,246 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_obzv4doy
+2026-08-11 18:38:25,246 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_55l33e3p
+2026-08-11 18:38:25,246 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_55l33e3p
+2026-08-11 18:38:25,247 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_073zj0h3
+2026-08-11 18:38:25,248 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_073zj0h3
+2026-08-11 18:38:25,248 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_70cdhd5l
+2026-08-11 18:38:25,262 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-11 18:38:25,263 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_70cdhd5l
+2026-08-11 18:38:25,263 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_gxxyjfvi
+2026-08-11 18:38:25,265 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_gxxyjfvi
+2026-08-11 18:38:25,266 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_w3ga5yaw
+2026-08-11 18:38:25,266 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_w3ga5yaw
+2026-08-11 18:38:25,267 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_k410qifg
+2026-08-11 18:38:25,267 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-11 18:38:25,267 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_k410qifg
+2026-08-11 18:38:25,268 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_zxm7e2b9
+2026-08-11 18:38:25,268 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-11 18:38:25,268 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_zxm7e2b9
+2026-08-11 18:38:25,269 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_3os59tm0
+2026-08-11 18:38:25,270 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_3os59tm0\Apache.md
+2026-08-11 18:38:25,270 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_3os59tm0
+2026-08-11 18:38:25,271 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_98tpivfj
+2026-08-11 18:38:25,271 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_98tpivfj
+2026-08-11 18:38:25,272 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_75ti97dd
+2026-08-11 18:38:25,274 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-11 18:38:25,275 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_75ti97dd
+2026-08-11 18:38:25,275 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_4x3jydyx
+2026-08-11 18:38:25,276 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_4x3jydyx
+2026-08-13 18:15:32,232 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_8wexsqpo
+2026-08-13 18:15:32,233 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-13 18:15:32,244 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_8wexsqpo
+2026-08-13 18:15:32,245 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_ge81fbs5
+2026-08-13 18:15:32,246 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_ge81fbs5
+2026-08-13 18:15:32,246 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_3arsw8w5
+2026-08-13 18:15:32,248 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_3arsw8w5
+2026-08-13 18:15:32,248 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_f6pmzf1w
+2026-08-13 18:15:32,268 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-13 18:15:32,269 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_f6pmzf1w
+2026-08-13 18:15:32,270 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_s2pcli1y
+2026-08-13 18:15:32,272 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_s2pcli1y
+2026-08-13 18:15:32,272 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_9alg79j4
+2026-08-13 18:15:32,273 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_9alg79j4
+2026-08-13 18:15:32,323 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_49g03uju
+2026-08-13 18:15:32,324 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-13 18:15:32,324 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_49g03uju
+2026-08-13 18:15:32,325 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_2wjdof3b
+2026-08-13 18:15:32,325 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-13 18:15:32,326 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_2wjdof3b
+2026-08-13 18:15:32,326 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_j6xhma20
+2026-08-13 18:15:32,328 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_j6xhma20\Apache.md
+2026-08-13 18:15:32,329 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_j6xhma20
+2026-08-13 18:15:32,329 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_wlxs_bhc
+2026-08-13 18:15:32,330 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_wlxs_bhc
+2026-08-13 18:15:32,330 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_p686dphb
+2026-08-13 18:15:32,342 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-13 18:15:32,343 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_p686dphb
+2026-08-13 18:15:32,344 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_575aizzm
+2026-08-13 18:15:32,345 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_575aizzm
+2026-08-13 19:13:16,907 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_wt895px9
+2026-08-13 19:13:16,908 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-13 19:13:16,931 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_wt895px9
+2026-08-13 19:13:16,932 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_ms0yolfs
+2026-08-13 19:13:16,933 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_ms0yolfs
+2026-08-13 19:13:16,934 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_2tycma7w
+2026-08-13 19:13:16,936 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_2tycma7w
+2026-08-13 19:13:16,936 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_pl5o3o1u
+2026-08-13 19:13:16,977 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-13 19:13:16,979 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_pl5o3o1u
+2026-08-13 19:13:16,983 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_708qpd01
+2026-08-13 19:13:16,986 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_708qpd01
+2026-08-13 19:13:16,988 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_5yxj31n6
+2026-08-13 19:13:16,989 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_5yxj31n6
+2026-08-13 19:13:16,996 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_h1go_e9v
+2026-08-13 19:13:16,996 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-13 19:13:16,997 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_h1go_e9v
+2026-08-13 19:13:16,998 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_2t3hf5u6
+2026-08-13 19:13:16,999 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-13 19:13:17,001 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_2t3hf5u6
+2026-08-13 19:13:17,002 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_mcb3_xdi
+2026-08-13 19:13:17,003 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_mcb3_xdi\Apache.md
+2026-08-13 19:13:17,008 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_mcb3_xdi
+2026-08-13 19:13:17,011 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_94uwk6k6
+2026-08-13 19:13:17,011 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_94uwk6k6
+2026-08-13 19:13:17,012 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_2cb1ddqr
+2026-08-13 19:13:17,015 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-13 19:13:17,020 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_2cb1ddqr
+2026-08-13 19:13:17,023 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_x15fh01z
+2026-08-13 19:13:17,025 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_x15fh01z
+2026-08-13 19:14:18,126 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_7lwd2b_d
+2026-08-13 19:14:18,128 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-13 19:14:18,141 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_7lwd2b_d
+2026-08-13 19:14:18,141 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_s66rp3pp
+2026-08-13 19:14:18,142 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_s66rp3pp
+2026-08-13 19:14:18,143 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_p_1vramn
+2026-08-13 19:14:18,144 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_p_1vramn
+2026-08-13 19:14:18,145 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_k1m4b4r_
+2026-08-13 19:14:18,157 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-13 19:14:18,159 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_k1m4b4r_
+2026-08-13 19:14:18,160 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_0zk06_0n
+2026-08-13 19:14:18,166 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_0zk06_0n
+2026-08-13 19:14:18,166 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_senxqbwl
+2026-08-13 19:14:18,168 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_senxqbwl
+2026-08-13 19:14:18,168 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_2cmeddfc
+2026-08-13 19:14:18,169 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-13 19:14:18,169 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_2cmeddfc
+2026-08-13 19:14:18,174 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_3ggs5k7m
+2026-08-13 19:14:18,175 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-13 19:14:18,175 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_3ggs5k7m
+2026-08-13 19:14:18,176 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_rc08kra7
+2026-08-13 19:14:18,177 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_rc08kra7\Apache.md
+2026-08-13 19:14:18,178 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_rc08kra7
+2026-08-13 19:14:18,180 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_dz0c5zxy
+2026-08-13 19:14:18,181 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_dz0c5zxy
+2026-08-13 19:14:18,182 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_q9uy38xe
+2026-08-13 19:14:18,185 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-13 19:14:18,186 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_q9uy38xe
+2026-08-13 19:14:18,187 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_lb9je_65
+2026-08-13 19:14:18,189 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_lb9je_65
+2026-08-13 19:14:38,733 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_gb1brvny
+2026-08-13 19:14:38,735 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-13 19:14:38,738 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_gb1brvny
+2026-08-13 19:14:38,738 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_uvsohlaf
+2026-08-13 19:14:38,739 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_uvsohlaf
+2026-08-13 19:14:38,740 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_kcg2z52w
+2026-08-13 19:14:38,743 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_kcg2z52w
+2026-08-13 19:14:38,744 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_q81kgfwq
+2026-08-13 19:14:38,749 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-13 19:14:38,751 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_q81kgfwq
+2026-08-13 19:14:38,751 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_rhza3e_6
+2026-08-13 19:14:38,754 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_rhza3e_6
+2026-08-13 19:14:38,755 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_rvu7fovl
+2026-08-13 19:14:38,756 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_rvu7fovl
+2026-08-13 19:14:38,757 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_hf72012b
+2026-08-13 19:14:38,758 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-13 19:14:38,758 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_hf72012b
+2026-08-13 19:14:38,759 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_v90to4s4
+2026-08-13 19:14:38,759 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-13 19:14:38,760 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_v90to4s4
+2026-08-13 19:14:38,761 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_kim8mte0
+2026-08-13 19:14:38,763 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_kim8mte0\Apache.md
+2026-08-13 19:14:38,764 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_kim8mte0
+2026-08-13 19:14:38,765 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_oh8ukueh
+2026-08-13 19:14:38,766 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_oh8ukueh
+2026-08-13 19:14:38,767 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_jypfxpbh
+2026-08-13 19:14:38,770 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-13 19:14:38,774 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_jypfxpbh
+2026-08-13 19:14:38,775 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_0_ne9pbm
+2026-08-13 19:14:38,821 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_0_ne9pbm
+2026-08-13 19:29:55,595 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_2mji1ihg
+2026-08-13 19:29:55,620 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-13 19:29:55,657 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_2mji1ihg
+2026-08-13 19:29:55,658 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_wlvnzd4e
+2026-08-13 19:29:55,659 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_wlvnzd4e
+2026-08-13 19:29:55,659 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_jr1axvxp
+2026-08-13 19:29:55,661 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_jr1axvxp
+2026-08-13 19:29:55,662 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_er_wayzr
+2026-08-13 19:29:55,680 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-13 19:29:55,682 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_er_wayzr
+2026-08-13 19:29:55,683 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_jxx0f8ai
+2026-08-13 19:29:55,685 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_jxx0f8ai
+2026-08-13 19:29:55,686 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_oiw2p339
+2026-08-13 19:29:55,687 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_oiw2p339
+2026-08-13 19:29:55,687 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_sz9jbo4r
+2026-08-13 19:29:55,688 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-13 19:29:55,688 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_sz9jbo4r
+2026-08-13 19:29:55,689 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_cbfgtpog
+2026-08-13 19:29:55,689 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-13 19:29:55,690 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_cbfgtpog
+2026-08-13 19:29:55,691 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_q4gspuwq
+2026-08-13 19:29:55,692 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_q4gspuwq\Apache.md
+2026-08-13 19:29:55,695 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_q4gspuwq
+2026-08-13 19:29:55,696 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_zek2dzth
+2026-08-13 19:29:55,696 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_zek2dzth
+2026-08-13 19:29:55,697 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_btj55yoz
+2026-08-13 19:29:55,700 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-13 19:29:55,702 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_btj55yoz
+2026-08-13 19:29:55,703 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_pjubwdj4
+2026-08-13 19:29:55,705 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_pjubwdj4
+2026-08-13 19:38:41,688 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_mg20e02_
+2026-08-13 19:38:41,690 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-13 19:38:41,692 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_mg20e02_
+2026-08-13 19:38:41,694 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_70sa7vwd
+2026-08-13 19:38:41,695 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_70sa7vwd
+2026-08-13 19:38:41,696 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_iemn4xo2
+2026-08-13 19:38:41,698 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_iemn4xo2
+2026-08-13 19:38:41,698 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_0bf5w47m
+2026-08-13 19:38:41,712 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-13 19:38:41,714 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_0bf5w47m
+2026-08-13 19:38:41,715 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_h01g58hn
+2026-08-13 19:38:41,717 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_h01g58hn
+2026-08-13 19:38:41,718 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_8fi2bq2m
+2026-08-13 19:38:41,718 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_8fi2bq2m
+2026-08-13 19:38:41,719 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_vfcdkv5y
+2026-08-13 19:38:41,719 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-13 19:38:41,720 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_vfcdkv5y
+2026-08-13 19:38:41,721 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_j5nrkvgy
+2026-08-13 19:38:41,721 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-13 19:38:41,722 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_j5nrkvgy
+2026-08-13 19:38:41,723 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_823mvm0n
+2026-08-13 19:38:41,725 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_823mvm0n\Apache.md
+2026-08-13 19:38:41,734 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_823mvm0n
+2026-08-13 19:38:41,735 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_jlj7oo1a
+2026-08-13 19:38:41,736 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_jlj7oo1a
+2026-08-13 19:38:41,737 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_zny6pj9y
+2026-08-13 19:38:41,739 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-13 19:38:41,745 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_zny6pj9y
+2026-08-13 19:38:41,746 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_92d4a28z
+2026-08-13 19:38:41,747 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_92d4a28z
+2026-08-13 19:39:15,280 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_hajcmihm
+2026-08-13 19:39:15,281 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-13 19:39:15,284 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_hajcmihm
+2026-08-13 19:39:15,285 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_ou_i8l58
+2026-08-13 19:39:15,285 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_ou_i8l58
+2026-08-13 19:39:15,289 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_fgrt0iq6
+2026-08-13 19:39:15,291 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_fgrt0iq6
+2026-08-13 19:39:15,291 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_5et3gm1z
+2026-08-13 19:39:15,296 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-13 19:39:15,298 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_5et3gm1z
+2026-08-13 19:39:15,299 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_qg3xbn81
+2026-08-13 19:39:15,301 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_qg3xbn81
+2026-08-13 19:39:15,303 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_dhmssyaj
+2026-08-13 19:39:15,304 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_dhmssyaj
+2026-08-13 19:39:15,305 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_vam0uf9u
+2026-08-13 19:39:15,306 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-13 19:39:15,307 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_vam0uf9u
+2026-08-13 19:39:15,308 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_c08scucd
+2026-08-13 19:39:15,308 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-13 19:39:15,309 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_c08scucd
+2026-08-13 19:39:15,310 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_738vyat_
+2026-08-13 19:39:15,311 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_738vyat_\Apache.md
+2026-08-13 19:39:15,312 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_738vyat_
+2026-08-13 19:39:15,313 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_41fvzo_a
+2026-08-13 19:39:15,314 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_41fvzo_a
+2026-08-13 19:39:15,314 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_t9l5xotc
+2026-08-13 19:39:15,321 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-13 19:39:15,324 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_t9l5xotc
+2026-08-13 19:39:15,325 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_5wlhnog2
+2026-08-13 19:39:15,326 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_5wlhnog2
+2026-08-13 20:40:43,789 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_ibwsklv6
+2026-08-13 20:40:43,791 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-13 20:40:43,795 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_ibwsklv6
+2026-08-13 20:40:43,796 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_pc2bzw5x
+2026-08-13 20:40:43,796 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_pc2bzw5x
+2026-08-13 20:40:43,797 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_p141osd4
+2026-08-13 20:40:43,799 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_p141osd4
+2026-08-13 20:40:43,800 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_q7yorhqb
+2026-08-13 20:40:43,808 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-13 20:40:43,810 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_q7yorhqb
+2026-08-13 20:40:43,811 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_x884ltww
+2026-08-13 20:40:43,814 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_x884ltww
+2026-08-13 20:40:43,815 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_z3kgbn29
+2026-08-13 20:40:43,843 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_z3kgbn29
+2026-08-13 20:40:43,844 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_knqcnh18
+2026-08-13 20:40:43,844 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-13 20:40:43,845 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_knqcnh18
+2026-08-13 20:40:43,846 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_3kftb679
+2026-08-13 20:40:43,848 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-13 20:40:43,848 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_3kftb679
+2026-08-13 20:40:43,854 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_wtixp62q
+2026-08-13 20:40:43,855 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_wtixp62q\Apache.md
+2026-08-13 20:40:43,858 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_wtixp62q
+2026-08-13 20:40:43,859 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_kh22gigl
+2026-08-13 20:40:43,860 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_kh22gigl
+2026-08-13 20:40:43,861 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_pdtns6nf
+2026-08-13 20:40:43,869 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-13 20:40:43,871 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_pdtns6nf
+2026-08-13 20:40:43,872 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_6y1g_10t
+2026-08-13 20:40:43,874 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_6y1g_10t
+2026-08-13 21:26:10,147 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_ak14_p5s
+2026-08-13 21:26:10,149 [INFO] test_license_handle: 可用 licenses: ['MIT']
+2026-08-13 21:26:10,151 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_ak14_p5s
+2026-08-13 21:26:10,152 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_xepj7d3m
+2026-08-13 21:26:10,152 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_xepj7d3m
+2026-08-13 21:26:10,193 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_4w3xx593
+2026-08-13 21:26:10,195 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_4w3xx593
+2026-08-13 21:26:10,195 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_pu646bd0
+2026-08-13 21:26:10,242 [INFO] test_license_handle: 生成 LICENSE: Copyright (c) 2024 Thon
+2026-08-13 21:26:10,244 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_pu646bd0
+2026-08-13 21:26:10,245 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_i14evo71
+2026-08-13 21:26:10,247 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_i14evo71
+2026-08-13 21:26:10,247 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_ze2a79ar
+2026-08-13 21:26:10,248 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_ze2a79ar
+2026-08-13 21:26:10,249 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_hj4r8tro
+2026-08-13 21:26:10,249 [INFO] test_license_handle: 空目录 licenses: []
+2026-08-13 21:26:10,250 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_hj4r8tro
+2026-08-13 21:26:10,250 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_umgaje72
+2026-08-13 21:26:10,251 [INFO] test_license_handle: 不存在许可证返回: None
+2026-08-13 21:26:10,251 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_umgaje72
+2026-08-13 21:26:10,252 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_axwj5r_f
+2026-08-13 21:26:10,253 [INFO] test_license_handle: Apache 路径: C:\Users\yydsh\AppData\Local\Temp\license_test_axwj5r_f\Apache.md
+2026-08-13 21:26:10,254 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_axwj5r_f
+2026-08-13 21:26:10,255 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_7zz_mtvf
+2026-08-13 21:26:10,255 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_7zz_mtvf
+2026-08-13 21:26:10,256 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_ma5nwf9m
+2026-08-13 21:26:10,258 [INFO] test_license_handle: 读取项目 LICENSE: Custom License Text
+2026-08-13 21:26:10,260 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_ma5nwf9m
+2026-08-13 21:26:10,260 [DEBUG] test_license_handle: setUp: 临时 license_dir C:\Users\yydsh\AppData\Local\Temp\license_test_5yznxddc
+2026-08-13 21:26:10,262 [DEBUG] test_license_handle: tearDown: 已清理 C:\Users\yydsh\AppData\Local\Temp\license_test_5yznxddc

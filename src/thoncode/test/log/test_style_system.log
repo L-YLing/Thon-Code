@@ -1,0 +1,264 @@
+2026-08-11 15:56:48,182 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 15:56:48,192 [INFO] test_style_system: apply_nonexistent_style: non-existent style returns False
+2026-08-11 15:56:48,192 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 15:56:48,192 [INFO] test_style_system: get_style_default: default style has expected keys
+2026-08-11 15:56:48,193 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 15:56:48,193 [INFO] test_style_system: get_value: get_value works with defaults
+2026-08-11 15:56:48,193 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 15:56:48,194 [INFO] test_style_system: highlight_style_values: highlight style has expected keys
+2026-08-11 15:56:48,194 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 15:56:48,194 [INFO] test_style_system: listener_notification: listeners notified correctly
+2026-08-11 15:56:48,194 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 15:56:48,222 [INFO] test_style_system: load_save_file: file I/O works
+2026-08-11 15:56:48,222 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 15:56:48,222 [INFO] test_style_system: register_and_apply_style: custom style registered and applied
+2026-08-11 15:56:48,222 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 15:56:48,222 [INFO] test_style_system: reset: reset restores defaults
+2026-08-11 15:56:48,222 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 15:56:48,223 [INFO] test_style_system: set_component_style: batch update works
+2026-08-11 15:56:48,223 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 15:56:48,223 [INFO] test_style_system: set_style: style value updated
+2026-08-11 15:56:48,223 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 15:56:48,223 [INFO] test_style_system: singleton_pattern: singleton pattern verified
+2026-08-11 15:56:48,223 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 15:56:48,223 [INFO] test_style_system: tree_style_values: tree style has expected keys
+2026-08-11 16:06:44,172 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:44,172 [INFO] test_style_system: apply_nonexistent_style: non-existent style returns False
+2026-08-11 16:06:44,175 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:44,175 [INFO] test_style_system: get_style_default: default style has expected keys
+2026-08-11 16:06:44,177 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:44,177 [INFO] test_style_system: get_value: get_value works with defaults
+2026-08-11 16:06:44,179 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:44,179 [INFO] test_style_system: highlight_style_values: highlight style has expected keys
+2026-08-11 16:06:44,181 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:44,182 [INFO] test_style_system: listener_notification: listeners notified correctly
+2026-08-11 16:06:44,184 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:44,187 [INFO] test_style_system: load_save_file: file I/O works
+2026-08-11 16:06:44,189 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:44,190 [INFO] test_style_system: register_and_apply_style: custom style registered and applied
+2026-08-11 16:06:44,192 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:44,192 [INFO] test_style_system: reset: reset restores defaults
+2026-08-11 16:06:44,195 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:44,195 [INFO] test_style_system: set_component_style: batch update works
+2026-08-11 16:06:44,197 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:44,197 [INFO] test_style_system: set_style: style value updated
+2026-08-11 16:06:44,199 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:44,200 [INFO] test_style_system: singleton_pattern: singleton pattern verified
+2026-08-11 16:06:44,202 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:44,202 [INFO] test_style_system: tree_style_values: tree style has expected keys
+2026-08-11 16:06:56,786 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:56,787 [INFO] test_style_system: apply_nonexistent_style: non-existent style returns False
+2026-08-11 16:06:56,787 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:56,787 [INFO] test_style_system: get_style_default: default style has expected keys
+2026-08-11 16:06:56,787 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:56,787 [INFO] test_style_system: get_value: get_value works with defaults
+2026-08-11 16:06:56,787 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:56,787 [INFO] test_style_system: highlight_style_values: highlight style has expected keys
+2026-08-11 16:06:56,788 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:56,788 [INFO] test_style_system: listener_notification: listeners notified correctly
+2026-08-11 16:06:56,788 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:56,791 [INFO] test_style_system: load_save_file: file I/O works
+2026-08-11 16:06:56,791 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:56,792 [INFO] test_style_system: register_and_apply_style: custom style registered and applied
+2026-08-11 16:06:56,792 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:56,792 [INFO] test_style_system: reset: reset restores defaults
+2026-08-11 16:06:56,792 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:56,792 [INFO] test_style_system: set_component_style: batch update works
+2026-08-11 16:06:56,792 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:56,792 [INFO] test_style_system: set_style: style value updated
+2026-08-11 16:06:56,793 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:56,793 [INFO] test_style_system: singleton_pattern: singleton pattern verified
+2026-08-11 16:06:56,793 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:06:56,793 [INFO] test_style_system: tree_style_values: tree style has expected keys
+2026-08-11 16:07:09,245 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:07:09,245 [INFO] test_style_system: apply_nonexistent_style: non-existent style returns False
+2026-08-11 16:07:09,245 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:07:09,245 [INFO] test_style_system: get_style_default: default style has expected keys
+2026-08-11 16:07:09,245 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:07:09,245 [INFO] test_style_system: get_value: get_value works with defaults
+2026-08-11 16:07:09,246 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:07:09,246 [INFO] test_style_system: highlight_style_values: highlight style has expected keys
+2026-08-11 16:07:09,246 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:07:09,246 [INFO] test_style_system: listener_notification: listeners notified correctly
+2026-08-11 16:07:09,246 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:07:09,249 [INFO] test_style_system: load_save_file: file I/O works
+2026-08-11 16:07:09,250 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:07:09,250 [INFO] test_style_system: register_and_apply_style: custom style registered and applied
+2026-08-11 16:07:09,250 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:07:09,250 [INFO] test_style_system: reset: reset restores defaults
+2026-08-11 16:07:09,250 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:07:09,250 [INFO] test_style_system: set_component_style: batch update works
+2026-08-11 16:07:09,250 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:07:09,251 [INFO] test_style_system: set_style: style value updated
+2026-08-11 16:07:09,251 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:07:09,251 [INFO] test_style_system: singleton_pattern: singleton pattern verified
+2026-08-11 16:07:09,251 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:07:09,251 [INFO] test_style_system: tree_style_values: tree style has expected keys
+2026-08-11 16:59:41,352 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:59:41,355 [INFO] test_style_system: apply_nonexistent_style: non-existent style returns False
+2026-08-11 16:59:41,356 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:59:41,356 [INFO] test_style_system: get_style_default: default style has expected keys
+2026-08-11 16:59:41,356 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:59:41,356 [INFO] test_style_system: get_value: get_value works with defaults
+2026-08-11 16:59:41,356 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:59:41,356 [INFO] test_style_system: highlight_style_values: highlight style has expected keys
+2026-08-11 16:59:41,356 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:59:41,357 [INFO] test_style_system: listener_notification: listeners notified correctly
+2026-08-11 16:59:41,357 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:59:41,368 [INFO] test_style_system: load_save_file: file I/O works
+2026-08-11 16:59:41,368 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:59:41,368 [INFO] test_style_system: register_and_apply_style: custom style registered and applied
+2026-08-11 16:59:41,368 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:59:41,369 [INFO] test_style_system: reset: reset restores defaults
+2026-08-11 16:59:41,369 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:59:41,369 [INFO] test_style_system: set_component_style: batch update works
+2026-08-11 16:59:41,369 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:59:41,369 [INFO] test_style_system: set_style: style value updated
+2026-08-11 16:59:41,369 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:59:41,369 [INFO] test_style_system: singleton_pattern: singleton pattern verified
+2026-08-11 16:59:41,369 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 16:59:41,370 [INFO] test_style_system: tree_style_values: tree style has expected keys
+2026-08-11 17:00:04,533 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:00:04,533 [INFO] test_style_system: apply_nonexistent_style: non-existent style returns False
+2026-08-11 17:00:04,533 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:00:04,533 [INFO] test_style_system: get_style_default: default style has expected keys
+2026-08-11 17:00:04,534 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:00:04,534 [INFO] test_style_system: get_value: get_value works with defaults
+2026-08-11 17:00:04,534 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:00:04,534 [INFO] test_style_system: highlight_style_values: highlight style has expected keys
+2026-08-11 17:00:04,538 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:00:04,538 [INFO] test_style_system: listener_notification: listeners notified correctly
+2026-08-11 17:00:04,539 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:00:04,548 [INFO] test_style_system: load_save_file: file I/O works
+2026-08-11 17:00:04,549 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:00:04,549 [INFO] test_style_system: register_and_apply_style: custom style registered and applied
+2026-08-11 17:00:04,549 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:00:04,549 [INFO] test_style_system: reset: reset restores defaults
+2026-08-11 17:00:04,550 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:00:04,550 [INFO] test_style_system: set_component_style: batch update works
+2026-08-11 17:00:04,550 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:00:04,550 [INFO] test_style_system: set_style: style value updated
+2026-08-11 17:00:04,551 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:00:04,551 [INFO] test_style_system: singleton_pattern: singleton pattern verified
+2026-08-11 17:00:04,551 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:00:04,551 [INFO] test_style_system: tree_style_values: tree style has expected keys
+2026-08-11 17:09:39,520 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:09:39,521 [INFO] test_style_system: apply_nonexistent_style: non-existent style returns False
+2026-08-11 17:09:39,524 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:09:39,525 [INFO] test_style_system: get_style_default: default style has expected keys
+2026-08-11 17:09:39,527 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:09:39,527 [INFO] test_style_system: get_value: get_value works with defaults
+2026-08-11 17:09:39,531 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:09:39,531 [INFO] test_style_system: highlight_style_values: highlight style has expected keys
+2026-08-11 17:09:39,536 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:09:39,536 [INFO] test_style_system: listener_notification: listeners notified correctly
+2026-08-11 17:09:39,539 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:09:39,544 [INFO] test_style_system: load_save_file: file I/O works
+2026-08-11 17:09:39,547 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:09:39,547 [INFO] test_style_system: register_and_apply_style: custom style registered and applied
+2026-08-11 17:09:39,549 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:09:39,549 [INFO] test_style_system: reset: reset restores defaults
+2026-08-11 17:09:39,551 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:09:39,551 [INFO] test_style_system: set_component_style: batch update works
+2026-08-11 17:09:39,555 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:09:39,555 [INFO] test_style_system: set_style: style value updated
+2026-08-11 17:09:39,557 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:09:39,558 [INFO] test_style_system: singleton_pattern: singleton pattern verified
+2026-08-11 17:09:39,560 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 17:09:39,561 [INFO] test_style_system: tree_style_values: tree style has expected keys
+2026-08-11 18:31:47,335 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:31:47,335 [INFO] test_style_system: apply_nonexistent_style: non-existent style returns False
+2026-08-11 18:31:47,337 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:31:47,337 [INFO] test_style_system: get_style_default: default style has expected keys
+2026-08-11 18:31:47,339 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:31:47,340 [INFO] test_style_system: get_value: get_value works with defaults
+2026-08-11 18:31:47,342 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:31:47,343 [INFO] test_style_system: highlight_style_values: highlight style has expected keys
+2026-08-11 18:31:47,345 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:31:47,345 [INFO] test_style_system: listener_notification: listeners notified correctly
+2026-08-11 18:31:47,347 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:31:47,380 [INFO] test_style_system: load_save_file: file I/O works
+2026-08-11 18:31:47,506 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:31:47,507 [INFO] test_style_system: register_and_apply_style: custom style registered and applied
+2026-08-11 18:31:47,509 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:31:47,509 [INFO] test_style_system: reset: reset restores defaults
+2026-08-11 18:31:47,511 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:31:47,511 [INFO] test_style_system: set_component_style: batch update works
+2026-08-11 18:31:47,529 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:31:47,529 [INFO] test_style_system: set_style: style value updated
+2026-08-11 18:31:47,548 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:31:47,548 [INFO] test_style_system: singleton_pattern: singleton pattern verified
+2026-08-11 18:31:47,550 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:31:47,550 [INFO] test_style_system: tree_style_values: tree style has expected keys
+2026-08-11 18:36:01,907 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:36:01,907 [INFO] test_style_system: apply_nonexistent_style: non-existent style returns False
+2026-08-11 18:36:01,910 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:36:01,910 [INFO] test_style_system: get_style_default: default style has expected keys
+2026-08-11 18:36:01,912 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:36:01,912 [INFO] test_style_system: get_value: get_value works with defaults
+2026-08-11 18:36:01,915 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:36:01,915 [INFO] test_style_system: highlight_style_values: highlight style has expected keys
+2026-08-11 18:36:01,918 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:36:01,918 [INFO] test_style_system: listener_notification: listeners notified correctly
+2026-08-11 18:36:01,922 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:36:01,926 [INFO] test_style_system: load_save_file: file I/O works
+2026-08-11 18:36:01,929 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:36:01,929 [INFO] test_style_system: register_and_apply_style: custom style registered and applied
+2026-08-11 18:36:01,935 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:36:01,936 [INFO] test_style_system: reset: reset restores defaults
+2026-08-11 18:36:01,939 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:36:01,939 [INFO] test_style_system: set_component_style: batch update works
+2026-08-11 18:36:01,941 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:36:01,941 [INFO] test_style_system: set_style: style value updated
+2026-08-11 18:36:01,943 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:36:01,944 [INFO] test_style_system: singleton_pattern: singleton pattern verified
+2026-08-11 18:36:01,946 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:36:01,946 [INFO] test_style_system: tree_style_values: tree style has expected keys
+2026-08-11 18:38:02,930 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:38:02,931 [INFO] test_style_system: apply_nonexistent_style: non-existent style returns False
+2026-08-11 18:38:02,933 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:38:02,933 [INFO] test_style_system: get_style_default: default style has expected keys
+2026-08-11 18:38:02,935 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:38:02,935 [INFO] test_style_system: get_value: get_value works with defaults
+2026-08-11 18:38:02,938 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:38:02,938 [INFO] test_style_system: highlight_style_values: highlight style has expected keys
+2026-08-11 18:38:02,941 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:38:02,941 [INFO] test_style_system: listener_notification: listeners notified correctly
+2026-08-11 18:38:02,943 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:38:02,956 [INFO] test_style_system: load_save_file: file I/O works
+2026-08-11 18:38:02,959 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:38:02,959 [INFO] test_style_system: register_and_apply_style: custom style registered and applied
+2026-08-11 18:38:02,961 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:38:02,962 [INFO] test_style_system: reset: reset restores defaults
+2026-08-11 18:38:02,964 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:38:02,964 [INFO] test_style_system: set_component_style: batch update works
+2026-08-11 18:38:02,966 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:38:02,966 [INFO] test_style_system: set_style: style value updated
+2026-08-11 18:38:02,971 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:38:02,971 [INFO] test_style_system: singleton_pattern: singleton pattern verified
+2026-08-11 18:38:02,974 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-11 18:38:02,975 [INFO] test_style_system: tree_style_values: tree style has expected keys
+2026-08-13 18:16:33,596 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-13 18:16:33,596 [INFO] test_style_system: apply_nonexistent_style: non-existent style returns False
+2026-08-13 18:16:33,599 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-13 18:16:33,599 [INFO] test_style_system: get_style_default: default style has expected keys
+2026-08-13 18:16:33,599 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-13 18:16:33,599 [INFO] test_style_system: get_value: get_value works with defaults
+2026-08-13 18:16:33,600 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-13 18:16:33,600 [INFO] test_style_system: highlight_style_values: highlight style has expected keys
+2026-08-13 18:16:33,600 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-13 18:16:33,600 [INFO] test_style_system: listener_notification: listeners notified correctly
+2026-08-13 18:16:33,601 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-13 18:16:33,616 [INFO] test_style_system: load_save_file: file I/O works
+2026-08-13 18:16:33,616 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-13 18:16:33,616 [INFO] test_style_system: register_and_apply_style: custom style registered and applied
+2026-08-13 18:16:33,617 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-13 18:16:33,617 [INFO] test_style_system: reset: reset restores defaults
+2026-08-13 18:16:33,617 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-13 18:16:33,617 [INFO] test_style_system: set_component_style: batch update works
+2026-08-13 18:16:33,617 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-13 18:16:33,617 [INFO] test_style_system: set_style: style value updated
+2026-08-13 18:16:33,617 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-13 18:16:33,618 [INFO] test_style_system: singleton_pattern: singleton pattern verified
+2026-08-13 18:16:33,618 [DEBUG] test_style_system: setUp: StyleSystem reset
+2026-08-13 18:16:33,618 [INFO] test_style_system: tree_style_values: tree style has expected keys

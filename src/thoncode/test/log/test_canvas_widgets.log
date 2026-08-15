@@ -1,0 +1,30 @@
+2026-08-13 18:15:16,965 [INFO] test_canvas_widgets: state_constants_exist: four state constants verified
+2026-08-13 18:15:16,973 [INFO] test_canvas_widgets: arc_extents: four arcs span 360 degrees
+2026-08-13 18:15:16,973 [INFO] test_canvas_widgets: fill_propagated: fill applied to all primitives
+2026-08-13 18:15:16,973 [INFO] test_canvas_widgets: normal_radius: 2 rectangles + 4 arcs drawn
+2026-08-13 18:15:16,974 [INFO] test_canvas_widgets: outline_defaults_empty: no outline by default
+2026-08-13 18:15:16,974 [INFO] test_canvas_widgets: radius_clamped: 6 primitives drawn with clamped radius
+2026-08-13 18:15:16,975 [INFO] test_canvas_widgets: zero_radius_fallback: single rectangle drawn
+2026-08-13 18:15:16,975 [INFO] test_canvas_widgets: all_widgets_implement_base_widget: 7 widgets verified
+2026-08-13 18:15:16,975 [INFO] test_canvas_widgets: all_widgets_implement_style_provider: 7 widgets verified
+2026-08-13 18:15:16,975 [INFO] test_canvas_widgets: widgets_define_required_abstract_methods: verified
+2026-08-13 18:15:16,975 [INFO] test_canvas_widgets: widgets_define_style_provider_methods: verified
+2026-08-13 18:15:16,976 [INFO] test_canvas_widgets: widget_public_methods_present: 76 methods across 7 widgets
+2026-08-13 18:15:16,976 [INFO] test_canvas_widgets: all_widget_modules_have_package: 7 modules verified
+2026-08-13 18:15:16,988 [INFO] test_canvas_widgets: package_init_exports: all 8 exports present
+2026-08-13 18:15:16,988 [INFO] test_canvas_widgets: widgets_package_init: package declaration valid
+2026-08-13 18:16:32,515 [INFO] test_canvas_widgets: state_constants_exist: four state constants verified
+2026-08-13 18:16:32,515 [INFO] test_canvas_widgets: arc_extents: four arcs span 360 degrees
+2026-08-13 18:16:32,516 [INFO] test_canvas_widgets: fill_propagated: fill applied to all primitives
+2026-08-13 18:16:32,516 [INFO] test_canvas_widgets: normal_radius: 2 rectangles + 4 arcs drawn
+2026-08-13 18:16:32,525 [INFO] test_canvas_widgets: outline_defaults_empty: no outline by default
+2026-08-13 18:16:32,525 [INFO] test_canvas_widgets: radius_clamped: 6 primitives drawn with clamped radius
+2026-08-13 18:16:32,525 [INFO] test_canvas_widgets: zero_radius_fallback: single rectangle drawn
+2026-08-13 18:16:32,526 [INFO] test_canvas_widgets: all_widgets_implement_base_widget: 7 widgets verified
+2026-08-13 18:16:32,526 [INFO] test_canvas_widgets: all_widgets_implement_style_provider: 7 widgets verified
+2026-08-13 18:16:32,526 [INFO] test_canvas_widgets: widgets_define_required_abstract_methods: verified
+2026-08-13 18:16:32,526 [INFO] test_canvas_widgets: widgets_define_style_provider_methods: verified
+2026-08-13 18:16:32,527 [INFO] test_canvas_widgets: widget_public_methods_present: 76 methods across 7 widgets
+2026-08-13 18:16:32,527 [INFO] test_canvas_widgets: all_widget_modules_have_package: 7 modules verified
+2026-08-13 18:16:32,527 [INFO] test_canvas_widgets: package_init_exports: all 8 exports present
+2026-08-13 18:16:32,527 [INFO] test_canvas_widgets: widgets_package_init: package declaration valid

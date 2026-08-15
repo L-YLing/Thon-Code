@@ -1,0 +1,216 @@
+2026-08-10 16:15:37,854 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-10 16:15:37,856 [INFO] test_lazy_loader: cache_reuse: cache reuse verified
+2026-08-10 16:15:37,856 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-10 16:15:37,857 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-10 16:15:37,857 [INFO] test_lazy_loader: clear_cache: all entries cleared
+2026-08-10 16:15:37,857 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-10 16:15:37,857 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-10 16:15:37,857 [INFO] test_lazy_loader: is_cached_false: uncached modules return False
+2026-08-10 16:15:37,858 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-10 16:15:37,858 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-10 16:15:37,858 [INFO] test_lazy_loader: lazy_get_class: loaded JSONEncoder class successfully
+2026-08-10 16:15:37,858 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-10 16:15:37,858 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-10 16:15:37,858 [INFO] test_lazy_loader: lazy_get_module: loaded json module successfully
+2026-08-10 16:15:37,858 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-10 16:15:37,858 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-10 16:15:37,858 [INFO] test_lazy_loader: lazy_load_performance: 100 loads took 0.000s
+2026-08-10 16:15:37,858 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-10 16:15:37,858 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-10 16:15:37,858 [INFO] test_lazy_loader: unload_module: module unloaded successfully
+2026-08-10 16:15:37,858 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-10 16:15:37,859 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-10 16:15:37,859 [INFO] test_lazy_loader: unload_nonexistent: non-existent module returns False
+2026-08-10 16:15:37,859 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-10 16:15:37,859 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-10 16:15:37,862 [INFO] test_lazy_loader: unload_then_reload: reload after unload works
+2026-08-10 16:15:37,862 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:06:43,981 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:06:43,982 [INFO] test_lazy_loader: cache_reuse: cache reuse verified
+2026-08-11 16:06:43,982 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:06:43,984 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:06:43,984 [INFO] test_lazy_loader: clear_cache: all entries cleared
+2026-08-11 16:06:43,984 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:06:43,987 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:06:43,987 [INFO] test_lazy_loader: is_cached_false: uncached modules return False
+2026-08-11 16:06:43,987 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:06:43,989 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:06:43,989 [INFO] test_lazy_loader: lazy_get_class: loaded JSONEncoder class successfully
+2026-08-11 16:06:43,989 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:06:43,991 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:06:43,991 [INFO] test_lazy_loader: lazy_get_module: loaded json module successfully
+2026-08-11 16:06:43,991 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:06:43,993 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:06:43,994 [INFO] test_lazy_loader: lazy_load_performance: 100 loads took 0.000s
+2026-08-11 16:06:43,994 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:06:43,996 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:06:43,996 [INFO] test_lazy_loader: unload_module: module unloaded successfully
+2026-08-11 16:06:43,996 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:06:43,998 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:06:43,998 [INFO] test_lazy_loader: unload_nonexistent: non-existent module returns False
+2026-08-11 16:06:43,999 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:06:44,000 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:06:44,004 [INFO] test_lazy_loader: unload_then_reload: reload after unload works
+2026-08-11 16:06:44,005 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:06:56,694 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:06:56,694 [INFO] test_lazy_loader: cache_reuse: cache reuse verified
+2026-08-11 16:06:56,694 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:06:56,694 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:06:56,694 [INFO] test_lazy_loader: clear_cache: all entries cleared
+2026-08-11 16:06:56,694 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:06:56,694 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:06:56,694 [INFO] test_lazy_loader: is_cached_false: uncached modules return False
+2026-08-11 16:06:56,694 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:06:56,695 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:06:56,695 [INFO] test_lazy_loader: lazy_get_class: loaded JSONEncoder class successfully
+2026-08-11 16:06:56,695 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:06:56,695 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:06:56,695 [INFO] test_lazy_loader: lazy_get_module: loaded json module successfully
+2026-08-11 16:06:56,695 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:06:56,695 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:06:56,695 [INFO] test_lazy_loader: lazy_load_performance: 100 loads took 0.000s
+2026-08-11 16:06:56,695 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:06:56,695 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:06:56,695 [INFO] test_lazy_loader: unload_module: module unloaded successfully
+2026-08-11 16:06:56,695 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:06:56,695 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:06:56,695 [INFO] test_lazy_loader: unload_nonexistent: non-existent module returns False
+2026-08-11 16:06:56,695 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:06:56,695 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:06:56,698 [INFO] test_lazy_loader: unload_then_reload: reload after unload works
+2026-08-11 16:06:56,698 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:07:09,101 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:07:09,102 [INFO] test_lazy_loader: cache_reuse: cache reuse verified
+2026-08-11 16:07:09,102 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:07:09,102 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:07:09,102 [INFO] test_lazy_loader: clear_cache: all entries cleared
+2026-08-11 16:07:09,102 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:07:09,102 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:07:09,102 [INFO] test_lazy_loader: is_cached_false: uncached modules return False
+2026-08-11 16:07:09,102 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:07:09,103 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:07:09,103 [INFO] test_lazy_loader: lazy_get_class: loaded JSONEncoder class successfully
+2026-08-11 16:07:09,103 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:07:09,103 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:07:09,103 [INFO] test_lazy_loader: lazy_get_module: loaded json module successfully
+2026-08-11 16:07:09,103 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:07:09,103 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:07:09,103 [INFO] test_lazy_loader: lazy_load_performance: 100 loads took 0.000s
+2026-08-11 16:07:09,103 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:07:09,103 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:07:09,103 [INFO] test_lazy_loader: unload_module: module unloaded successfully
+2026-08-11 16:07:09,103 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:07:09,104 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:07:09,104 [INFO] test_lazy_loader: unload_nonexistent: non-existent module returns False
+2026-08-11 16:07:09,104 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:07:09,104 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:07:09,107 [INFO] test_lazy_loader: unload_then_reload: reload after unload works
+2026-08-11 16:07:09,107 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:59:41,231 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:59:41,231 [INFO] test_lazy_loader: cache_reuse: cache reuse verified
+2026-08-11 16:59:41,231 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:59:41,231 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:59:41,232 [INFO] test_lazy_loader: clear_cache: all entries cleared
+2026-08-11 16:59:41,232 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:59:41,232 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:59:41,232 [INFO] test_lazy_loader: is_cached_false: uncached modules return False
+2026-08-11 16:59:41,232 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:59:41,232 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:59:41,232 [INFO] test_lazy_loader: lazy_get_class: loaded JSONEncoder class successfully
+2026-08-11 16:59:41,232 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:59:41,232 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:59:41,232 [INFO] test_lazy_loader: lazy_get_module: loaded json module successfully
+2026-08-11 16:59:41,232 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:59:41,232 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:59:41,233 [INFO] test_lazy_loader: lazy_load_performance: 100 loads took 0.000s
+2026-08-11 16:59:41,233 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:59:41,233 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:59:41,233 [INFO] test_lazy_loader: unload_module: module unloaded successfully
+2026-08-11 16:59:41,233 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:59:41,233 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:59:41,233 [INFO] test_lazy_loader: unload_nonexistent: non-existent module returns False
+2026-08-11 16:59:41,233 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 16:59:41,233 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 16:59:41,236 [INFO] test_lazy_loader: unload_then_reload: reload after unload works
+2026-08-11 16:59:41,237 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 17:00:04,401 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 17:00:04,401 [INFO] test_lazy_loader: cache_reuse: cache reuse verified
+2026-08-11 17:00:04,401 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 17:00:04,401 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 17:00:04,401 [INFO] test_lazy_loader: clear_cache: all entries cleared
+2026-08-11 17:00:04,401 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 17:00:04,401 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 17:00:04,401 [INFO] test_lazy_loader: is_cached_false: uncached modules return False
+2026-08-11 17:00:04,401 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 17:00:04,401 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 17:00:04,401 [INFO] test_lazy_loader: lazy_get_class: loaded JSONEncoder class successfully
+2026-08-11 17:00:04,402 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 17:00:04,402 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 17:00:04,402 [INFO] test_lazy_loader: lazy_get_module: loaded json module successfully
+2026-08-11 17:00:04,402 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 17:00:04,402 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 17:00:04,402 [INFO] test_lazy_loader: lazy_load_performance: 100 loads took 0.000s
+2026-08-11 17:00:04,402 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 17:00:04,402 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 17:00:04,402 [INFO] test_lazy_loader: unload_module: module unloaded successfully
+2026-08-11 17:00:04,402 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 17:00:04,402 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 17:00:04,402 [INFO] test_lazy_loader: unload_nonexistent: non-existent module returns False
+2026-08-11 17:00:04,402 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 17:00:04,403 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 17:00:04,406 [INFO] test_lazy_loader: unload_then_reload: reload after unload works
+2026-08-11 17:00:04,406 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 18:38:03,020 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 18:38:03,021 [INFO] test_lazy_loader: cache_reuse: cache reuse verified
+2026-08-11 18:38:03,021 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 18:38:03,024 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 18:38:03,024 [INFO] test_lazy_loader: clear_cache: all entries cleared
+2026-08-11 18:38:03,025 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 18:38:03,026 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 18:38:03,027 [INFO] test_lazy_loader: is_cached_false: uncached modules return False
+2026-08-11 18:38:03,027 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 18:38:03,029 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 18:38:03,029 [INFO] test_lazy_loader: lazy_get_class: loaded JSONEncoder class successfully
+2026-08-11 18:38:03,030 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 18:38:03,033 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 18:38:03,033 [INFO] test_lazy_loader: lazy_get_module: loaded json module successfully
+2026-08-11 18:38:03,033 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 18:38:03,035 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 18:38:03,035 [INFO] test_lazy_loader: lazy_load_performance: 100 loads took 0.000s
+2026-08-11 18:38:03,035 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 18:38:03,037 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 18:38:03,037 [INFO] test_lazy_loader: unload_module: module unloaded successfully
+2026-08-11 18:38:03,037 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 18:38:03,039 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 18:38:03,040 [INFO] test_lazy_loader: unload_nonexistent: non-existent module returns False
+2026-08-11 18:38:03,040 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-11 18:38:03,042 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-11 18:38:03,046 [INFO] test_lazy_loader: unload_then_reload: reload after unload works
+2026-08-11 18:38:03,046 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-13 18:16:34,571 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-13 18:16:34,571 [INFO] test_lazy_loader: cache_reuse: cache reuse verified
+2026-08-13 18:16:34,571 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-13 18:16:34,571 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-13 18:16:34,571 [INFO] test_lazy_loader: clear_cache: all entries cleared
+2026-08-13 18:16:34,572 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-13 18:16:34,572 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-13 18:16:34,572 [INFO] test_lazy_loader: is_cached_false: uncached modules return False
+2026-08-13 18:16:34,572 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-13 18:16:34,572 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-13 18:16:34,572 [INFO] test_lazy_loader: lazy_get_class: loaded JSONEncoder class successfully
+2026-08-13 18:16:34,572 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-13 18:16:34,572 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-13 18:16:34,572 [INFO] test_lazy_loader: lazy_get_module: loaded json module successfully
+2026-08-13 18:16:34,572 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-13 18:16:34,575 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-13 18:16:34,575 [INFO] test_lazy_loader: lazy_load_performance: 100 loads took 0.000s
+2026-08-13 18:16:34,575 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-13 18:16:34,575 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-13 18:16:34,575 [INFO] test_lazy_loader: unload_module: module unloaded successfully
+2026-08-13 18:16:34,576 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-13 18:16:34,576 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-13 18:16:34,576 [INFO] test_lazy_loader: unload_nonexistent: non-existent module returns False
+2026-08-13 18:16:34,576 [DEBUG] test_lazy_loader: tearDown: cache cleared
+2026-08-13 18:16:34,576 [DEBUG] test_lazy_loader: setUp: cache cleared
+2026-08-13 18:16:34,581 [INFO] test_lazy_loader: unload_then_reload: reload after unload works
+2026-08-13 18:16:34,582 [DEBUG] test_lazy_loader: tearDown: cache cleared
