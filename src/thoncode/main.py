@@ -352,62 +352,45 @@ class MainWindow:
         self.tree = self.tree_manager.get_tree()
 
     def _build_center_pane(self):
-        """Build the center pane with a placeholder for lazy editor loading."""
+        """Build the center pane: a ttk.Notebook containing the welcome tab
+        and zero or more editor tabs (via EditorTabManager).
+        """
         self.editor_placeholder = ttk.Frame(self.center_frame)
         self.editor_placeholder.pack(fill="both", expand=True, padx=0, pady=(0, 0))
+        # Eagerly create EditorTabManager (notebook + welcome slot) so the
+        # welcome page has a home tab from boot.
+        EditorTabManager = LazyLoader.get('libs.gui.editor_tab_manager',
+                                          'EditorTabManager')
+        self.tab_manager = EditorTabManager(
+            self.editor_placeholder,
+            main_window=self,
+            status_callback=lambda msg: self.status_bar.configure(text=msg),
+            update_title_callback=self.update_title,
+            get_welcome_frame=self._lazy_get_welcome_frame,
+            hide_welcome_callback=self.hide_welcome,
+            plugin_hook_callback=self._tab_plugin_hook,
+        )
+        # Aliases kept for backward compatibility with single-editor
+        # code paths (cut/copy/paste, menus, etc.). They are refreshed
+        # by TabManager._sync_host_state on every tab change / file open.
         self.editor_manager = None
         self.editor_widget = None
         self.textbox_widget = None
         self.editor = None
 
-    def _ensure_editor_manager(self):
-        """Lazy-initialize the EditorManager on first use.
+    def _lazy_get_welcome_frame(self):
+        """Called by TabManager when the welcome tab is selected for the
+        first time. Creates the WelcomePage lazily and returns its frame."""
+        self._ensure_welcome_page()
+        return self.welcome_frame
 
-        Returns:
-            EditorManager: The initialized editor manager instance
-        """
-        if self.editor_manager is None:
-            # Hide placeholder before loading editor to prevent layout conflicts
-            if self.editor_placeholder and self.editor_placeholder.winfo_exists():
-                self.editor_placeholder.pack_forget()
-
-            EditorManager = LazyLoader.get('libs.gui.editor_manager', 'EditorManager')
-            self.editor_manager = EditorManager(
-                self.center_frame,
-                main_window=self,
-                status_callback=lambda msg: self.status_bar.configure(text=msg),
-                update_title_callback=self.update_title
-            )
-            self.editor_widget = self.editor_manager.get_widget()
-            self.textbox_widget = self.editor_manager.get_textbox()
-            self.editor = self.editor_manager.get_editor_instance()
-
-            # Pack editor flush against the header frame (no top padding)
-            self.editor_widget.pack(fill="both", expand=True, padx=0, pady=(0, 0))
-            self.textbox_widget.bind("<Button-3>", self._show_editor_context_menu)
-            self.textbox_widget.bind("<<Modified>>", self.editor_manager._on_modified)
-        return self.editor_manager
-
-    def _unload_editor_manager(self):
-        """Unload the EditorManager to free resources.
-
-        Destroys all editor widgets and releases the module cache
-        when returning to the welcome screen.
-        """
-        if self.editor_manager is not None:
+    def _tab_plugin_hook(self, hook_name: str, arg: str) -> None:
+        """Thin proxy between TabManager events and the plugin manager."""
+        if self.plugin_manager is not None:
             try:
-                if self.editor_widget and self.editor_widget.winfo_exists():
-                    self.editor_widget.destroy()
-                # Restore placeholder with flush-top alignment
-                if self.editor_placeholder and self.editor_placeholder.winfo_exists():
-                    self.editor_placeholder.pack_forget()
-                    self.editor_placeholder.pack(fill="both", expand=True, padx=0, pady=(0, 0))
+                self.plugin_manager.call_hook(hook_name, arg)
             except Exception:
                 pass
-            self.editor_manager = None
-            self.editor_widget = None
-            self.textbox_widget = None
-            self.editor = None
 
     def _build_right_pane(self):
         """Build the right pane with a placeholder label."""
@@ -483,24 +466,45 @@ class MainWindow:
         return self.welcome_page
 
     def _show_welcome_if_needed(self) -> None:
-        """Show or hide the welcome page based on config state."""
+        """On first idle tick: show the welcome tab if the config says so.
+
+        With the new tabbed layout the welcome page lives permanently as
+        tab index 0 of ``EditorTabManager.notebook``, so we just select it
+        at startup when the user hasn't opened any file yet or when the
+        configuration opts in to showing it.
+        """
         cfg = self._get_cfg_data()
         show = cfg.get("show_welcome", True)
-        if show or not self.current_file:
-            self._ensure_welcome_page().place(relx=0, rely=0, relwidth=1, relheight=1)
-        else:
-            self._ensure_welcome_page().place_forget()
+        if not show and self.current_file:
+            return
+        if self.tab_manager is not None:
+            try:
+                from libs.gui.editor_tab_manager import EditorTabManager as _ETM
+                self.tab_manager._activate_tab(_ETM.WELCOME_TAB_ID)
+            except Exception:
+                pass
 
     def hide_welcome(self) -> None:
-        """Hide the welcome page if it exists."""
-        if self.welcome_page:
-            self.welcome_page.place_forget()
+        """No-op in tabbed layout: welcome is always reachable via its tab.
+
+        Kept so legacy callers don't break. The caller's intent is "stop
+        showing welcome and focus the editor", which we implement by
+        stealing focus onto the active editor if possible.
+        """
+        try:
+            if self.textbox_widget and self.textbox_widget.winfo_exists():
+                self.textbox_widget.focus_set()
+        except Exception:
+            pass
 
     def show_welcome(self) -> None:
-        """Show the welcome page and unload editor if no file is open."""
-        if not self.current_file and not self.is_dirty:
-            self._unload_editor_manager()
-        self._ensure_welcome_page().place(relx=0, rely=0, relwidth=1, relheight=1)
+        """Switch to the welcome tab."""
+        if self.tab_manager is not None:
+            try:
+                from libs.gui.editor_tab_manager import EditorTabManager as _ETM
+                self.tab_manager._activate_tab(_ETM.WELCOME_TAB_ID)
+            except Exception:
+                pass
 
     def _open_recent_project(self, path):
         """Open a recently used project by path.
@@ -578,36 +582,48 @@ class MainWindow:
         return None
 
     def new_file(self):
-        """Clear the editor and prepare for a new file."""
-        self._ensure_editor_manager()
-        self.editor_manager.clear()
-        self.current_file = None
-        self.is_dirty = False
-        self.last_saved_content = ""
-        self.update_title()
+        """Clear the editor and prepare for a new file in a new tab."""
+        mgr = self.tab_manager.new_file()
+        # Bind context menu and <<Modified>> handlers for the fresh editor
+        try:
+            tb = mgr.get_textbox()
+            tb.bind("<Button-3>", self._show_editor_context_menu, add="+")
+        except Exception:
+            pass
         self.hide_welcome()
 
-    def open_file_by_path(self, file_path):
-        """Open a file by its path.
+    def open_file_by_path(self, file_path, jump_to_line=None):
+        """Open a file by its path (adds / activates a tab).
 
         Args:
             file_path: Absolute path to the file to open
+            jump_to_line: Optional 1-based line number to jump to after
+                opening (used by Ctrl+right-click go-to-definition).
         """
-        self._ensure_editor_manager()
-        if self.editor_manager.open_file(file_path):
-            self.current_file = self.editor_manager.current_file
-            self.is_dirty = self.editor_manager.is_dirty
-            self.last_saved_content = self.editor_manager.last_saved_content
-            self.hide_welcome()
-            self.update_title()
-            # Notify plugins that a file was opened
-            self.plugin_manager.call_hook("file_open", file_path)
+        ok = self.tab_manager.open_file(file_path, jump_to_line=jump_to_line)
+        if ok:
+            active_mgr = self.tab_manager.get_active_manager()
+            if active_mgr is not None:
+                try:
+                    tb = active_mgr.get_textbox()
+                    tb.bind("<Button-3>", self._show_editor_context_menu, add="+")
+                except Exception:
+                    pass
 
     def open_file(self):
         """Open a file using a file dialog."""
         file_path = filedialog.askopenfilename(
-            defaultextension=".py",
-            filetypes=[("Python files", "*.py"), ("All files", "*.*")]
+            defaultextension=".*",
+            filetypes=[
+                ("Python files", "*.py"),
+                ("Java files", "*.java"),
+                ("Rust files", "*.rs"),
+                ("C/C++ files", "*.c;*.cpp;*.h;*.hpp"),
+                ("JavaScript / TypeScript", "*.js;*.jsx;*.ts;*.tsx"),
+                ("Markdown", "*.md"),
+                ("JSON", "*.json"),
+                ("All files", "*.*"),
+            ]
         )
         if file_path:
             self.open_file_by_path(file_path)
@@ -634,63 +650,55 @@ class MainWindow:
             self.status_bar.configure(text=f"{self.langs_cfg.status_open_failed}: {e}")
 
     def save_file(self):
-        """Save the current file. Falls back to save_as if no file is open.
+        """Save the active editor tab. Falls back to save_as when untitled.
 
-        Uses editor_manager.current_file as the source of truth because the
-        editor manager's state is always current (it's updated by async save
-        callbacks and file-open paths), whereas self.current_file may lag
-        behind after lazy editor initialization or async operations.
-
-        Returns:
-            bool: True if save was successful
+        TabManager is the canonical source of truth for which tab is active;
+        after a successful save the tab label is refreshed and the host
+        state (current_file / is_dirty) is synced automatically.
         """
-        self._ensure_editor_manager()
-        # Sync self.current_file from editor_manager so Ctrl+S always saves
-        # the currently-open file instead of falling back to save_as.
-        self.current_file = self.editor_manager.current_file
+        if self.tab_manager is None:
+            return False
+        # Ensure the active manager state is pushed to legacy aliases.
+        self.tab_manager._sync_host_state()
         if not self.current_file:
             return self.save_as()
-        result = self.editor_manager.save_file()
-        if result:
-            self.current_file = self.editor_manager.current_file
-            self.is_dirty = self.editor_manager.is_dirty
-            self.last_saved_content = self.editor_manager.last_saved_content
-            self.update_title()
-            # Notify plugins that a file was saved
-            self.plugin_manager.call_hook("file_save", self.current_file)
-        return result
+        ok = self.tab_manager.save_current()
+        if ok:
+            self.status_bar.configure(text=f"{self.langs_cfg.status_saved} {self.current_file}")
+            self.tab_manager.refresh_all_labels()
+        return ok
 
     def save_as(self):
-        """Save the current file with a new name.
-        
+        """Save the active tab under a new path via the system save-as dialog.
+
         Returns:
             bool: True if save was successful
         """
+        if self.tab_manager is None:
+            return False
+        self.tab_manager._sync_host_state()
         file_path = filedialog.asksaveasfilename(
-            defaultextension=".py",
-            filetypes=[("Python files", "*.py"), ("All files", "*.*")]
+            defaultextension=".*",
+            filetypes=[
+                ("Python files", "*.py"),
+                ("Java files", "*.java"),
+                ("Rust files", "*.rs"),
+                ("C/C++ files", "*.c;*.cpp;*.h;*.hpp"),
+                ("All files", "*.*"),
+            ]
         )
         if not file_path:
             return False
-
-        self._ensure_editor_manager()
-        try:
-            content = self.textbox_widget.get("1.0", "end-1c")
-            with open(file_path, "w", encoding="utf-8") as f:
-                f.write(content)
-
-            self.current_file = file_path
-            self.is_dirty = False
-            self.last_saved_content = content
-            self.update_title()
+        ok = self.tab_manager.save_as_current(file_path)
+        if ok:
             self.status_bar.configure(text=f"{self.langs_cfg.status_saved} {file_path}")
             self.refresh_tree()
+            self.tab_manager.refresh_all_labels()
             self.hide_welcome()
-            self.textbox_widget.edit_modified(False)
-            return True
-        except Exception as e:
-            messagebox.showerror(self.langs_cfg.settings_error_title, f"{self.langs_cfg.editor_save_failed}: {e}")
-            return False
+        else:
+            messagebox.showerror(self.langs_cfg.settings_error_title,
+                                 self.langs_cfg.editor_save_failed)
+        return ok
 
     def refresh_tree(self):
         """Refresh the project tree view."""

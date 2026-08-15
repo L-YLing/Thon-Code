@@ -1,6 +1,12 @@
 # Thon Code 插件开发指南 v1.0
 
-> 适用于 Thon Code >= 0.4.0。本文档介绍如何从零编写、打包并调试一个 Thon Code 插件。
+> 本文档介绍如何从零编写、打包并调试一个 Thon Code 插件。
+
+> **关于版本号的说明**：
+> - Thon Code 有两个版本文件：
+>   - **`.main-version`**：面向用户和插件开发者的**正式版本号**，用于版本展示、兼容性判断、文档引用等公开场景。
+>   - **`.version`**：**内部预发布代号**，仅用于开发阶段的构建追踪和内部测试，不应在公开文档或插件清单中引用。
+> - 插件的 `host_version` 约束针对的是**插件 API 版本**（`HOST_APP_VERSION`），而非 IDE 正式版本号。插件 API 版本会在 API 表面发生不兼容变更时递增。
 
 ---
 
@@ -480,4 +486,99 @@ __all__ = ["LinterPlugin"]
 
 ---
 
-**下一步阅读**：[插件市场搭建指南](./plugin_marketplace.md)、[用户使用手册](./user_manual.md)。
+## 13. 自动补全 & 跳转到定义（SymbolLoader 懒加载机制）
+
+为了在保持轻量（不引入 tree-sitter / 重量级 AST 解析器）的前提下实现跨文件的补全与跳转，Thon Code 在 `libs.gui.symbol_loader` 中提供了一个**单例** `SymbolLoaderRegistry`。
+
+### 13.1 工作流程
+
+1. **首次索引**：打开一个文件时，`EditorCompletion`（补全弹窗）和 `EditorNavigation`（跳转）都会懒调用 `SymbolLoaderRegistry.index_file()` 把源文件按行扫描出三个表：
+   - `Symbol { name, kind, line, file, signature, scope }`：函数/类/方法/字段/变量等符号；
+   - `ImportEntry { module, symbol, alias, line }`：导入语句解析后的结果。
+2. **缓存**：索引结果以 `(绝对路径, mtime)` 为 key 缓存；同一个文件被重复跳转、补全引用不会重复解析。
+3. **导入懒加载**：遇到 `import foo.Bar` 或 `from foo import bar`、Rust `use foo::bar` 等语句时，仅在 **标识符命中前缀 / 用户按下跳转快捷键** 时，才调用 `get_symbols_for_import(...)` 去解析被导入文件，再把其符号并入当前视图。
+   - Python：按 `sys.path` 样式的相对/绝对目录解析；
+   - Java：按 Maven/Gradle 常见源码布局（`src/main/java` 等）搜索 `.java` 文件；
+   - Rust：按 `src/` 目录 + 同级目录解析 `use`；
+   - 其他语言：走 fallback 正则抽取器（或插件自定义）。
+4. **补全合并顺序**：① 高亮组静态关键字 → ② 插件注册的语言内建符号（如 java.lang.*）→ ③ SymbolLoader 返回的本地符号 + 导入符号（去重后按前缀匹配）。
+
+### 13.2 插件扩展点（PluginAPI 新能力）
+
+以下四个新 API 与插件权限体系兼容，不需要额外权限声明即可使用：
+
+| 方法 | 作用 |
+| --- | --- |
+| `register_symbol_extractor(lang_or_ext, fn)` | 为某个语言自定义符号抽取器，签名 `(path, src, lang) -> ([Symbol], [ImportEntry])` |
+| `register_import_resolver(lang_or_ext, fn)` | 为某个语言自定义 import → 绝对路径的解析逻辑 |
+| `register_builtin_symbols([lang_ids...], [(name, sig)])` | 向补全引擎注入标准库种子符号（用于没有源文件可索引时） |
+| `find_symbol_definition(name, ...)` | 复用 IDE 的懒索引在插件代码中直接查询定义位置，返回 Symbol dict |
+
+---
+
+## 14. 示例：Java 复杂结构插件包（多文件）
+
+`plugins/java_support/` 目录是多文件插件的演示，结构如下：
+
+```
+plugins/java_support/
+  __init__.py              # 入口：PluginBase 子类 on_load 汇总挂载
+  highlight_groups.py      # 关键字高亮组
+  completion_symbols.py    # 200+ 条 java.lang / java.util 内建符号
+  import_parser.py         # 自定义抽取器（支持 sealed/record 语法）+ import 解析
+```
+
+权限声明：只需 `PERMISSION_HIGHLIGHT_EXTEND`（用于 `add_syntax_groups`），其余 API（补全符号注册 / 自定义抽取器）都不要求额外权限。
+
+关键代码片段：
+
+```python
+# plugins/java_support/__init__.py 节选
+class JavaSupportPlugin(PluginBase):
+    permissions = [PERM.PERMISSION_HIGHLIGHT_EXTEND]
+
+    def on_load(self):
+        # 1) 高亮关键字组
+        from . import highlight_groups as hg
+        for lang, groups in hg.HIGHLIGHT_BINDINGS:
+            self.api.add_syntax_groups(lang, groups)
+
+        # 2) 语言内建符号补全
+        from . import completion_symbols as cs
+        self.api.register_builtin_symbols(cs.LANG_PATTERNS, cs.BUILTIN_SYMBOLS)
+
+        # 3) 自定义抽取器 + import 解析（针对 sealed class / record 等 JDK-17 新语法）
+        from . import import_parser as ip
+        self.api.register_symbol_extractor('java', ip.extract_java_symbols)
+        self.api.register_import_resolver('java', ip.resolve_java_import)
+```
+
+### 14.1 插件提供的能力
+
+- **语法高亮**：关键字（50+）、内置类型（String、List、Map、Integer…）、`true/false/null` 字面量等 5 组 tag；
+- **补全**：java.lang / java.util / java.util.concurrent 常用符号 230+ 条，配合 `SymbolLoader` 的本地方法/字段抽取可得到项目内的符号；
+- **跳转定义**：Ctrl + 右键 点击 `Baz` → 通过 `resolve_java_import` 定位到 `com/foo/Baz.java` 并在新标签打开。
+
+---
+
+## 15. 示例：Rust 单文件插件
+
+`plugins/rust_support.py` 是单文件插件的演示：一个 `PluginBase` 子类 + 一份高亮关键字组常量即可完成 Rust 语法着色。
+
+核心代码：
+
+```python
+class RustSupportPlugin(PluginBase):
+    name = 'rust_support'
+    permissions = [PERM.PERMISSION_HIGHLIGHT_EXTEND]
+    def on_load(self):
+        for lang_or_ext, groups in _HIGHLIGHT_BINDINGS:  # 关键字组
+            self.api.add_syntax_groups(lang_or_ext, groups)
+```
+
+该插件与内置的 `SymbolLoader` Rust 抽取器（负责补全和跳转）配合生效，不重复造轮子。
+
+---
+
+**下一步阅读**：「用户手册」§5-7 节（用户侧操作说明：标签页 / 补全 / 跳转）。
+

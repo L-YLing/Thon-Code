@@ -53,8 +53,15 @@ class CodeEditor:
         self.folding = None
         self.highlight = None
         self.shortcuts = None
+        self.navigation = None
+        # Alias used by navigation / completion modules that inspect the
+        # text widget. `self._textbox` continues to be the authoritative
+        # handle inside CodeEditor itself.
+        self.text = getattr(self, "_textbox", None)
 
         self._init_components()
+        # Re-alias after _init_components because _textbox is created lazily
+        self.text = getattr(self, "_textbox", None)
 
         self.load_language(language)
         self.highlight_all()
@@ -63,18 +70,45 @@ class CodeEditor:
         """Initialize sub-components using lazy loading."""
         EditorUI = LazyLoader.get('libs.gui.editor_ui', 'EditorUI')
         self.ui = EditorUI(self)
-        
+
         EditorCompletion = LazyLoader.get('libs.gui.editor_completion', 'EditorCompletion')
         self.completion = EditorCompletion(self, self.master)
-        
+
         EditorFolding = LazyLoader.get('libs.gui.editor_folding', 'EditorFolding')
         self.folding = EditorFolding(self)
-        
+
         EditorHighlight = LazyLoader.get('libs.gui.editor_highlight', 'EditorHighlight')
         self.highlight = EditorHighlight(self)
-        
+
         EditorShortcuts = LazyLoader.get('libs.gui.editor_shortcuts', 'EditorShortcuts')
         self.shortcuts = EditorShortcuts(self)
+
+        # Ctrl+right-click navigation / go-to-definition
+        try:
+            EditorNavigation = LazyLoader.get('libs.gui.editor_navigation', 'EditorNavigation')
+            self.navigation = EditorNavigation(
+                self,
+                goto_callback=self._default_goto_callback,
+            )
+        except Exception:
+            # Navigation is a convenience feature; if it fails to load
+            # (e.g. missing i18n module in early boot) the editor still
+            # functions normally.
+            self.navigation = None
+
+    def _default_goto_callback(self, target_file: str, target_line):
+        """Default callback when navigation jumps to another file.
+
+        Delegates to the main_window open_file(..., jump_to_line=...) method
+        if present; otherwise does nothing. The navigation module shows a
+        user-visible message when the delegate is unavailable.
+        """
+        mw = self.main_window
+        if mw is not None and hasattr(mw, "open_file"):
+            try:
+                mw.open_file(target_file, jump_to_line=target_line)
+            except Exception:
+                pass
 
     def _should_enable_completion(self, file_path):
         """Check if code completion should be enabled for the file type.

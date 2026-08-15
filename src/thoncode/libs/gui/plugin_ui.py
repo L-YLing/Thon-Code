@@ -194,14 +194,15 @@ class PluginManagerWindow:
         # Marketplace treeview
         m_frame = ttk.Frame(root)
         m_frame.pack(fill="both", expand=True)
-        columns = ("name", "version", "author", "description")
+        columns = ("name", "version", "author", "tags", "description")
         self.market_tree = ttk.Treeview(
             m_frame, columns=columns, show="headings", height=16)
         for col, txt, w in (
-            ("name",        self._get_text("plugins.col_name"),        150),
-            ("version",     self._get_text("plugins.col_version"),      90),
-            ("author",      self._get_text("plugins.col_author"),      120),
-            ("description", self._get_text("plugins.col_description"), 320),
+            ("name",        self._get_text("plugins.col_name"),                            150),
+            ("version",     self._get_text("plugins.col_version"),                          90),
+            ("author",      self._get_text("plugins.col_author"),                          120),
+            ("tags",        self._get_text("plugins.col_tags") or "Tags",                  100),
+            ("description", self._get_text("plugins.col_description"),                     250),
         ):
             self.market_tree.heading(col, text=txt)
             self.market_tree.column(col, width=w, anchor="w")
@@ -210,6 +211,15 @@ class PluginManagerWindow:
         self.market_tree.pack(side="left", fill="both", expand=True)
         vsb.pack(side="right", fill="y")
         self._market_cache: List[Dict[str, Any]] = []
+        self.market_tree.bind("<<TreeviewSelect>>", self._on_market_select)
+
+        # Details panel (below the treeview)
+        details_frame = ttk.LabelFrame(
+            root, text=self._get_text("plugins.market_details") or "Details")
+        details_frame.pack(fill="x", pady=(8, 0))
+        self._market_detail_text = tk.Text(details_frame, height=6, wrap="word",
+                                           state="disabled")
+        self._market_detail_text.pack(fill="x", padx=4, pady=4)
 
         self._market_status = ttk.Label(root, text="", anchor="w",
                                         foreground=theme.get_colors().get("fg_muted", "#888"))
@@ -308,15 +318,59 @@ class PluginManagerWindow:
             self.market_tree.delete(item)
         for entry in self._market_cache:
             rid = entry.get("id") or entry.get("name", "")
+            tags_val = entry.get("tags", "-")
+            if isinstance(tags_val, list):
+                tags_val = ", ".join(tags_val)
             self.market_tree.insert(
                 "", "end", iid=rid,
                 values=(entry.get("name", rid),
                         entry.get("version", "-"),
                         entry.get("author", "-"),
+                        tags_val,
                         entry.get("description", "")))
         self._market_status.configure(
             text=(self._get_text("plugins.market_fetched") or "Fetched {n} packages.").format(
                 n=len(self._market_cache)))
+
+    def _on_market_select(self, _event=None):
+        sel = self.market_tree.selection()
+        if not sel:
+            return
+        target_id = sel[0]
+        entry = None
+        for e in self._market_cache:
+            if (e.get("id") or e.get("name", "")) == target_id:
+                entry = e
+                break
+        if entry is None:
+            return
+        name = entry.get("name", target_id)
+        version = entry.get("version", "-")
+        author = entry.get("author", "-")
+        tags_val = entry.get("tags", "-")
+        if isinstance(tags_val, list):
+            tags_val = ", ".join(tags_val)
+        size_bytes = entry.get("size_bytes", "-")
+        description = entry.get("description", "")
+        changelog = entry.get("changelog", "-")
+        package_url = entry.get("package_url", "-")
+        summary = (
+            f"Name: {name}\n"
+            f"Version: {version}\n"
+            f"Author: {author}\n"
+            f"Tags: {tags_val}\n"
+            f"Size: {size_bytes}\n"
+            f"Description: {description}\n"
+            f"\n"
+            f"Changelog:\n"
+            f"{changelog}\n"
+            f"\n"
+            f"Download URL: {package_url}\n"
+        )
+        self._market_detail_text.configure(state="normal")
+        self._market_detail_text.delete("1.0", "end")
+        self._market_detail_text.insert("1.0", summary)
+        self._market_detail_text.configure(state="disabled")
 
     def _on_install(self):
         sel = self.market_tree.selection()

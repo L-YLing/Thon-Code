@@ -292,9 +292,52 @@ class PluginAPI:
     # ==================================================================
     def get_text(self, key: str) -> str:
         try:
+            from libs.i18n import I18N
+            val = I18N.get_instance().get(key, None)
+            if val is not None:
+                return val
+        except Exception:
+            pass
+        try:
             return getattr(self._host.langs_cfg, key.replace('.', '_'), key)
         except Exception:
             return key
+
+    def get_i18n(self) -> Any:
+        """Return an object with a ``.get(key, default)`` method.
+
+        Plugins can do::
+
+            i18n = self.api.get_i18n()
+            label = i18n.get("plugins.java.about", "About Java Support")
+        """
+        class _I18NProxy:
+            def __init__(self, outer: "PluginAPI") -> None:
+                self._outer = outer
+
+            def get(self, key: str, default: Optional[str] = None) -> str:
+                try:
+                    from libs.i18n import I18N
+                    val = I18N.get_instance().get(key, None)
+                    if val is not None:
+                        return val
+                except Exception:
+                    pass
+                text = self._outer.get_text(key)
+                if text != key:
+                    return text
+                return default if default is not None else key
+
+        return _I18NProxy(self)
+
+    def get_main_window(self) -> Any:
+        """Return a reference to the host MainWindow (best-effort).
+
+        Used by plugins like java_support to pop Tk message boxes with a
+        parent window reference. Returns ``None`` if the host reference
+        is not available.
+        """
+        return self._host
 
     # ==================================================================
     # Plugin management (gated by PERMISSION_PLUGIN_MANAGE)
@@ -360,6 +403,38 @@ class PluginAPI:
         except Exception as e:
             self._logger.debug("add_menu_item failed: %s", e)
             return False
+
+    def add_menu_entry(
+        self,
+        menu_path,
+        label: str,
+        callback: Callable[[], None],
+        accelerator: Optional[str] = None,
+        separator_before: bool = False,
+        separator_after: bool = False,
+    ) -> bool:
+        """Convenience alias for :meth:`add_menu_item`.
+
+        Compared to ``add_menu_item`` this wrapper accepts:
+
+        * ``menu_path`` as a list of path segments (e.g. ``["Help"]``)
+          **or** a dotted string;
+        * ``callback`` instead of ``command``.
+
+        This matches the call shape used by plugins like ``java_support``.
+        """
+        if isinstance(menu_path, (list, tuple)):
+            dotted = ".".join(str(part) for part in menu_path)
+        else:
+            dotted = str(menu_path)
+        return self.add_menu_item(
+            menu_path=dotted,
+            label=label,
+            command=callback,
+            accelerator=accelerator or "",
+            separator_before=separator_before,
+            separator_after=separator_after,
+        )
 
     def _install_menu_entry(self, **kw) -> Dict[str, Any]:
         """Create a menu entry in the host menubar. Returns metadata
@@ -510,28 +585,46 @@ class PluginAPI:
     # ==================================================================
     def add_syntax_groups(
         self,
-        language_patterns: List[str],
-        groups: List[Dict[str, Any]],
+        language_patterns,
+        groups,
     ) -> bool:
         """Register extra highlight groups for files matching patterns.
 
         Args:
-            language_patterns: Matched against the current file
-                extension or CodeEditor language field, e.g.
-                ``[".rs", "rust"]``. ``["*"]`` matches every file.
+            language_patterns: A single pattern (``".rs"`` / ``"java"``)
+                or a list of patterns. Matched against the current file
+                extension or CodeEditor language field. ``["*"]`` matches
+                every file.
             groups: Highlight group dicts in the same format as
-                ``CodeEditor.groups`` entries:
-                ``{"name": str, "color": "#RRGGBB", "words": [...],
-                   "regex": [raw_pattern, ...]}``
+                ``CodeEditor.groups`` entries, or legacy 4-tuples
+                ``(name, color, bold, keywords)``.
         """
         if not self._require(PERMISSION_HIGHLIGHT_EXTEND):
             return False
         plugin = self._plugin_from_self()
         if plugin is None:
             return False
+        if isinstance(language_patterns, (list, tuple)):
+            patterns = [str(p) for p in language_patterns]
+        else:
+            patterns = [str(language_patterns)]
+        normalized_groups: List[Dict[str, Any]] = []
+        for g in groups:
+            if isinstance(g, dict):
+                normalized_groups.append(dict(g))
+            elif isinstance(g, (list, tuple)) and len(g) == 4:
+                name, color, bold, keywords = g
+                normalized_groups.append({
+                    "name": name,
+                    "color": color,
+                    "bold": bool(bold),
+                    "words": list(keywords) if keywords is not None else [],
+                })
+            else:
+                self._logger.debug("add_syntax_groups: skipping unknown entry %r", g)
         self._highlight_providers[id(plugin)] = {
-            "language_patterns": language_patterns,
-            "groups": groups,
+            "language_patterns": patterns,
+            "groups": normalized_groups,
         }
         self._rebuild_highlight_groups()
         return True
@@ -623,4 +716,111 @@ class PluginAPI:
             return (result.returncode, result.stdout, result.stderr)
         except Exception as e:
             self._logger.debug("run_process(%s) failed: %s", args, e)
+            return None
+
+    # ==================================================================
+    # Completion / Go-to-Definition extension points (no permission;
+    # plugins *extend* IDE capabilities rather than mutating host state.)
+    # ==================================================================
+
+    def register_symbol_extractor(self, language_or_ext: str, extractor) -> bool:
+        """Register a custom symbol extractor for a language / extension.
+
+        The extractor is called by the SymbolLoaderRegistry when a file of
+        the matching language is indexed for auto-completion or go-to-
+        definition.
+
+        Args:
+            language_or_ext: E.g. "java", ".kt", "rust", ".rs".
+            extractor: Callable ``(path, source, lang) -> (symbols, imports)``
+                where ``symbols`` and ``imports`` follow the shape defined
+                in ``libs.gui.symbol_loader``.
+
+        Returns:
+            True on success, False on error (logged at DEBUG level).
+        """
+        try:
+            from libs.gui.symbol_loader import SymbolLoaderRegistry
+            SymbolLoaderRegistry.instance().register_extractor(language_or_ext, extractor)
+            return True
+        except Exception as e:
+            self._logger.debug("register_symbol_extractor failed: %s", e)
+            return False
+
+    def register_import_resolver(self, language_or_ext: str, resolver) -> bool:
+        """Register a custom import resolver that maps an ImportEntry +
+        context to an absolute source-file path for lazy symbol loading.
+
+        Args:
+            language_or_ext: E.g. "java", ".kt".
+            resolver: Callable ``(imp, current_file, project_root) -> path or None``.
+
+        Returns:
+            True on success.
+        """
+        try:
+            from libs.gui.symbol_loader import SymbolLoaderRegistry
+            SymbolLoaderRegistry.instance().register_import_resolver(language_or_ext, resolver)
+            return True
+        except Exception as e:
+            self._logger.debug("register_import_resolver failed: %s", e)
+            return False
+
+    def register_builtin_symbols(self, language_patterns, symbols) -> bool:
+        """Add language-standard library symbols (e.g. ``java.lang.*``) to
+        the completion index.
+
+        These symbols are merged by ``EditorCompletion`` into the keyword
+        popup when any file matching ``language_patterns`` is open. Plugins
+        are responsible for choosing representative subsets.
+
+        Args:
+            language_patterns: List of language ids or file extensions,
+                e.g. ``[".java", "java"]``. ``["*"]`` matches every file.
+            symbols: List of ``(name, signature_or_None)`` pairs. Signature
+                is shown as grey hint next to the keyword in the popup.
+
+        Returns:
+            True on success.
+        """
+        try:
+            host = self._host
+            registry = getattr(host, "_builtin_symbol_registry", None)
+            if registry is None:
+                registry = {}
+                setattr(host, "_builtin_symbol_registry", registry)
+            bucket = registry.setdefault(tuple(language_patterns), [])
+            bucket.extend(symbols)
+            return True
+        except Exception as e:
+            self._logger.debug("register_builtin_symbols failed: %s", e)
+            return False
+
+    def find_symbol_definition(self, identifier: str, language: str = "",
+                               file_path: Optional[str] = None,
+                               project_root: str = "") -> Optional[dict]:
+        """Ask SymbolLoaderRegistry for the definition site of ``identifier``.
+
+        Primarily exposed so plugins like language tooltips can reuse the
+        IDE's lazy index without duplicating the parsing work.
+
+        Returns a Symbol dict with at least ``{"name", "kind", "line", "file"}``
+        keys or ``None``.
+        """
+        try:
+            from libs.gui.symbol_loader import SymbolLoaderRegistry
+            reg = SymbolLoaderRegistry.instance()
+            host = self._host
+            fp = file_path or getattr(host, "current_file", None)
+            pr = project_root or getattr(host, "project_root", "")
+            lang = language or ""
+            live = None
+            if hasattr(host, "editor_manager") and host.editor_manager:
+                try:
+                    live = host.editor_manager.get_content()
+                except Exception:
+                    live = None
+            return reg.find_definition(identifier, fp, lang, pr, live)
+        except Exception as e:
+            self._logger.debug("find_symbol_definition(%s) failed: %s", identifier, e)
             return None

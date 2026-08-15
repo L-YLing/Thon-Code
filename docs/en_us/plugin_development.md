@@ -1,6 +1,12 @@
 # Thon Code Plugin Development Guide v1.0
 
-> For Thon Code >= 0.4.0. This document explains how to write, package, and debug a Thon Code plugin from scratch.
+> This document explains how to write, package, and debug a Thon Code plugin from scratch.
+
+> **About Version Numbers**:
+> - Thon Code has two version files:
+>   - **`.main-version`**: The **public version number** for end users and plugin developers. Used for version display, compatibility checks, documentation references, and all public-facing scenarios.
+>   - **`.version`**: **Internal pre-release code**, used only for build tracking and internal testing during development. Should NOT be referenced in public documentation or plugin manifests.
+> - The plugin's `host_version` constraint targets the **Plugin API version** (`HOST_APP_VERSION`), not the IDE public version number. The Plugin API version is incremented when the API surface changes in backward-incompatible ways.
 
 ---
 
@@ -480,4 +486,99 @@ Similarly, resources such as `assets/license/`, `assets/langs/`, and `assets/fon
 
 ---
 
-**Further reading**: [Plugin Marketplace Setup Guide](./plugin_marketplace.md), [User Manual](./user_manual.md).
+## 13. Auto-Completion & Go-to-Definition (SymbolLoader lazy-index)
+
+Thon Code ships a `libs.gui.symbol_loader.SymbolLoaderRegistry` singleton so the IDE can provide cross-file completion and navigation without pulling in heavyweight AST parsers such as tree-sitter.
+
+### 13.1 Pipeline
+
+1. **First indexing pass**: When a file is opened, both `EditorCompletion` (the popup widget) and `EditorNavigation` (the Ctrl+right-click handler) lazily invoke `index_file()` to scan the source line by line and build two tables:
+   - `Symbol { name, kind, line, file, signature, scope }` for functions / classes / methods / fields / variables;
+   - `ImportEntry { module, symbol, alias, line }` for import statements.
+2. **Cache**: Indexed results are keyed by `(abs_path, mtime)` so repeated lookups never cause re-parsing.
+3. **Lazy import expansion**: Only when the user types a matching prefix or presses the go-to-definition shortcut does the engine call `get_symbols_for_import(...)` to resolve imported files and merge their symbols into the current view.
+   - **Python**: Resolves imports relative to the current file and against `project_root`;
+   - **Java**: Scans Maven/Gradle-style source roots (`src/main/java`, etc.);
+   - **Rust**: Resolves `use foo::bar` against both `src/` and the current file's directory;
+   - **Other languages**: Uses a generic C-like regex extractor (or a plugin-provided custom extractor, if any).
+4. **Completion merge order**: 1) static highlight-group keywords → 2) plugin-registered standard-library seed symbols → 3) lazy local + imported symbols from `SymbolLoaderRegistry`; entries are deduplicated and prefix-filtered before being shown in the popup.
+
+### 13.2 New PluginAPI extension points
+
+The following four APIs are permissive — they **extend** IDE capabilities rather than mutate host state, so no extra permission declaration is required beyond basic load rights:
+
+| Method | Purpose |
+| --- | --- |
+| `register_symbol_extractor(lang_or_ext, fn)` | Register a custom extractor `(path, src, lang) -> ([Symbol], [ImportEntry])` |
+| `register_import_resolver(lang_or_ext, fn)` | Register a custom `import -> abs_path` resolver for a language |
+| `register_builtin_symbols([lang_ids...], [(name, sig)])` | Seed standard-library symbols for the popup (for cases with no source to index) |
+| `find_symbol_definition(name, ...)` | Reuse the IDE's lazy index inside plugin code to query definition sites |
+
+---
+
+## 14. Example: Java Complex Multi-File Plugin Package
+
+`plugins/java_support/` ships as a reference multi-file plugin:
+
+```
+plugins/java_support/
+  __init__.py              # Entry: PluginBase subclass mounts subsystems in on_load
+  highlight_groups.py      # Keyword highlight groups
+  completion_symbols.py    # 200+ java.lang / java.util seed symbols
+  import_parser.py         # Custom extractor (sealed/record support) + import resolver
+```
+
+Permissions needed: only `PERMISSION_HIGHLIGHT_EXTEND` (for `add_syntax_groups`). Symbol/completion APIs are permissive, no extra permission required.
+
+Snippet:
+
+```python
+# plugins/java_support/__init__.py (excerpt)
+class JavaSupportPlugin(PluginBase):
+    permissions = [PERM.PERMISSION_HIGHLIGHT_EXTEND]
+
+    def on_load(self):
+        # 1) Syntax highlighting groups
+        from . import highlight_groups as hg
+        for lang, groups in hg.HIGHLIGHT_BINDINGS:
+            self.api.add_syntax_groups(lang, groups)
+
+        # 2) Builtin completion seeds
+        from . import completion_symbols as cs
+        self.api.register_builtin_symbols(cs.LANG_PATTERNS, cs.BUILTIN_SYMBOLS)
+
+        # 3) Custom extractor + resolver for sealed classes / records (JDK 17+)
+        from . import import_parser as ip
+        self.api.register_symbol_extractor('java', ip.extract_java_symbols)
+        self.api.register_import_resolver('java', ip.resolve_java_import)
+```
+
+### 14.1 Capabilities delivered by the plugin
+
+- **Highlight**: 5 tag groups cover keywords, primitive types, literal values, common JDK classes, and modifiers;
+- **Completion**: 230+ commonly-used `java.lang` / `java.util` / `java.util.concurrent` symbols, merged with local methods/fields extracted live from open files by `SymbolLoader`;
+- **Go-to-definition**: Ctrl+right-click on an imported class like `Baz` resolves via `resolve_java_import` to `com/foo/Baz.java` and opens it in a new editor tab, scrolled to the definition line.
+
+---
+
+## 15. Example: Rust Simple Single-File Plugin
+
+`plugins/rust_support.py` is the canonical minimal single-file plugin: one `PluginBase` subclass + a keyword group constant is all it takes to get Rust syntax colouring up and running.
+
+Snippet:
+
+```python
+class RustSupportPlugin(PluginBase):
+    name = 'rust_support'
+    permissions = [PERM.PERMISSION_HIGHLIGHT_EXTEND]
+    def on_load(self):
+        for lang_or_ext, groups in _HIGHLIGHT_BINDINGS:
+            self.api.add_syntax_groups(lang_or_ext, groups)
+```
+
+Syntax navigation and completion use the built-in Rust extractor inside `SymbolLoaderRegistry` — the plugin complements that with highlighting instead of duplicating the parsing work.
+
+---
+
+**Further reading**: User Manual chapters 5–7 (tab management, completion usage, go-to-def keybind).
+

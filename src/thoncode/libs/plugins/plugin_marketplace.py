@@ -24,7 +24,11 @@ Remote schema (GET {market_url}/index.json):
           "description": "...",
           "package_url": "https://.../my-plugin-1.2.0.zip",
           "package_sha256": "(optional) hex digest",
-          "requires": [{"name": "...", "version": ">=1.0"}]
+          "requires": [{"name": "...", "version": ">=1.0"}],
+          "changelog": "(optional) release notes text",
+          "tags": ["(optional)", "tags"],
+          "category": "(optional) category name",
+          "size_bytes": 12345
         },
         ...
       ]
@@ -125,7 +129,8 @@ class PluginMarketplace:
 
     def install_plugin(self, plugin_entry: Dict[str, Any],
                        install_dir: str,
-                       expected_sha256: str = "") -> Dict[str, Any]:
+                       expected_sha256: str = "",
+                       category: str = "") -> Dict[str, Any]:
         """Download and extract a plugin package into install_dir.
 
         Args:
@@ -133,6 +138,9 @@ class PluginMarketplace:
             install_dir: Directory to place the plugin into.
             expected_sha256: Optional SHA256 hex digest override (takes
                 precedence over the value in plugin_entry).
+            category: Optional subdirectory under ``install_dir``; the
+                subdirectory is created if missing and the plugin is
+                extracted there instead of flat into ``install_dir``.
 
         Returns:
             {"status": "ok"|"error", "data": str, "installed_paths": [str]}
@@ -157,15 +165,36 @@ class PluginMarketplace:
                         "data": f"Checksum mismatch: expected {sha}, got {actual}",
                         "installed_paths": []}
 
+        target_dir = install_dir
+        if category:
+            target_dir = os.path.join(install_dir, category)
+            os.makedirs(target_dir, exist_ok=True)
         try:
-            installed = self._extract_plugin_zip(blob, install_dir)
+            installed = self._extract_plugin_zip(blob, target_dir)
             return {"status": "ok",
-                    "data": f"Installed {len(installed)} file(s) to {install_dir}",
+                    "data": f"Installed {len(installed)} file(s) to {target_dir}",
                     "installed_paths": installed}
         except Exception as e:
             return {"status": "error",
                     "data": f"Extract failed: {e}",
                     "installed_paths": []}
+
+    @staticmethod
+    def categorize_entry(entry: Dict[str, Any]) -> str:
+        """Return a category string for the given marketplace entry.
+
+        Tries ``entry["category"]`` first, then the first tag in
+        ``entry["tags"]``, and finally falls back to ``"misc"``.
+        """
+        cat = entry.get("category")
+        if cat:
+            return str(cat)
+        tags = entry.get("tags") or []
+        if isinstance(tags, list) and tags:
+            return str(tags[0])
+        if isinstance(tags, str) and tags:
+            return tags
+        return "misc"
 
     @staticmethod
     def _extract_plugin_zip(blob: bytes, install_dir: str) -> List[str]:

@@ -59,7 +59,7 @@ HOST_APP_VERSION = "1.0.0"
 # Semantic version helpers
 # ---------------------------------------------------------------------------
 _SEMVER_RE = re.compile(
-    r"^(\d+)\.(\d+)\.(\d+)"
+    r"^(\d+)(?:\.(\d+))?(?:\.(\d+))?"
     r"(?:-([0-9A-Za-z\-.]+))?"
     r"(?:\+([0-9A-Za-z\-.]+))?$"
 )
@@ -76,7 +76,7 @@ def _parse_version(version: str) -> Optional[Tuple[int, int, int, str, str]]:
     if not m:
         return None
     major, minor, patch, pre, build = m.groups()
-    return (int(major), int(minor), int(patch), pre or "", build or "")
+    return (int(major), int(minor or 0), int(patch or 0), pre or "", build or "")
 
 
 def _compare_versions(a: str, b: str) -> int:

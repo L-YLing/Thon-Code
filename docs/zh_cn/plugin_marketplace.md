@@ -2,6 +2,10 @@
 
 > 面向希望**自建插件分发服务器**的团队与个人。Thon Code 的插件市场协议是**极简 HTTP/JSON**的，可以用任意静态文件托管（Nginx、GitHub Pages、对象存储、内网 WebDAV 只读镜像…）或动态服务（FastAPI / Flask / Express / Spring）实现。
 
+> **关于版本号的说明**：
+> - `host_version` 字段针对的是**插件 API 版本**（`HOST_APP_VERSION`），而非 IDE 正式版本号。
+> - IDE 的正式版本号存放在 `.main-version` 文件中，内部预发布代号存放在 `.version` 文件中。插件市场和插件清单应使用正式版本号相关的表述。
+
 ---
 
 ## 目录
@@ -351,4 +355,66 @@ uvicorn market_server:app --host 0.0.0.0 --port 8000 --ssl-keyfile privkey.pem -
 
 ---
 
-**相关文档**：[插件开发指南](./plugin_development.md) 第 10~12 节（打包发布流程）、[用户使用手册](./user_manual.md) 第 4 章（插件管理）。
+## 12. 官方示例插件条目（index.json 范本）
+
+为方便市场运营，Thon Code 官方仓库自带了两个插件，可直接放入你自建的插件市场。推荐把它们打包进 `plugins/` 子目录压缩分发，或在服务器上直接产出以下两份 ZIP：
+
+| ZIP 名 | 对应仓库位置 | 说明 |
+| --- | --- | --- |
+| `java_support-0.1.0.zip` | `src/thoncode/plugins/java_support/` | 复杂结构包：4 模块 + Python 包 `__init__.py` 组织 |
+| `rust_support-0.1.0.zip` | `src/thoncode/plugins/rust_support.py` | 简单结构单文件插件 |
+
+### 12.1 推荐 index.json 条目
+
+```json
+{
+  "schema_version": 1,
+  "plugins": [
+    {
+      "id": "java_support",
+      "name": "Java 支持（高亮+补全+跳转）",
+      "version": "0.1.0",
+      "minimum_app_version": "0.5.0",
+      "author": "Thon Code Official",
+      "description": "提供 Java 语言的关键字高亮、java.lang/java.util 常用类补全、以及基于 SymbolLoader 懒加载的跨文件跳转定义，支持 sealed/record 等 JDK 17 新语法。",
+      "download_url": "https://your-market.example.com/pkgs/java_support-0.1.0.zip",
+      "sha256": "<填充 zip 的 SHA-256>",
+      "size_bytes": 0,
+      "dependencies": [],
+      "tags": ["language", "java", "completion", "navigation"],
+      "changelog": "首个稳定版本：高亮 + 补全 230+ 条 + 自定义 Java import 解析"
+    },
+    {
+      "id": "rust_support",
+      "name": "Rust 语法高亮",
+      "version": "0.1.0",
+      "minimum_app_version": "0.5.0",
+      "author": "Thon Code Official",
+      "description": "为 Rust (`.rs`) 提供关键字 / 类型 / 字面量 / 宏 / 属性等语法高亮；补全与跳转直接复用 SymbolLoader 内置 Rust 抽取器，无需额外开销。",
+      "download_url": "https://your-market.example.com/pkgs/rust_support-0.1.0.zip",
+      "sha256": "<填充 zip 的 SHA-256>",
+      "size_bytes": 0,
+      "dependencies": [],
+      "tags": ["language", "rust", "highlight"],
+      "changelog": "首个稳定版本"
+    }
+  ]
+}
+```
+
+> 备注：
+> - Java 插件解压后目录名与插件 `name = java_support` 保持一致，ID 与 `PluginBase.name` 匹配；
+> - Rust 插件 ZIP 根目录就是单文件 `rust_support.py`，PluginManager 会自动把它归入 `plugins/`。
+
+---
+
+## 13. 标签页 / 补全 / 跳转 与 插件市场的关系
+
+- 标签页（TabManager）、智能补全（EditorCompletion）、Ctrl+右键跳转（EditorNavigation）都是 IDE 核心层能力。它们既可以配合 `plugins/java_support` 这类复杂插件得到更好体验，也可以独立使用核心内置的 fallback 正则抽取器；
+- 插件市场是**分发渠道**：把 `java_support` / `rust_support` 打包成 zip 发布即可让所有用户在 IDE 内置的「插件市场」界面一键安装；
+- 如果你是团队管理员：可以在 index.json 里只收录 Java 或只收录 Rust 插件，以匹配团队的实际技术栈。
+
+---
+
+**相关文档**：[插件开发指南](./plugin_development.md) 第 13~15 节（新插件示例说明）、[用户使用手册](./user_manual.md) 第 5~8 章（标签页/补全/跳转操作）。
+

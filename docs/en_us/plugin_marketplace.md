@@ -2,6 +2,10 @@
 
 > For teams and individuals who want to **self-host a plugin distribution server**. Thon Code's marketplace protocol is intentionally **minimal HTTP/JSON** — you can serve it from any static host (Nginx, GitHub Pages, object storage, a read-only intranet WebDAV mirror…) or a dynamic backend (FastAPI / Flask / Express / Spring).
 
+> **About Version Numbers**:
+> - The `host_version` field targets the **Plugin API version** (`HOST_APP_VERSION`), not the IDE public version number.
+> - The IDE's public version number is stored in `.main-version`, and the internal pre-release code is stored in `.version`. Plugin marketplaces and plugin manifests should use public-version-related terminology.
+
 ---
 
 ## Table of Contents
@@ -351,4 +355,66 @@ After saving, the i18n toast `plugins.market_url_saved` appears.
 
 ---
 
-**See also**: Sections 10–12 of the [Plugin Development Guide](./plugin_development.md) (packaging & publishing workflow) and Chapter 4 of the [User Manual](./user_manual.md) (plugin-management UI walkthrough).
+## 12. Official Example Plugins (index.json template)
+
+Two first-party reference plugins ship inside the Thon Code repo. You can package them as zips and drop them straight into your self-hosted marketplace:
+
+| Zip | Source in repo | Remarks |
+| --- | --- | --- |
+| `java_support-0.1.0.zip` | `src/thoncode/plugins/java_support/` | Complex package: 4 modules + `__init__.py` entry |
+| `rust_support-0.1.0.zip` | `src/thoncode/plugins/rust_support.py` | Simple single-file plugin |
+
+### 12.1 Recommended index.json entries
+
+```json
+{
+  "schema_version": 1,
+  "plugins": [
+    {
+      "id": "java_support",
+      "name": "Java Support (highlight + completion + navigation)",
+      "version": "0.1.0",
+      "minimum_app_version": "0.5.0",
+      "author": "Thon Code Official",
+      "description": "Java keyword highlighting, 230+ java.lang / java.util completion seeds, and SymbolLoader-backed lazy go-to-definition across imports. Supports modern Java keywords (sealed classes, records, pattern matching).",
+      "download_url": "https://your-market.example.com/pkgs/java_support-0.1.0.zip",
+      "sha256": "<sha256 of the zip>",
+      "size_bytes": 0,
+      "dependencies": [],
+      "tags": ["language", "java", "completion", "navigation"],
+      "changelog": "Initial stable release: highlight + 230 builtins + custom Java import resolver"
+    },
+    {
+      "id": "rust_support",
+      "name": "Rust Syntax Highlighting",
+      "version": "0.1.0",
+      "minimum_app_version": "0.5.0",
+      "author": "Thon Code Official",
+      "description": "Keyword / type / literal / macro / attribute colouring for `.rs` files. Completion and go-to-definition are handled by the core SymbolLoader Rust extractor — the plugin stays intentionally tiny.",
+      "download_url": "https://your-market.example.com/pkgs/rust_support-0.1.0.zip",
+      "sha256": "<sha256 of the zip>",
+      "size_bytes": 0,
+      "dependencies": [],
+      "tags": ["language", "rust", "highlight"],
+      "changelog": "Initial stable release"
+    }
+  ]
+}
+```
+
+Notes:
+- The Java plugin zip is a `java_support/` directory containing `__init__.py` and three sibling modules — its folder name matches the plugin `id` / `PluginBase.name`;
+- The Rust zip has a single `rust_support.py` at the archive root. `PluginManager` auto-detects this layout.
+
+---
+
+## 13. Tabs / Completion / Go-to-Def and how they relate to the Marketplace
+
+- Multi-tab editor management (`EditorTabManager`), smart completion (`EditorCompletion`) and Ctrl+right-click go-to-definition (`EditorNavigation`) are all **core IDE capabilities** — they work out of the box with the built-in fallback regex extractors, and the Java plugin simply enriches Java semantics further;
+- The Marketplace is the **distribution channel**: bundle `java_support` / `rust_support` as zips, publish URLs in your `index.json`, and every user can install them with a single click inside the IDE;
+- Team admins may curate: publish only Java if the team writes Java, or only Rust if that is the stack.
+
+---
+
+**See also**: Sections 13–15 of the [Plugin Development Guide](./plugin_development.md) (new plugin examples) and Chapters 5–8 of the [User Manual](./user_manual.md) (tabs, completion, go-to-def walkthrough).
+

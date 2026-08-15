@@ -303,4 +303,104 @@ A: Close the IDE → delete the user-configuration directory (its path is printe
 
 ---
 
-**Further reading**: [Plugin Development Guide](./plugin_development.md), [Plugin Marketplace Setup Guide](./plugin_marketplace.md).
+## 5. Multi-Tab Editor Management
+
+As of v0.5.0, the main editor area is backed by a `ttk.Notebook` **tab container**:
+
+| Tab | Remarks |
+| --- | --- |
+| Welcome (pinned, permanent) | New file / Open file / Open project / Recent projects list; cannot be closed |
+| File tabs (0..N) | One tab per open file. Tab labels are `filename  ✕`; when dirty a leading `*` is prepended: `* filename ✕` |
+
+### 5.1 Operations
+
+- **New file**: Menu **File → New** (Ctrl+N) or Welcome **New File** button → creates a new `Untitled N` tab;
+- **Open file**: Menu **File → Open** (Ctrl+O) or double-click in the project tree → already-open files activate their existing tab instead of spawning duplicates;
+- **Switch tabs**: Click tab headers, or use Ctrl+Tab (OS/tk default);
+- **Close tab**: Click the trailing `✕`. If the buffer is dirty a confirmation dialog **Save / Don't Save / Cancel** appears;
+- **Open-at-line**: Go-to-definition opens the target file in a new tab and scrolls straight to the definition line.
+
+### 5.2 Backward-compatible references
+
+To keep older plugins (which reference `main_window.editor` / `main_window.textbox_widget`) working, `EditorTabManager` keeps these attributes on `MainWindow` in sync on every tab switch:
+
+- `current_file`
+- `is_dirty`
+- `editor` / `editor_manager` / `editor_widget` / `textbox_widget`
+
+No changes are needed on the plugin side.
+
+---
+
+## 6. Smart Auto-Completion (multi-language, lazy imports)
+
+Since v0.5.0 the completion engine is no longer Python-only and no longer limited to static keyword groups.
+
+### 6.1 Trigger
+
+In supported files (`.py / .java / .rs / .js / .ts / .c / .cpp / .h / .go …`) type at least 1 identifier character; the popup appears within 60 ms.
+
+### 6.2 What appears in the list (descending priority)
+
+1. **Highlight-group keywords**: Static words declared in the language JSON or via plugin `add_syntax_groups`;
+2. **Standard-library seed symbols**: e.g. `String` / `ArrayList` / `HashMap` injected by the Java plugin;
+3. **Local symbols** from the unsaved buffer: function signatures, class names, variable names, parsed by `SymbolLoader` on each keystroke;
+4. **Imported symbols**: `import foo` → completes under `foo.xxx`; `from foo import Bar` → completes bare `Bar`.
+   - Import resolution is **lazy** — the target file is only parsed when the user actually types a matching prefix, so opening a huge project does not immediately scan tens of MB of source.
+
+### 6.3 Shortcuts
+
+| Key | Action |
+| --- | --- |
+| ↑ / ↓ | Navigate candidates |
+| **Enter / Tab** | Apply the selected candidate |
+| Esc | Close popup |
+
+Display format in the list: `name    <signature>` — e.g. `func    def func(a, b)`. The grey signature is a hint only; only `name` is inserted into the buffer.
+
+---
+
+## 7. Ctrl + Right-Click → Go-to-Definition
+
+### 7.1 How to use
+
+Hover the mouse over any identifier (local function, imported class, method, variable), **hold Ctrl and right-click**.
+
+### 7.2 Supported scenarios
+
+| Scenario | Resolution |
+| --- | --- |
+| Function/class/variable in the current file | Live in-memory index (no disk read) |
+| Public symbol in a same-project import | Absolute path resolved via `SymbolLoaderRegistry.resolve_import` → lazy parse → jump |
+| JDK standard-library class (Java) | Since `src.zip` is typically absent, shows an informational tooltip instead — attach a plugin that registers a custom `register_import_resolver` to wire up local sources |
+
+### 7.3 Visual feedback
+
+- Cross-file: Opens a new editor tab and switches to it;
+- Same-file: Scrolls to the definition line and highlights it with a transient blue stripe that fades after ~0.8 s;
+- Not found: A small dialog pops up with `Definition of "xxx" not found`.
+
+---
+
+## 8. FAQ (continued)
+
+### Q9: Why does the completion popup sometimes not appear?
+
+A: It is intentionally suppressed in the following cases:
+
+- The cursor is inside a string / comment / empty file;
+- The file extension is not in the supported list (extend `CodeEditor._should_enable_completion` if needed);
+- The token under cursor is a lone `.` without a left-hand-side class/module qualifier.
+
+### Q10: Go-to-definition doesn't work for languages other than Python/Java/Rust?
+
+A: First confirm that a plugin has registered `register_symbol_extractor` and `register_import_resolver` for that language. C/C++, Kotlin, Go, etc. currently use only a rough C-like fallback. For richer navigation / completion, write a custom extractor modelled after `plugins/java_support/import_parser.py` and mount it via `PluginAPI`.
+
+### Q11: Will 50+ open tabs slow things down?
+
+A: Each tab keeps a `CodeEditor` instance (Text widget + syntax tags) in memory; cost scales linearly with file size. Import resolution is on-demand, so having 50 tabs open but editing only 2 of them does **not** cause any background crawling of transitive imports. Extremely large files (>100 kLOC) are still best handled in smaller batches.
+
+---
+
+**Further reading**: Sections 13–15 of the [Plugin Development Guide](./plugin_development.md) (completion pipeline, navigation, new Java/Rust examples).
+

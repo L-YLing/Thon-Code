@@ -1,0 +1,37 @@
+# ==============================================
+# ThonCode Conventional Commits Message Template
+# Format: <type>(<scope>): <short summary>
+# Summary: Use present tense, NO trailing period
+# Example: feat(plugin): add plugin hot reload support
+# ==============================================
+
+# Type List:
+# feat     - New feature
+# fix      - Bug fix
+# docs     - Documentation changes
+# style    - Code formatting, no logic change
+# refactor - Refactor code (no feat / fix)
+# perf     - Performance optimization
+# test     - Add / modify tests
+# chores   - Build, CI, dependencies, project config
+# merge    - Only for auto branch merge commit
+
+# Available Scope:
+# core, editor, ui, plugin, docs, i18n, build, terminal
+# file, debug, language, git, config
+
+# ---------------- Body (Optional) ----------------
+# Write detailed change information here
+# Use bullet points:
+# - What changed
+# - Reason for change
+# ---------------- Footer (Optional) ---------------
+# Closes #123
+# BREAKING CHANGE: xxx
+
+#
+# REMINDER:
+# 1. First line is the subject line (mandatory)
+# 2. Leave one blank line between subject and body
+# 3. Lines starting with # will be ignored by Git
+#
