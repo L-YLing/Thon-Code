@@ -390,7 +390,9 @@ class PluginManagerWindow:
         install_dir = PluginMarketplace.user_writable_plugin_dir(self._base_path)
         self._market_status.configure(
             text=(self._get_text("plugins.market_installing") or
-                  "Installing {name}...").format(name=entry.get("name")))
+                  "Installing {name}...").format(
+                      name=entry.get("name", ""),
+                      version=entry.get("version", "")))
         self.window.update_idletasks()
 
         res = self._market().install_plugin(entry, install_dir)
@@ -403,11 +405,15 @@ class PluginManagerWindow:
             self._refresh_list()
             self._market_status.configure(
                 text=(self._get_text("plugins.market_installed") or
-                      "Installed OK — {msg}").format(msg=res["data"]))
+                      "Installed OK — {msg}").format(
+                          name=entry.get("name", ""),
+                          msg=res["data"]))
         else:
             self._market_status.configure(
                 text=(self._get_text("plugins.market_error") or
-                      "Install failed — {msg}").format(msg=res["data"]))
+                      "Install failed — {msg}").format(
+                          name=entry.get("name", ""),
+                          msg=res["data"]))
 
     # ------------------------------------------------------------------
     # Small helpers

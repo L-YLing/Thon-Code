@@ -15,7 +15,11 @@ class EditorFolding:
 
     Uses tk.Text's elide tag to implement real text hiding,
     fold state is stored uniformly in parent._folded_lines to avoid dual dictionary desync.
-    Fold indicators are sourced from StyleSystem for consistent configurable display.
+    Fold indicators are drawn by the Canvas gutter (EditorGutter).
+
+    Supports two folding strategies:
+    - Indentation-based (Python): blocks defined by increased indent after def/class
+    - Brace-based (Java, Rust, C/C++, JS/TS, Go, etc.): blocks defined by { } pairs
 
     Performance: foldable regions are cached and invalidated by a content
     version marker, so get_fold_marker / _get_foldable_regions no longer
@@ -24,6 +28,12 @@ class EditorFolding:
 
     # Elide tag name used for fold regions
     FOLD_TAG = "fold_elided"
+
+    # Languages that use brace-based folding
+    BRACE_LANGUAGES = frozenset({
+        "java", "rust", "c", "cpp", "javascript", "typescript",
+        "go", "php", "ruby", "csharp", "kotlin", "swift", "scala",
+    })
 
     def __init__(self, parent):
         """Initialize folding handler.
@@ -34,40 +44,27 @@ class EditorFolding:
         self.parent = parent
         self._style_system = StyleSystem()
         self._style_system.sync_from_theme()
-        # Fold state uses parent._folded_lines uniformly, no longer maintains independent dictionary.
+        # Fold state uses parent._folded_lines uniformly.
         # Cached foldable regions: (version, regions, foldable_starts_set).
         self._regions_cache = (None, [], set())
 
     @property
     def _collapse_indicator(self) -> str:
-        """Get the collapse indicator character from style system.
-
-        Returns:
-            str: Character used to indicate collapsible (expanded) state
-        """
-        return self._style_system.get_value("tree", "expand_indicator", "▾")
+        """Get the collapse indicator character from style system."""
+        return self._style_system.get_value("tree", "expand_indicator", "\u25BE")
 
     @property
     def _expand_indicator(self) -> str:
-        """Get the expand indicator character from style system.
-
-        Returns:
-            str: Character used to indicate folded (collapsed) state
-        """
-        return self._style_system.get_value("tree", "collapse_indicator", "▸")
+        """Get the expand indicator character from style system."""
+        return self._style_system.get_value("tree", "collapse_indicator", "\u25B8")
 
     def _ensure_fold_tag(self):
         """Ensure elide tag is configured, needs to be recreated after highlight_all clears tags"""
         tb = self.parent._textbox
-        # elide=True makes tagged text hidden and non-editable
         tb.tag_config(self.FOLD_TAG, elide=True)
 
     def _content_version(self):
-        """Get a cheap content version marker for cache invalidation.
-
-        Returns:
-            A hashable marker representing the current text content state.
-        """
+        """Get a cheap content version marker for cache invalidation."""
         try:
             return self.parent._textbox.index('end-1c')
         except Exception:
@@ -80,17 +77,31 @@ class EditorFolding:
     def _get_foldable_regions(self):
         """Scan full text, return list of foldable regions.
 
-        Results are cached per content version so repeated calls during
-        line-number refreshes do not re-scan the whole document.
+        Dispatches to language-specific strategies. Results are cached per
+        content version so repeated calls during gutter refreshes do not
+        re-scan the whole document.
 
         Returns:
-            list[tuple[int, int]]: Each element is (start line number, end line number), line numbers start from 1;
-            start line is the def/class definition line, end line is the line number of the last line of the block
+            list[tuple[int, int]]: Each element is (start_line, end_line),
+            1-indexed; start line is the definition/opening-brace line,
+            end line is the last line of the block.
         """
-        if self.parent.language != "python":
+        language = self.parent.language
+
+        if language == "python":
+            return self._get_python_foldable_regions()
+        elif language in self.BRACE_LANGUAGES:
+            return self._get_brace_foldable_regions()
+        else:
             self._regions_cache = (None, [], set())
             return []
 
+    def _get_python_foldable_regions(self):
+        """Find foldable regions in Python using indentation rules.
+
+        Returns:
+            list[tuple[int, int]]: (start_line, end_line) pairs
+        """
         version = self._content_version()
         cached_version, cached_regions, cached_starts = self._regions_cache
         if version == cached_version:
@@ -108,19 +119,68 @@ class EditorFolding:
                     stripped.startswith('class ')):
                 continue
 
-            # Current line indentation
             base_indent = len(line) - len(line.lstrip(' '))
-            # Child block indent threshold: at least one tab_size more than the definition line
             min_child_indent = base_indent + tab_size
-            # _find_block_end uses 0-indexed line numbers
             end_line_idx = self._find_block_end(lines, i, min_child_indent)
-            # Convert to 1-indexed line numbers: end_line_idx is 0-indexed "first line after block" or end of file
-            # Last line of block is end_line_idx - 1 (0-indexed) = end_line_idx (1-indexed)
-            end_line_1based = end_line_idx  # 0-index+1-1 = 0-index, but we want the last line in 1-index
-            # _find_block_end returns the first line not belonging to the child block (0-indexed), last line of block is that value - 1 (0-indexed) = that value (1-indexed)
-            # If it returns len(lines), the last line of the block is len(lines) (1-indexed)
             if end_line_idx > i + 1:
                 fold_regions.append((i + 1, end_line_idx))
+
+        foldable_starts = {start for start, _ in fold_regions}
+        self._regions_cache = (version, fold_regions, foldable_starts)
+        return fold_regions
+
+    def _get_brace_foldable_regions(self):
+        """Find foldable regions in brace-based languages.
+
+        Tracks { } pairs while skipping string literals and comments to
+        identify multi-line blocks that can be folded.
+
+        Returns:
+            list[tuple[int, int]]: (start_line, end_line) pairs
+        """
+        version = self._content_version()
+        cached_version, cached_regions, cached_starts = self._regions_cache
+        if version == cached_version:
+            return cached_regions
+
+        content = self.parent._textbox.get("1.0", "end-1c")
+        lines = content.splitlines()
+        fold_regions = []
+
+        stack = []  # Stack of line_num (1-indexed) for open braces
+        in_block_comment = False
+
+        for line_idx, line in enumerate(lines):
+            line_num = line_idx + 1
+            in_string = None
+            i = 0
+            while i < len(line):
+                ch = line[i]
+                # Handle string literals
+                if in_string:
+                    if ch == '\\' and i + 1 < len(line):
+                        i += 1  # Skip escaped char
+                    elif ch == in_string:
+                        in_string = None
+                elif in_block_comment:
+                    if i < len(line) - 1 and ch == '*' and line[i + 1] == '/':
+                        in_block_comment = False
+                        i += 1
+                elif i < len(line) - 1 and ch == '/' and line[i + 1] == '/':
+                    break  # Line comment — rest of line ignored
+                elif i < len(line) - 1 and ch == '/' and line[i + 1] == '*':
+                    in_block_comment = True
+                    i += 1
+                elif ch in ('"', "'", '`'):
+                    in_string = ch
+                elif ch == '{':
+                    stack.append(line_num)
+                elif ch == '}':
+                    if stack:
+                        start = stack.pop()
+                        if start != line_num:
+                            fold_regions.append((start, line_num))
+                i += 1
 
         foldable_starts = {start for start, _ in fold_regions}
         self._regions_cache = (version, fold_regions, foldable_starts)
@@ -136,25 +196,21 @@ class EditorFolding:
         return self._regions_cache[2]
 
     def _find_block_end(self, lines, start_idx, min_indent):
-        """Find the end position of a code block
+        """Find the end position of a code block (Python indentation-based).
 
         Args:
             lines: Full text line list (0-indexed)
             start_idx: 0-indexed position of definition line in lines
             min_indent: Minimum indentation columns required for child block
         Returns:
-            int: 0-index of the first line not belonging to the child block (i.e., the line after the last line of the block);
-            returns len(lines) if end of file is reached
+            int: 0-index of the first line not belonging to the child block
         """
-        # Start scanning from the line after the definition line
         for i in range(start_idx + 1, len(lines)):
             line = lines[i]
             if not line.strip():
-                # Skip empty lines, do not interrupt the block
                 continue
             indent = len(line) - len(line.lstrip(' '))
             if indent < min_indent:
-                # Encounter a line with smaller indentation, block ends before this line
                 return i
         return len(lines)
 
@@ -162,15 +218,13 @@ class EditorFolding:
         """Toggle fold/unfold state of the specified line
 
         Args:
-            line_num: 1-indexed line number, should be a def/class definition line
+            line_num: 1-indexed line number, should be a foldable start line
         """
         folded = self.parent._folded_lines
 
         if line_num in folded:
-            # Folded → unfold
             self._unfold(line_num)
         else:
-            # Not folded → attempt fold
             fold_regions = self._get_foldable_regions()
             for start, end in fold_regions:
                 if start == line_num and end > start:
@@ -211,11 +265,9 @@ class EditorFolding:
         """
         tb = self.parent._textbox
         self._ensure_fold_tag()
-        # First clear existing fold tags in this region (avoid duplicates)
         tb.tag_remove(self.FOLD_TAG, f"{start_line + 1}.0", f"{end_line}.end")
 
         if start_line in self.parent._folded_lines:
-            # Fold: hide content after the definition line to the end of the block
             tb.tag_add(self.FOLD_TAG, f"{start_line + 1}.0", f"{end_line}.end")
 
     def apply_all_folds(self):
@@ -250,8 +302,7 @@ class EditorFolding:
                  Expand indicator means folded, '' means not foldable
         """
         if line_num in self.parent._folded_lines:
-            return self._expand_indicator  # Folded, click to unfold
-        # O(1) set lookup against cached foldable starts.
+            return self._expand_indicator
         if line_num in self._get_foldable_starts():
-            return self._collapse_indicator  # Foldable, click to fold
+            return self._collapse_indicator
         return ''

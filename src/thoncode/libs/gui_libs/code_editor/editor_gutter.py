@@ -92,6 +92,38 @@ class EditorGutter(tk.Canvas):
         self._setup_bindings()
         self._refresh()
 
+    def set_font(self, font: tkfont.Font) -> None:
+        """Set the gutter font to match the text widget.
+
+        Ensures pixel-perfect line-height alignment between the gutter
+        Canvas and the text widget by sharing the same Font object.
+
+        Args:
+            font: tkfont.Font instance to use for line numbers
+        """
+        self._font = font
+        try:
+            self._font_family = font.actual('family')
+            self._font_size = font.actual('size')
+            linespace = font.metrics("linespace")
+            if linespace > 0:
+                self._line_height = linespace
+        except Exception:
+            pass
+        self._refresh()
+
+    def update_fold_state(self, foldable_starts: Set[int],
+                          folded_lines: Dict[int, int]) -> None:
+        """Update foldable regions and folded lines in a single pass.
+
+        Args:
+            foldable_starts: Set of foldable start line numbers
+            folded_lines: Dict mapping start_line to end_line for folded regions
+        """
+        self._foldable_starts = set(foldable_starts)
+        self._folded_lines = dict(folded_lines)
+        self._refresh()
+
     def _load_style(self) -> None:
         """Load gutter style configuration from StyleSystem."""
         self._font_family = self.style_system.get_value("editor", "font_family", "Consolas")
@@ -189,6 +221,26 @@ class EditorGutter(tk.Canvas):
         except Exception:
             return 1
 
+    def _update_width(self) -> None:
+        """Adjust gutter width to fit the current line count.
+
+        Ensures the number column is wide enough for the largest line number
+        plus a small right padding, so 5-digit line numbers don't get clipped.
+        """
+        if self._font is None:
+            return
+        digits = len(str(max(self._line_count, 1)))
+        try:
+            char_w = self._font.measure("0")
+        except Exception:
+            char_w = 8
+        min_width = 30
+        self._line_number_width = max(min_width, (digits + 2) * char_w)
+        new_total = self._line_number_width + self._fold_gutter_width
+        if new_total != self._total_width:
+            self._total_width = new_total
+            self.config(width=self._total_width)
+
     def _compute_viewport(self) -> Tuple[int, int, float]:
         """Compute the visible line range and pixel y-offset.
 
@@ -227,6 +279,10 @@ class EditorGutter(tk.Canvas):
             return
 
         self._line_count = self._count_lines()
+
+        # Dynamically adjust gutter width to fit the current line count.
+        self._update_width()
+
         first_line, last_line, y_offset = self._compute_viewport()
 
         # Drop line-number items that scrolled out of the visible window.

@@ -17,15 +17,16 @@ from libs.gui_libs.style_system import StyleSystem
 
 
 class EditorUI:
-    """Editor UI component: line number bar + text box + scroll synchronization
+    """Editor UI component: Canvas gutter + text box + scroll synchronization.
 
-    Migrated to ttk + tk.Text: no longer uses CTkTextbox wrapper layer,
-    both line number bar and main text box are tk.Text, unified appearance via theme colors.
-    Style configuration is sourced from StyleSystem singleton for cross-component consistency.
+    Uses a single tk.Text widget for editing and an EditorGutter (tk.Canvas)
+    for line numbers and fold indicators. This eliminates the dual-Text
+    misalignment issues that arose from synchronizing two independent
+    yview states.
+
+    Style configuration is sourced from StyleSystem singleton for
+    cross-component consistency.
     """
-
-    # Line number bar elide tag (independent from main text box but synchronized folding)
-    LINE_FOLD_TAG = "line_fold_elided"
 
     def __init__(self, parent):
         """Initialize editor UI
@@ -46,8 +47,6 @@ class EditorUI:
         style_font_size = self._style_system.get_value("editor", "font_size", 12)
         if parent.font_ligatures:
             try:
-                # Import the lightweight font loader directly (no heavy deps)
-                # to resolve the bundled Fira Code font with a safe fallback.
                 from libs import font_loader
                 loaded_font = font_loader.load_fira_code_font(parent.master, style_font_size, parent.font_ligatures)
                 font_name = loaded_font.actual('family')
@@ -66,34 +65,8 @@ class EditorUI:
         editor_cursor = self._style_system.get_value("editor", "cursor", editor_fg)
         editor_sel_bg = self._style_system.get_value("editor", "selection_bg", colors["sel_bg"])
         editor_sel_fg = self._style_system.get_value("editor", "selection_fg", colors["sel_fg"])
-        line_num_width = max(6, self._style_system.get_value("editor", "line_number_width", 50) // 8)
 
-        # Line number bar — tk.Text with style system colors.
-        # spacing1/2/3 must match the main text box exactly so every line in
-        # the gutter aligns pixel-for-pixel with its corresponding code line.
-        self.line_numbers = tk.Text(
-            self.main_frame,
-            width=line_num_width,
-            bg=editor_bg,
-            fg=editor_fg_dim,
-            insertbackground=editor_fg_dim,
-            selectbackground=editor_sel_bg,
-            selectforeground=editor_sel_fg,
-            font=self.font,
-            wrap="none",
-            relief="flat",
-            borderwidth=0,
-            highlightthickness=0,
-            spacing1=0,
-            spacing2=0,
-            spacing3=0,
-            state="disabled",
-            cursor="arrow",
-        )
-        self.line_numbers.pack(side="left", fill="y", padx=(0, 0))
-
-        # Main text box — tk.Text with style system colors.
-        # spacing1/2/3 match the line-number bar so the two stay aligned.
+        # Main text box — single tk.Text (no second Text for line numbers).
         self.textbox = tk.Text(
             self.main_frame,
             bg=editor_bg,
@@ -112,67 +85,72 @@ class EditorUI:
             undo=True,
             maxundo=100,
         )
-        # Directly set parent reference (no longer has CTkTextbox._textbox middle layer)
         parent._textbox = self.textbox
         parent._textbox_widget = self.textbox
 
         self._tk_font = tkfont.Font(family=self.font[0], size=self.font[1])
         self.textbox.config(font=self._tk_font)
-        # Share the same Font object with the line-number bar so both widgets
-        # have identical font metrics and line heights (prevents misalignment).
-        self.line_numbers.config(font=self._tk_font)
         self.textbox.tag_config("sel", background=editor_sel_bg, foreground=editor_sel_fg)
         self.textbox.edit_modified(False)
+
+        # Canvas-based gutter (replaces the old tk.Text line-number bar).
+        # Shares the same Font object as the textbox so line heights match
+        # pixel-for-pixel — no yview synchronization needed.
+        self.gutter = None
+        try:
+            from libs.gui_libs.code_editor.editor_gutter import EditorGutter
+            self.gutter = EditorGutter(self.main_frame, self.textbox)
+            self.gutter.set_font(self._tk_font)
+            self.gutter.set_on_fold_click(self._on_gutter_fold_click)
+            self.gutter.set_on_line_click(self._on_gutter_line_click)
+            self.gutter.pack(side="left", fill="y", padx=(0, 0))
+        except Exception:
+            # Gutter is a visual aid; if it fails to load the editor still
+            # functions normally with just the text widget.
+            pass
+
         self.textbox.pack(side="left", fill="both", expand=True)
 
-        # Line number bar elide tag configuration
-        self.line_numbers.tag_config(self.LINE_FOLD_TAG, elide=True)
-
-        # Signature of the last rendered line-number content; when unchanged
-        # only scroll sync is needed, skipping the costly delete+insert rebuild.
-        self._ln_signature = None
         # Debounce handle for viewport highlight triggered by scrolling.
         self._viewport_highlight_after_id = None
 
         self._setup_bindings()
 
     def _setup_bindings(self):
-        """Bind keyboard, mouse, scroll events.
+        """Bind keyboard, mouse, scroll events on the main text box.
 
         Scroll sync strategy: every path that can move the text-box viewport
         (mouse wheel, button-4/5, <Configure> resize, arrow up/down and mouse
         selection) is routed through the unified _on_scroll handler so the
-        line-number gutter yview stays locked to the text-box yview. Content
+        Canvas gutter is refreshed to match the visible lines. Content
         mutations are observed via the <<Modified>> flag and the debounced
-        _on_text_change path so the line count is rebuilt on edits, deletions,
-        pastes and undo/redo.
+        _on_text_change path.
         """
         parent = self.parent
         tb = parent._textbox
 
-        # Unified scroll/viewport handler. Wheel and button-4/5 also drive
-        # text-box line scrolling; <Configure> only resyncs the gutter.
+        # Unified scroll/viewport handler.
         tb.bind("<MouseWheel>", parent._on_scroll)
         tb.bind("<Button-4>", parent._on_scroll)
         tb.bind("<Button-5>", parent._on_scroll)
         tb.bind("<Configure>", parent._on_scroll)
 
-        # Arrow up/down and mouse selection can shift the visible viewport;
-        # resync the gutter so line numbers track the exposed lines.
+        # Arrow up/down and mouse selection can shift the visible viewport.
         tb.bind("<KeyRelease-Up>", parent._on_scroll)
         tb.bind("<KeyRelease-Down>", parent._on_scroll)
         tb.bind("<ButtonRelease-1>", parent.on_cursor_move)
         tb.bind("<ButtonRelease-1>", parent._on_scroll, add="+")
 
         # Content changes (typing, delete, paste, undo/redo) flow through the
-        # modified flag; _on_text_change debounces a rebuild.
+        # modified flag; _on_text_change debounces a gutter refresh.
         tb.bind("<<Modified>>", parent._on_modified)
         tb.bind("<KeyRelease>", parent._on_text_change)
 
-        self.line_numbers.bind("<Button-1>", parent._on_line_number_click)
-        self.line_numbers.bind("<MouseWheel>", parent._on_line_scroll)
-        self.line_numbers.bind("<Button-4>", parent._on_line_scroll)
-        self.line_numbers.bind("<Button-5>", parent._on_line_scroll)
+        # Also refresh viewport highlight when scrolling over the gutter.
+        if self.gutter:
+            self.gutter.bind("<MouseWheel>",
+                             lambda e: self._schedule_viewport_highlight(),
+                             add="+")
 
         tb.bind("<Control-s>", parent._on_ctrl_s)
         tb.bind("<Control-S>", parent._on_ctrl_s)
@@ -185,8 +163,6 @@ class EditorUI:
 
         tb.bind("<Control-a>", parent.select_all)
         tb.bind("<Control-A>", parent.select_all)
-        # on_key_release also refreshes line numbers, so chain it after the
-        # debounced _on_text_change instead of overwriting it.
         tb.bind("<KeyRelease>", parent.on_key_release, add="+")
         tb.bind("<FocusIn>", parent.highlight_all)
         tb.bind("<KeyRelease-Left>", parent.on_cursor_move)
@@ -202,76 +178,23 @@ class EditorUI:
         return self.textbox
 
     def _update_line_numbers(self, event=None):
-        """Update line number bar content, synchronize fold elide state and fold markers
+        """Update the Canvas gutter: sync fold state and scroll position.
 
-        Line number bar and main text box use the same elide logic:
-        - Line numbers corresponding to folded regions are also elided in the line number bar, ensuring visual alignment
-        - Foldable lines show collapse marker, folded lines show expand marker
-
-        Performance: a signature of (line_count, folded state, foldable starts,
-        content version) is cached; when unchanged the costly delete+insert
-        rebuild is skipped and only scroll sync runs.
+        Replaces the old dual-Text rebuild (delete+insert+yview_moveto) with
+        a single Canvas refresh. The gutter's virtualized renderer only
+        touches visible lines, so this is O(visible) not O(total).
         """
-        if not self.parent._textbox:
+        if not self.gutter:
             return
-
-        # Get total line count
-        try:
-            line_count = int(self.parent._textbox.index('end-1c').split('.')[0])
-        except Exception:
-            line_count = 1
-
-        # Get foldable starts and folded state via cached folding helpers.
-        folded = self.parent._folded_lines
-        foldable_starts = set()
-        if self.parent.folding and self.parent.language == "python":
+        if self.parent.folding:
             foldable_starts = self.parent.folding._get_foldable_starts()
-
-        # Build a cheap signature; skip rebuild when nothing changed.
-        content_version = self.parent._textbox.index('end-1c')
-        signature = (line_count, frozenset(folded.items()), frozenset(foldable_starts), content_version)
-        if signature == self._ln_signature:
-            # Content unchanged: only resync scroll position.
-            try:
-                self.line_numbers.yview_moveto(self.parent._textbox.yview()[0])
-            except Exception:
-                pass
-            return
-        self._ln_signature = signature
-
-        # Generate line number text (with fold markers)
-        line_texts = []
-        for i in range(1, line_count + 1):
-            marker = ''
-            if i in foldable_starts:
-                marker = '▾ ' if i not in folded else '▸ '
-            line_texts.append(f"{marker}{i}")
-
-        # Write to line number bar (tk.Text direct operation, no ._textbox middle layer)
-        # A trailing newline is appended so the gutter has the same line count
-        # as the textbox (tk.Text always stores a trailing newline), keeping
-        # the two perfectly aligned at every scroll position.
-        ln = self.line_numbers
-        ln.config(state="normal")
-        ln.delete("1.0", "end")
-        ln.insert("1.0", "\n".join(line_texts) + "\n")
-
-        # Elide line numbers corresponding to folded regions in the line number bar
-        ln.tag_remove(self.LINE_FOLD_TAG, "1.0", "end")
-        for start_line, end_line in folded.items():
-            if end_line <= line_count:
-                ln.tag_add(self.LINE_FOLD_TAG, f"{start_line + 1}.0", f"{end_line + 1}.0")
-
-        ln.config(state="disabled")
-
-        # Synchronize scroll position
-        try:
-            ln.yview_moveto(self.parent._textbox.yview()[0])
-        except Exception:
-            pass
+            self.gutter.update_fold_state(foldable_starts,
+                                          self.parent._folded_lines)
+        else:
+            self.gutter.sync_scroll()
 
     def _on_text_change(self, event=None):
-        """Delay line number updates on text change to avoid frequent refreshes"""
+        """Delay gutter updates on text change to avoid frequent refreshes"""
         if hasattr(self.parent, '_after_line_id'):
             try:
                 self.parent.master.after_cancel(self.parent._after_line_id)
@@ -280,7 +203,7 @@ class EditorUI:
         self.parent._after_line_id = self.parent.master.after(50, self.parent._update_line_numbers)
 
     def _on_modified(self, event=None):
-        """Update line numbers when text modification flag changes"""
+        """Update gutter when text modification flag changes"""
         self.parent._update_line_numbers()
         self.parent._textbox.edit_modified(False)
 
@@ -289,11 +212,11 @@ class EditorUI:
 
         Bound to <MouseWheel>/<Button-4>/<Button-5> (which also drive text-box
         line scrolling), to <Configure> (resize, resync only) and to
-        <KeyRelease-Up/Down>/<ButtonRelease-1> (viewport shifts). The line
-        number bar is always resynced to the text-box yview so the two stay
-        aligned regardless of which path triggered the scroll. Events without
-        a usable delta (configure, key release, button release) skip the
-        text-box scroll step and only refresh the gutter.
+        <KeyRelease-Up/Down>/<ButtonRelease-1> (viewport shifts). The Canvas
+        gutter is refreshed via sync_scroll() so line numbers track the
+        visible lines. Events without a usable delta (configure, key release,
+        button release) skip the text-box scroll step and only refresh the
+        gutter.
         """
         if event is not None:
             try:
@@ -308,30 +231,15 @@ class EditorUI:
         self._sync_line_scroll()
         return None
 
-    def _on_line_scroll(self, event):
-        """Synchronize main text box when line number bar scrolls"""
-        try:
-            if hasattr(event, 'num'):
-                if event.num == 4:
-                    self.parent._textbox.yview_scroll(-1, "units")
-                elif event.num == 5:
-                    self.parent._textbox.yview_scroll(1, "units")
-            else:
-                delta = -1 * (event.delta / 120)
-                self.parent._textbox.yview_scroll(int(delta), "units")
-        except Exception:
-            pass
-        self._sync_line_scroll()
-        return "break"
-
     def _sync_line_scroll(self):
-        """Synchronize scroll positions between line number bar and main text box"""
-        try:
-            self.line_numbers.yview_moveto(self.parent._textbox.yview()[0])
-        except Exception:
-            pass
-        # For large files, refresh viewport highlighting on scroll so newly
-        # exposed lines are tagged without re-highlighting the whole document.
+        """Refresh the Canvas gutter to match the text-box scroll position.
+
+        Replaces the old yview_moveto synchronization between two Text
+        widgets. The Canvas reads the text-box yview directly and redraws
+        only the visible line numbers.
+        """
+        if self.gutter:
+            self.gutter.sync_scroll()
         self._schedule_viewport_highlight()
 
     def _schedule_viewport_highlight(self):
@@ -359,17 +267,29 @@ class EditorUI:
         except Exception:
             pass
 
-    def _on_line_number_click(self, event):
-        """Click line number bar: fold/unfold corresponding line"""
-        if self.parent.language != "python":
-            return
+    # ------------------------------------------------------------------
+    # Gutter click callbacks (replaces old _on_line_number_click / _on_line_scroll)
+    # ------------------------------------------------------------------
 
-        index = self.line_numbers.index(f"@{event.x},{event.y}")
-        line_num = int(index.split('.')[0])
+    def _on_gutter_fold_click(self, line_num):
+        """Handle fold indicator click in the Canvas gutter.
 
-        # Use cached foldable starts set for O(1) membership test.
-        foldable_starts = self.parent.folding._get_foldable_starts() if self.parent.folding else set()
+        Args:
+            line_num: 1-indexed line number of the clicked fold indicator
+        """
+        self.parent.toggle_fold(line_num)
 
-        # Use parent._folded_lines uniformly to check fold state
-        if line_num in foldable_starts or line_num in self.parent._folded_lines:
-            self.parent.toggle_fold(line_num)
+    def _on_gutter_line_click(self, line_num):
+        """Handle line number click in the Canvas gutter.
+
+        Moves the insert cursor to the clicked line and scrolls it into view.
+
+        Args:
+            line_num: 1-indexed line number that was clicked
+        """
+        try:
+            tb = self.parent._textbox
+            tb.mark_set("insert", f"{line_num}.0")
+            tb.see(f"{line_num}.0")
+        except Exception:
+            pass

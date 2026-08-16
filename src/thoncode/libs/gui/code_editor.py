@@ -54,6 +54,7 @@ class CodeEditor:
         self.highlight = None
         self.shortcuts = None
         self.navigation = None
+        self.lint = None
         # Alias used by navigation / completion modules that inspect the
         # text widget. `self._textbox` continues to be the authoritative
         # handle inside CodeEditor itself.
@@ -95,6 +96,13 @@ class CodeEditor:
             # (e.g. missing i18n module in early boot) the editor still
             # functions normally.
             self.navigation = None
+
+        # Multi-language static analysis (lint)
+        try:
+            EditorLint = LazyLoader.get('libs.gui.editor_lint', 'EditorLint')
+            self.lint = EditorLint(self)
+        except Exception:
+            self.lint = None
 
     def _default_goto_callback(self, target_file: str, target_line):
         """Default callback when navigation jumps to another file.
@@ -195,6 +203,8 @@ class CodeEditor:
         self.highlight_matching_bracket()
 
         self._update_line_numbers()
+        if self.lint:
+            self.lint.schedule_lint()
         if self.current_file:
             self._completion_enabled = self._should_enable_completion(self.current_file)
         if self.completion._after_completion_id:
@@ -278,20 +288,28 @@ class CodeEditor:
         return self.ui._on_scroll(event)
 
     def _on_line_scroll(self, event):
-        """Handle line number area scroll events.
+        """Handle line number area scroll events (legacy no-op).
+
+        The Canvas gutter handles its own scrolling internally, so this
+        method is kept only for backward compatibility with any external
+        bindings that might still reference it.
 
         Args:
             event: The line scroll event
         """
-        return self.ui._on_line_scroll(event)
+        return None
 
     def _on_line_number_click(self, event):
-        """Handle clicks on the line number area.
+        """Handle clicks on the line number area (legacy no-op).
+
+        The Canvas gutter handles clicks via its own callbacks
+        (set_on_line_click / set_on_fold_click), so this method is kept
+        only for backward compatibility.
 
         Args:
             event: The click event
         """
-        self.ui._on_line_number_click(event)
+        pass
 
     def _get_foldable_regions(self):
         """Get all foldable code regions.
